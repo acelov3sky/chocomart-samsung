@@ -13793,6 +13793,132 @@ output {
   font-size: 14px;
   color: #707070;
 }
+.main-container-wrapper {
+  padding: 0 !important;
+}
+.main-container-wrapper .content-wrapper {
+  padding: 30px 0 0 0;
+}
+.main-container-wrapper .content-wrapper .block-wrapper {
+  margin: 0 auto;
+  width: 1280px;
+}
+.main-container-wrapper .content-wrapper .block-wrapper .filter-wrapper {
+  width: 246px;
+}
+.main-container-wrapper .content-wrapper .block-wrapper .products-wrapper {
+  width: 912px;
+  height: 200px;
+  margin: 0 20px 0 32px;
+  background: red;
+}
+.sidebar-wrapper {
+  border: 1px solid #ebebeb;
+  background: #fff;
+}
+.sidebar-wrapper .parameters-wrapper {
+  border-bottom: 1px solid #ebebeb;
+}
+.sidebar-wrapper .parameters-wrapper .title-wrapper {
+  height: 60px;
+  padding: 0 21px;
+  cursor: pointer;
+}
+.sidebar-wrapper .parameters-wrapper .title-wrapper .title {
+  font-size: 16px;
+  color: #454d4f;
+  font-weight: normal;
+}
+.sidebar-wrapper .parameters-wrapper .title-wrapper .title--active {
+  color: #1428a0;
+}
+.sidebar-wrapper .parameters-wrapper .title-wrapper .parameter-triangle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #1428a0;
+}
+.sidebar-wrapper .parameters-wrapper .title-wrapper .parameter-triangle--opened {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid #1428a0;
+  border-top: 0;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper {
+  display: none;
+  width: 100%;
+  padding: 0 21px;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper .description-wrapper {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #454d4f;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper .description-wrapper .checkbox-container {
+  position: relative;
+  height: 16px;
+  width: 16px;
+  font-size: 14px;
+  border: 1px solid #454d4f;
+  background: #fff;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper .description-wrapper .checkbox-container .description-wrapper__checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper .description-wrapper .checkbox-container .description-wrapper__checkbox:checked ~ .description-wrapper__custom-checkbox:after {
+  display: block;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper .description-wrapper .checkbox-container .description-wrapper__custom-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper .description-wrapper .checkbox-container .description-wrapper__custom-checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper .description-wrapper .checkbox-container .description-wrapper__custom-checkbox:after {
+  left: 4px;
+  top: 0;
+  width: 7px;
+  height: 12px;
+  border: solid #f05228;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper .description-wrapper p {
+  font-size: 14px;
+  color: #454d4f;
+  margin: 0;
+  line-height: 18px;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper__count {
+  font-size: 14px;
+  color: #707070;
+  opacity: 0.5;
+  line-height: 18px;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper__addition {
+  font-size: 14px;
+  color: #1428a0;
+  line-height: 18px;
+  margin-left: 26px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.sidebar-wrapper .parameters-wrapper:last-child {
+  border-bottom: 0;
+}
 html,
 body,
 #app {

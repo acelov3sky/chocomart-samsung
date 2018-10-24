@@ -1,0 +1,109 @@
+.sidebar-wrapper {
+  border: 1px solid #ebebeb;
+  background: #fff;
+  .parameters-wrapper {
+    border-bottom: 1px solid #ebebeb;
+    .title-wrapper {
+      height: 60px;
+      padding: 0 21px;
+      cursor: pointer;
+      .title {
+        font-size: @default_size;
+        color: #454d4f;
+        font-weight: normal;
+        &--active {
+          color: #1428a0;
+        }
+      }
+      .parameter-triangle {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 8px solid #1428a0;
+        &--opened {
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 8px solid #1428a0;
+          border-top: 0;
+        }
+      }
+    }
+    .parameter-content-wrapper {
+      display: none;
+      width: 100%;
+      padding: 0 21px;
+      .description-wrapper {
+        font-size: @category_size;
+        margin-bottom: 6px;
+        color: #454d4f;
+        .checkbox-container {
+          position: relative;
+          height: 16px;
+          width: 16px;
+          font-size: @category_size;
+          border: 1px solid #454d4f;
+          background: #fff;
+          border-radius: 2px;
+          margin-right: 10px;
+          .description-wrapper__checkbox {
+            position: absolute;
+            opacity: 0;
+            height: 0;
+            width: 0;
+            &:checked {
+              ~ .description-wrapper__custom-checkbox:after {
+                display: block;
+              }
+            }
+          }
+          .description-wrapper__custom-checkbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 16px;
+            width: 16px;
+            cursor: pointer;
+            &:after {
+              content: "";
+              position: absolute;
+              display: none;
+            }
+            &:after {
+              left: 4px;
+              top: 0;
+              width: 7px;
+              height: 12px;
+              border: solid #f05228;
+              border-width: 0 2px 2px 0;
+              transform: rotate(45deg);
+            }
+          }
+        }
+        p {
+          font-size: @category_size;
+          color: #454d4f;
+          margin: 0;
+          line-height: 18px;
+        }
+      }
+      &__count {
+        font-size: @category_size;
+        color: #707070;
+        opacity: 0.5;
+        line-height: 18px;
+      }
+      &__addition {
+        font-size: @category_size;
+        color: #1428a0;
+        line-height: 18px;
+        margin-left: 26px;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
