@@ -1,0 +1,35 @@
+@import "~_node/bootstrap/dist/css/bootstrap.css";
+@import "~_node/bootstrap/dist/css/bootstrap-grid.css";
+@import "~_node/bootstrap/dist/css/bootstrap-reboot.css";
+
+// Variables and Mixins
+@import "variables.less";
+
+// Bootstrap framework overwriting
+
+// Icons
+@import "modules/icons.fontawesome.less";
+
+// components
+@import "components/header.less";
+@import "components/footer.less";
+
+
+html, body, #app {
+  background-color: #f6f6f6;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Ubuntu, 'sans-serif', Verdana;
+  font-weight: 100;
+  color: @default_color;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+  }
+}
+

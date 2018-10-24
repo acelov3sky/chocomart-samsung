@@ -1,0 +1,26 @@
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+        </div>
+        <div class="swiper-slide">
+        </div>
+        <div class="swiper-slide">
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        }
+    });
+</script>

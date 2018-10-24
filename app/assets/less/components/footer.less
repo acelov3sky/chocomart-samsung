@@ -1,0 +1,103 @@
+#ChocomartFooter {
+  margin-top: 120px;
+  background: #fff;
+}
+.chocomart-footer-wrapper {
+  .footer-content-wrapper {
+    background: #fff;
+    position: relative;
+    width: 1280px;
+    padding: 44px 140px 30px 140px;
+    .actions-wrapper {
+      .links-wrapper {
+        width: 316px;
+        margin-right: 10px;
+        &__heading {
+          font-size: @h3_size;
+          color: @brand_lighter;
+          font-weight: normal;
+          margin-bottom: 15px;
+        }
+        &__link {
+          font-size: @category_size;
+          color: @footer_text_color;
+          text-decoration: none;
+          margin-bottom: 14px;
+          &:hover {
+            color: @brand_darker;
+          }
+        }
+      }
+      .social-wrapper {
+        width: 348px;
+        .social-block-wrapper {
+          height: 123px;
+          &--heading {
+            color: @brand_lighter;
+            font-size: @h3_size;
+            font-weight: normal;
+            margin-bottom: 15px;
+          }
+          .social-links-wrapper {
+            &__link {
+              height: 32px;
+              width: 32px;
+              border-radius: 5px;
+              margin-right: 16px;
+              margin-bottom: 5px;
+              cursor: pointer;
+              &:hover {
+                svg {
+                  path{
+                    fill: @brand_lighter !important;
+                  }
+                }
+              }
+            }
+            .rating-wrapper {
+              height: 52px;
+              width: 260px;
+              border: solid 1px #ececec;
+              border-radius: 7px;
+              &__value {
+                color: @default_color;
+                background: #ececec;
+                font-size: @default_size;
+              }
+              .yandex-wrapper {
+                &__logo {
+                  img {
+                    height: 15px;
+                    width: 74px;
+                    margin-bottom: 3px;
+                  }
+                }
+                &__rating {
+                  .rating-yandex-wrapper {
+                    position: relative;
+                    height: 14px;
+                    width: 74px;
+                    &__stars-background {
+                      background: @choco_yellow;
+                    }
+                    img {
+                      position: absolute;
+                      height: 14px;
+                      width: 75px;
+                      top: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .company-name-wrapper {
+      font-size: @category_size;
+      color: @default_color;
+    }
+  }
+}
+
