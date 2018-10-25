@@ -13992,6 +13992,27 @@ output {
 .product-wrapper .product-wrapper__content .product-content__description .description__product-image .product-image-wrapper {
   height: 138px;
 }
+.product-wrapper .product-wrapper__content .product-content__description .description__product-image .product-image-wrapper .swiper-container .swiper-button-prev,
+.product-wrapper .product-wrapper__content .product-content__description .description__product-image .product-image-wrapper .swiper-container .swiper-button-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #ebebeb;
+  box-shadow: 0 0 20px 0 rgba(138, 138, 138, 0.16);
+}
+.product-wrapper .product-wrapper__content .product-content__description .description__product-image .product-image-wrapper .swiper-container .swiper-button-prev img,
+.product-wrapper .product-wrapper__content .product-content__description .description__product-image .product-image-wrapper .swiper-container .swiper-button-next img {
+  height: 16px;
+  width: 10px;
+}
+.product-wrapper .product-wrapper__content .product-content__description .description__product-image .product-image-wrapper .swiper-container .swiper-button-prev:focus,
+.product-wrapper .product-wrapper__content .product-content__description .description__product-image .product-image-wrapper .swiper-container .swiper-button-next:focus {
+  outline: none;
+}
 .product-wrapper .product-wrapper__content .product-content__description .description__text {
   height: 126px;
   padding: 0 34px;
@@ -14043,6 +14064,12 @@ output {
   position: absolute;
   z-index: 10;
   border-radius: 4px;
+}
+.product-wrapper:hover .product-content .product-content__description .description__product-image .product-image-wrapper .default-photo {
+  display: none !important;
+}
+.product-wrapper:hover .product-content .product-content__description .description__product-image .product-image-wrapper .swiper-container {
+  display: block !important;
 }
 .product-wrapper:hover .product-content__actions {
   display: block !important;
