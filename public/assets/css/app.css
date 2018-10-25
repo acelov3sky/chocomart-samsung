@@ -14069,9 +14069,9 @@ output {
   border-radius: 50%;
   background: #ff5d5d;
 }
-.product-wrapper .actions-wrapper .action-wrapper .buttons-wrapper__arrow svg path {
-  fill: #fff;
-  font-size: 12px!important;
+.product-wrapper .actions-wrapper .action-wrapper .buttons-wrapper__arrow img {
+  height: 10px;
+  width: 10px;
 }
 .product-wrapper .actions-wrapper .action-wrapper .buttons-wrapper--bordered {
   justify-content: center;
@@ -14116,6 +14116,10 @@ output {
 }
 .product-wrapper .actions-wrapper .action-wrapper .input-action-wrapper__button--focus {
   background: #fdcc05;
+}
+.product-wrapper .actions-wrapper .action-wrapper .input-action-wrapper__button img {
+  width: 16px;
+  height: 14px;
 }
 .product-wrapper .actions-wrapper .action-wrapper .input-action--input-wrapper {
   border: 1px solid #ff5d5d;
