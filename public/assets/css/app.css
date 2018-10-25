@@ -14056,6 +14056,26 @@ output {
   width: 50px;
   height: 32px;
 }
+.product-wrapper:hover .product-content__actions .actions__action-block .button-added {
+  border: 1px solid #747474;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .button-added img {
+  height: 24px;
+  width: 22px;
+  margin-right: 4px;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .button-added .arrow-wrapper {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ff5d5d;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .button-added .arrow-wrapper img {
+  height: 10px;
+  width: 10px;
+}
 .product-wrapper:hover .product-content__actions .actions__action-block .button-buy {
   cursor: pointer;
   border-radius: 5px;
