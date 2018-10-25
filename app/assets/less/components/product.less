@@ -202,6 +202,37 @@
           text-align: center;
           font-size: @category_size;
           cursor: pointer;
+          .buy-input {
+            width: 110px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            padding-left: 10px;
+            font-size: 12px;
+            &:focus {
+              outline: none !important;
+            }
+          }
+          .input-buy-button {
+            width: 30px;
+            border-radius: 0 5px 5px 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            .input-buy-arrow {
+              width: 17px;
+              height: 12px;
+            }
+          }
+          &__bought {
+            border: 1px solid @brand_color;
+            color: @default_color;
+            cursor: auto;
+          }
+          &__focused {
+            border: 1px solid @choco_yellow;
+            color: @default_color;
+            cursor: auto;
+          }
         }
         .buy {
           border: 1px solid @brand_color;
@@ -209,12 +240,22 @@
           &:hover {
             background: @brand_darker;
           }
+          .input-buy-button {
+            &:hover {
+              background: @brand_darker;
+            }
+          }
         }
         .focus {
           border: 1px solid @choco_yellow;
           background: @choco_yellow;
           &:hover {
             background: #fdb705;
+          }
+          .input-buy-button {
+            &:hover {
+              background: #fdb705;
+            }
           }
         }
       }

@@ -14138,6 +14138,37 @@ output {
   font-size: 14px;
   cursor: pointer;
 }
+.product-wrapper:hover .product-content__actions .actions__action-block .action-block__input .buy-input {
+  width: 110px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding-left: 10px;
+  font-size: 12px;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .action-block__input .buy-input:focus {
+  outline: none !important;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .action-block__input .input-buy-button {
+  width: 30px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .action-block__input .input-buy-button .input-buy-arrow {
+  width: 17px;
+  height: 12px;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .action-block__input__bought {
+  border: 1px solid #ff5d5d;
+  color: #707070;
+  cursor: auto;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .action-block__input__focused {
+  border: 1px solid #fdcc05;
+  color: #707070;
+  cursor: auto;
+}
 .product-wrapper:hover .product-content__actions .actions__action-block .buy {
   border: 1px solid #ff5d5d;
   background: #ff5d5d;
@@ -14145,11 +14176,17 @@ output {
 .product-wrapper:hover .product-content__actions .actions__action-block .buy:hover {
   background: #fb443f;
 }
+.product-wrapper:hover .product-content__actions .actions__action-block .buy .input-buy-button:hover {
+  background: #fb443f;
+}
 .product-wrapper:hover .product-content__actions .actions__action-block .focus {
   border: 1px solid #fdcc05;
   background: #fdcc05;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .focus:hover {
+  background: #fdb705;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .focus .input-buy-button:hover {
   background: #fdb705;
 }
 html,
