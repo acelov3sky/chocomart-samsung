@@ -13846,7 +13846,6 @@ output {
   border-top: 0;
 }
 .sidebar-wrapper .parameters-wrapper .parameter-content-wrapper {
-  display: none;
   width: 100%;
   padding: 0 21px;
 }
@@ -13916,6 +13915,9 @@ output {
   margin-bottom: 20px;
   cursor: pointer;
 }
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper--closed {
+  display: none !important;
+}
 .sidebar-wrapper .parameters-wrapper:last-child {
   border-bottom: 0;
 }
@@ -13945,6 +13947,69 @@ output {
 }
 .products-content .list-content {
   position: relative;
+  margin-bottom: 30px;
+}
+.products-content .pagination-content {
+  margin-top: 20px;
+  height: 90px;
+}
+.products-content .pagination-content__block {
+  width: 902px;
+}
+.products-content .pagination-content__block .block__show-more {
+  width: 243px;
+  height: 36px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #454D4F;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.products-content .pagination-content__block .block__show-more:hover {
+  background: #ebebeb;
+}
+.products-content .pagination-content__block .block__show-more i {
+  border: solid #454D4F;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 4px;
+  margin-left: 10px;
+  margin-bottom: 4px;
+}
+.products-content .pagination-content__block .block__show-more .arrow-down {
+  transform: rotate(45deg);
+}
+.products-content .pagination-content__block .block-pagination {
+  width: 243px;
+  height: 36px;
+}
+.products-content .pagination-content__block .block-pagination .arrow-button {
+  width: 36px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.products-content .pagination-content__block .block-pagination .arrow-button .arrow {
+  width: 11px;
+  height: 20px;
+}
+.products-content .pagination-content__block .block-pagination .arrow-button:hover {
+  box-shadow: 0 0 20px 0 rgba(138, 138, 138, 0.16);
+}
+.products-content .pagination-content__block .block-pagination .pagination-pages {
+  width: 171px;
+}
+.products-content .pagination-content__block .block-pagination .pagination-pages .page-number {
+  cursor: pointer;
+  width: 30px;
+  font-size: 14px;
+  color: #707070;
+}
+.products-content .pagination-content__block .block-pagination .pagination-pages .page-number__active {
+  background: #fff;
 }
 .product-wrapper {
   margin-right: 10px;
