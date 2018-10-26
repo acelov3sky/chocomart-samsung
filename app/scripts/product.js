@@ -1,4 +1,4 @@
-var swiper = new Swiper('.swiper-container', {
+var swiper = new Swiper('.swiper-product', {
     // centeredSlides: true,
     loop: true,
     autoplay: {
@@ -7,7 +7,7 @@ var swiper = new Swiper('.swiper-container', {
     },
     simulateTouch: false,
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: '.swiper-product-next',
+        prevEl: '.swiper-product-prev'
     }
 });

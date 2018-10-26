@@ -125,20 +125,38 @@
         document.getElementById('subcategory').style.display = 'flex';
     }
 </script>
-        <div class="swiper-container">
+        <div class="swiper-container slider-container">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <div class="swiper-slide slider-img">
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide slider-img">
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide slider-img">
         </div>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination slider-pagination"></div>
 </div>
+<style>
+    .slider-img {
+        width: 1981px;
+        height: 250px;
+        background-image: url("https://image.ibb.co/iUsx6V/1-2x.png");
+        background-size: cover;
+        background-position: center center;
+    }
+    .swiper-pagination-bullet-active {
+        opacity: 1 !important;
+    }
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: #1428a0;
+        opacity: 0.5;
+        border: solid 1px #1428a0;
+    }
+</style>
 <script>
-    var swiper = new Swiper('.swiper-container', {
+    var slider = new Swiper('.slider-container', {
         centeredSlides: true,
         loop: true,
         autoplay: {
@@ -146,7 +164,7 @@
             disableOnInteraction: false
         },
         pagination: {
-            el: '.swiper-pagination',
+            el: '.slider-pagination',
             clickable: true
         }
     });
@@ -246,7 +264,7 @@
                 <div class="description__product-image w-100 d-flex align-items-end">
                     <div class="product-image-wrapper w-100 d-flex justify-content-center">
                         <img src="./assets/static/png/iphone.e7865157de9a4abd145d04206bd1c966.png" class="h-100 d-block default-photo">
-                        <div class="swiper-container h-100 w-100 d-none">
+                        <div class="swiper-container swiper-product h-100 w-100 d-none">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide d-flex justify-content-center">
                                     <img src="./assets/static/png/iphone.e7865157de9a4abd145d04206bd1c966.png" class="h-100">
@@ -258,10 +276,10 @@
                                     <img src="./assets/static/png/iphone.e7865157de9a4abd145d04206bd1c966.png" class="h-100">
                                 </div>
                             </div>
-                            <div class="swiper-button-prev" slot="button-prev">
+                            <div class="swiper-button-prev swiper-product-prev" >
                                 <img src="./assets/static/svg/left-arrow.77fb9efe52d48a01c4ea233d9e837a7a.svg">
                             </div>
-                            <div class="swiper-button-next" slot="button-next">
+                            <div class="swiper-button-next swiper-product-next">
                                 <img src="./assets/static/svg/right-arrow.9a91852552d872ca3bbce0d8dca464fb.svg">
                             </div>
                         </div>

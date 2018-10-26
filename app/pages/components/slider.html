@@ -1,17 +1,16 @@
-<div class="swiper-container">
+<div class="swiper-container slider-container">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <div class="swiper-slide slider-img">
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide slider-img">
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide slider-img">
         </div>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination slider-pagination"></div>
 </div>
 <style>
-    .swiper-slide {
+    .slider-img {
         width: 1981px;
         height: 250px;
         background-image: url("https://image.ibb.co/iUsx6V/1-2x.png");
@@ -30,7 +29,7 @@
     }
 </style>
 <script>
-    var swiper = new Swiper('.swiper-container', {
+    var slider = new Swiper('.slider-container', {
         centeredSlides: true,
         loop: true,
         autoplay: {
@@ -38,7 +37,7 @@
             disableOnInteraction: false
         },
         pagination: {
-            el: '.swiper-pagination',
+            el: '.slider-pagination',
             clickable: true
         }
     });
