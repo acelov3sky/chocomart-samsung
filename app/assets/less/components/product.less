@@ -41,8 +41,12 @@
           height: 186px;
           margin-bottom: 5px;
           .product-image-wrapper {
+            position: relative;
             height: 138px;
             .swiper-container {
+              position: absolute;
+              z-index: 3;
+              opacity: 0;
               .swiper-button-prev, .swiper-button-next {
                 display: flex;
                 justify-content: center;
@@ -59,13 +63,6 @@
                 }
                 &:focus {
                   outline: none;
-                }
-              }
-              .swiper-wrapper {
-                .swiper-slide {
-                  img {
-
-                  }
                 }
               }
             }
@@ -131,7 +128,8 @@
               display: none !important;
             }
             .swiper-container {
-              display: block !important;
+              opacity: 1;
+              z-index: 11;
             }
           }
         }
