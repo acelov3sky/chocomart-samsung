@@ -13950,6 +13950,7 @@ output {
 }
 .products-content .sort-content .link:hover {
   text-decoration: underline !important;
+  color: #1428a0 !important;
 }
 .products-content .sort-content .link:active {
   text-decoration: none !important;
