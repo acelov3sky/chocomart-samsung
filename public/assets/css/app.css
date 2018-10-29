@@ -14124,7 +14124,7 @@ output {
   border-top: 1px solid #ebebeb;
   background: #fff;
   transition: ease 0.4s;
-  height: 100px;
+  height: 94px;
 }
 .product-wrapper:hover {
   border-radius: 0 !important;
@@ -14149,7 +14149,8 @@ output {
   transition: ease 0.4s;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block {
-  padding: 0 8px 0 10px;
+  padding: 0 10px;
+  height: 47px;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .action-block__buttons {
   width: 50px;
@@ -14287,6 +14288,12 @@ output {
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .focus .input-buy-button:hover {
   background: #fdb705;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .mt10 {
+  margin-top: 10px;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .mt5 {
+  margin-top: 5px;
 }
 html,
 body,
