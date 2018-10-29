@@ -13977,8 +13977,8 @@ output {
   margin-bottom: 10px;
   cursor: pointer;
 }
-.products-content .pagination-content__block .block__show-more:hover {
-  background: #ebebeb;
+.products-content .pagination-content__block .block__show-more:hover:hover {
+  box-shadow: 0 0 20px 0 rgba(138, 138, 138, 0.16);
 }
 .products-content .pagination-content__block .block__show-more i {
   border: solid #454D4F;
@@ -14115,6 +14115,7 @@ output {
 .product-wrapper .product-wrapper__content .product-content__description .description__text .rating-wrapper .stars-wrapper__percentage {
   position: absolute;
   background: #fdcc05;
+  width: 100% !important;
 }
 .product-wrapper .product-wrapper__content .product-content__description .description__text .rating-wrapper .stars-wrapper__image {
   position: initial;
