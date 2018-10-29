@@ -13846,6 +13846,7 @@ output {
   border-top: 0;
 }
 .sidebar-wrapper .parameters-wrapper .parameter-content-wrapper {
+  position: relative;
   width: 100%;
   padding: 0 21px;
 }
@@ -13916,7 +13917,15 @@ output {
   cursor: pointer;
 }
 .sidebar-wrapper .parameters-wrapper .parameter-content-wrapper--closed {
-  display: none !important;
+  opacity: 0;
+  height: 0;
+  left: -10px;
+}
+.sidebar-wrapper .parameters-wrapper .parameter-content-wrapper--opened {
+  height: auto;
+  left: 0;
+  transition: all 0.3s ease-out;
+  opacity: 1;
 }
 .sidebar-wrapper .parameters-wrapper:last-child {
   border-bottom: 0;

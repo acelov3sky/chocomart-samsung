@@ -30,7 +30,7 @@
       }
     }
     .parameter-content-wrapper {
-      //display: none;
+      position: relative;
       width: 100%;
       padding: 0 21px;
       .description-wrapper {
@@ -102,7 +102,15 @@
         cursor: pointer;
       }
       &--closed {
-        display: none !important;
+        opacity: 0;
+        height: 0;
+        left: -10px;
+      }
+      &--opened {
+        height: auto;
+        left: 0;
+        transition: all 0.3s ease-out;
+        opacity: 1;
       }
     }
     &:last-child {
