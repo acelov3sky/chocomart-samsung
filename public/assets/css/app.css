@@ -13892,7 +13892,7 @@ output {
   top: 0;
   width: 7px;
   height: 12px;
-  border: solid #f05228;
+  border: solid #1428a0;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -14130,6 +14130,7 @@ output {
   font-size: 20px;
 }
 .product-wrapper .product-wrapper__content .product-content__actions {
+  position: relative;
   border-top: 1px solid #ebebeb;
   background: #fff;
   transition: ease 0.4s;
