@@ -177,6 +177,7 @@
           .cart-summary {
             margin-top: 30px;
             padding-left: 120px;
+            padding-bottom: 20px;
             &__heading {
               font-size: 24px;
               color: #2d3946;
@@ -334,6 +335,236 @@
                   cursor: pointer;
                   &:hover {
                     background: #1a33cd;
+                  }
+                }
+              }
+            }
+          }
+          .delivery-wrapper {
+            padding: 30px 0 15px 0;
+            .delivery-row {
+              border-bottom: 1px solid #ebebeb;
+              margin-bottom: 30px;
+              .delivery-information-row {
+                padding-left: 20px;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                &__label {
+                  font-size: 18px;
+                  color: #707070;
+                  margin-right: 25px;
+                }
+                &__input {
+                  height: 40px;
+                  width: 185px;
+                  border-radius: 5px;
+                  border: 1px solid #ebebeb;
+                  background: #fff;
+                  padding-left: 15px;
+                }
+                .delivery-customer-information {
+                  height: 110px;
+                  background: #cfd9e7;
+                  padding-left: 55px;
+                  .form-block {
+                    margin-right: 25px;
+                    &__label {
+                      color: @default_color;
+                      font-size: 16px;
+                      margin-bottom: 10px;
+                    }
+                    &__input {
+                      width: 265px;
+                      height: 40px;
+                      border: 1px solid #888;
+                      background: #fff;
+                      border-radius: 4px;
+                      padding-left: 10px;
+                      color: #707070;
+                      &::placeholder {
+                        color: @default_color;
+                        opacity: 0.5;
+                      }
+                    }
+                    &__input-small {
+                      width: 45px;
+                    }
+                  }
+                  .pickup-address {
+                    float: left;
+                    width: 500px;
+                    &__information {
+                      font-size: 16px;
+                      color: @default_color;
+                    }
+                  }
+                  .pickup-location {
+                    float: right;
+                    width: 550px;
+                  }
+                }
+                .payment-row {
+                  .payment-row__block {
+                    margin-bottom: 30px;
+                    .payment-row__information {
+                      font-size: 16px;
+                      color: @default_color;
+                      margin: 0;
+                      .information-details {
+                        color: #b6b6b6;
+                        margin-left: 10px;
+                      }
+                    }
+                  }
+                  .block-form {
+                    width: 800px;
+                    background: #cfd9e7;
+                    margin-left: 31px;
+                    margin-bottom: 25px;
+                    padding: 30px 0 0 30px;
+                    &__row {
+                      margin-bottom: 25px;
+                      .row__label {
+                        width: 150px;
+                        font-size: 16px;
+                        color: #707070;
+                        margin-bottom: 10px;
+                      }
+                      .payment__input {
+                        width: 265px;
+                        height: 40px;
+                        border: 1px solid #888;
+                        border-radius: 4px;
+                        background: #fff;
+                        padding-left: 10px;
+                        color: #707070;
+                        &::placeholder {
+                          color: #707070;
+                          opacity: 0.5;
+                        }
+                      }
+                      .payment__input-small {
+                        width: 55px;
+                        height: 40px;
+                        border-radius: 4px;
+                        border: solid 1px #888888;
+                        background-color: #ffffff;
+                        padding-left: 10px;
+                        color: #707070;
+                        &::placeholder {
+                          opacity: 0.5;
+                        }
+                      }
+                      .cvv {
+                        width: 84px;
+                      }
+                      .block-form__row-small {
+                        margin-right: 30px;
+                        .payment-small-block {
+                          .payment-slash {
+                            font-size: 16px;
+                            margin: 0 8px;
+                          }
+                        }
+                      }
+                      .block-month {
+                        margin-left: 55px;
+                        box-sizing: border-box;
+                        &__box {
+                          height: 36px;
+                          width: 36px;
+                          background: #fff;
+                          border: 1px solid #888;
+                          border-radius: 4px;
+                          margin-right: 20px;
+                          font-size: 16px;
+                          color: #888;
+                          cursor: pointer;
+                        }
+                        .box-active {
+                          background: #fdb705;
+                          border-color: #fdb705;
+                          color: #fff;
+                        }
+                        .month-count {
+                          font-size: 16px;
+                          color: #fdb705;
+                        }
+                      }
+                    }
+                    .mt15 {
+                      margin: 15px 0;
+                      padding-bottom: 20px;
+                    }
+                    .row__bank-block {
+                      position: relative;
+                      margin-left: 40px;
+                      width: 605px;
+                      .bank_img {
+                        height: 45px;
+                        margin-right: 50px;
+                        width: 165px;
+                        .bank-block__img {
+                          width: 100%;
+                        }
+                      }
+                      .bank-line {
+                        position: absolute;
+                        bottom: -20px;
+                        width: 605px;
+                        border-bottom: 1px solid #888;
+                      }
+                      .bank-price-text {
+                        font-size: 24px;
+                        color: #2d3946;
+                      }
+                    }
+                    .row__bank-credit-information {
+                      margin-top: 25px;
+                      margin-left: 75px;
+                      .bank-credit-information__info-column {
+                        margin-right: 35px;
+                        .info-column__label {
+                          font-size: 16px;
+                          color: #707070;
+                          margin-bottom: 10px;
+                        }
+                        .info-column__input {
+                          width: 265px;
+                          height: 40px;
+                          border-radius: 4px;
+                          border: solid 1px #888888;
+                          background-color: #ffffff;
+                          padding-left: 10px;
+                          font-size: 16px;
+                          color: #707070;
+                          &::placeholder {
+                            opacity: 0.5;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              .delivery-information-column {
+                width: 450px;
+                margin-right: 50px;
+                .delivery-block {
+                  margin-bottom: 15px;
+                  .delivery-type {
+                    margin-bottom: 7px;
+                    &__par {
+                      font-size: 16px;
+                      color: @default_color;
+                      margin: 0;
+                    }
+                  }
+                  .additional-information {
+                    font-size: 14px;
+                    color: #707070;
+                    opacity: 0.5;
+                    margin-left: 31px;
                   }
                 }
               }

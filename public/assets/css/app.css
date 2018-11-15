@@ -14491,6 +14491,7 @@ output {
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .cart-summary {
   margin-top: 30px;
   padding-left: 120px;
+  padding-bottom: 20px;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .cart-summary__heading {
   font-size: 24px;
@@ -14650,6 +14651,232 @@ output {
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .next-button:hover {
   background: #1a33cd;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper {
+  padding: 30px 0 15px 0;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row {
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 30px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row {
+  padding-left: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row__label {
+  font-size: 18px;
+  color: #707070;
+  margin-right: 25px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row__input {
+  height: 40px;
+  width: 185px;
+  border-radius: 5px;
+  border: 1px solid #ebebeb;
+  background: #fff;
+  padding-left: 15px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information {
+  height: 110px;
+  background: #cfd9e7;
+  padding-left: 55px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .form-block {
+  margin-right: 25px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .form-block__label {
+  color: #707070;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .form-block__input {
+  width: 265px;
+  height: 40px;
+  border: 1px solid #888;
+  background: #fff;
+  border-radius: 4px;
+  padding-left: 10px;
+  color: #707070;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .form-block__input::placeholder {
+  color: #707070;
+  opacity: 0.5;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .form-block__input-small {
+  width: 45px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .pickup-address {
+  float: left;
+  width: 500px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .pickup-address__information {
+  font-size: 16px;
+  color: #707070;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .pickup-location {
+  float: right;
+  width: 550px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .payment-row__block {
+  margin-bottom: 30px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .payment-row__block .payment-row__information {
+  font-size: 16px;
+  color: #707070;
+  margin: 0;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .payment-row__block .payment-row__information .information-details {
+  color: #b6b6b6;
+  margin-left: 10px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form {
+  width: 800px;
+  background: #cfd9e7;
+  margin-left: 31px;
+  margin-bottom: 25px;
+  padding: 30px 0 0 30px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row {
+  margin-bottom: 25px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .row__label {
+  width: 150px;
+  font-size: 16px;
+  color: #707070;
+  margin-bottom: 10px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .payment__input {
+  width: 265px;
+  height: 40px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: #fff;
+  padding-left: 10px;
+  color: #707070;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .payment__input::placeholder {
+  color: #707070;
+  opacity: 0.5;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .payment__input-small {
+  width: 55px;
+  height: 40px;
+  border-radius: 4px;
+  border: solid 1px #888888;
+  background-color: #ffffff;
+  padding-left: 10px;
+  color: #707070;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .payment__input-small::placeholder {
+  opacity: 0.5;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .cvv {
+  width: 84px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .block-form__row-small {
+  margin-right: 30px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .block-form__row-small .payment-small-block .payment-slash {
+  font-size: 16px;
+  margin: 0 8px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .block-month {
+  margin-left: 55px;
+  box-sizing: border-box;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .block-month__box {
+  height: 36px;
+  width: 36px;
+  background: #fff;
+  border: 1px solid #888;
+  border-radius: 4px;
+  margin-right: 20px;
+  font-size: 16px;
+  color: #888;
+  cursor: pointer;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .block-month .box-active {
+  background: #fdb705;
+  border-color: #fdb705;
+  color: #fff;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form__row .block-month .month-count {
+  font-size: 16px;
+  color: #fdb705;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .mt15 {
+  margin: 15px 0;
+  padding-bottom: 20px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-block {
+  position: relative;
+  margin-left: 40px;
+  width: 605px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-block .bank_img {
+  height: 45px;
+  margin-right: 50px;
+  width: 165px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-block .bank_img .bank-block__img {
+  width: 100%;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-block .bank-line {
+  position: absolute;
+  bottom: -20px;
+  width: 605px;
+  border-bottom: 1px solid #888;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-block .bank-price-text {
+  font-size: 24px;
+  color: #2d3946;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-credit-information {
+  margin-top: 25px;
+  margin-left: 75px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-credit-information .bank-credit-information__info-column {
+  margin-right: 35px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-credit-information .bank-credit-information__info-column .info-column__label {
+  font-size: 16px;
+  color: #707070;
+  margin-bottom: 10px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-credit-information .bank-credit-information__info-column .info-column__input {
+  width: 265px;
+  height: 40px;
+  border-radius: 4px;
+  border: solid 1px #888888;
+  background-color: #ffffff;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #707070;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form .row__bank-credit-information .bank-credit-information__info-column .info-column__input::placeholder {
+  opacity: 0.5;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-column {
+  width: 450px;
+  margin-right: 50px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-column .delivery-block {
+  margin-bottom: 15px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-column .delivery-block .delivery-type {
+  margin-bottom: 7px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-column .delivery-block .delivery-type__par {
+  font-size: 16px;
+  color: #707070;
+  margin: 0;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-column .delivery-block .additional-information {
+  font-size: 14px;
+  color: #707070;
+  opacity: 0.5;
+  margin-left: 31px;
 }
 .cart-wrapper .cart-block .option-last {
   border: none !important;

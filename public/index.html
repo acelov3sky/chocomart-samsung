@@ -309,7 +309,7 @@
                     </div>
                 </div>
 
-                <div class="cart-option-wrapper__option-wrapper option-wrapper" id="">
+                <div class="cart-option-wrapper__option-wrapper option-wrapper" id="customer-information">
                     <div class="option-wrapper__customer-information customer-information-wrapper w-100">
                         <div class="customer-information-wrapper__information-row information-row d-flex w-100">
                             <div class="information-row__information-column information-column d-flex flex-column">
@@ -457,6 +457,413 @@
                     </div>
                     <div class="option-description__option-name">
                         Доставка и оплата
+                    </div>
+                </div>
+
+                <div class="cart-option-wrapper__option-wrapper option-wrapper" id="delivery">
+                    <div class="option-wrapper__delivery-wrapper delivery-wrapper d-flex flex-column w-100">
+                        <div class="delivery-wrapper__delivery-row delivery-row d-flex flex-column w-100">
+
+                            <div class="delivery-row__delivery-information-row delivery-information-row w-100 d-flex align-items-center">
+                                <label for="delivery-city" class="delivery-information-row__label">Ваш город:</label>
+                                <select type="text" class="delivery-information-row__input" name="delivery-city" id="delivery-city">
+                                    <option value="">Алматы</option>
+                                    <option value="">Астана</option>
+                                    <option value="">Актау</option>
+                                </select>
+                            </div>
+
+                            <div class="delivery-row__delivery-information-row delivery-information-row w-100 d-flex align-items-center">
+                                <div class="delivery-information-column d-flex flex-column">
+                                    <div class="delivery-information-column__delivery-block delivery-block d-flex flex-column">
+                                        <div class="delivery-block__delivery-type delivery-type d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-pickup" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <p class="delivery-type__par">
+                                                Самовывоз ..................... БЕСПЛАТНО
+                                            </p>
+                                        </div>
+                                        <div class="delivery-block__additional-information additional-information">
+                                            Алматы, ул. Макатаева 117Д, этаж 2, офис 201
+                                        </div>
+                                    </div>
+
+                                    <div class="delivery-information-column__delivery-block delivery-block d-flex flex-column">
+                                        <div class="delivery-block__delivery-type delivery-type d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-courier-eco" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <p class="delivery-type__par">
+                                                Курьер (эконом) .................... 3 000 тг
+                                            </p>
+                                        </div>
+                                        <div class="delivery-block__additional-information additional-information">
+                                            Доставим 18 октября
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="delivery-information-column d-flex flex-column">
+                                    <div class="delivery-information-column__delivery-block delivery-block d-flex flex-column">
+                                        <div class="delivery-block__delivery-type delivery-type d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-courier-express" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <p class="delivery-type__par">
+                                                Курьер (экспресс) .................. 3 000 тг
+                                            </p>
+                                        </div>
+                                        <div class="delivery-block__additional-information additional-information">
+                                            Доставим 25 октября
+                                        </div>
+                                    </div>
+
+                                    <div class="delivery-information-column__delivery-block delivery-block d-flex flex-column">
+                                        <div class="delivery-block__delivery-type delivery-type d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-post" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <p class="delivery-type__par">
+                                                АО "Казпочта" ........................ 2 000 тг
+                                            </p>
+                                        </div>
+                                        <div class="delivery-block__additional-information additional-information">
+                                            Доставим 25 октября
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="delivery-row__delivery-information-row delivery-information-row w-100 d-flex p-0">
+                                <!-- Блок для курьера -->
+                                <!--<div class="delivery-information-row__delivery-customer-information delivery-customer-information w-100 d-flex align-items-center">-->
+                                    <!--<div class="delivery-customer-information__form-block form-block d-flex flex-column">-->
+                                        <!--<label for="delivery-phone-number" class="form-block__label">-->
+                                            <!--Телефон получателя-->
+                                        <!--</label>-->
+                                        <!--<input type="tel" class="form-block__input" name="delivery-phone-number" id="delivery-phone-number" placeholder="+7 ( _ _ _ ) _ _ _ - _ _ - _ _">-->
+                                    <!--</div>-->
+
+                                    <!--<div class="delivery-customer-information__form-block form-block d-flex flex-column">-->
+                                        <!--<label for="delivery-street" class="form-block__label">-->
+                                            <!--Улица-->
+                                        <!--</label>-->
+                                        <!--<input type="text" class="form-block__input" name="delivery-street" id="delivery-street" placeholder="Улица">-->
+                                    <!--</div>-->
+
+                                    <!--<div class="delivery-customer-information__form-block form-block d-flex flex-column">-->
+                                        <!--<label for="delivery-house" class="form-block__label">-->
+                                            <!--Дом-->
+                                        <!--</label>-->
+                                        <!--<input type="text" class="form-block__input form-block__input-small" name="delivery-house" id="delivery-house" placeholder="21" maxlength="3">-->
+                                    <!--</div>-->
+
+                                    <!--<div class="delivery-customer-information__form-block form-block d-flex flex-column">-->
+                                        <!--<label for="delivery-flat" class="form-block__label">-->
+                                            <!--Квартира-->
+                                        <!--</label>-->
+                                        <!--<input type="text" class="form-block__input form-block__input-small" name="delivery-flat" id="delivery-flat" placeholder="21" maxlength="3">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!-- Блок для Самовывоза -->
+                                <div class="delivery-information-row__delivery-customer-information delivery-customer-information w-100">
+                                    <div class="delivery-customer-information__pickup-address pickup-address d-flex flex-column justify-content-center h-100">
+                                        <p class="pickup-address__information">Можно забрать завтра с 16:00 до 20:00</p>
+                                        <p class="pickup-address__information m-0">Адрес: ул. Макатаева 117Д, этаж 2, офис 201</p>
+                                    </div>
+                                    <div class="delivery-customer-information__pickup-location pickup-location h-100 d-flex justify-content-center align-items-center">
+                                        <iframe src="https://yandex.kz/map-widget/v1/-/CBFaMIrdKC" width="550" height="110" frameborder="w" allowfullscreen="true"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="delivery-wrapper__delivery-row delivery-row d-flex flex-column w-100">
+
+                            <div class="delivery-row__delivery-information-row delivery-information-row w-100 d-flex flex-column m-0">
+                                <div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">
+                                    <div class="payment-row__block w-100  d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="payment-card-online" class="checkbox-container__checkbox">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <p class="payment-row__information">
+                                            Карточкой онлайн <span class="information-details">(Visa, MasterCard, AmEx)</span>
+                                        </p>
+                                    </div>
+                                    <div class="payment-row__block-form block-form d-flex flex-column">
+                                        <div class="block-form__row w-100 d-flex flex-column">
+                                            <label for="payment-credit-card" class="row__label">Номер карты</label>
+                                            <input type="text" class="payment__input" name="payment-credit-card" id="payment-credit-card" placeholder="ХХХХ - ХХХХ - ХХХХ - ХХХХ">
+                                        </div>
+                                        <div class="block-form__row w-100 d-flex">
+                                            <div class="block-form__row-small d-flex flex-column">
+                                                <label for="payment-credit-card-month" class="row__label">Срок действия</label>
+                                                <div class="payment-small-block d-flex align-items-center">
+                                                    <input type="text" class="payment__input-small" name="payment-credit-card-month" id="payment-credit-card-month" placeholder="ММ" maxlength="2">
+                                                    <span class="payment-slash">/</span>
+                                                    <input type="text" class="payment__input-small" name="payment-credit-card-year" id="payment-credit-card-year" placeholder="ГГ" maxlength="2">
+                                                </div>
+                                            </div>
+                                            <div class="block-form__row-small d-flex flex-column">
+                                                <label for="payment-credit-card-cvv" class="row__label">CVV</label>
+                                                <input type="text" class="payment__input-small cvv" name="payment-credit-card-cvv" id="payment-credit-card-cvv" placeholder="XXX" maxlength="3">
+                                            </div>
+                                        </div>
+                                        <div class="block-form__row w-100 d-flex flex-column">
+                                            <label for="payment-credit-card-owner" class="row__label">Владелец карты</label>
+                                            <input type="text" class="payment__input" name="payment-credit-card-owner" id="payment-credit-card-owner" placeholder="Имя на карте">
+                                        </div>
+                                        <div class="block-form__row w-100 d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="payment-card-save" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <p class="payment-row__information m-0">
+                                                Сохранить карту
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">
+                                    <div class="payment-row__block w-100  d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="payment-bank-transfer" class="checkbox-container__checkbox">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <p class="payment-row__information">
+                                            Банковский перевод <span class="information-details">(по электронному счету)</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">
+                                    <div class="payment-row__block w-100  d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="payment-bank-inside" class="checkbox-container__checkbox">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <p class="payment-row__information">
+                                            В отделении банка <span class="information-details">(любое в вашем городе)</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">
+                                    <div class="payment-row__block w-100  d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="payment-courier-cash" class="checkbox-container__checkbox">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <p class="payment-row__information">
+                                            Наличными курьеру
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">
+                                    <div class="payment-row__block w-100  d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="payment-installment-plan" class="checkbox-container__checkbox">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <p class="payment-row__information">
+                                            Рассрочка
+                                        </p>
+                                    </div>
+                                    <div class="payment-row__block-form block-form d-flex flex-column">
+                                        <div class="block-form__row w-100 d-flex flex-column">
+                                            <div class="block-month d-flex align-items-center">
+                                                <div class="block-month__box box-active d-flex align-items-center justify-content-center">3</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">6</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">8</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">12</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">24</div>
+                                                <p class="month-count m-0">месяцев</p>
+                                            </div>
+                                        </div>
+                                        <div class="block-form__row w-100 mt15 d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="payment-bank-hcb" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <div class="row__bank-block d-flex">
+                                                <div class="bank-line"></div>
+                                                <div class="bank_img d-flex align-items-center">
+                                                    <img src="./assets/static/png/hcb-logo.66fd252a3e847124db2982d752a165ab.png" alt="" class="bank-block__img">
+                                                </div>
+                                                <div class="bank-price-text d-flex align-items-center">
+                                                    240 000 тг/мес
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="block-form__row w-100 mt15 d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="payment-bank-fortebank" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <div class="row__bank-block d-flex">
+                                                <div class="bank-line"></div>
+                                                <div class="bank_img d-flex align-items-center">
+                                                    <img src="./assets/static/png/forte-logo.2bbd348c7f4ff6b7eb17b69e695f775a.png" alt="" class="bank-block__img">
+                                                </div>
+                                                <div class="bank-price-text d-flex align-items-center">
+                                                    240 000 тг/мес
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="block-form__row w-100 mt15 d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="payment-bank-kaspi" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <div class="row__bank-block d-flex">
+                                                <div class="bank_img d-flex align-items-center">
+                                                    <img src="./assets/static/png/kaspi.07fc53e5acbbcc549e779178a3255fcf.png" alt="" class="bank-block__img">
+                                                </div>
+                                                <div class="bank-price-text d-flex align-items-center">
+                                                    240 000 тг/мес
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="block-form__row w-100 mt15 d-flex flex-column">
+                                            <div class="row__bank-credit-information d-flex">
+                                                <div class="bank-credit-information__info-column d-flex flex-column">
+                                                    <label for="bank-phone-number" class="info-column__label">Мобильный телефон</label>
+                                                    <input type="text" class="info-column__input" name="bank-phone-number" id="bank-phone-number" placeholder="Номер телефона">
+                                                </div>
+                                                <div class="bank-credit-information__info-column d-flex flex-column">
+                                                    <label for="bank-iin" class="info-column__label">ИИН</label>
+                                                    <input type="text" class="info-column__input" name="bank-iin" id="bank-iin" placeholder="XXXXXXXXXXXX">
+                                                </div>
+                                            </div>
+
+                                            <div class="row__bank-credit-information d-flex">
+                                                <div class="bank-credit-information__info-column d-flex flex-column">
+                                                    <label for="bank-customer-name" class="info-column__label">Имя</label>
+                                                    <input type="text" class="info-column__input" name="bank-customer-name" id="bank-customer-name" placeholder="Ваше имя">
+                                                </div>
+                                                <div class="bank-credit-information__info-column d-flex flex-column">
+                                                    <label for="bank-customer-surname" class="info-column__label">Фамилия</label>
+                                                    <input type="text" class="info-column__input" name="bank-customer-surname" id="bank-customer-surname" placeholder="Ваша фамилия">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">
+                                    <div class="payment-row__block w-100  d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="payment-credit" class="checkbox-container__checkbox">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <p class="payment-row__information">
+                                            Кредит
+                                        </p>
+                                    </div>
+                                    <div class="payment-row__block-form block-form d-flex flex-column">
+                                        <div class="block-form__row w-100 d-flex flex-column">
+                                            <div class="block-month d-flex align-items-center">
+                                                <div class="block-month__box box-active d-flex align-items-center justify-content-center">3</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">6</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">8</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">9</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">10</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">12</div>
+                                                <div class="block-month__box d-flex align-items-center justify-content-center">24</div>
+                                                <p class="month-count m-0">месяцев</p>
+                                            </div>
+                                        </div>
+                                        <div class="block-form__row w-100 mt15 d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="payment-bank-hcb" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <div class="row__bank-block d-flex">
+                                                <div class="bank-line"></div>
+                                                <div class="bank_img d-flex align-items-center">
+                                                    <img src="./assets/static/png/hcb-logo.66fd252a3e847124db2982d752a165ab.png" alt="" class="bank-block__img">
+                                                </div>
+                                                <div class="bank-price-text d-flex align-items-center">
+                                                    240 000 тг/мес
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="block-form__row w-100 mt15 d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="payment-bank-fortebank" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <div class="row__bank-block d-flex">
+                                                <div class="bank-line"></div>
+                                                <div class="bank_img d-flex align-items-center">
+                                                    <img src="./assets/static/png/forte-logo.2bbd348c7f4ff6b7eb17b69e695f775a.png" alt="" class="bank-block__img">
+                                                </div>
+                                                <div class="bank-price-text d-flex align-items-center">
+                                                    240 000 тг/мес
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="block-form__row w-100 mt15 d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="payment-bank-kaspi" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <div class="row__bank-block d-flex">
+                                                <div class="bank_img d-flex align-items-center">
+                                                    <img src="./assets/static/png/kaspi.07fc53e5acbbcc549e779178a3255fcf.png" alt="" class="bank-block__img">
+                                                </div>
+                                                <div class="bank-price-text d-flex align-items-center">
+                                                    240 000 тг/мес
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="block-form__row w-100 mt15 d-flex flex-column">
+                                            <div class="row__bank-credit-information d-flex">
+                                                <div class="bank-credit-information__info-column d-flex flex-column">
+                                                    <label for="bank-phone-number" class="info-column__label">Мобильный телефон</label>
+                                                    <input type="text" class="info-column__input" name="bank-phone-number" id="bank-phone-number" placeholder="Номер телефона">
+                                                </div>
+                                                <div class="bank-credit-information__info-column d-flex flex-column">
+                                                    <label for="bank-iin" class="info-column__label">ИИН</label>
+                                                    <input type="text" class="info-column__input" name="bank-iin" id="bank-iin" placeholder="XXXXXXXXXXXX">
+                                                </div>
+                                            </div>
+
+                                            <div class="row__bank-credit-information d-flex">
+                                                <div class="bank-credit-information__info-column d-flex flex-column">
+                                                    <label for="bank-customer-name" class="info-column__label">Имя</label>
+                                                    <input type="text" class="info-column__input" name="bank-customer-name" id="bank-customer-name" placeholder="Ваше имя">
+                                                </div>
+                                                <div class="bank-credit-information__info-column d-flex flex-column">
+                                                    <label for="bank-customer-surname" class="info-column__label">Фамилия</label>
+                                                    <input type="text" class="info-column__input" name="bank-customer-surname" id="bank-customer-surname" placeholder="Ваша фамилия">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
