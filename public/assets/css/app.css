@@ -14415,7 +14415,7 @@ output {
   border-radius: 5px;
   border: solid 1px #ebebeb;
   width: 1180px;
-  padding-bottom: 50px;
+  padding-bottom: 15px;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .cart-item {
   position: relative;
@@ -14523,8 +14523,178 @@ output {
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .cart-summary__submit-button:focus {
   outline: none;
 }
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper {
+  margin-top: 25px;
+  padding-left: 20px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row {
+  margin-bottom: 25px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column {
+  margin-right: 25px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-label {
+  font-size: 16px;
+  color: #707070;
+  margin-bottom: 10px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-input {
+  padding-left: 10px;
+  height: 40px;
+  width: 265px;
+  border: 1px solid #707070;
+  background: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #707070;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-input::placeholder {
+  color: #b4b4b4;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-additional-row .additional-options {
+  height: 40px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-additional-row .additional-options .option-or {
+  font-size: 16px;
+  color: #707070;
+  margin-right: 20px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-additional-row .additional-options .option-signin-button {
+  width: 225px;
+  border-radius: 5px;
+  background: #1428a0;
+  border: 1px solid #1428a0;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-additional-row .additional-options .option-signin-button:focus {
+  outline: none;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-additional-row .additional-options .option-signin-button:hover {
+  background: #1a33cd;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity {
+  width: 555px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-row {
+  margin-bottom: 18px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-row__par {
+  font-size: 16px;
+  color: #707070;
+  float: left;
+  margin: 0;
+  line-height: 1;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-row .open-block {
+  float: right;
+  width: 22px;
+  height: 11px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-row .open-block svg {
+  height: 100%;
+  width: 100%;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-row .open-block svg path {
+  fill: #454d4f;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-wrapper {
+  border-top: 1px solid #888;
+  background: #cfd9e7;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-wrapper .block-row {
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-wrapper .block-row__par {
+  width: 190px;
+  margin: 0 15px 0 0;
+  font-size: 16px;
+  color: #707070;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-wrapper .block-row__input {
+  padding-left: 10px;
+  height: 40px;
+  width: 265px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: #fff;
+  color: #707070;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-wrapper .block-row__input::placeholder {
+  color: #b4b4b4;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-wrapper .block-row__additional {
+  height: 30px;
+  margin-left: 205px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-wrapper .block-row__additional .additional__par {
+  font-size: 16px;
+  color: #707070;
+  margin: 0;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .next-button {
+  height: 40px;
+  width: 210px;
+  background: #1428a0;
+  border-radius: 5px;
+  border: 1px solid #1428a0;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .next-button:hover {
+  background: #1a33cd;
+}
 .cart-wrapper .cart-block .option-last {
   border: none !important;
+}
+.checkbox-container {
+  float: left;
+  position: relative;
+  height: 16px;
+  width: 16px;
+  font-size: 14px;
+  border: 1px solid #454d4f;
+  background: #fff;
+  border-radius: 2px;
+  margin: 0 15px 0 0;
+}
+.checkbox-container .checkbox-container__checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.checkbox-container .checkbox-container__checkbox:checked ~ .checkbox-container__custom-checkbox:after {
+  display: block;
+}
+.checkbox-container .checkbox-container__custom-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+.checkbox-container .checkbox-container__custom-checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-container .checkbox-container__custom-checkbox:after {
+  left: 4px;
+  top: 0;
+  width: 7px;
+  height: 12px;
+  border: solid #1428a0;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 html,
 body,

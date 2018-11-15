@@ -156,14 +156,14 @@
                         <img src="./assets/static/svg/closed.26f86760eaea5f74e6fd7e921694eb34.svg" class="able-symbol__closed">
                     </div>
                 </div>
-                <div class="cart-option-wrapper__option-wrapper option-wrapper">
+                <div class="cart-option-wrapper__option-wrapper option-wrapper" id="chosen-products">
                     <div class="option-wrapper__cart-item cart-item d-flex align-items-center">
                         <div class="cart-item__item-image d-flex justify-content-center">
-                            <img src="./assets/static/png/iphone.e7865157de9a4abd145d04206bd1c966.png" class="product-image">
+                            <img src="./assets/static/png/note-9-front.e78bb273a335a551c15384bcb27be2e2.png" class="product-image">
                         </div>
                         <div class="cart-item__item-name item-name d-flex flex-column justify-content-start">
                             <h3 class="item-name__heading font-weight-normal">Смартфоны</h3>
-                            <p class="item-name__par">Смартфон Apple iPhone 6S 32GB Смартфон Apple iPhone 6S 32GB </p>
+                            <p class="item-name__par">Смартфон Samsung Galaxy Note 9, 128 GB, Black</p>
                         </div>
                         <div class="cart-item__item-price item-price d-flex align-items-center justify-content-center">
                             125 000 тг
@@ -198,11 +198,11 @@
                     </div>
                     <div class="option-wrapper__cart-item cart-item d-flex align-items-center">
                         <div class="cart-item__item-image d-flex justify-content-center">
-                            <img src="./assets/static/png/iphone.e7865157de9a4abd145d04206bd1c966.png" class="product-image">
+                            <img src="./assets/static/png/note-9-front.e78bb273a335a551c15384bcb27be2e2.png" class="product-image">
                         </div>
                         <div class="cart-item__item-name item-name d-flex flex-column justify-content-start">
                             <h3 class="item-name__heading font-weight-normal">Смартфоны</h3>
-                            <p class="item-name__par">Смартфон Apple iPhone 6S 32GB Смартфон Apple iPhone 6S 32GB </p>
+                            <p class="item-name__par">Смартфон Samsung Galaxy Note 9, 128 GB, Black</p>
                         </div>
                         <div class="cart-item__item-price item-price d-flex align-items-center justify-content-center">
                             125 000 тг
@@ -237,11 +237,11 @@
                     </div>
                     <div class="option-wrapper__cart-item cart-item d-flex align-items-center">
                         <div class="cart-item__item-image d-flex justify-content-center">
-                            <img src="./assets/static/png/iphone.e7865157de9a4abd145d04206bd1c966.png" class="product-image">
+                            <img src="./assets/static/png/note-9-front.e78bb273a335a551c15384bcb27be2e2.png" class="product-image">
                         </div>
                         <div class="cart-item__item-name item-name d-flex flex-column justify-content-start">
                             <h3 class="item-name__heading font-weight-normal">Смартфоны</h3>
-                            <p class="item-name__par">Смартфон Apple iPhone 6S 32GB Смартфон Apple iPhone 6S 32GB </p>
+                            <p class="item-name__par">Смартфон Samsung Galaxy Note 9, 128 GB, Black</p>
                         </div>
                         <div class="cart-item__item-price item-price d-flex align-items-center justify-content-center">
                             125 000 тг
@@ -283,7 +283,7 @@
                         <div class="cart-summary__item-count">
                             Общая сумма: <span class="item-count-number">500 000 тенге</span>
                         </div>
-                        <button class="cart-summary__submit-button">Оформить заказ</button>
+                        <button class="cart-summary__submit-button" id="summary-submit">Оформить заказ</button>
                     </div>
 
                 </div>
@@ -306,6 +306,134 @@
                     </div>
                     <div class="option-description__option-name">
                         Информация о покупателе
+                    </div>
+                </div>
+
+                <div class="cart-option-wrapper__option-wrapper option-wrapper" id="">
+                    <div class="option-wrapper__customer-information customer-information-wrapper w-100">
+                        <div class="customer-information-wrapper__information-row information-row d-flex w-100">
+                            <div class="information-row__information-column information-column d-flex flex-column">
+                                <label for="customer-name" class="information-label">Имя</label>
+                                <input type="text" class="information-input" name="customer-name" id="customer-name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="information-row__information-column information-column d-flex flex-column">
+                                <label for="customer-surname" class="information-label">Фамилия</label>
+                                <input type="text" class="information-input" name="customer-surname" id="customer-surname" placeholder="Ваша фамилия" required>
+                            </div>
+                            <div class="information-row__information-column information-column d-flex flex-column">
+                                <div class="information-additional-row h-100 d-flex align-items-end">
+                                    <div class="information-additional-row__additional-options additional-options d-flex align-items-center">
+                                        <span class="option-or">или</span>
+                                        <button class="option-signin-button h-100">Войти в личный кабинет</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="customer-information-wrapper__information-row information-row d-flex w-100">
+                            <div class="information-row__information-column information-column d-flex flex-column">
+                                <label for="customer-phone" class="information-label">Мобильный телефон</label>
+                                <input type="tel" class="information-input" name="customer-phone" id="customer-phone" placeholder="Номер телефона" required>
+                            </div>
+                            <div class="information-row__information-column information-column d-flex flex-column">
+                                <label for="customer-email" class="information-label">E-mail</label>
+                                <input type="email" class="information-input" name="customer-email" id="customer-email" placeholder="E-mail" required>
+                            </div>
+                            <div class="information-row__information-column information-column d-flex flex-column">
+                                <div class="information-additional-row h-100 d-flex align-items-end">
+                                    <div class="information-additional-row__additional-options additional-options d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="customer-subscribe" class="checkbox-container__checkbox">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <span class="option-or">Я хочу первым узнавать об акциях и скидках</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="customer-information-wrapper__information-row information-row d-flex w-100">
+                            <div class="information-row__block-entity block-entity d-flex flex-column">
+                                <div class="block-entity__entity-row entity-row w-100">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="customer-islegal" class="checkbox-container__checkbox">
+                                        <span class="checkbox-container__custom-checkbox"></span>
+                                    </label>
+                                    <p class="entity-row__par">Юридическое лицо</p>
+                                    <div class="entity-row__open-block open-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.271 11.768">
+                                            <g id="back" transform="rotate(90 67.392 -45.121)">
+                                                <path id="Path_424" d="M114.038 11.135L124.1 1.077a.63.63 0 0 0-.9-.891l-10.5 10.506a.628.628 0 0 0 0 .891l10.506 10.5a.634.634 0 0 0 .443.187.615.615 0 0 0 .443-.187.628.628 0 0 0 0-.891z" class="cls-1" data-name="Path 424"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div class="information-row__entity-block entity-wrapper w-100 d-flex flex-column">
+                                    <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                        <label for="customer-company-name" class="block-row__par">
+                                            Юр. название компании
+                                        </label>
+                                        <input type="text" class="block-row__input" name="customer-company-name" id="customer-company-name" placeholder="Название" required>
+                                    </div>
+
+                                    <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                        <label for="customer-company-address" class="block-row__par">
+                                            Юридический адрес
+                                        </label>
+                                        <input type="text" class="block-row__input" name="customer-company-address" id="customer-company-address" placeholder="Адрес" required>
+                                    </div>
+
+                                    <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                        <label for="customer-company-bin" class="block-row__par">
+                                            БИН
+                                        </label>
+                                        <input type="text" class="block-row__input" name="customer-company-bin" id="customer-company-bin" placeholder="1234-45678-1234" required>
+                                    </div>
+
+                                    <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                        <label for="customer-company-iik" class="block-row__par">
+                                            ИИК
+                                        </label>
+                                        <input type="text" class="block-row__input" name="customer-company-iik" id="customer-company-iik" placeholder="1234-45678-1234-5678-1234" required>
+                                    </div>
+
+                                    <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                        <label for="customer-company-bank" class="block-row__par">
+                                            Банк
+                                        </label>
+                                        <input type="text" class="block-row__input" name="customer-company-bank" id="customer-company-bank" placeholder="Банк" required>
+                                    </div>
+
+                                    <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                        <label for="customer-company-bik" class="block-row__par">
+                                            БИК
+                                        </label>
+                                        <input type="text" class="block-row__input" name="customer-company-bik" id="customer-company-bik" placeholder="123456789" required>
+                                    </div>
+
+                                    <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                        <div class="block-row__additional d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-nds-payer" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <p class="additional__par">Плательщик НДС</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="information-row__entity-row entity-row w-100 d-flex align-items-center">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="customer-nds-payer" class="checkbox-container__checkbox">
+                                        <span class="checkbox-container__custom-checkbox"></span>
+                                    </label>
+                                    <p class="entity-row__par">Запомнить на этом компьютере</p>
+                                </div>
+
+                                <button class="information-row__next-button next-button">Далее</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
