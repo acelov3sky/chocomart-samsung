@@ -92,10 +92,16 @@
               width: 23px;
               height: 12px;
             }
+            .able-symbol__opened {
+              transform: rotate(180deg);
+            }
           }
           .symbol-uncompleted {
             display: none !important;
           }
+        }
+        #customer-information, #delivery {
+          display: none;
         }
         .option-wrapper {
           margin-left: 50px;
@@ -286,6 +292,14 @@
                       }
                     }
                   }
+                  .open-block--opened {
+                    svg {
+                      transform: rotateX(180deg);
+                    }
+                  }
+                }
+                #legalEntityForm {
+                  display: none;
                 }
                 .entity-wrapper {
                   border-top: 1px solid #888;
@@ -363,6 +377,20 @@
                   margin-left: 25px;
                 }
                 .bonus-block {
+                  .submit-form {
+                    width: 315px;
+                    height: 40px;
+                    border-radius: 5px;
+                    background-color: #1428a0;
+                    text-align: center;
+                    color: #fff;
+                    font-size: 16px;
+                    margin-top: 30px;
+                    border: 1px solid #1428a0;
+                    &:hover {
+                      background: #1a33cd;
+                    }
+                  }
                   &__text {
                     font-size: 16px;
                     color: @default_color;
@@ -389,6 +417,9 @@
                   .bonus-column {
 
                   }
+                }
+                .courier, .pickup {
+                  display: none;
                 }
                 .delivery-customer-information {
                   height: 110px;
@@ -419,8 +450,8 @@
                     }
                   }
                   .pickup-address {
+                    padding-top: 20px;
                     float: left;
-                    width: 500px;
                     &__information {
                       font-size: 16px;
                       color: @default_color;
@@ -443,6 +474,9 @@
                         margin-left: 10px;
                       }
                     }
+                  }
+                  #credit, #installment-plan, #card-online {
+                    display: none;
                   }
                   .block-form {
                     width: 800px;
@@ -620,8 +654,9 @@
   .checkbox-container__checkbox {
     position: absolute;
     opacity: 0;
-    height: 0;
-    width: 0;
+    height: 16px;
+    width: 16px;
+    z-index: 100;
     &:checked {
       ~ .checkbox-container__custom-checkbox:after {
         display: block;
