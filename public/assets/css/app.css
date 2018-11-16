@@ -14949,6 +14949,7 @@ output {
 .product-card-wrapper {
   width: 1180px;
   margin: 0 auto;
+  margin-top: 60px;
 }
 .product-card-image-wrapper {
   width: 545px;
