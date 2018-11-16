@@ -14667,7 +14667,6 @@ output {
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row__label {
   font-size: 18px;
   color: #707070;
-  margin-right: 25px;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row__input {
   height: 40px;
@@ -14676,6 +14675,30 @@ output {
   border: 1px solid #ebebeb;
   background: #fff;
   padding-left: 15px;
+  margin-left: 25px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block__text {
+  font-size: 16px;
+  color: #707070;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block__input {
+  width: 185px;
+  height: 40px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(130, 130, 130, 0.11);
+  border: solid 1px #ebebeb;
+  background-color: #ffffff;
+  margin-left: 25px;
+  text-align: center;
+  color: #707070;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block__bonus-count {
+  font-size: 14px;
+  color: #707070;
+  opacity: 0.5;
+  margin-top: 3px !important;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information {
   height: 110px;
