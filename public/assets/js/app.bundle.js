@@ -26,7 +26,7 @@ jQuery(function () {});
 
 __webpack_require__(128);
 __webpack_require__(129);
-__webpack_require__(156);
+__webpack_require__(130);
 
 /***/ }),
 
@@ -68,7 +68,7 @@ var swiper = new Swiper('.swiper-product', {
 
 /***/ }),
 
-/***/ 156:
+/***/ 130:
 /***/ (function(module, exports) {
 
 
