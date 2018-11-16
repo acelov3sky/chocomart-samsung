@@ -14949,7 +14949,7 @@ output {
 .product-card-wrapper {
   width: 1180px;
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .product-card-image-wrapper {
   width: 545px;
@@ -15397,7 +15397,6 @@ output {
   font-size: 16px;
 }
 .product-card-basket {
-  display: none;
   width: 780px;
   border-radius: 4px;
   border: solid 1px #ebebeb;
@@ -15408,8 +15407,95 @@ output {
   transform: translateX(-50%) translateY(-50%);
   z-index: 2;
 }
+.product-card-basket-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  z-index: 5;
+}
+.product-card-basket-close svg {
+  width: 20px;
+  cursor: pointer;
+}
+.product-card-basket-content {
+  padding: 20px 25px;
+  position: relative;
+}
+.product-card-basket-content:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid #ebebeb;
+}
+.product-card-basket-header {
+  padding: 20px 25px;
+  position: relative;
+}
+.product-card-basket-header:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid #ebebeb;
+}
 .product-card-basket .text-center {
   font-size: 28px;
+  color: #2d3946;
+}
+.product-card-basket-stepper {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.product-card-basket-stepper input {
+  margin-right: 10px;
+}
+.product-card-basket-img-wrapper {
+  width: 100px;
+}
+.product-card-basket-title-wrapper {
+  margin-left: 20px;
+}
+.product-card-basket-title-wrapper h4 {
+  font-size: 18px;
+  color: #707070;
+}
+.product-card-basket-title-wrapper h4 span {
+  font-size: 18px;
+  color: #2d3946;
+}
+.product-card-basket-title-wrapper button {
+  width: 219px;
+  height: 40px;
+  border-radius: 5px;
+}
+.product-card-basket-title-wrapper .order {
+  box-shadow: 0 2px 5px 0 rgba(130, 130, 130, 0.11);
+  background-color: #ff5d5d;
+  color: white;
+}
+.product-card-basket-title-wrapper .basket {
+  margin-left: 10px;
+  border: solid 1px #ff5d5d;
+  background-color: #ffffff;
+}
+.product-card-basket-title-wrapper .basket svg {
+  position: relative;
+  top: 3px;
+  left: 5px;
+  width: 18px;
+}
+.product-card-basket-title-wrapper .continue {
+  border-radius: 5px;
+  background-color: #fdcc05;
+  color: white;
+}
+.product-card-basket-price-total {
+  margin-left: 20px;
+  font-size: 24px;
   color: #2d3946;
 }
 .product-card-basket .check {

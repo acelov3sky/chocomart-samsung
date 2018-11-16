@@ -2,7 +2,7 @@
   &-wrapper {
     width: 1180px;
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 40px;
   }
   &-image-wrapper {
     width: 545px;
@@ -468,7 +468,6 @@
     }
   }
   &-basket {
-    display: none;
     width: 780px;
     border-radius: 4px;
     border: solid 1px #ebebeb;
@@ -478,9 +477,102 @@
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     z-index: 2;
+    &-close {
+      position: absolute;
+      right: 10px;
+      top:10px;
+      cursor: pointer;
+      z-index: 5;
+      svg {
+        width: 20px;
+        cursor: pointer;
+      }
+    }
+    &-content {
+      padding: 20px 25px;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        border-bottom: 1px solid @border_color;
+      }
+    }
+    &-header {
+      padding: 20px 25px;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        border-bottom: 1px solid @border_color;
+      }
+    }
     .text-center {
       font-size: 28px;
       color: #2d3946;
+    }
+    &-stepper {
+      margin-left: 20px;
+      margin-right: 20px;
+      input {
+        margin-right: 10px;
+      }
+    }
+    &-img {
+      &-wrapper {
+        width: 100px;
+      }
+    }
+    &-title {
+      &-wrapper {
+        margin-left: 20px;
+        h4 {
+          font-size: 18px;
+          color: #707070;
+          span {
+            font-size: 18px;
+            color: #2d3946;
+          }
+        }
+        button {
+          width: 219px;
+          height: 40px;
+          border-radius: 5px;
+        }
+        .order {
+          box-shadow: 0 2px 5px 0 rgba(130, 130, 130, 0.11);
+          background-color: #ff5d5d;
+          color: white;
+        }
+        .basket {
+          margin-left: 10px;
+          border: solid 1px #ff5d5d;
+          background-color: #ffffff;
+          svg {
+            position: relative;
+            top: 3px;
+            left: 5px;
+            width: 18px;
+          }
+        }
+        .continue {
+          border-radius: 5px;
+          background-color: #fdcc05;
+          color: white;
+        }
+      }
+    }
+    &-price {
+      &-total {
+        margin-left: 20px;
+        font-size: 24px;
+        color: #2d3946;
+      }
     }
     .check {
       margin-left: 30px;

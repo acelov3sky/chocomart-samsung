@@ -1,13 +1,132 @@
 <div class="product-card-wrapper d-flex flex-wrap">
-    <div class="product-card-basket-modal">
-        <div class="product-card-basket d-flex justify-content-center">
-            <h4 class="text-center m-0 d-flex align-content-center align-items-center">Товар добавлен в корзину
-            </h4>
-            <div class="check">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.187 15.528">
-                    <path id="checked_1_" d="M.233 11.541a.751.751 0 0 1 0-1.087L1.32 9.367a.751.751 0 0 1 1.087 0l.078.078 4.27 4.581a.375.375 0 0 0 .543 0L17.7 3.233h.078a.751.751 0 0 1 1.087 0l1.089 1.087a.751.751 0 0 1 0 1.087L7.531 18.3a.751.751 0 0 1-1.087 0L.388 11.774l-.155-.233z" fill="#fff" data-name="checked (1)" transform="translate(0 -3)"/>
+    <div id="product-card-basket-modal" class="product-card-basket-modal">
+        <div class="product-card-basket">
+            <div onclick="closeBasket()" class="product-card-basket-close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
+                    <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
+                        <path id="Line_51" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 51" transform="translate(-9420.5 -3811.5)"/>
+                        <path id="Line_52" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 52" transform="rotate(90 -2796.5 -6608)"/>
+                    </g>
                 </svg>
+
             </div>
+            <div class="product-card-basket-header">
+                <div class="w-100 d-flex justify-content-center">
+                    <h4 class="text-center m-0 d-flex align-content-center align-items-center">Товар добавлен в корзину
+                    </h4>
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.187 15.528">
+                            <path id="checked_1_" d="M.233 11.541a.751.751 0 0 1 0-1.087L1.32 9.367a.751.751 0 0 1 1.087 0l.078.078 4.27 4.581a.375.375 0 0 0 .543 0L17.7 3.233h.078a.751.751 0 0 1 1.087 0l1.089 1.087a.751.751 0 0 1 0 1.087L7.531 18.3a.751.751 0 0 1-1.087 0L.388 11.774l-.155-.233z" fill="#fff" data-name="checked (1)" transform="translate(0 -3)"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="w-100 d-flex align-content-center align-items-center justify-content-between mt-3">
+                    <div class="product-card-basket-img-wrapper">
+                        <img width="100%" src="../../assets/images/s9/s9front.png" alt="">
+                    </div>
+                    <div class="product-card-basket-title-wrapper">
+                        <h4>
+                            Смартфон Samsung 32GB <br>
+                            Смартфон Samsung
+                        </h4>
+                    </div>
+                    <div class="product-card-basket-stepper d-flex align-items-center">
+                        <input type="number" value="1" name="quantity" min="1" max="8"> шт.
+                    </div>
+                    <div class="product-card-basket-price-total">
+                        <h4>250 000 тг</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-basket-content">
+                <div class="w-100 d-flex align-content-center align-items-center mt-3">
+                    <div class="product-card-basket-img-wrapper">
+                        <!--<img width="100%" src="../../assets/images/s9/s9front.png" alt="">-->
+                    </div>
+                    <div class="product-card-basket-title-wrapper">
+                        <h4>
+                            Всего в корзине: <span>5 товаров</span>
+                        </h4>
+                        <h4>
+                            Общая сумма: <span>500 000 тенге</span>
+                        </h4>
+                        <button class="order">Оформить заказ</button>
+                        <button class="basket">Перейти в корзину
+                            <svg xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
+                            <path fill="#ff5d5d" id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" data-name="Path 147" transform="translate(-17.2)"></path>
+                        </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-basket-content">
+                <div class="w-100 d-flex align-content-center align-items-center mt-3">
+                    <div class="product-card-basket-img-wrapper">
+                        <!--<img width="100%" src="../../assets/images/s9/s9front.png" alt="">-->
+                    </div>
+                    <div class="product-card-basket-title-wrapper">
+                        <button onclick="closeBasket()" class="continue">Продолжить покупки</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="product-card-basket-background"></div>
+    </div>
+    <div id="product-card-onclick-modal" class="product-card-basket-modal">
+        <div class="product-card-basket">
+            <div onclick="closeOneClick()" class="product-card-basket-close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
+                    <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
+                        <path id="Line_51" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 51" transform="translate(-9420.5 -3811.5)"/>
+                        <path id="Line_52" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 52" transform="rotate(90 -2796.5 -6608)"/>
+                    </g>
+                </svg>
+
+            </div>
+            <div class="product-card-basket-header">
+                <div class="w-100 d-flex justify-content-center">
+                    <h4 class="text-center m-0 d-flex align-content-center align-items-center">Купить в один клик
+                    </h4>
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.187 15.528">
+                            <path id="checked_1_" d="M.233 11.541a.751.751 0 0 1 0-1.087L1.32 9.367a.751.751 0 0 1 1.087 0l.078.078 4.27 4.581a.375.375 0 0 0 .543 0L17.7 3.233h.078a.751.751 0 0 1 1.087 0l1.089 1.087a.751.751 0 0 1 0 1.087L7.531 18.3a.751.751 0 0 1-1.087 0L.388 11.774l-.155-.233z" fill="#fff" data-name="checked (1)" transform="translate(0 -3)"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="w-100 d-flex align-content-center align-items-center justify-content-between mt-3">
+                    <div class="product-card-basket-img-wrapper">
+                        <img width="100%" src="../../assets/images/s9/s9front.png" alt="">
+                    </div>
+                    <div class="product-card-basket-title-wrapper">
+                        <h4>
+                            Смартфон Samsung 32GB <br>
+                            Смартфон Samsung
+                        </h4>
+                    </div>
+                    <div class="product-card-basket-stepper d-flex align-items-center">
+                        <input type="number" value="1" name="quantity" min="1" max="8"> шт.
+                    </div>
+                    <div class="product-card-basket-price-total">
+                        <h4>250 000 тг</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-basket-content">
+                <div class="w-100 d-flex align-content-center justify-content-center align-items-center">
+                    <div class="product-card-basket-title-wrapper">
+                        <button class="order">Оформить заказ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-basket-content">
+                <div class="w-100 d-flex align-content-center justify-content-center align-items-center ">
+                    <div class="product-card-basket-title-wrapper">
+                        <button onclick="closeOneClick()" class="continue">Продолжить покупки</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="product-card-basket-background"></div>
     </div>
@@ -83,7 +202,7 @@
                 </div>
             </div>
             <div class="product-card-buttons">
-                <button>
+                <button onclick="buyOneCLick()">
                     Купить в один клик
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.793 26.664">
                     <g id="click" transform="rotate(-14.98 22.958 276.052)">
@@ -553,8 +672,18 @@
 </div>
 
 <script>
-    function addToBasket() {
+    function buyOneCLick() {
+        document.getElementById('product-card-onclick-modal').style.display = "block";
 
+    }
+    function addToBasket() {
+        document.getElementById('product-card-basket-modal').style.display = "block";
+    }
+    function closeBasket() {
+        document.getElementById('product-card-basket-modal').style.display = "none";
+    }
+    function closeOneClick() {
+        document.getElementById('product-card-onclick-modal').style.display = "none";
     }
     var current_header_index = 0;
     document.addEventListener("DOMContentLoaded", function(event) {
