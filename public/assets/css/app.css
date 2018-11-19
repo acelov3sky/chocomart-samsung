@@ -14406,8 +14406,15 @@ output {
   width: 23px;
   height: 12px;
 }
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-description .option-able-symbol .able-symbol__opened {
+  transform: rotate(180deg);
+}
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-description .symbol-uncompleted {
   display: none !important;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper #customer-information,
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper #delivery {
+  display: none;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper {
   margin-left: 50px;
@@ -14602,6 +14609,12 @@ output {
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-row .open-block svg path {
   fill: #454d4f;
 }
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-row .open-block--opened svg {
+  transform: rotateX(180deg);
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity #legalEntityForm {
+  display: none;
+}
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .block-entity .entity-wrapper {
   border-top: 1px solid #888;
   background: #cfd9e7;
@@ -14677,6 +14690,20 @@ output {
   padding-left: 15px;
   margin-left: 25px;
 }
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block .submit-form {
+  width: 315px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #1428a0;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 30px;
+  border: 1px solid #1428a0;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block .submit-form:hover {
+  background: #1a33cd;
+}
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block__text {
   font-size: 16px;
   color: #707070;
@@ -14699,6 +14726,10 @@ output {
   color: #707070;
   opacity: 0.5;
   margin-top: 3px !important;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .courier,
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .pickup {
+  display: none;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information {
   height: 110px;
@@ -14730,8 +14761,8 @@ output {
   width: 45px;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .pickup-address {
+  padding-top: 20px;
   float: left;
-  width: 500px;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .delivery-customer-information .pickup-address__information {
   font-size: 16px;
@@ -14752,6 +14783,11 @@ output {
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .payment-row__block .payment-row__information .information-details {
   color: #b6b6b6;
   margin-left: 10px;
+}
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row #credit,
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row #installment-plan,
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row #card-online {
+  display: none;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .payment-row .block-form {
   width: 800px;
@@ -14918,8 +14954,9 @@ output {
 .checkbox-container .checkbox-container__checkbox {
   position: absolute;
   opacity: 0;
-  height: 0;
-  width: 0;
+  height: 16px;
+  width: 16px;
+  z-index: 100;
 }
 .checkbox-container .checkbox-container__checkbox:checked ~ .checkbox-container__custom-checkbox:after {
   display: block;
