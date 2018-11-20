@@ -194,6 +194,9 @@
         margin-left: 10px;
       }
     }
+    button:hover {
+      box-shadow: inset 0 0 8px 0 rgba(0,0,0,0.3);
+    }
     button {
       cursor: pointer;
       width: 100%;
@@ -365,7 +368,11 @@
       border-radius: 3px;
       margin-right: 20px;
       color: @choco_yellow;
+      background-color: white;
       cursor: pointer;
+      &:hover {
+        box-shadow: inset 0 0 8px 0 rgba(0,0,0,0.3);
+      }
     }
     .product-card-credit_button__active {
       background-color: @choco_yellow;

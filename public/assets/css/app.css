@@ -15176,6 +15176,9 @@ output {
   width: 20px;
   margin-left: 10px;
 }
+.product-card-buttons button:hover {
+  box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, 0.3);
+}
 .product-card-buttons button {
   cursor: pointer;
   width: 100%;
@@ -15336,7 +15339,11 @@ output {
   border-radius: 3px;
   margin-right: 20px;
   color: #fdcc05;
+  background-color: white;
   cursor: pointer;
+}
+.product-card-credit button:hover {
+  box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, 0.3);
 }
 .product-card-credit .product-card-credit_button__active {
   background-color: #fdcc05;
