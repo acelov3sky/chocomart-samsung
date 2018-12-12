@@ -1,0 +1,125 @@
+.registration-sign {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background-color: rgba(0,0,0,0.4);
+  &-container {
+    position: absolute;
+    background-color: white;
+    width: 50%;
+    //height: 70%;
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    padding: 40px 30px;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  &_close-button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  .login-form {
+    display: none;
+  }
+  .registration-to-login, .login-to-registration {
+    color: #1a33cd !important;
+    cursor: pointer !important;
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+  .registration-form, .login-form{
+    width: 300px;
+    margin: 0 auto;
+    label {
+      margin: 10px 0 15px 0;
+    }
+    h5 {
+      font-size: 15px;
+      margin-top: 15px;
+    }
+    button {
+      margin-top: 10px;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      cursor: pointer;
+      border: none;
+      background-color: #1a33cd;
+      color: white;
+      border-radius: 3px;
+      outline: none;
+      &:hover {
+        box-shadow: 0 2px 30px rgba(0,0,0,.4);
+      }
+    }
+  }
+  .inp {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 300px;
+  }
+  .inp .label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 16px;
+    color: #9098a9;
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
+  }
+  .inp .border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #07f;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all 0.15s ease;
+  }
+  .inp input {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 10px 0;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #c8ccd4;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all 0.15s ease;
+  }
+  .inp input:hover {
+    background: rgba(34,50,84,0.03);
+  }
+  .inp input:not(:placeholder-shown) + span {
+    color: #5a667f;
+    transform: translateY(-26px) scale(0.75);
+  }
+  .inp input:focus {
+    background: none;
+    outline: none;
+  }
+  .inp input:focus + span {
+    color: #07f;
+    transform: translateY(-26px) scale(0.75);
+  }
+  .inp input:focus + span + .border {
+    transform: scaleX(1);
+  }
+}
