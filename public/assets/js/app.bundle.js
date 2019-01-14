@@ -28,7 +28,7 @@ __webpack_require__(128);
 __webpack_require__(129);
 __webpack_require__(130);
 __webpack_require__(131);
-__webpack_require__(159);
+__webpack_require__(132);
 
 /***/ }),
 
@@ -376,7 +376,7 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 159:
+/***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {$('.registration-sign_close-button').click(function () {
