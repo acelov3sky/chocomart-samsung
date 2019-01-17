@@ -1,6 +1,6 @@
 <div id="cart" class="p-0 col-md-12 col-sm-12 col-xs-12 cart-wrapper w-100">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 cart-wrapper__cart-block cart-block">
-        <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-block__cart-heading">Корзина</h1>
+        <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-block__cart-heading">{{chosenProducts ? cartStateName = 'Корзина' : cartStateName = 'ОФОРМЛЕНИЕ ЗАКАЗА'}}</h1>
         <div class="col-sm-12 col-xs-12 cart-block__mobile-progress-bar mobile-progress-bar d-none flex-column">
             <div class="mobile-progress-bar__content pbar-content w-100 d-flex align-items-center justify-content-center">
                 <div :class="{'block-icon--active' : chosenProducts}" class="pbar-content__block-icon block-icon" @click="openMobileBlock(1, blockCompletion[0].completion, blockCompletion[1].completion)">

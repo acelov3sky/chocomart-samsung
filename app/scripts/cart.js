@@ -145,7 +145,8 @@ var vm = new Vue({
             isPromocodeEnabled: false,
             isBonusEnabled: false,
 
-            blockName: 'Выбранные товары'
+            blockName: 'Выбранные товары',
+            cartStateName: 'Корзина'
         }
     },
     mounted() {
