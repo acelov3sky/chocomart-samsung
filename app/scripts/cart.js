@@ -302,10 +302,20 @@ var vm = new Vue({
                 });
             }
         },
-        chooseCreditPeriod(period) {
-            this.creditPeriods.forEach((p) => {
-                p.value === period ? p.isChosen = true : p.isChosen = false;
-            })
+        chooseCreditPeriod(period, paymentType) {
+            if(period !== "") {
+                if (paymentType === 'credit') {
+                    this.paymentPeriods.credit.forEach((p) => {
+                        p.value === period ? p.isChosen = true : p.isChosen = false;
+                    });
+                }else if(paymentType === 'installment') {
+                    this.paymentPeriods.installment.forEach((p) => {
+                        p.value === period ? p.isChosen = true : p.isChosen = false;
+                    });
+                }
+            }else {
+                alert("ERROR! Period is empty!");
+            }
         }
     }
 });

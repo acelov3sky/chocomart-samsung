@@ -561,8 +561,8 @@
                                             <div class="d-flex flex-column">
                                                 <div class="block-form__row w-100 d-flex flex-column">
                                                     <div class="block-month d-flex align-items-center">
-                                                        <input type="button" :class="{'box-active' : paymentPeriods.installment[0].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.installment[0].value" v-model="paymentPeriods.installment[0].value" @click="chooseCreditPeriod(paymentPeriods.installment[0].value)">
-                                                        <input type="button" :class="{'box-active' : paymentPeriods.installment[1].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.installment[1].value" v-model="paymentPeriods.installment[1].value" @click="chooseCreditPeriod(paymentPeriods.installment[1].value)">
+                                                        <input type="button" :class="{'box-active' : paymentPeriods.installment[0].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.installment[0].value" @click="chooseCreditPeriod(paymentPeriods.installment[0].value, 'installment')">
+                                                        <input type="button" :class="{'box-active' : paymentPeriods.installment[1].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.installment[1].value" @click="chooseCreditPeriod(paymentPeriods.installment[1].value, 'installment')">
                                                         <p class="month-count m-0">месяцев</p>
                                                     </div>
                                                 </div>
@@ -656,10 +656,10 @@
                                             <div class="d-flex flex-column">
                                                 <div class="block-form__row w-100 d-flex flex-column">
                                                     <div class="block-month d-flex align-items-center">
-                                                        <input type="button" :class="{'box-active' : paymentPeriods.credit[0].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[0].value" v-model="paymentPeriods.credit[0].value" @click="chooseCreditPeriod(paymentPeriods.credit[0].value)">
-                                                        <input type="button" :class="{'box-active' : paymentPeriods.credit[1].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[1].value" v-model="paymentPeriods.credit[1].value" @click="chooseCreditPeriod(paymentPeriods.credit[1].value)">
-                                                        <input type="button" :class="{'box-active' : paymentPeriods.credit[2].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[2].value" v-model="paymentPeriods.credit[2].value" @click="chooseCreditPeriod(paymentPeriods.credit[2].value)">
-                                                        <input type="button" :class="{'box-active' : paymentPeriods.credit[3].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[3].value" v-model="paymentPeriods.credit[3].value" @click="chooseCreditPeriod(paymentPeriods.credit[3].value)">
+                                                        <input type="button" :class="{'box-active' : paymentPeriods.credit[0].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[0].value" @click="chooseCreditPeriod(paymentPeriods.credit[0].value, 'credit')">
+                                                        <input type="button" :class="{'box-active' : paymentPeriods.credit[1].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[1].value" @click="chooseCreditPeriod(paymentPeriods.credit[1].value, 'credit')">
+                                                        <input type="button" :class="{'box-active' : paymentPeriods.credit[2].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[2].value" @click="chooseCreditPeriod(paymentPeriods.credit[2].value, 'credit')">
+                                                        <input type="button" :class="{'box-active' : paymentPeriods.credit[3].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[3].value" @click="chooseCreditPeriod(paymentPeriods.credit[3].value, 'credit')">
                                                         <p class="month-count m-0">месяцев</p>
                                                     </div>
                                                 </div>
