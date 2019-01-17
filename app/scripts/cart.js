@@ -1,4 +1,3 @@
-import Vue from '../../node_modules/vue/dist/vue';
 import {TheMask} from 'vue-the-mask';
 
 var vm = new Vue({
