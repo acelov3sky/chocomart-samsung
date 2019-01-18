@@ -7,6 +7,8 @@ var
     , webpack = require('webpack')
     , TextPlugin = require('extract-text-webpack-plugin')
     , HtmlPlugin = require('html-webpack-plugin')
+    , QVersion = '2.0.0.ze.alfa'
+    , publicPath = '/qstatic-qsite-' + QVersion + '/'
 ;
 
 module.exports = function(_path) {
@@ -54,6 +56,45 @@ module.exports = function(_path) {
         }
     });
 
+    /* - ---------------------------------------------
+     * - Рекурсивно собираем шаблоны twig через html-webpack-plugin
+     * - Для создания новой страницы достаточно создать файл (*.twig) в директории ./app/templates
+     * - Страницы можно делить на компоненты согласно принятому в es6 шаблонному синтаксису
+     * - Подробнее смотри на https://github.com/webpack-contrib/html-loader
+     * - ---------------------------------------------
+     * - Walk - Функция для рекурсивного сбора файлов в директории
+     * - --------------------------------------------- */
+    var walk = function(dir) {
+        var results = {};
+        var list = fs.readdirSync(dir);
+        list.forEach(function(file) {
+            if (file == '_components') {
+                return;
+            }
+
+            var filePath = dir + '/' + file;
+            var stat = fs.statSync(filePath);
+            if (stat && stat.isDirectory()) {
+                /* Recurse into a subdirectory */
+                results = _.merge(results, walk(filePath));
+            } else {
+                /* Is a file */
+                results[filePath] = filePath.substr((_path + "/app").length+1);
+            }
+        });
+        return results;
+    }
+
+    _.each(walk(_path + '/app/templates'), function(fileName, filePath) {
+        if (fileName.match(/\.html$/)) {
+            plugins.push(new HtmlPlugin({
+                filename: fileName,
+                template: filePath,
+                inject: false
+            }));
+        }
+    });
+
     return {
 
         /* ------------------------------------------
@@ -92,6 +133,8 @@ module.exports = function(_path) {
                 _styles: path.join(_path, 'app', 'assets', 'less'),
                 // - Алиасы шаблонов
                 _components: path.join(_path, 'app', 'pages', 'components'),
+                // - Шаблоны twig
+                _tcomponents: path.join(_path, 'app', 'templates', '_components'),
                 _layouts: path.join(_path, 'app', 'pages', 'layouts'),
                 // - Node modules
                 _node: path.join(_path, 'node_modules'),
@@ -127,11 +170,11 @@ module.exports = function(_path) {
                 /* - Разного рода статика */
                 {
                     test: /\.(ttf|eot|woff|woff2|png|ico|jpg|jpeg|gif|svg)(\?.*$|$)/i,
-                    use: ['file-loader?name=assets/static/[ext]/[name].[hash].[ext]&publicPath=./']
+                    use: ['file-loader?name=assets/static/[ext]/[name].[hash].[ext]&publicPath=' + publicPath]
                 },
                 /* - Html загрузчик */
                 {
-                    test: /pages\/[a-z0-9\-\.\/]+\.html$/,
+                    test: /(pages|templates)\/[a-z0-9\-\.\/]+\.html$/,
                     use: ['html-loader?interpolate']
                 },
             ]
