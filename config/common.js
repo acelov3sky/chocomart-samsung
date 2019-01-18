@@ -174,7 +174,7 @@ module.exports = function(_path) {
                 },
                 /* - Html загрузчик */
                 {
-                    test: /(pages|templates)\/[a-z0-9\-\.\/]+\.html$/,
+                    test: /(pages|templates)\/[a-z0-9\-\.\/_]+(\.html|\.twig)$/,
                     use: ['html-loader?interpolate']
                 },
             ]
