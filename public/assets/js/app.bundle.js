@@ -27,8 +27,8 @@ jQuery(function () {});
 __webpack_require__(132);
 __webpack_require__(133);
 __webpack_require__(134);
-__webpack_require__(137);
-__webpack_require__(138);
+__webpack_require__(135);
+__webpack_require__(136);
 
 /***/ }),
 
@@ -75,7 +75,7 @@ var swiper = new Swiper('.swiper-product', {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_the_mask__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_the_mask__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_the_mask___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_the_mask__);
 
 
@@ -367,14 +367,14 @@ var vm = new Vue({
 
 /***/ }),
 
-/***/ 137:
+/***/ 135:
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
 
-/***/ 138:
+/***/ 136:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {$('.registration-sign_close-button').click(function () {
