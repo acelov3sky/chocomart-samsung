@@ -86,7 +86,7 @@ module.exports = function(_path) {
     }
 
     _.each(walk(_path + '/app/templates'), function(fileName, filePath) {
-        if (fileName.match(/\.html$/)) {
+        if (fileName.match(/\.twig$/)) {
             plugins.push(new HtmlPlugin({
                 filename: fileName,
                 template: filePath,
