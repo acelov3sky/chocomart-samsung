@@ -1,4 +1,4 @@
-{% extends '@layout-cms/main.html' %}
+{% extends '@layout-cms/main.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -13,9 +13,6 @@
 
 {% block scripts %}
     <script>
-        var appData = {
-            layout: {{ frontProtocol | json_encode() | raw }}
-        };
     </script>
     {{ parent() }}
 {% endblock %}
