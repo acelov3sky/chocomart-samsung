@@ -1,5 +1,8 @@
 .product-wrapper {
-  width: 218px;
+  @media (min-width: 1024px) {
+    width: 218px !important;
+    max-width: 218px !important;
+  }
   position: relative;
   min-height: 315px;
   margin-top: 10px;
@@ -254,7 +257,7 @@
           border-radius: 5px;
           color: @white_color;
           text-align: center;
-          font-size: @category_size;
+          font-size: 13px;
           cursor: pointer;
           .buy-input {
             width: 110px;
