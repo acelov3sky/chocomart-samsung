@@ -1,6 +1,22 @@
+.open-v-sidebar {
+  transform: translateX(0) !important;
+}
+
+.block-wrapper__filter {
+  @media(max-width: 575px) {
+    width: 100% !important;
+    position: fixed;
+    z-index: 5001;
+    transition: 0.4s;
+    height: calc(~"100% - 130px");
+    overflow-x: hidden;
+    transform: translateX(100%);
+  }
+}
 .sidebar-wrapper {
   border: 1px solid #ebebeb;
   background: #fff;
+
   .parameters-wrapper {
     border-bottom: 1px solid #ebebeb;
     .title-wrapper {
