@@ -10,7 +10,10 @@
   .mobile-sidebar {
     display: none;
   }
-  @media (max-width: 768px) {
+  .block_background {
+    display: block !important;
+  }
+  @media (max-width: 767px) {
     .header {
       display: none !important;
     }
@@ -50,19 +53,19 @@
       &-wrapper {
         background-color: white;
         width: 80%;
+        height: 100%;
         position: relative;
         z-index: 2000;
         padding: 20px;
       }
       &-background {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        transition-delay: 0.3s;
-        transition: 0.5s;
-        opacity: 0;
+        display: none;
+        z-index: 20;
         background-color: rgba(0,0,0,0.4);
       }
     }
