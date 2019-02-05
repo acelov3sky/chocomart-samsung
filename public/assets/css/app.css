@@ -18710,7 +18710,8 @@ template {
 }
 .product-card-dashed-border {
   border-bottom: 1px dotted #707070;
-  margin: 0 5px;
+  padding: 8px 5px;
+  margin-bottom: 0;
   color: #707070;
 }
 .product-card-shipping-info {
@@ -18882,6 +18883,13 @@ template {
 }
 .product-card-info-content .characteristic-detail .product-card-characteristic-detail div:first-child {
   margin-top: 5px;
+}
+.product-card-info-content .characteristic-detail .product-card-characteristic-detail .characteristic-info {
+  text-align: right;
+}
+.product-card-info-content .characteristic-detail .product-card-characteristic-detail .characteristic-title {
+  display: flex;
+  align-items: flex-end;
 }
 .product-card-info-content .characteristic-detail .product-card-characteristic-detail .characteristic-title,
 .product-card-info-content .characteristic-detail .product-card-characteristic-detail .characteristic-info {
@@ -19300,6 +19308,15 @@ template {
   margin-left: -20px;
   margin-right: -20px;
   padding: 0 20px;
+}
+.product-card-mobile-info__specification-detail .characteristic-info,
+.product-card-mobile-info__credit-detail .characteristic-info {
+  text-align: right;
+}
+.product-card-mobile-info__specification-detail .characteristic-title,
+.product-card-mobile-info__credit-detail .characteristic-title {
+  display: flex;
+  align-items: flex-end;
 }
 .product-card-mobile-info__specification-detail .characteristic-title,
 .product-card-mobile-info__credit-detail .characteristic-title,

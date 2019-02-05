@@ -1,3 +1,4 @@
+
 <div class="product-card-wrapper flex-wrap d-none d-sm-flex">
         <div id="product-card-basket-modal" class="product-card-basket-modal">
             <div class="product-card-basket">
@@ -303,45 +304,30 @@
                                     </div>
 
                                     <div class="product-card-characteristic-detail">
+                                        {% for characteristic in product.comparedProperties %}
                                         <div class="d-flex w-100">
-                                            <h5 class="characteristic-title">Объем встроенной памяти </h5>
+                                            <h5 class="characteristic-title">{{ characteristic.property.label }}</h5>
                                             <h5 class="product-card-dashed-border"></h5>
-                                            <h5 class="characteristic-info">64 ГБ</h5>
+                                            <h5 class="characteristic-info">
+                                                {% for detail in characteristic.params %}
+                                                    {% if characteristic.params|length > 1 %}
+                                                        {% if loop.index == characteristic.params|length %}
+                                                            {{ detail }}
+                                                        {% else %}
+                                                            {{ detail }},
+                                                        {% endif %}
+                                                    {% else %}
+                                                        {{ detail }}
+                                                    {% endif %}
+
+                                                {% endfor %}
+                                            </h5>
                                         </div>
-                                        <div class="d-flex w-100">
-                                            <h5 class="characteristic-title">Количество ядер процессора </h5>
-                                            <h5 class="product-card-dashed-border"></h5>
-                                            <h5 class="characteristic-info">6</h5>
-                                        </div>
-                                        <div class="d-flex w-100">
-                                            <h5 class="characteristic-title">Процессор</h5>
-                                            <h5 class="product-card-dashed-border"></h5>
-                                            <h5 class="characteristic-info">Samsa</h5>
-                                        </div>
-                                        <div class="d-flex w-100">
-                                            <h5 class="characteristic-title">Частота процессора  </h5>
-                                            <h5 class="product-card-dashed-border"></h5>
-                                            <h5 class="characteristic-info">2390 МГц</h5>
-                                        </div>
-                                        <div class="d-flex w-100">
-                                            <h5 class="characteristic-title">Производитель процессора </h5>
-                                            <h5 class="product-card-dashed-border"></h5>
-                                            <h5 class="characteristic-info">Sams</h5>
-                                        </div>
-                                        <div class="d-flex w-100">
-                                            <h5 class="characteristic-title">Стандарт связи </h5>
-                                            <h5 class="product-card-dashed-border"></h5>
-                                            <h5 class="characteristic-info">3G, GSM, LTE 4G </h5>
-                                        </div>
-                                        <div class="d-flex w-100">
-                                            <h5 class="characteristic-title">LTE </h5>
-                                            <h5 class="product-card-dashed-border"></h5>
-                                            <h5 class="characteristic-info">Yeah baby</h5>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
-                            <div class="product-card-characteristic">
+                            <div class="product-card-characteristic d-none">
                                 <div class="characteristic-detail d-flex">
                                     <h4>
                                         Основные характеристики
@@ -385,7 +371,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="product-card-characteristic">
+                            <div class="product-card-characteristic d-none">
                                 <div class="characteristic-detail d-flex">
                                     <h4>
                                         Основные характеристики
@@ -754,31 +740,27 @@
                     </svg>
                 </div>
                 <div v-if="char" class="product-card-mobile-info__specification-detail mt-3">
-                    <div class="d-flex w-100 mb-2">
-                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
-                        <h5 class="product-card-dashed-border"></h5>
-                        <h5 class="characteristic-info">64 ГБ</h5>
-                    </div>
-                    <div class="d-flex w-100 mb-2">
-                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
-                        <h5 class="product-card-dashed-border"></h5>
-                        <h5 class="characteristic-info">64 ГБ</h5>
-                    </div>
-                    <div class="d-flex w-100 mb-2">
-                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
-                        <h5 class="product-card-dashed-border"></h5>
-                        <h5 class="characteristic-info">64 ГБ</h5>
-                    </div>
-                    <div class="d-flex w-100 mb-2">
-                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
-                        <h5 class="product-card-dashed-border"></h5>
-                        <h5 class="characteristic-info">64 ГБ</h5>
-                    </div>
-                    <div class="d-flex w-100 mb-2">
-                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
-                        <h5 class="product-card-dashed-border"></h5>
-                        <h5 class="characteristic-info">64 ГБ</h5>
-                    </div>
+                    {% for characteristic in product.comparedProperties %}
+                        <div class="d-flex w-100 mb-2">
+                            <h5 class="characteristic-title">{{ characteristic.property.label }}</h5>
+                            <h5 class="product-card-dashed-border"></h5>
+                            <h5 class="characteristic-info">
+                                {% for detail in characteristic.params %}
+                                    {% if characteristic.params|length > 1 %}
+                                        {% if loop.index == characteristic.params|length %}
+                                            {{ detail }}
+                                        {% else %}
+                                            {{ detail }},
+                                        {% endif %}
+                                    {% else %}
+                                        {{ detail }}
+                                    {% endif %}
+
+                                {% endfor %}
+                            </h5>
+                        </div>
+                    {% endfor %}
+
                 </div>
             </div>
             <div class="product-card-mobile-info__credits">
