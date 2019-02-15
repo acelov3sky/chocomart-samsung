@@ -19180,6 +19180,14 @@ template {
   background-color: white;
   padding: 0 20px;
 }
+.product-card-mobile .swiper-button-next,
+.product-card-mobile .swiper-button-prev {
+  width: 44px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  background-size: 17px 40px;
+}
 .product-card-mobile__title {
   font-size: 16px;
   font-weight: normal;
