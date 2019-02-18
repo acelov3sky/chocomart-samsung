@@ -1,22 +1,1028 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Chocomart.kz | Samsung </title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
-    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+{{ dd(product) }}
+<div class="product-card-wrapper flex-wrap d-none d-sm-flex">
+        <div id="product-card-basket-modal" class="product-card-basket-modal">
+            <div class="product-card-basket">
+                <div onclick="closeBasket()" class="product-card-basket-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
+                        <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
+                            <path id="Line_51" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 51" transform="translate(-9420.5 -3811.5)"/>
+                            <path id="Line_52" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 52" transform="rotate(90 -2796.5 -6608)"/>
+                        </g>
+                    </svg>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js.map"></script>
-</head>
-<body>
-<div class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
-    ${require('../components/header.html')}
-    ${require('../components/product-card.html')}
-    ${require('../components/footer.html')}
+                </div>
+                <div class="product-card-basket-header">
+                    <div class="w-100 d-flex justify-content-center">
+                        <h4 class="text-center m-0 d-flex align-content-center align-items-center">Товар добавлен в корзину
+                        </h4>
+                        <div class="check">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.187 15.528">
+                                <path id="checked_1_" d="M.233 11.541a.751.751 0 0 1 0-1.087L1.32 9.367a.751.751 0 0 1 1.087 0l.078.078 4.27 4.581a.375.375 0 0 0 .543 0L17.7 3.233h.078a.751.751 0 0 1 1.087 0l1.089 1.087a.751.751 0 0 1 0 1.087L7.531 18.3a.751.751 0 0 1-1.087 0L.388 11.774l-.155-.233z" fill="#fff" data-name="checked (1)" transform="translate(0 -3)"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex align-content-center align-items-center justify-content-between mt-3">
+                        <div class="product-card-basket-img-wrapper">
+                            <img width="100%" src="../../assets/images/s9/s9front.png" alt="">
+                        </div>
+                        <div class="product-card-basket-title-wrapper">
+                            <h4>
+                                Смартфон Samsung 32GB <br>
+                                Смартфон Samsung
+                            </h4>
+                        </div>
+                        <div class="product-card-basket-stepper d-flex align-items-center">
+                            <input type="number" value="1" name="quantity" min="1" max="8"> шт.
+                        </div>
+                        <div class="product-card-basket-price-total">
+                            <h4>250 000 тг</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card-basket-content">
+                    <div class="w-100 d-flex align-content-center align-items-center mt-3">
+                        <div class="product-card-basket-img-wrapper">
+                            <!--<img width="100%" src="../../assets/images/s9/s9front.png" alt="">-->
+                        </div>
+                        <div class="product-card-basket-title-wrapper">
+                            <h4>
+                                Всего в корзине: <span>5 товаров</span>
+                            </h4>
+                            <h4>
+                                Общая сумма: <span>500 000 тенге</span>
+                            </h4>
+                            <button class="order">Оформить заказ</button>
+                            <button class="basket">Перейти в корзину
+                                <svg xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
+                                    <path fill="#ff5d5d" id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" data-name="Path 147" transform="translate(-17.2)"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card-basket-content">
+                    <div class="w-100 d-flex align-content-center align-items-center mt-3">
+                        <div class="product-card-basket-img-wrapper">
+                            <!--<img width="100%" src="../../assets/images/s9/s9front.png" alt="">-->
+                        </div>
+                        <div class="product-card-basket-title-wrapper">
+                            <button onclick="closeBasket()" class="continue">Продолжить покупки</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="product-card-basket-background"></div>
+        </div>
+        <div id="product-card-onclick-modal" class="product-card-basket-modal">
+            <div class="product-card-basket">
+                <div onclick="closeOneClick()" class="product-card-basket-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
+                        <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
+                            <path id="Line_51" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 51" transform="translate(-9420.5 -3811.5)"/>
+                            <path id="Line_52" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 52" transform="rotate(90 -2796.5 -6608)"/>
+                        </g>
+                    </svg>
+
+                </div>
+                <div class="product-card-basket-header">
+                    <div class="w-100 d-flex justify-content-center">
+                        <h4 class="text-center m-0 d-flex align-content-center align-items-center">Купить в один клик
+                        </h4>
+                        <div class="check">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.187 15.528">
+                                <path id="checked_1_" d="M.233 11.541a.751.751 0 0 1 0-1.087L1.32 9.367a.751.751 0 0 1 1.087 0l.078.078 4.27 4.581a.375.375 0 0 0 .543 0L17.7 3.233h.078a.751.751 0 0 1 1.087 0l1.089 1.087a.751.751 0 0 1 0 1.087L7.531 18.3a.751.751 0 0 1-1.087 0L.388 11.774l-.155-.233z" fill="#fff" data-name="checked (1)" transform="translate(0 -3)"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex align-content-center align-items-center justify-content-between mt-3">
+                        <div class="product-card-basket-img-wrapper">
+                            <img width="100%" src="../../assets/images/s9/s9front.png" alt="">
+                        </div>
+                        <div class="product-card-basket-title-wrapper">
+                            <h4>
+                                Смартфон Samsung 32GB <br>
+                                Смартфон Samsung
+                            </h4>
+                        </div>
+                        <div class="product-card-basket-stepper d-flex align-items-center">
+                            <input type="number" value="1" name="quantity" min="1" max="8"> шт.
+                        </div>
+                        <div class="product-card-basket-price-total">
+                            <h4>250 000 тг</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card-basket-content">
+                    <div class="w-100 d-flex align-content-center justify-content-center align-items-center">
+                        <div class="product-card-basket-title-wrapper">
+                            <button class="order">Оформить заказ</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card-basket-content">
+                    <div class="w-100 d-flex align-content-center justify-content-center align-items-center ">
+                        <div class="product-card-basket-title-wrapper">
+                            <button onclick="closeOneClick()" class="continue">Продолжить покупки</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="product-card-basket-background"></div>
+        </div>
+        <div class="row no-margin">
+            <div class="col-lg-6 product-card-image-container">
+                <div class="product-card-image-wrapper d-flex justify-content-center align-items-center">
+                    <img id="main_img" width="100%" src="{{ (product.images | first).image.getUri() }}" alt="">
+                    <div class="product-card-images-list">
+                        {% for image in product.images %}
+                            {% if loop.index == 1 %}
+                                <img onclick="changeThis(this)" class="product-card-images-list_item product-card-images-list_item__active" width="100%" src="{{ image.image.getUri() }}" alt="">
+                            {% else %}
+                                <img onclick="changeThis(this)" class="product-card-images-list_item" width="100%" src="{{ image.image.getUri() }}" alt="">
+                            {% endif %}
+
+                        {% endfor %}
+                        {#<img onclick="changeThis(this)" class="product-card-images-list_item" width="100%" src="https://learnbonds.com/wp-content/uploads/Samsung-logo-square.png" alt="">#}
+                    </div>
+                    <div class="product-card-bonus d-flex align-items-center justify-content-between">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="coins-money-stack" viewBox="0 0 24.579 24.579">
+                            <path d="M21.25 7.208a2.483 2.483 0 0 0 .257-1.065V4.609C21.507 2.064 17.38 0 12.289 0S3.072 2.064 3.072 4.609a2.37 2.37 0 0 1 .037-.372C1.206 5.08 0 6.31 0 7.681v1.536c0 1.425 1.3 2.7 3.329 3.543a2.483 2.483 0 0 0-.257 1.065v1.536a2.642 2.642 0 0 0 .537 1.539 2.642 2.642 0 0 0-.537 1.536v1.534c0 2.544 4.127 4.609 9.217 4.609s9.217-2.064 9.217-4.609v-1.536a2.664 2.664 0 0 0-.554-1.56l-.009.011a2.816 2.816 0 0 0 .525-1.151c1.9-.845 3.11-2.073 3.11-3.444v-1.537c.001-1.425-1.295-2.7-3.328-3.545zM12.289.768c4.979 0 8.449 2.024 8.449 3.84s-3.47 3.84-8.449 3.84S3.84 6.424 3.84 4.609 7.31.768 12.289.768zM.768 7.681c0-.9.851-1.841 2.3-2.57v1.034c0 2.544 4.127 4.609 9.217 4.609a18.007 18.007 0 0 0 2.2-.138 14.792 14.792 0 0 1-5.275.906C4.238 11.521.768 9.5.768 7.681zm19.97 10.753c0 1.815-3.47 3.84-8.449 3.84s-8.449-2.025-8.449-3.84a1.83 1.83 0 0 1 .311-.911.033.033 0 0 1-.006-.007c1.547 1.46 4.613 2.454 8.144 2.454s6.587-1 8.131-2.465a1.822 1.822 0 0 1 .318.929zm-3.171-1.674a14.776 14.776 0 0 1-5.278.906c-4.979 0-8.449-2.025-8.449-3.84a1.723 1.723 0 0 1 .227-.786 14.563 14.563 0 0 0 2.475.587c1.146 1.892 4.658 3.273 8.82 3.273a17.847 17.847 0 0 0 2.211-.14zm-2.205-2.166a15.042 15.042 0 0 1-5.068-.821c4.331-.255 7.751-1.994 8.1-4.184a6.531 6.531 0 0 0 2.421-1.7c1.86.756 2.994 1.836 2.994 2.862.002 1.817-3.468 3.843-8.447 3.843z"></path>
+                        </svg>
+                        <h4>
+                            Бонус<br>
+                            <span>2276 ₸</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 product-card-description-container">
+                <div class="product-card-description-wrapper">
+                    <div class="product-card-description-header">
+                        <h4>{{ product.fullName }}</h4>
+                        <div class="product-card-rating d-flex align-items-top">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.657 25.529">
+                                <path fill="#fafafa" stroke="#707070" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(.514 -.547)"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="product-card-description-content d-flex justify-content-between">
+                        <div class="product-card-price-info">
+                            {#<h5>#}
+                                {#500 000 тг#}
+                            {#</h5>#}
+                            <h4>
+                                {{ product.getBestOffer().price | number_format }} тг
+                            </h4>
+                            <div class="product-card-action d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.39 21.829">
+                                    <path fill="#707070" id="notification" d="M18.663 17.825c-2.631-2.285-3.763-5.242-3.773-9.887a5.382 5.382 0 0 0-1.59-3.785 5.234 5.234 0 0 0-1.449-1.016v-.909a2.228 2.228 0 0 0-4.455 0v.964a5.213 5.213 0 0 0-2.9 4.659 16.607 16.607 0 0 1-.9 5.928 9.946 9.946 0 0 1-2.874 4.046.652.652 0 0 0 .427 1.144h5.208a3.1 3.1 0 0 0 6.179 0h5.7a.652.652 0 0 0 .427-1.144zM8.676 2.228a.946.946 0 0 1 1.891 0v.5a5.092 5.092 0 0 0-.92-.077 5.17 5.17 0 0 0-.971.1zm.771 18.32a1.82 1.82 0 0 1-1.8-1.578h3.6a1.82 1.82 0 0 1-1.8 1.578zm-6.759-2.861a10.983 10.983 0 0 0 2.1-3.45 17.838 17.838 0 0 0 .989-6.386 3.928 3.928 0 0 1 3.881-3.916 3.824 3.824 0 0 1 2.742 1.13 4.092 4.092 0 0 1 1.211 2.876 17.666 17.666 0 0 0 1 6.325 11 11 0 0 0 2.089 3.421zm0 0" transform="translate(-.497)"/>
+                                </svg>
+                                <h5>
+                                    Следить за ценой
+                                </h5>
+                            </div>
+                            <div class="product-card-action d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.814 20.298">
+                                    <path fill="#707070" id="heart" d="M11.407 20.3a1.338 1.338 0 0 1-.882-.331c-.925-.809-1.81-1.569-2.594-2.234a48.246 48.246 0 0 1-5.664-5.317A8.492 8.492 0 0 1 0 6.856a7.131 7.131 0 0 1 1.81-4.87A6.135 6.135 0 0 1 6.373 0a5.739 5.739 0 0 1 3.585 1.237 7.334 7.334 0 0 1 1.449 1.513 7.335 7.335 0 0 1 1.449-1.513A5.739 5.739 0 0 1 16.441 0 6.135 6.135 0 0 1 21 1.986a7.131 7.131 0 0 1 1.81 4.87 8.491 8.491 0 0 1-2.263 5.558 48.241 48.241 0 0 1-5.664 5.316c-.785.669-1.675 1.428-2.6 2.235a1.339 1.339 0 0 1-.882.331zM6.373 1.337a4.813 4.813 0 0 0-3.581 1.555 5.8 5.8 0 0 0-1.456 3.964 7.145 7.145 0 0 0 1.955 4.706 47.478 47.478 0 0 0 5.5 5.152c.787.671 1.679 1.431 2.607 2.243.934-.813 1.827-1.575 2.616-2.247a47.489 47.489 0 0 0 5.5-5.152 7.145 7.145 0 0 0 1.955-4.706 5.8 5.8 0 0 0-1.456-3.964 4.813 4.813 0 0 0-3.581-1.556 4.432 4.432 0 0 0-2.767.958 6.485 6.485 0 0 0-1.542 1.784.844.844 0 0 1-1.449 0A6.479 6.479 0 0 0 9.14 2.295a4.432 4.432 0 0 0-2.767-.958zm0 0"></path>
+                                </svg>
+                                <h5>
+                                    В избранное
+                                </h5>
+                            </div>
+                            <div class="product-card-action d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="growth_2_" data-name="growth (2)" viewBox="0 0 17.829 17.829">
+                                    <path fill="#707070" id="Path_935" d="M17.726 5.247L14 .211a.522.522 0 0 0-.839 0L9.427 5.247a.522.522 0 0 0 .42.833h1.343V8.6a1.908 1.908 0 0 0-.876-.212h-.933a1.923 1.923 0 0 0-1.921 1.925V11.4a1.908 1.908 0 0 0-.876-.212h-.933A1.923 1.923 0 0 0 3.73 13.11v1.09a1.91 1.91 0 0 0-.876-.212h-.933A1.923 1.923 0 0 0 0 15.908v1.4a.522.522 0 0 0 .522.522h14.92a.522.522 0 0 0 .522-.522V6.08h1.343a.522.522 0 0 0 .42-.833zM1.045 15.908a.877.877 0 0 1 .876-.876h.932a.877.877 0 0 1 .876.876v.876H1.045zm3.73 0v-2.8a.877.877 0 0 1 .876-.876h.932a.877.877 0 0 1 .876.876v3.674H4.774zm3.73-2.8v-2.8a.877.877 0 0 1 .876-.876h.932a.877.877 0 0 1 .876.876v6.471H8.5zm6.937-8.075a.522.522 0 0 0-.522.522v11.229h-2.686V5.558a.522.522 0 0 0-.522-.522h-.828L13.577 1.4l2.693 3.635zm0 0" data-name="Path 935"/>
+                                </svg>
+                                <h5>
+                                    К сравнению
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="product-card-buttons">
+                            <button onclick="buyOneCLick()">
+                                Купить в один клик
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.793 26.664">
+                                    <g id="click" transform="rotate(-14.98 22.958 276.052)">
+                                        <g id="Group_859" data-name="Group 859" transform="translate(71.256 7.299)">
+                                            <g id="Group_858" data-name="Group 858">
+                                                <path fill="#fff" id="Path_952" d="M228.388 163.371l-13.838-13.839a.693.693 0 0 0-1.182.49v19.161a.693.693 0 0 0 1.118.545l3.514-2.747 3.067 5.519a.694.694 0 0 0 .916.282l4.151-2.076a.691.691 0 0 0 .295-.955l-2.888-5.2h4.359a.693.693 0 0 0 .49-1.182zm-6.025-.2a.694.694 0 0 0-.6 1.03l3.108 5.595-2.912 1.457-3.139-5.649a.691.691 0 0 0-.468-.343.656.656 0 0 0-.137-.014.686.686 0 0 0-.426.147l-3.033 2.372v-16.07l11.476 11.476h-3.865z" data-name="Path 952" transform="translate(-213.368 -149.33)"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </button>
+                            <button onclick="addToBasket()">
+                                Добавить в корзину
+                                <svg xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
+                                    <path fill="#ff5d5d" id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" data-name="Path 147" transform="translate(-17.2)"></path>
+                                </svg>
+                            </button>
+                            <button>
+                                Оплатить частями
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.622 23">
+                                    <path fill="#fff" id="database_1_" d="M66.911 11C61.6 11 57.6 12.807 57.6 15.2v14.59c0 2.4 4 4.21 9.311 4.21s9.311-1.807 9.311-4.21V15.2c0-2.393-4.004-4.2-9.311-4.2zm8.161 13.929c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm0-4.862c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm-8.161-7.917c4.81 0 8.161 1.61 8.161 3.06s-3.351 3.06-8.161 3.06-8.161-1.61-8.161-3.06 3.35-3.06 8.161-3.06zm0 20.7c-4.81 0-8.161-1.61-8.161-3.06v-2.778c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121v2.774c0 1.45-3.351 3.06-8.161 3.06z" data-name="database (1)" transform="translate(-57.6 -11)"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card-description-footer d-flex justify-content-between">
+                        <div class="product-card-shipping-info">
+                            <div class="shipping-place d-flex w-100">
+                                <h4 class="product-card-city">Ваш город:</h4>
+                                <h5 class="product-card-dashed-border"></h5>
+                                <h5 class="product-card-cur-city">Алматы</h5>
+                            </div>
+                            <div class="shipping-type d-flex w-100">
+                                <h5> Самовывоз </h5>
+                                <h5 class="product-card-dashed-border"></h5>
+                                <h5 class="product-card-price-type">БЕСПЛАТНО</h5>
+                            </div>
+                            <h5 class="shipping-date">Доставим 18 октября</h5>
+                            <div class="shipping-type d-flex w-100">
+                                <h5>Курьером (эконом)</h5>
+                                <h5 class="product-card-dashed-border"></h5>
+                                <h5 class="product-card-price-type">БЕСПЛАТНО</h5>
+                            </div>
+                            <h5 class="shipping-date">Доставим 18 октября</h5>
+                        </div>
+                        <div class="product-card-buttons">
+                            <button class="online-call">
+                                Позвать консультанта
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">
+                                    <g id="question" transform="translate(-.002)">
+                                        <g id="Group_1185" data-name="Group 1185" transform="translate(10.457 16.295)">
+                                            <g id="Group_1184" data-name="Group 1184">
+                                                <path fill="#fdcc05" id="Path_1280" d="M233.4 362.748a.682.682 0 1 0 .682.682.69.69 0 0 0-.682-.682z"  data-name="Path 1280" transform="translate(-232.719 -362.748)"/>
+                                            </g>
+                                        </g>
+                                        <g id="Group_1187" data-name="Group 1187" transform="translate(7.747 5.735)">
+                                            <g id="Group_1186" data-name="Group 1186">
+                                                <path fill="#fdcc05" id="Path_1281" d="M175.787 127.674a3.4 3.4 0 0 0-3.392 3.392.682.682 0 1 0 1.364 0 2.029 2.029 0 1 1 2.029 2.029.682.682 0 0 0-.682.682v2.781a.682.682 0 1 0 1.364 0v-2.168a3.392 3.392 0 0 0-.682-6.716z"  data-name="Path 1281" transform="translate(-172.395 -127.674)"/>
+                                            </g>
+                                        </g>
+                                        <path fill="#fdcc05" id="Path_1282" d="M22.912 20.828l-1.579-4.6a11.237 11.237 0 1 0-10.083 6.266h.018a11.282 11.282 0 0 0 4.968-1.164l4.6 1.579a1.65 1.65 0 0 0 .537.09 1.64 1.64 0 0 0 1.544-2.172zm-1.355.726a.263.263 0 0 1-.283.065L16.4 19.947a.682.682 0 0 0-.54.042 9.88 9.88 0 1 1 4.127-4.127.682.682 0 0 0-.042.54l1.673 4.869a.263.263 0 0 1-.061.283z"  data-name="Path 1282"/>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row no-margin w-100">
+            <div class="col-12 product-card-info-container">
+                <div class="product-card-info-wrapper">
+                    <div class="product-card-info-header d-flex w-100">
+                        <h4 onclick="openLink(this, '0')" class="links link-active">Характеристики</h4>
+                        <h4 onclick="openLink(this, '1')" class="links">Отзывы</h4>
+                        <h4 onclick="openLink(this, '2')" class="links">Chocomart гарантирует</h4>
+                        <h4 onclick="openLink(this, '3')" class="links">Рассрочка и кредит</h4>
+                    </div>
+                    <div class="product-card-info-content">
+                        <div id="product-card-info-content-0">
+                            <div class="product-card-characteristic">
+                                <div class="characteristic-detail d-flex">
+                                    <div class="">
+                                        <h4>
+                                            Основные характеристики
+                                        </h4>
+                                    </div>
+
+                                    <div class="product-card-characteristic-detail">
+                                        {% for characteristic in product.comparedProperties %}
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">{{ characteristic.property.label }}</h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">
+                                                {% for detail in characteristic.params %}
+                                                    {% if characteristic.params|length > 1 %}
+                                                        {% if loop.index == characteristic.params|length %}
+                                                            {{ detail }}
+                                                        {% else %}
+                                                            {{ detail }},
+                                                        {% endif %}
+                                                    {% else %}
+                                                        {{ detail }}
+                                                    {% endif %}
+
+                                                {% endfor %}
+                                            </h5>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card-characteristic d-none">
+                                <div class="characteristic-detail d-flex">
+                                    <h4>
+                                        Основные характеристики
+                                    </h4>
+                                    <div class="product-card-characteristic-detail">
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Объем встроенной памяти </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">64 ГБ</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Количество ядер процессора </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">6</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Процессор</h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">Samsa</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Частота процессора  </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">2390 МГц</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Производитель процессора </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">Sams</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Стандарт связи </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">3G, GSM, LTE 4G </h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">LTE </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">Yeah baby</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card-characteristic d-none">
+                                <div class="characteristic-detail d-flex">
+                                    <h4>
+                                        Основные характеристики
+                                    </h4>
+                                    <div class="product-card-characteristic-detail">
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Объем встроенной памяти </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">64 ГБ</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Количество ядер процессора </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">6</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Процессор</h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">Samsa</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Частота процессора  </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">2390 МГц</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Производитель процессора </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">Sams</h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">Стандарт связи </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">3G, GSM, LTE 4G </h5>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <h5 class="characteristic-title">LTE </h5>
+                                            <h5 class="product-card-dashed-border"></h5>
+                                            <h5 class="characteristic-info">Yeah baby</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="product-card-info-content-1">
+                            <div class="product-card-review d-flex">
+                                <div class="product-card-review-img">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.262 35.578">
+                                        <g id="avatar_1_" data-name="avatar (1)" transform="translate(-36.073)">
+                                            <g id="Group_920" data-name="Group 920" transform="translate(36.073)">
+                                                <path id="Path_987" d="M144.642 19.17h.236a6.8 6.8 0 0 0 5.194-2.247c2.836-3.2 2.365-8.679 2.313-9.2-.184-3.927-2.041-5.806-3.573-6.682A8.191 8.191 0 0 0 144.848 0h-.125a8.2 8.2 0 0 0-3.964 1.009c-1.547.877-3.433 2.755-3.617 6.712-.052.523-.523 6 2.313 9.2a6.771 6.771 0 0 0 5.187 2.249zm-5.533-11.265c0-.022.007-.044.007-.059.243-5.282 3.993-5.85 5.6-5.85h.088c1.989.044 5.371.855 5.6 5.85a.144.144 0 0 0 .007.059c.007.052.523 5.061-1.82 7.7a4.829 4.829 0 0 1-3.794 1.577h-.074a4.813 4.813 0 0 1-3.787-1.577c-2.336-2.623-1.836-7.655-1.827-7.7z" fill="#b4b4b4" data-name="Path 987" transform="translate(-129.64)"/>
+                                                <path id="Path_988" d="M66.333 268.406v-.022c0-.059-.007-.118-.007-.184-.044-1.459-.14-4.87-3.337-5.96l-.074-.022a21.258 21.258 0 0 1-6.115-2.785.994.994 0 0 0-1.142 1.628 22.946 22.946 0 0 0 6.727 3.072c1.717.611 1.908 2.446 1.96 4.126a1.479 1.479 0 0 0 .007.184 13.373 13.373 0 0 1-.155 2.277 27.114 27.114 0 0 1-12.989 3.021 27.27 27.27 0 0 1-13-3.028 12.66 12.66 0 0 1-.155-2.277c0-.059.007-.118.007-.184.052-1.68.243-3.514 1.96-4.126a23.163 23.163 0 0 0 6.727-3.072.994.994 0 0 0-1.142-1.628 21.025 21.025 0 0 1-6.115 2.785c-.029.007-.052.015-.074.022-3.2 1.1-3.293 4.509-3.337 5.96a1.48 1.48 0 0 1-.007.184v.022a11.3 11.3 0 0 0 .376 3.337.945.945 0 0 0 .383.464c.221.147 5.518 3.522 14.381 3.522S65.375 272.34 65.6 272.2a.986.986 0 0 0 .383-.464 11.853 11.853 0 0 0 .35-3.33z" fill="#b4b4b4" data-name="Path 988" transform="translate(-36.073 -240.144)"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="product-card-review-name">
+                                    <h4>Иван Иванов</h4>
+                                    <div class="product-card-rating d-flex align-items-top justify-content-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.657 25.529">
+                                            <path fill="#fafafa" stroke="#707070" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(.514 -.547)"/>
+                                        </svg>
+                                    </div>
+                                    <h5>29 июня 2016</h5>
+                                    <img width="100px" src="../../assets/images/yandex.png" alt="">
+                                </div>
+                                <div class="product-card-review-text">
+                                    <h4>
+                                        Всегда смотрел на обладателей iPhone, как на счастливчиков, которые в руках держат что-то необычное,
+                                        выделяющее их из толпы. iPhone 6 нравится своим внешним видом, его металлический корпус, звук и
+                                        даже дисплей с диагональю всего 4,7" мне не кажется каким-то маленьким, неудобным, даже наоборот –
+                                        он удобен, качественен, с хорошими углами обзора.
+                                    </h4>
+                                    <h4>
+                                        Всегда смотрел на обладателей iPhone, как на счастливчиков, которые в руках держат что-то необычное,
+                                        выделяющее их из толпы. iPhone 6 нравится своим внешним видом, его металлический корпус, звук и
+                                        даже дисплей с диагональю всего 4,7" мне не кажется каким-то маленьким, неудобным, даже наоборот –
+                                        он удобен, качественен, с хорошими углами обзора.
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="product-card-review d-flex">
+                                <div class="product-card-review-img">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.262 35.578">
+                                        <g id="avatar_1_" data-name="avatar (1)" transform="translate(-36.073)">
+                                            <g id="Group_920" data-name="Group 920" transform="translate(36.073)">
+                                                <path id="Path_987" d="M144.642 19.17h.236a6.8 6.8 0 0 0 5.194-2.247c2.836-3.2 2.365-8.679 2.313-9.2-.184-3.927-2.041-5.806-3.573-6.682A8.191 8.191 0 0 0 144.848 0h-.125a8.2 8.2 0 0 0-3.964 1.009c-1.547.877-3.433 2.755-3.617 6.712-.052.523-.523 6 2.313 9.2a6.771 6.771 0 0 0 5.187 2.249zm-5.533-11.265c0-.022.007-.044.007-.059.243-5.282 3.993-5.85 5.6-5.85h.088c1.989.044 5.371.855 5.6 5.85a.144.144 0 0 0 .007.059c.007.052.523 5.061-1.82 7.7a4.829 4.829 0 0 1-3.794 1.577h-.074a4.813 4.813 0 0 1-3.787-1.577c-2.336-2.623-1.836-7.655-1.827-7.7z" fill="#b4b4b4" data-name="Path 987" transform="translate(-129.64)"/>
+                                                <path id="Path_988" d="M66.333 268.406v-.022c0-.059-.007-.118-.007-.184-.044-1.459-.14-4.87-3.337-5.96l-.074-.022a21.258 21.258 0 0 1-6.115-2.785.994.994 0 0 0-1.142 1.628 22.946 22.946 0 0 0 6.727 3.072c1.717.611 1.908 2.446 1.96 4.126a1.479 1.479 0 0 0 .007.184 13.373 13.373 0 0 1-.155 2.277 27.114 27.114 0 0 1-12.989 3.021 27.27 27.27 0 0 1-13-3.028 12.66 12.66 0 0 1-.155-2.277c0-.059.007-.118.007-.184.052-1.68.243-3.514 1.96-4.126a23.163 23.163 0 0 0 6.727-3.072.994.994 0 0 0-1.142-1.628 21.025 21.025 0 0 1-6.115 2.785c-.029.007-.052.015-.074.022-3.2 1.1-3.293 4.509-3.337 5.96a1.48 1.48 0 0 1-.007.184v.022a11.3 11.3 0 0 0 .376 3.337.945.945 0 0 0 .383.464c.221.147 5.518 3.522 14.381 3.522S65.375 272.34 65.6 272.2a.986.986 0 0 0 .383-.464 11.853 11.853 0 0 0 .35-3.33z" fill="#b4b4b4" data-name="Path 988" transform="translate(-36.073 -240.144)"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="product-card-review-name">
+                                    <h4>Иван Иванов</h4>
+                                    <div class="product-card-rating d-flex align-items-top justify-content-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
+                                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.657 25.529">
+                                            <path fill="#fafafa" stroke="#707070" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(.514 -.547)"/>
+                                        </svg>
+                                    </div>
+                                    <h5>29 июня 2016</h5>
+                                    <img width="100px" src="../../assets/images/yandex.png" alt="">
+                                </div>
+                                <div class="product-card-review-text">
+                                    <h4>
+                                        Всегда смотрел на обладателей iPhone, как на счастливчиков, которые в руках держат что-то необычное,
+                                        выделяющее их из толпы. iPhone 6 нравится своим внешним видом, его металлический корпус, звук и
+                                        даже дисплей с диагональю всего 4,7" мне не кажется каким-то маленьким, неудобным, даже наоборот –
+                                        он удобен, качественен, с хорошими углами обзора.
+                                    </h4>
+                                    <h4>
+                                        Всегда смотрел на обладателей iPhone, как на счастливчиков, которые в руках держат что-то необычное,
+                                        выделяющее их из толпы. iPhone 6 нравится своим внешним видом, его металлический корпус, звук и
+                                        даже дисплей с диагональю всего 4,7" мне не кажется каким-то маленьким, неудобным, даже наоборот –
+                                        он удобен, качественен, с хорошими углами обзора.
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="product-card-info-content-2">
+                            <div class="product-card-warranty">
+                                <div class="warranty-image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.795 23.888">
+                                        <g id="delivery_1_" data-name="delivery (1)">
+                                            <g id="Group_864" data-name="Group 864">
+                                                <path fill="#2d3946" id="Path_959" d="M43.065 109.683h-6.27v-2.14a1.494 1.494 0 0 0-1.511-1.477H13.5a1.494 1.494 0 0 0-1.511 1.477v4.452h-5.88a.733.733 0 0 0-.635.357l-2.963 5.058H.73a.722.722 0 0 0-.73.713v7.991a.722.722 0 0 0 .73.713h2.131a3.93 3.93 0 0 0 4.6 3.059 3.891 3.891 0 0 0 3.129-3.059h2.131a.744.744 0 0 0 .314-.078 1.49 1.49 0 0 0 .46.078h9.547a3.93 3.93 0 0 0 4.6 3.059 3.891 3.891 0 0 0 3.129-3.059h4.511a1.494 1.494 0 0 0 1.511-1.477v-6.514h4.717a.714.714 0 1 0 0-1.427h-4.715v-2.44h.825a.714.714 0 1 0 0-1.427h-.825v-2.432h6.27a.714.714 0 1 0 0-1.427zM6.533 113.45h5.46v3.96H4.2zm.2 15.082a2.426 2.426 0 1 1 2.482-2.426 2.454 2.454 0 0 1-2.485 2.426zm3.861-3.139a3.93 3.93 0 0 0-4.6-3.059 3.891 3.891 0 0 0-3.129 3.059H1.46v-6.557h10.532v6.557zm16.328 3.139a2.426 2.426 0 1 1 2.482-2.426 2.454 2.454 0 0 1-2.485 2.426zm8.423-18.821h-3.492a.714.714 0 1 0 0 1.427h3.474v2.411H26.4a.714.714 0 1 0 0 1.427h8.912v2.44h-5.021a.714.714 0 1 0 0 1.427H35.3v6.557h-4.52a3.93 3.93 0 0 0-4.6-3.059 3.891 3.891 0 0 0-3.129 3.059l-9.591-.043.051-17.836 21.832.05z" data-name="Path 959" transform="translate(0 -106.066)"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="warranty-description">
+                                    <h4>
+                                        Самая быстрая доставка по всему Казахстану
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="product-card-warranty">
+                                <div class="warranty-image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="wallet" viewBox="0 0 34.74 35.093">
+                                        <path fill="#2d3946" id="Path_964" d="M36.422 16.348h-1.684V8.6a3.371 3.371 0 0 0-3.368-3.365h-2.28l-2.334-4.2a2.02 2.02 0 0 0-2.748-.78l-8.956 4.98h-10A3.371 3.371 0 0 0 1.681 8.6v23.125a3.371 3.371 0 0 0 3.367 3.367H31.37a3.371 3.371 0 0 0 3.367-3.367v-6.791h1.684v-8.586zM31.37 6.582a2.017 2.017 0 0 1 2 1.8h-2.532l-1-1.8zm-6.707-5.15a.686.686 0 0 1 .915.261L29.3 8.377H12.173zm8.727 30.293a2.023 2.023 0 0 1-2.021 2.021H5.048a2.023 2.023 0 0 1-2.021-2.021V8.6a2.023 2.023 0 0 1 2.021-2.018h7.582L9.4 8.378H5.469a.674.674 0 0 0 0 1.347h27.922v6.623h-4.925a4.154 4.154 0 0 0-4.149 4.152v.29a4.154 4.154 0 0 0 4.149 4.149h4.925zm1.684-8.138h-6.608a2.8 2.8 0 0 1-2.8-2.8V20.5a2.8 2.8 0 0 1 2.8-2.8h6.609zM30.528 20.7a1.487 1.487 0 1 1-1.487-1.487 1.487 1.487 0 0 1 1.487 1.487z" data-name="Path 964" transform="translate(-1.681)"/>
+                                    </svg>
+                                </div>
+                                <div class="warranty-description">
+                                    <h4>
+                                        Оплата наличными в момент доставки или другим способом
+                                        (банковские карты, QIWI терминал, безналичный платеж)
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="product-card-warranty">
+                                <div class="warranty-image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="calendar_1_" data-name="calendar (1)" viewBox="0 0 33.444 35.833">
+                                        <g id="Group_868" data-name="Group 868">
+                                            <path fill="#2d3946" id="Path_963" d="M45.527 6.995a5.794 5.794 0 0 0-1.563-2.931 4.683 4.683 0 0 0-.82-.664l-.044-.039c-.039-.039-.078-.039-.117-.078a1.584 1.584 0 0 0-.352-.2H42.6a5.777 5.777 0 0 0-2.735-.664H37.44V.742a.742.742 0 1 0-1.485 0v1.6H21.929v-1.6A.769.769 0 0 0 21.186 0a.742.742 0 0 0-.742.742v1.6h-2.422a5.7 5.7 0 0 0-2.149.43 6.078 6.078 0 0 0-1.954 1.29A6.676 6.676 0 0 0 13.1 5.08a6.926 6.926 0 0 0-.586 1.211 4.725 4.725 0 0 0-.2.7 5.965 5.965 0 0 0-.114 1.176v21.922a5.736 5.736 0 0 0 5.743 5.744H39.9a5.736 5.736 0 0 0 5.743-5.744V8.167a5.965 5.965 0 0 0-.116-1.172zm-31.8 1.133a5.854 5.854 0 0 1 .078-.86 6.469 6.469 0 0 1 .234-.821 5.381 5.381 0 0 1 .547-.938c.117-.156.234-.274.352-.43a6.089 6.089 0 0 1 .781-.625 4.34 4.34 0 0 1 2.227-.625h2.422v1.6a.742.742 0 1 0 1.485 0V3.83h14.219v1.6a.742.742 0 1 0 1.485 0v-1.6h2.422a4.235 4.235 0 0 1 2.227.625 6.089 6.089 0 0 1 .781.625 4.138 4.138 0 0 1 1.173 2.188 6.391 6.391 0 0 1 .078.86v3.2H13.724zm30.55 21.922a4.27 4.27 0 0 1-4.3 4.338H18.022a4.269 4.269 0 0 1-4.3-4.3v-17.31h30.555z" data-name="Path 963" transform="translate(-12.2)"/>
+                                        </g>
+                                        <text fill="#2d3946" style="font-size:18px;font-family:Helvetica" id="_14" data-name="14" transform="translate(7.18 29.708)">
+                                            <tspan x="0" y="0">14</tspan>
+                                        </text>
+                                    </svg>
+
+                                </div>
+                                <div class="warranty-description">
+                                    <h4>
+                                        14 дней на обмен и возврат
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="product-card-warranty">
+                                <div class="warranty-image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.1 34.982">
+                                        <g id="shopping-cart_2_" data-name="shopping-cart (2)" transform="translate(0 -27.504)">
+                                            <g id="Group_1094" data-name="Group 1094" transform="translate(0 27.504)">
+                                                <g id="Group_1093" data-name="Group 1093">
+                                                    <path id="Path_1059" d="M278.522 323.5a3.722 3.722 0 1 0 3.722 3.722 3.732 3.732 0 0 0-3.722-3.722zm0 5.954a2.233 2.233 0 1 1 2.233-2.233 2.24 2.24 0 0 1-2.233 2.237z" fill="#2d3946" data-name="Path 1059" transform="translate(-249.233 -295.965)"/>
+                                                    <path id="Path_1060" d="M118.522 323.5a3.722 3.722 0 1 0 3.722 3.722 3.732 3.732 0 0 0-3.722-3.722zm0 5.954a2.233 2.233 0 1 1 2.233-2.233 2.239 2.239 0 0 1-2.233 2.237z" fill="#2d3946" data-name="Path 1060" transform="translate(-104.119 -295.965)"/>
+                                                    <path id="Path_1061" d="M39.709 33.682a2.208 2.208 0 0 0-1.824-.968H7.517l-.447-2.233A3.677 3.677 0 0 0 3.424 27.5H.744a.744.744 0 1 0 0 1.489h2.68a2.164 2.164 0 0 1 2.158 1.786l.558 2.828a.529.529 0 0 0 .074.223l3.2 16.747a3.78 3.78 0 0 0 3.686 3.019h17.417a3.747 3.747 0 0 0 3.5-2.419l5.917-15.407a2.182 2.182 0 0 0-.225-2.084zm-1.154 1.526l-5.917 15.407a2.2 2.2 0 0 1-2.084 1.451H13.137a2.3 2.3 0 0 1-2.2-1.824L8.708 38.669h17.566a.744.744 0 0 0 0-1.489H8.411l-.559-2.98h30.033a.723.723 0 0 1 .6.3.7.7 0 0 1 .07.708z" fill="#2d3946" data-name="Path 1061" transform="translate(0 -27.504)"/>
+                                                    <path id="Path_1062" d="M312.261 131.5h-1.116a.744.744 0 1 0 0 1.489h1.116a.744.744 0 1 0 0-1.489z" fill="#2d3946" data-name="Path 1062" transform="translate(-281.521 -121.828)"/>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="warranty-description">
+                                    <h4>
+                                        Наш ассортимент постоянно обновляется,
+                                        ежедневно вносятся новые позиции
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="product-card-warranty">
+                                <div class="warranty-image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.64 37.234">
+                                        <g id="medal_1_" data-name="medal (1)" transform="translate(-30.433)">
+                                            <g id="Group_1092" data-name="Group 1092" transform="translate(30.433)">
+                                                <g id="Group_1091" data-name="Group 1091">
+                                                    <path id="Path_1057" d="M61.966 30.984l-5.442-9.56a1.533 1.533 0 0 0 .846-1.507l-.4-3.383 2.316-2.427a1.514 1.514 0 0 0 .037-2.022L57 9.585l.478-3.419A1.521 1.521 0 0 0 56.3 4.548l-3.346-.662L51.34.908a1.446 1.446 0 0 0-1.875-.7h-.037L46.34 1.643 43.325.172a1.433 1.433 0 0 0-1.949.588l-1.654 2.979-3.346.588a1.508 1.508 0 0 0-1.213 1.655l.4 3.383-2.316 2.427a1.514 1.514 0 0 0-.037 2.022l2.316 2.5-.478 3.419a1.514 1.514 0 0 0 .956 1.544l-5.474 9.707a.749.749 0 0 0 0 .735.758.758 0 0 0 .625.368h5.883l2.684 4.669a.758.758 0 0 0 .625.368.712.712 0 0 0 .625-.368l5.258-8.971 5.258 9.082a.758.758 0 0 0 .625.368.712.712 0 0 0 .625-.368l2.684-4.78H61.3a.712.712 0 0 0 .625-.368.609.609 0 0 0 .041-.735zm-21.583 3.934L38.1 30.984a.758.758 0 0 0-.625-.368H32.4l5.074-8.971 2.1.368 1.618 2.978a1.446 1.446 0 0 0 1.875.7h.033l1.507-.7.735 1.287zm2.133-10.552h-.037l-1.618-3.052a1.372 1.372 0 0 0-1.029-.7l-3.383-.625.478-3.383a1.432 1.432 0 0 0-.368-1.213l-2.28-2.5 2.321-2.426a1.381 1.381 0 0 0 .4-1.213l-.4-3.346a.114.114 0 0 1 .037-.074l3.346-.588a1.488 1.488 0 0 0 1.029-.735l1.655-2.978L45.678 3A1.406 1.406 0 0 0 47 3l3.052-1.4h.037l1.618 3.052a1.375 1.375 0 0 0 .993.7l3.346.662-.477 3.386a1.432 1.432 0 0 0 .368 1.213l2.316 2.5-2.353 2.428a1.381 1.381 0 0 0-.4 1.213l.4 3.383-3.309.552a1.488 1.488 0 0 0-1.029.735L49.906 24.4l-3.015-1.471a1.406 1.406 0 0 0-1.324 0zm12.5 6.251a.712.712 0 0 0-.625.368l-2.28 4.044-5.184-8.971a.593.593 0 0 0-.147-.257l-.809-1.434.257-.11 3.015 1.471a1.513 1.513 0 0 0 1.949-.588l1.655-2.978 2.206-.4 5.037 8.861z" fill="#2d3946" data-name="Path 1057" transform="translate(-30.433)"/>
+                                                    <path id="Path_1058" d="M137 68.429a7.354 7.354 0 1 0-7.354 7.354A7.375 7.375 0 0 0 137 68.429zm-7.354 5.883a5.883 5.883 0 1 1 5.883-5.883 5.9 5.9 0 0 1-5.887 5.882z" fill="#2d3946" data-name="Path 1058" transform="translate(-113.845 -55.461)"/>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+
+                                </div>
+                                <div class="warranty-description">
+                                    <h4>
+                                        Мы предлагаем только оригинальные изделия
+                                        от проверенных поставщиков
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="product-card-info-content-3">
+                            <div class="product-card-credit">
+                                <div class="product-card-credit-buttons d-flex">
+                                    <button class="product-card-credit_button product-card-credit_button__active">Рассрочка</button>
+                                    <button class="product-card-credit_button">Кредит</button>
+                                </div>
+                                <div class="product-card-months d-flex">
+                                    <div class="product-card-month d-flex justify-content-center align-content-center">
+                                        3
+                                    </div>
+                                    <div class="product-card-month product-card-month__active d-flex justify-content-center align-content-center">
+                                        6
+                                    </div>
+                                    <div class="product-card-month d-flex justify-content-center align-content-center">
+                                        8
+                                    </div>
+                                    <div class="product-card-month d-flex justify-content-center align-content-center">
+                                        9
+                                    </div>
+                                    <div class="product-card-month d-flex justify-content-center align-content-center">
+                                        10
+                                    </div>
+                                    <div class="product-card-month d-flex justify-content-center align-content-center">
+                                        12
+                                    </div>
+                                    <div class="product-card-month d-flex justify-content-center align-content-center">
+                                        24
+                                    </div>
+                                    <h4>месяцев</h4>
+                                </div>
+                                <div class="product-card-banks ">
+                                    <div class="bank d-flex align-content-center">
+                                        <div class="product-card-banks_image">
+                                            <img src="../../assets/images/homebank.png" alt="">
+                                        </div>
+                                        <div class="product-card-banks_credit d-flex align-content-center">
+                                            <h4 class="d-flex justify-content-center align-items-center">
+                                                240 000  <span>тг/мес</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="bank d-flex align-content-center">
+                                        <div class="product-card-banks_image">
+                                            <img src="../../assets/images/forte.png" alt="">
+                                        </div>
+                                        <div class="product-card-banks_credit d-flex align-content-center">
+                                            <h4 class="d-flex justify-content-center align-items-center">
+                                                240 000  <span>тг/мес</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="bank d-flex align-content-center">
+                                        <div class="product-card-banks_image">
+                                            <img src="../../assets/images/kaspi.png" alt="">
+                                        </div>
+                                        <div class="product-card-banks_credit d-flex align-content-center">
+                                            <h4 class="d-flex justify-content-center align-items-center">
+                                                240 000  <span>тг/мес</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
-</body>
-</html>
+
+<div class="product-card-mobile-wrapper">
+    <div class="product-card-mobile-category d-flex align-items-center justify-content-between">
+        <div>
+            <svg width="20px" height="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.707 15.485">
+                <g id="Group_1118" data-name="Group 1118" transform="translate(-15.293 -14.793)">
+                    <path id="Line_330" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 330" transform="rotate(-45 35.246 -8.028)"/>
+                    <path id="Line_331" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 331" transform="translate(16.5 22.5)"/>
+                    <path id="Line_368" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 368" transform="rotate(45 -19.16 30.564)"/>
+                </g>
+            </svg>
+        </div>
+        <div>
+            <h1 class="products-mobile-content__title text-uppercase font-weight-normal text-algin-center no-margin">Смартфоны</h1>
+        </div>
+        <div style="width: 20px">
+        </div>
+    </div>
+    <div class="product-card-mobile">
+        <h4 class="product-card-mobile__title">
+            {{ product.fullName }}
+        </h4>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for image in product.images %}
+                    <div class="swiper-slide">
+                        <div style="width: 100%;padding-bottom: 100%;background-image: url('{{ image.image.getUri() }}');background-size: cover;background-position: center center">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <div id="product-mobile" class="product-card-mobile-info mt-3">
+            <div class="product-card-mobile-info_prices d-flex flex-wrap justify-content-between">
+                <div class="product-card-mobile-info__price">
+                    <h5 class="mb-0"></h5>
+                    <h5>{{ product.getBestOffer().price | number_format }} тг</h5>
+                </div>
+                <div class="product-card-mobile-info__bonus d-none align-items-center">
+                    <svg width="30px" height="30px" fill="#fdcc05" xmlns="http://www.w3.org/2000/svg" id="coins-money-stack" viewBox="0 0 24.579 24.579">
+                        <path d="M21.25 7.208a2.483 2.483 0 0 0 .257-1.065V4.609C21.507 2.064 17.38 0 12.289 0S3.072 2.064 3.072 4.609a2.37 2.37 0 0 1 .037-.372C1.206 5.08 0 6.31 0 7.681v1.536c0 1.425 1.3 2.7 3.329 3.543a2.483 2.483 0 0 0-.257 1.065v1.536a2.642 2.642 0 0 0 .537 1.539 2.642 2.642 0 0 0-.537 1.536v1.534c0 2.544 4.127 4.609 9.217 4.609s9.217-2.064 9.217-4.609v-1.536a2.664 2.664 0 0 0-.554-1.56l-.009.011a2.816 2.816 0 0 0 .525-1.151c1.9-.845 3.11-2.073 3.11-3.444v-1.537c.001-1.425-1.295-2.7-3.328-3.545zM12.289.768c4.979 0 8.449 2.024 8.449 3.84s-3.47 3.84-8.449 3.84S3.84 6.424 3.84 4.609 7.31.768 12.289.768zM.768 7.681c0-.9.851-1.841 2.3-2.57v1.034c0 2.544 4.127 4.609 9.217 4.609a18.007 18.007 0 0 0 2.2-.138 14.792 14.792 0 0 1-5.275.906C4.238 11.521.768 9.5.768 7.681zm19.97 10.753c0 1.815-3.47 3.84-8.449 3.84s-8.449-2.025-8.449-3.84a1.83 1.83 0 0 1 .311-.911.033.033 0 0 1-.006-.007c1.547 1.46 4.613 2.454 8.144 2.454s6.587-1 8.131-2.465a1.822 1.822 0 0 1 .318.929zm-3.171-1.674a14.776 14.776 0 0 1-5.278.906c-4.979 0-8.449-2.025-8.449-3.84a1.723 1.723 0 0 1 .227-.786 14.563 14.563 0 0 0 2.475.587c1.146 1.892 4.658 3.273 8.82 3.273a17.847 17.847 0 0 0 2.211-.14zm-2.205-2.166a15.042 15.042 0 0 1-5.068-.821c4.331-.255 7.751-1.994 8.1-4.184a6.531 6.531 0 0 0 2.421-1.7c1.86.756 2.994 1.836 2.994 2.862.002 1.817-3.468 3.843-8.447 3.843z"></path>
+                    </svg>
+                    <div class="ml-2">
+                        <h4 class="no-margin">Бонус</h4>
+                        <h4 class="no-margin">2222 ₸</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-mobile-info__specifications">
+                <div v-on:click="char = !char" class="d-flex align-items-center">
+                    <h4 class="mb-0 mr-2 product-card-mobile-info__specification">Характеристики</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8.55" viewBox="0 0 15 8.55">
+                        <path id="Path_1228" d="M0 7.5a1.048 1.048 0 0 1 .307-.742l6.45-6.45a1.05 1.05 0 0 1 1.486 1.485L2.536 7.5l5.707 5.707a1.05 1.05 0 1 1-1.485 1.485L.307 8.243A1.048 1.048 0 0 1 0 7.5z" style="fill:#2d3946" data-name="Path 1228" transform="rotate(-90 4.275 4.275)"/>
+                    </svg>
+                </div>
+                <div v-if="char" class="product-card-mobile-info__specification-detail mt-3">
+                    {% for characteristic in product.comparedProperties %}
+                        <div class="d-flex w-100 mb-2">
+                            <h5 class="characteristic-title">{{ characteristic.property.label }}</h5>
+                            <h5 class="product-card-dashed-border"></h5>
+                            <h5 class="characteristic-info">
+                                {% for detail in characteristic.params %}
+                                    {% if characteristic.params|length > 1 %}
+                                        {% if loop.index == characteristic.params|length %}
+                                            {{ detail }}
+                                        {% else %}
+                                            {{ detail }},
+                                        {% endif %}
+                                    {% else %}
+                                        {{ detail }}
+                                    {% endif %}
+
+                                {% endfor %}
+                            </h5>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="product-card-mobile-info__credits">
+                <div v-on:click="buy = !buy" class="d-flex align-items-center">
+                    <h4 class="mb-0 mr-2 product-card-mobile-info__specification">Рассрочка и кредит</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8.55" viewBox="0 0 15 8.55">
+                        <path id="Path_1228" d="M0 7.5a1.048 1.048 0 0 1 .307-.742l6.45-6.45a1.05 1.05 0 0 1 1.486 1.485L2.536 7.5l5.707 5.707a1.05 1.05 0 1 1-1.485 1.485L.307 8.243A1.048 1.048 0 0 1 0 7.5z" style="fill:#2d3946" data-name="Path 1228" transform="rotate(-90 4.275 4.275)"/>
+                    </svg>
+                </div>
+                <div v-if="buy" class="product-card-mobile-info__credit-detail mt-3 ">
+                    <div class="d-flex justify-content-between">
+                        <button class="product-card-mobile-info__credit-rass">Рассрочка</button>
+                        <button class="product-card-mobile-info__credit-button">Кредит</button>
+                    </div>
+                    <div class="product-card-mobile-info__credit-month mt-3">
+                        <h4 class="product-card-mobile-info__credit-month__title">Количество месяцев</h4>
+                        <div class="credit-months d-flex flex-wrap justify-content-between">
+                            <div class="credit-month">
+                                3
+                            </div>
+                            <div class="credit-month">
+                                6
+                            </div>
+                            <div class="credit-month">
+                                8
+                            </div>
+                            <div class="credit-month">
+                                12
+                            </div>
+                            <div class="credit-month">
+                                18
+                            </div>
+                            <div class="credit-month">
+                                24
+                            </div>
+                        </div>
+                        <div class="credit-banks">
+                            <div class="bank d-flex align-content-center">
+                                <div class="banks_image">
+                                    <img src="../../assets/images/homebank.png" alt="">
+                                </div>
+                                <div class="banks_credit d-flex align-content-center">
+                                    <h4 class="d-flex justify-content-center align-items-center">
+                                        240 000  <span>тг/мес</span>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="bank d-flex align-content-center">
+                                <div class="banks_image">
+                                    <img src="../../assets/images/forte.png" alt="">
+                                </div>
+                                <div class="banks_credit d-flex align-content-center">
+                                    <h4 class="d-flex justify-content-center align-items-center">
+                                        240 000  <span>тг/мес</span>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="bank d-flex align-content-center">
+                                <div class="banks_image">
+                                    <img src="../../assets/images/kaspi.png" alt="">
+                                </div>
+                                <div class="banks_credit d-flex align-content-center">
+                                    <h4 class="d-flex justify-content-center align-items-center">
+                                        240 000  <span>тг/мес</span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-mobile-info__specifications">
+                <div v-on:click="sent = !sent" class="d-flex align-items-center">
+                    <h4 class="mb-0 mr-2 product-card-mobile-info__specification">Доставка и оплата</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8.55" viewBox="0 0 15 8.55">
+                        <path id="Path_1228" d="M0 7.5a1.048 1.048 0 0 1 .307-.742l6.45-6.45a1.05 1.05 0 0 1 1.486 1.485L2.536 7.5l5.707 5.707a1.05 1.05 0 1 1-1.485 1.485L.307 8.243A1.048 1.048 0 0 1 0 7.5z" style="fill:#2d3946" data-name="Path 1228" transform="rotate(-90 4.275 4.275)"/>
+                    </svg>
+                </div>
+                <div v-if="sent" class="product-card-mobile-info__specification-detail mt-3">
+                    <div class="d-flex w-100 mb-2">
+                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
+                        <h5 class="product-card-dashed-border"></h5>
+                        <h5 class="characteristic-info">64 ГБ</h5>
+                    </div>
+                    <div class="d-flex w-100 mb-2">
+                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
+                        <h5 class="product-card-dashed-border"></h5>
+                        <h5 class="characteristic-info">64 ГБ</h5>
+                    </div>
+                    <div class="d-flex w-100 mb-2">
+                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
+                        <h5 class="product-card-dashed-border"></h5>
+                        <h5 class="characteristic-info">64 ГБ</h5>
+                    </div>
+                    <div class="d-flex w-100 mb-2">
+                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
+                        <h5 class="product-card-dashed-border"></h5>
+                        <h5 class="characteristic-info">64 ГБ</h5>
+                    </div>
+                    <div class="d-flex w-100 mb-2">
+                        <h5 class="characteristic-title">Объем встроенной памяти </h5>
+                        <h5 class="product-card-dashed-border"></h5>
+                        <h5 class="characteristic-info">64 ГБ</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-mobile-buy">
+                <button class="buy_now">Купить сейчас
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20.723" height="23.04" viewBox="0 0 20.723 23.04">
+                        <g id="click_1_" data-name="click (1)" transform="translate(-24.632)">
+                            <g id="Group_1191" data-name="Group 1191" transform="translate(24.632)">
+                                <g id="Group_1190" data-name="Group 1190">
+                                    <path id="Path_1284" d="M24.842 13.171a.808.808 0 0 0-.061 1.011c.254.357 6.327 8.806 13.369 8.857h.08a6.49 6.49 0 0 0 5.292-2.248c2.709-3.3 1.628-8.98 1.581-9.22a.807.807 0 0 0-.376-.536 21.541 21.541 0 0 0-7.5-3.011c-.169-.033-.329-.071-.489-.1l-.668-5.527a2.447 2.447 0 0 0-4.892 0v3.318l-.052 7.794-.635-.489a4.911 4.911 0 0 0-2.921-1.134 3.651 3.651 0 0 0-2.728 1.285zm4.647 1.115l1.872 1.439a.847.847 0 0 0 .517.174.856.856 0 0 0 .851-.847l.071-9.337v-3.3a.833.833 0 0 1 1.665.024.6.6 0 0 0 0 .094l.739 6.125a.8.8 0 0 0 .593.682c.353.094.715.169 1.1.249a19.572 19.572 0 0 1 6.68 2.629c.174 1.2.593 5.235-1.3 7.536a4.886 4.886 0 0 1-4.045 1.66h-.066c-5.231-.038-10.165-5.748-11.628-7.6a1.828 1.828 0 0 1 1.04-.32 3.311 3.311 0 0 1 1.877.753.1.1 0 0 0 .035.039z" style="fill:#fff" data-name="Path 1284" transform="translate(-24.632)"/>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+                <button class="add_basket">Добавить в корзину
+                    <svg xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" width="21.374" height="23" data-name="shopping-cart (1)" viewBox="0 0 21.374 23">
+                        <path id="Path_147" d="M23.292 15.144h12.673a2.615 2.615 0 0 0 2.609-2.609V7.146a.06.06 0 0 0 0-.028v-.033-.028a.3.3 0 0 1-.009-.033c0-.009 0-.019-.009-.028s0-.019-.009-.028a.23.23 0 0 1-.014-.033.1.1 0 0 0-.033-.025l-.014-.028c0-.009-.009-.014-.014-.024s-.014-.019-.019-.028a.083.083 0 0 0-.019-.024c0-.009-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.009 0-.014-.014-.024-.019s-.019-.014-.028-.019l-.024-.014a.1.1 0 0 1-.028-.019l-.028-.014-.021-.014-.032-.016c-.009 0-.019 0-.028-.009a.088.088 0 0 0-.033-.009.2.2 0 0 1-.024 0 .1.1 0 0 0-.038 0h-.019l-16.062-2.23v-2.24a.291.291 0 0 0 0-.066.036.036 0 0 0 0-.019v-.043c0-.015 0-.024-.009-.038s0-.014 0-.024l-.014-.043V1.86a.142.142 0 0 0-.019-.038s0-.014-.009-.019a.1.1 0 0 0-.019-.028c0-.009-.009-.014-.014-.024l-.014-.024c-.005-.01-.014-.019-.019-.028l-.014-.014-.028-.028-.014-.014a.206.206 0 0 0-.033-.028s-.014-.009-.019-.014-.019-.014-.028-.024a.436.436 0 0 0-.038-.024s-.009 0-.014-.009l-.061-.028L18.087.051a.639.639 0 0 0-.5 1.177l3.091 1.3v13.987a2.612 2.612 0 0 0 2.278 2.585 2.575 2.575 0 1 0 4.784 1.324 2.527 2.527 0 0 0-.355-1.3h5.739a2.54 2.54 0 0 0-.355 1.3 2.576 2.576 0 1 0 2.576-2.576H23.292a1.334 1.334 0 0 1-1.333-1.333v-1.73a2.639 2.639 0 0 0 1.333.359zm3.177 5.275a1.3 1.3 0 1 1-1.3-1.3 1.3 1.3 0 0 1 1.299 1.3zm10.182 0a1.3 1.3 0 1 1-1.3-1.3 1.3 1.3 0 0 1 1.299 1.3zm-.685-6.552H23.292a1.334 1.334 0 0 1-1.333-1.333v-6.9L37.3 7.751v4.779a1.336 1.336 0 0 1-1.335 1.338z" style="fill:#ff5d5d" data-name="Path 147" transform="translate(-17.2)"/>
+                    </svg>
+                </button>
+                <button class="rass_button">Оплатить частями
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18.622" height="23" viewBox="0 0 18.622 23">
+                        <path id="database_1_" d="M66.911 11C61.6 11 57.6 12.807 57.6 15.2v14.59c0 2.4 4 4.21 9.311 4.21s9.311-1.807 9.311-4.21V15.2c0-2.393-4.004-4.2-9.311-4.2zm8.161 13.929c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm0-4.862c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm-8.161-7.917c4.81 0 8.161 1.61 8.161 3.06s-3.351 3.06-8.161 3.06-8.161-1.61-8.161-3.06 3.35-3.06 8.161-3.06zm0 20.7c-4.81 0-8.161-1.61-8.161-3.06v-2.778c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121v2.774c0 1.45-3.351 3.06-8.161 3.06z" style="fill:#fff" data-name="database (1)" transform="translate(-57.6 -11)"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="product-card-mobile-info__specifications">
+                <div v-on:click="warrant = !warrant" class="d-flex align-items-center">
+                    <h4 class="mb-0 mr-2 product-card-mobile-info__specification">Chocomart гарантирует</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8.55" viewBox="0 0 15 8.55">
+                        <path id="Path_1228" d="M0 7.5a1.048 1.048 0 0 1 .307-.742l6.45-6.45a1.05 1.05 0 0 1 1.486 1.485L2.536 7.5l5.707 5.707a1.05 1.05 0 1 1-1.485 1.485L.307 8.243A1.048 1.048 0 0 1 0 7.5z" style="fill:#2d3946" data-name="Path 1228" transform="rotate(-90 4.275 4.275)"/>
+                    </svg>
+                </div>
+                <div v-if="warrant" class="product-card-mobile-warranty">
+                    <div class="d-flex justify-content-between mb-2">
+                        <div class="warranty-image">
+                            <svg width="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.795 23.888">
+                                <g id="delivery_1_" data-name="delivery (1)">
+                                    <g id="Group_864" data-name="Group 864">
+                                        <path fill="#2d3946" id="Path_959" d="M43.065 109.683h-6.27v-2.14a1.494 1.494 0 0 0-1.511-1.477H13.5a1.494 1.494 0 0 0-1.511 1.477v4.452h-5.88a.733.733 0 0 0-.635.357l-2.963 5.058H.73a.722.722 0 0 0-.73.713v7.991a.722.722 0 0 0 .73.713h2.131a3.93 3.93 0 0 0 4.6 3.059 3.891 3.891 0 0 0 3.129-3.059h2.131a.744.744 0 0 0 .314-.078 1.49 1.49 0 0 0 .46.078h9.547a3.93 3.93 0 0 0 4.6 3.059 3.891 3.891 0 0 0 3.129-3.059h4.511a1.494 1.494 0 0 0 1.511-1.477v-6.514h4.717a.714.714 0 1 0 0-1.427h-4.715v-2.44h.825a.714.714 0 1 0 0-1.427h-.825v-2.432h6.27a.714.714 0 1 0 0-1.427zM6.533 113.45h5.46v3.96H4.2zm.2 15.082a2.426 2.426 0 1 1 2.482-2.426 2.454 2.454 0 0 1-2.485 2.426zm3.861-3.139a3.93 3.93 0 0 0-4.6-3.059 3.891 3.891 0 0 0-3.129 3.059H1.46v-6.557h10.532v6.557zm16.328 3.139a2.426 2.426 0 1 1 2.482-2.426 2.454 2.454 0 0 1-2.485 2.426zm8.423-18.821h-3.492a.714.714 0 1 0 0 1.427h3.474v2.411H26.4a.714.714 0 1 0 0 1.427h8.912v2.44h-5.021a.714.714 0 1 0 0 1.427H35.3v6.557h-4.52a3.93 3.93 0 0 0-4.6-3.059 3.891 3.891 0 0 0-3.129 3.059l-9.591-.043.051-17.836 21.832.05z" data-name="Path 959" transform="translate(0 -106.066)"/>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="warranty-description">
+                            <h4>
+                                Самая быстрая доставка по всему Казахстану
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <div class="warranty-image">
+                            <svg width="35px" xmlns="http://www.w3.org/2000/svg" id="wallet" viewBox="0 0 34.74 35.093">
+                                <path fill="#2d3946" id="Path_964" d="M36.422 16.348h-1.684V8.6a3.371 3.371 0 0 0-3.368-3.365h-2.28l-2.334-4.2a2.02 2.02 0 0 0-2.748-.78l-8.956 4.98h-10A3.371 3.371 0 0 0 1.681 8.6v23.125a3.371 3.371 0 0 0 3.367 3.367H31.37a3.371 3.371 0 0 0 3.367-3.367v-6.791h1.684v-8.586zM31.37 6.582a2.017 2.017 0 0 1 2 1.8h-2.532l-1-1.8zm-6.707-5.15a.686.686 0 0 1 .915.261L29.3 8.377H12.173zm8.727 30.293a2.023 2.023 0 0 1-2.021 2.021H5.048a2.023 2.023 0 0 1-2.021-2.021V8.6a2.023 2.023 0 0 1 2.021-2.018h7.582L9.4 8.378H5.469a.674.674 0 0 0 0 1.347h27.922v6.623h-4.925a4.154 4.154 0 0 0-4.149 4.152v.29a4.154 4.154 0 0 0 4.149 4.149h4.925zm1.684-8.138h-6.608a2.8 2.8 0 0 1-2.8-2.8V20.5a2.8 2.8 0 0 1 2.8-2.8h6.609zM30.528 20.7a1.487 1.487 0 1 1-1.487-1.487 1.487 1.487 0 0 1 1.487 1.487z" data-name="Path 964" transform="translate(-1.681)"/>
+                            </svg>
+                        </div>
+                        <div class="warranty-description">
+                            <h4>
+                                Оплата наличными
+                                в момент доставки
+                                или другим способом
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <div class="warranty-image">
+                            <svg width="35px" xmlns="http://www.w3.org/2000/svg" id="calendar_1_" data-name="calendar (1)" viewBox="0 0 33.444 35.833">
+                                <g id="Group_868" data-name="Group 868">
+                                    <path fill="#2d3946" id="Path_963" d="M45.527 6.995a5.794 5.794 0 0 0-1.563-2.931 4.683 4.683 0 0 0-.82-.664l-.044-.039c-.039-.039-.078-.039-.117-.078a1.584 1.584 0 0 0-.352-.2H42.6a5.777 5.777 0 0 0-2.735-.664H37.44V.742a.742.742 0 1 0-1.485 0v1.6H21.929v-1.6A.769.769 0 0 0 21.186 0a.742.742 0 0 0-.742.742v1.6h-2.422a5.7 5.7 0 0 0-2.149.43 6.078 6.078 0 0 0-1.954 1.29A6.676 6.676 0 0 0 13.1 5.08a6.926 6.926 0 0 0-.586 1.211 4.725 4.725 0 0 0-.2.7 5.965 5.965 0 0 0-.114 1.176v21.922a5.736 5.736 0 0 0 5.743 5.744H39.9a5.736 5.736 0 0 0 5.743-5.744V8.167a5.965 5.965 0 0 0-.116-1.172zm-31.8 1.133a5.854 5.854 0 0 1 .078-.86 6.469 6.469 0 0 1 .234-.821 5.381 5.381 0 0 1 .547-.938c.117-.156.234-.274.352-.43a6.089 6.089 0 0 1 .781-.625 4.34 4.34 0 0 1 2.227-.625h2.422v1.6a.742.742 0 1 0 1.485 0V3.83h14.219v1.6a.742.742 0 1 0 1.485 0v-1.6h2.422a4.235 4.235 0 0 1 2.227.625 6.089 6.089 0 0 1 .781.625 4.138 4.138 0 0 1 1.173 2.188 6.391 6.391 0 0 1 .078.86v3.2H13.724zm30.55 21.922a4.27 4.27 0 0 1-4.3 4.338H18.022a4.269 4.269 0 0 1-4.3-4.3v-17.31h30.555z" data-name="Path 963" transform="translate(-12.2)"/>
+                                </g>
+                                <text fill="#2d3946" style="font-size:18px;font-family:Helvetica" id="_14" data-name="14" transform="translate(7.18 29.708)">
+                                    <tspan x="0" y="0">14</tspan>
+                                </text>
+                            </svg>
+
+                        </div>
+                        <div class="warranty-description">
+                            <h4>
+                                14 дней на обмен и возврат
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <div class="warranty-image">
+                            <svg width="35px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.1 34.982">
+                                <g id="shopping-cart_2_" data-name="shopping-cart (2)" transform="translate(0 -27.504)">
+                                    <g id="Group_1094" data-name="Group 1094" transform="translate(0 27.504)">
+                                        <g id="Group_1093" data-name="Group 1093">
+                                            <path id="Path_1059" d="M278.522 323.5a3.722 3.722 0 1 0 3.722 3.722 3.732 3.732 0 0 0-3.722-3.722zm0 5.954a2.233 2.233 0 1 1 2.233-2.233 2.24 2.24 0 0 1-2.233 2.237z" fill="#2d3946" data-name="Path 1059" transform="translate(-249.233 -295.965)"/>
+                                            <path id="Path_1060" d="M118.522 323.5a3.722 3.722 0 1 0 3.722 3.722 3.732 3.732 0 0 0-3.722-3.722zm0 5.954a2.233 2.233 0 1 1 2.233-2.233 2.239 2.239 0 0 1-2.233 2.237z" fill="#2d3946" data-name="Path 1060" transform="translate(-104.119 -295.965)"/>
+                                            <path id="Path_1061" d="M39.709 33.682a2.208 2.208 0 0 0-1.824-.968H7.517l-.447-2.233A3.677 3.677 0 0 0 3.424 27.5H.744a.744.744 0 1 0 0 1.489h2.68a2.164 2.164 0 0 1 2.158 1.786l.558 2.828a.529.529 0 0 0 .074.223l3.2 16.747a3.78 3.78 0 0 0 3.686 3.019h17.417a3.747 3.747 0 0 0 3.5-2.419l5.917-15.407a2.182 2.182 0 0 0-.225-2.084zm-1.154 1.526l-5.917 15.407a2.2 2.2 0 0 1-2.084 1.451H13.137a2.3 2.3 0 0 1-2.2-1.824L8.708 38.669h17.566a.744.744 0 0 0 0-1.489H8.411l-.559-2.98h30.033a.723.723 0 0 1 .6.3.7.7 0 0 1 .07.708z" fill="#2d3946" data-name="Path 1061" transform="translate(0 -27.504)"/>
+                                            <path id="Path_1062" d="M312.261 131.5h-1.116a.744.744 0 1 0 0 1.489h1.116a.744.744 0 1 0 0-1.489z" fill="#2d3946" data-name="Path 1062" transform="translate(-281.521 -121.828)"/>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="warranty-description">
+                            <h4>
+                                Наш ассортимент
+                                постоянно обновляется
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+<script>
+    function buyOneCLick() {
+        document.getElementById('product-card-onclick-modal').style.display = "block";
+
+    }
+    function addToBasket() {
+        document.getElementById('product-card-basket-modal').style.display = "block";
+    }
+    function closeBasket() {
+        document.getElementById('product-card-basket-modal').style.display = "none";
+    }
+    function closeOneClick() {
+        document.getElementById('product-card-onclick-modal').style.display = "none";
+    }
+    var current_header_index = 0;
+    document.addEventListener("DOMContentLoaded", function(event) {
+        setTimeout(() => {
+            document.documentElement.scrollTop = 0;
+        },100)
+    });
+    function openLink(y, x) {
+        if (current_header_index !== x) {
+            document.getElementById('product-card-info-content-' + x).style.display = "block";
+            document.getElementById('product-card-info-content-' + current_header_index).style.display = "none";
+            var cur_link = document.getElementsByClassName('link-active');
+            cur_link[0].classList.remove('link-active');
+            y.classList.add('link-active');
+            current_header_index = x;
+        }
+    }
+    function changeThis(x) {
+        var cur_sub_img = document.getElementsByClassName('product-card-images-list_item__active');
+        cur_sub_img[0].classList.remove('product-card-images-list_item__active');
+        var cur_img = document.getElementById('main_img');
+        cur_img.src = x.src
+        x.classList.add('product-card-images-list_item__active');
+    }
+</script>
