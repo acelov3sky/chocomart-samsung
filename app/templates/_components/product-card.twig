@@ -1,4 +1,3 @@
-{{ dd(product) }}
 <div class="product-card-wrapper flex-wrap d-none d-sm-flex">
         <div id="product-card-basket-modal" class="product-card-basket-modal">
             <div class="product-card-basket">
@@ -131,10 +130,10 @@
             </div>
             <div class="product-card-basket-background"></div>
         </div>
-        <div class="row no-margin">
+        <div class="row no-margin w-100">
             <div class="col-lg-6 product-card-image-container">
-                <div class="product-card-image-wrapper d-flex justify-content-center align-items-center">
-                    <img id="main_img" width="100%" src="{{ (product.images | first).image.getUri() }}" alt="">
+                <div id="main_img" class="product-card-image-wrapper d-flex justify-content-center align-items-center" style="background-image: url('{{ (product.images | first).image.getUri() }}')">
+                    {#<img id="main_img" width="100%" src="{{ (product.images | first).image.getUri() }}" alt="">#}
                     <div class="product-card-images-list">
                         {% for image in product.images %}
                             {% if loop.index == 1 %}
@@ -231,12 +230,12 @@
                                     <path fill="#ff5d5d" id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" data-name="Path 147" transform="translate(-17.2)"></path>
                                 </svg>
                             </button>
-                            <button>
-                                Оплатить частями
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.622 23">
-                                    <path fill="#fff" id="database_1_" d="M66.911 11C61.6 11 57.6 12.807 57.6 15.2v14.59c0 2.4 4 4.21 9.311 4.21s9.311-1.807 9.311-4.21V15.2c0-2.393-4.004-4.2-9.311-4.2zm8.161 13.929c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm0-4.862c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm-8.161-7.917c4.81 0 8.161 1.61 8.161 3.06s-3.351 3.06-8.161 3.06-8.161-1.61-8.161-3.06 3.35-3.06 8.161-3.06zm0 20.7c-4.81 0-8.161-1.61-8.161-3.06v-2.778c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121v2.774c0 1.45-3.351 3.06-8.161 3.06z" data-name="database (1)" transform="translate(-57.6 -11)"/>
-                                </svg>
-                            </button>
+                            {#<button>#}
+                                {#Оплатить частями#}
+                                {#<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.622 23">#}
+                                    {#<path fill="#fff" id="database_1_" d="M66.911 11C61.6 11 57.6 12.807 57.6 15.2v14.59c0 2.4 4 4.21 9.311 4.21s9.311-1.807 9.311-4.21V15.2c0-2.393-4.004-4.2-9.311-4.2zm8.161 13.929c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm0-4.862c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm-8.161-7.917c4.81 0 8.161 1.61 8.161 3.06s-3.351 3.06-8.161 3.06-8.161-1.61-8.161-3.06 3.35-3.06 8.161-3.06zm0 20.7c-4.81 0-8.161-1.61-8.161-3.06v-2.778c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121v2.774c0 1.45-3.351 3.06-8.161 3.06z" data-name="database (1)" transform="translate(-57.6 -11)"/>#}
+                                {#</svg>#}
+                            {#</button>#}
                         </div>
                     </div>
                     <div class="product-card-description-footer d-flex justify-content-between">
@@ -259,26 +258,26 @@
                             </div>
                             <h5 class="shipping-date">Доставим 18 октября</h5>
                         </div>
-                        <div class="product-card-buttons">
-                            <button class="online-call">
-                                Позвать консультанта
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">
-                                    <g id="question" transform="translate(-.002)">
-                                        <g id="Group_1185" data-name="Group 1185" transform="translate(10.457 16.295)">
-                                            <g id="Group_1184" data-name="Group 1184">
-                                                <path fill="#fdcc05" id="Path_1280" d="M233.4 362.748a.682.682 0 1 0 .682.682.69.69 0 0 0-.682-.682z"  data-name="Path 1280" transform="translate(-232.719 -362.748)"/>
-                                            </g>
-                                        </g>
-                                        <g id="Group_1187" data-name="Group 1187" transform="translate(7.747 5.735)">
-                                            <g id="Group_1186" data-name="Group 1186">
-                                                <path fill="#fdcc05" id="Path_1281" d="M175.787 127.674a3.4 3.4 0 0 0-3.392 3.392.682.682 0 1 0 1.364 0 2.029 2.029 0 1 1 2.029 2.029.682.682 0 0 0-.682.682v2.781a.682.682 0 1 0 1.364 0v-2.168a3.392 3.392 0 0 0-.682-6.716z"  data-name="Path 1281" transform="translate(-172.395 -127.674)"/>
-                                            </g>
-                                        </g>
-                                        <path fill="#fdcc05" id="Path_1282" d="M22.912 20.828l-1.579-4.6a11.237 11.237 0 1 0-10.083 6.266h.018a11.282 11.282 0 0 0 4.968-1.164l4.6 1.579a1.65 1.65 0 0 0 .537.09 1.64 1.64 0 0 0 1.544-2.172zm-1.355.726a.263.263 0 0 1-.283.065L16.4 19.947a.682.682 0 0 0-.54.042 9.88 9.88 0 1 1 4.127-4.127.682.682 0 0 0-.042.54l1.673 4.869a.263.263 0 0 1-.061.283z"  data-name="Path 1282"/>
-                                    </g>
-                                </svg>
-                            </button>
-                        </div>
+                        {#<div class="product-card-buttons">#}
+                            {#<button class="online-call">#}
+                                {#Позвать консультанта#}
+                                {#<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">#}
+                                    {#<g id="question" transform="translate(-.002)">#}
+                                        {#<g id="Group_1185" data-name="Group 1185" transform="translate(10.457 16.295)">#}
+                                            {#<g id="Group_1184" data-name="Group 1184">#}
+                                                {#<path fill="#fdcc05" id="Path_1280" d="M233.4 362.748a.682.682 0 1 0 .682.682.69.69 0 0 0-.682-.682z"  data-name="Path 1280" transform="translate(-232.719 -362.748)"/>#}
+                                            {#</g>#}
+                                        {#</g>#}
+                                        {#<g id="Group_1187" data-name="Group 1187" transform="translate(7.747 5.735)">#}
+                                            {#<g id="Group_1186" data-name="Group 1186">#}
+                                                {#<path fill="#fdcc05" id="Path_1281" d="M175.787 127.674a3.4 3.4 0 0 0-3.392 3.392.682.682 0 1 0 1.364 0 2.029 2.029 0 1 1 2.029 2.029.682.682 0 0 0-.682.682v2.781a.682.682 0 1 0 1.364 0v-2.168a3.392 3.392 0 0 0-.682-6.716z"  data-name="Path 1281" transform="translate(-172.395 -127.674)"/>#}
+                                            {#</g>#}
+                                        {#</g>#}
+                                        {#<path fill="#fdcc05" id="Path_1282" d="M22.912 20.828l-1.579-4.6a11.237 11.237 0 1 0-10.083 6.266h.018a11.282 11.282 0 0 0 4.968-1.164l4.6 1.579a1.65 1.65 0 0 0 .537.09 1.64 1.64 0 0 0 1.544-2.172zm-1.355.726a.263.263 0 0 1-.283.065L16.4 19.947a.682.682 0 0 0-.54.042 9.88 9.88 0 1 1 4.127-4.127.682.682 0 0 0-.042.54l1.673 4.869a.263.263 0 0 1-.061.283z"  data-name="Path 1282"/>#}
+                                    {#</g>#}
+                                {#</svg>#}
+                            {#</button>#}
+                        {#</div>#}
                     </div>
                 </div>
             </div>
@@ -289,9 +288,9 @@
                 <div class="product-card-info-wrapper">
                     <div class="product-card-info-header d-flex w-100">
                         <h4 onclick="openLink(this, '0')" class="links link-active">Характеристики</h4>
-                        <h4 onclick="openLink(this, '1')" class="links">Отзывы</h4>
+                        {#<h4 onclick="openLink(this, '1')" class="links">Отзывы</h4>#}
                         <h4 onclick="openLink(this, '2')" class="links">Chocomart гарантирует</h4>
-                        <h4 onclick="openLink(this, '3')" class="links">Рассрочка и кредит</h4>
+                        {#<h4 onclick="openLink(this, '3')" class="links">Рассрочка и кредит</h4>#}
                     </div>
                     <div class="product-card-info-content">
                         <div id="product-card-info-content-0">
@@ -1022,7 +1021,7 @@
         var cur_sub_img = document.getElementsByClassName('product-card-images-list_item__active');
         cur_sub_img[0].classList.remove('product-card-images-list_item__active');
         var cur_img = document.getElementById('main_img');
-        cur_img.src = x.src
+        cur_img.style.backgroundImage = "url("+ x.src +")";
         x.classList.add('product-card-images-list_item__active');
     }
 </script>
