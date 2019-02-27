@@ -236,9 +236,6 @@
         margin-left: 10px;
       }
     }
-    button:hover {
-      box-shadow: inset 0 0 8px 0 rgba(0,0,0,0.3);
-    }
     button {
       cursor: pointer;
       width: 100%;
@@ -250,6 +247,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      &:focus {
+        outline: none !important;
+      }
       svg {
         width: 20px;
         margin-left: 10px;
@@ -257,11 +257,23 @@
       &:nth-child(1) {
         background-color: @brand_color;
         color: white;
+        &:hover {
+          background-color: #e62323 !important;
+        }
       }
       &:nth-child(2) {
         border: solid 1px @brand_color;
         background-color: @white_color;
         color: @brand_color;
+        &:hover {
+          background-color: #e62323 !important;
+          color: white !important;
+          svg {
+            path {
+              fill: white !important;
+            }
+          }
+        }
       }
       &:nth-child(3) {
         border: solid 1px @choco_yellow;
@@ -612,11 +624,26 @@
           box-shadow: 0 2px 5px 0 rgba(130, 130, 130, 0.11);
           background-color: #ff5d5d;
           color: white;
+          &:hover {
+            background-color: #e62323 !important;
+            cursor: pointer;
+          }
         }
         .basket {
           margin-left: 10px;
           border: solid 1px #ff5d5d;
           background-color: #ffffff;
+          color: #ff5d5d;
+          &:hover {
+            background-color: #e62323 !important;
+            color: white !important;
+            cursor: pointer;
+            svg {
+              path {
+                fill: white !important;
+              }
+            }
+          }
           svg {
             position: relative;
             top: 3px;
@@ -628,6 +655,10 @@
           border-radius: 5px;
           background-color: #fdcc05;
           color: white;
+          &:hover {
+            background-color: #fdbb05 !important;
+            cursor: pointer;
+          }
         }
       }
     }
