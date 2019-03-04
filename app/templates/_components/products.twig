@@ -35,7 +35,7 @@
     </div>
     <div class="products-content__list row no-margin list-content w-100">
         {% for product in products %}
-            <a class="product-wrapper col-md-4 col-sm-6 col-12 col-xl-3 h-100" href="{{ product.getUri() }}">
+            <a class="product-wrapper col-md-4 col-sm-6 col-12 col-lg-3 col-xl-2 h-100" href="{{ product.getUri() }}">
                 <div class="">
                     <div class="product-wrapper__content w-100">
                         <div class="product-content w-100">
@@ -179,26 +179,26 @@
 
         {% endfor %}
     </div>
-    <div class="products-content__pagination pagination-content w-100 d-flex justify-content-start">
-        <div class="pagination-content__block h-100 d-flex flex-column align-items-center justify-content-center">
-            <div class="block__show-more d-flex justify-content-center align-items-center">
-                Показать еще <i class="arrow-down"></i>
-            </div>
-            <div class="block-pagination d-flex">
-                <div class="arrow-button h-100 d-flex justify-content-center align-items-center">
-                    <img class="arrow" src="../../assets/images/svg/left-arrow.svg">
-                </div>
-                <div class="pagination-pages h-100 d-flex justify-content-between">
-                    <div class="page-number h-100 d-flex align-items-center justify-content-center">1</div>
-                    <div class="page-number h-100 d-flex align-items-center justify-content-center page-number__active">2</div>
-                    <div class="page-number h-100 d-flex align-items-center justify-content-center">3</div>
-                    <div class="page-number h-100 d-flex align-items-center justify-content-center">...</div>
-                    <div class="page-number h-100 d-flex align-items-center justify-content-center">25</div>
-                </div>
-                <div class="arrow-button h-100 d-flex justify-content-center align-items-center">
-                    <img class="arrow" src="../../assets/images/svg/right-arrow.svg">
-                </div>
-            </div>
-        </div>
-    </div>
+    {#<div class="products-content__pagination pagination-content w-100 d-flex justify-content-start">#}
+        {#<div class="pagination-content__block h-100 d-flex flex-column align-items-center justify-content-center">#}
+            {#<div class="block__show-more d-flex justify-content-center align-items-center">#}
+                {#Показать еще <i class="arrow-down"></i>#}
+            {#</div>#}
+            {#<div class="block-pagination d-flex">#}
+                {#<div class="arrow-button h-100 d-flex justify-content-center align-items-center">#}
+                    {#<img class="arrow" src="../../assets/images/svg/left-arrow.svg">#}
+                {#</div>#}
+                {#<div class="pagination-pages h-100 d-flex justify-content-between">#}
+                    {#<div class="page-number h-100 d-flex align-items-center justify-content-center">1</div>#}
+                    {#<div class="page-number h-100 d-flex align-items-center justify-content-center page-number__active">2</div>#}
+                    {#<div class="page-number h-100 d-flex align-items-center justify-content-center">3</div>#}
+                    {#<div class="page-number h-100 d-flex align-items-center justify-content-center">...</div>#}
+                    {#<div class="page-number h-100 d-flex align-items-center justify-content-center">25</div>#}
+                {#</div>#}
+                {#<div class="arrow-button h-100 d-flex justify-content-center align-items-center">#}
+                    {#<img class="arrow" src="../../assets/images/svg/right-arrow.svg">#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
 </div>
