@@ -96,7 +96,7 @@
                         </svg>
                     </div>
                 </div>
-                <div class="w-100 d-flex align-content-center align-items-center justify-content-between mt-3">
+                <div id="product-card-basket-one" class="w-100 d-flex align-content-center align-items-center justify-content-between mt-3">
                     <div class="product-card-basket-img-wrapper">
                         <img width="100%" src="../../assets/images/s9/s9front.png" alt="">
                     </div>
@@ -116,15 +116,15 @@
             </div>
             <div class="product-card-basket-content">
                 <div class="w-100 d-flex align-content-center justify-content-center align-items-center">
-                    <div class="product-card-basket-title-wrapper">
-                        <button class="order">Оформить заказ</button>
+                    <div class="product-card-basket-title-total">
+                        <a href="/order" class="order">Оформить заказ</a>
                     </div>
                 </div>
             </div>
             <div class="product-card-basket-content">
                 <div class="w-100 d-flex align-content-center justify-content-center align-items-center ">
-                    <div class="product-card-basket-title-wrapper">
-                        <button onclick="closeOneClick()" class="continue">Продолжить покупки</button>
+                    <div class="product-card-basket-title-total">
+                        <a onclick="closeOneClick()" class="continue">Продолжить покупки</a>
                     </div>
                 </div>
             </div>
@@ -213,7 +213,7 @@
                         </div>
                     </div>
                     <div class="product-card-buttons">
-                        <button onclick="buyOneCLick()">
+                        <button onclick="buyOneCLick({{ product.getBestOffer().id }}, 1)">
                             Купить в один клик
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.793 26.664">
                                 <g id="click" transform="rotate(-14.98 22.958 276.052)">
@@ -894,13 +894,54 @@
     });
 </script>
 <script>
-    function buyOneCLick() {
+    function buyOneCLick(id, count) {
+        var one_click = new XMLHttpRequest();
+        var basket_wrapper = document.getElementById("product-card-basket-one");
+        var basket_result = "";
+        one_click.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let response = this.response;
+                response = JSON.parse(response);
+                for(let i = 0; i < response.length ; i++) {
+                    if (parseInt(response[i].product.id) === parseInt(id) ) {
+                        basket_result =
+                            '<div class="product-card-basket-img-wrapper">' +
+                                '<img width="100%" src="' + response[i].product.imagesList[0] +'" alt="">' +
+                            '</div>' +
+                            '<div class="product-card-basket-title-wrapper">' +
+                                '<h4>' +
+                                    response[i].product.fullName + '<br>' +
+                                    response[i].product.shortName +
+                                '</h4>' +
+                            '</div>' +
+                            '<div  class="product-card-basket-stepper d-flex align-items-center">' +
+                                '<input id="product-card-basket-stepper-one" type="number" value="'+ response[i].count +'" name="quantity" min="1" max="8"> шт.' +
+                            '</div>' +
+                            '<div class="product-card-basket-price-total">' +
+                                '<h4>'+ parseInt(response[i].offer.price) +' тг</h4>' +
+                            '</div>';
+                        basket_wrapper.innerHTML = basket_result;
+                    }
+                }
+                var timeout = null;
+                $('#product-card-basket-stepper-one').bind('keyup mouseup', function () {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(function () {
+                        console.log('Input Value:', document.getElementById('product-card-basket-stepper-one').value);
+                        one_click.open("GET", "/order/add/" + id + "/" + document.getElementById('product-card-basket-stepper-one').value, true);
+                        one_click.send();
+                    }, 500);
+                });
+            }
+        };
+        one_click.open("GET", "/order/add/" + id + "/" + count, true);
+        one_click.send();
         document.getElementById('product-card-onclick-modal').style.display = "block";
     }
     function addToBasket(id, count) {
-        var xhttp = new XMLHttpRequest();
+        var add_url = new XMLHttpRequest();
         var list = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        add_url.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
                 let response = this.response
                 response = JSON.parse(response);
@@ -940,13 +981,11 @@
                         }, 500);
                     });
                 }
-                console.log(timeouts);
             }
         };
-        xhttp.open("GET", "/order/add/" + id + "/" + count, true);
-        xhttp.send();
+        add_url.open("GET", "/order/add/" + id + "/" + count, true);
+        add_url.send();
         document.getElementById('product-card-basket-modal').style.display = "block";
-
 
         list.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
