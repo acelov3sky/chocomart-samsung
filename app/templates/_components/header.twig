@@ -14,34 +14,38 @@
                         <h4>МОБИЛЬНЫЕ УСТРОЙСТВА</h4>
                         <ul>
                             <li >
-                                <a c href="">
-                                </a>
-                            </li>
-                            <li>
                                 <a href="">
-                                    Музыкальные центры
                                 </a>
                             </li>
-                            <li>
-                                <a href="">
-                                    Наушники
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Портативная акустика
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Диктофоны
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Микрофоны
-                                </a>
-                            </li>
+                            {#{% for category in categories %}#}
+                                {#{% if (category.iParent == 0) %}#}
+                                    {#<li>#}
+                                        {#<a href="">#}
+                                            {#{{ category.name }}#}
+                                        {#</a>#}
+                                    {#</li>#}
+                                {#{% endif %}#}
+                            {#{% endfor %}#}
+                            {#<li>#}
+                                {#<a href="">#}
+                                    {#Наушники#}
+                                {#</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="">#}
+                                    {#Портативная акустика#}
+                                {#</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="">#}
+                                    {#Диктофоны#}
+                                {#</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="">#}
+                                    {#Микрофоны#}
+                                {#</a>#}
+                            {#</li>#}
                         </ul>
                     </div>
                     <div class="subcategory-item col-md-2 pb-4">
@@ -51,26 +55,16 @@
                                 <a href="">
                                 </a>
                             </li>
-                            <li>
-                                <a href="">
-                                    Galaxy Note9
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Galaxy S9 | S9+
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Gear VR (2017)
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Gear S3 Frontier
-                                </a>
-                            </li>
+                            {#{% for category in categories %}#}
+                                {#{% if (category.iParent == 11) %}#}
+                                    {#<li>#}
+                                        {#<a href="">#}
+                                            {#{{ category.name }}#}
+                                        {#</a>#}
+                                    {#</li>#}
+                                {#{% endif %}#}
+                            {#{% endfor %}#}
+
 
                         </ul>
                     </div>
@@ -103,17 +97,33 @@
             <div class="mobile-sidebar-wrapper">
                 <ul>
                     <li><h6>МОБИЛЬНЫЕ УСТРОЙСТВА</h6></li>
-                    <li><a href="" style="width: 100%"><h6>Наушники</h6></a></li>
-                    <li><a href=""><h6>Портативная акустика</h6></a></li>
-                    <li><a href=""><h6>Диктофоны</h6></a></li>
-                    <li><a href=""><h6>Микрофоны</h6></a></li>
+                    {#{% for category in categories %}#}
+                        {#{% if (category.iParent == 0) %}#}
+                            {#<li>#}
+                                {#<a href="">#}
+                                    {#<h6>#}
+                                        {#{{ category.name }}#}
+                                    {#</h6>#}
+                                {#</a>#}
+                            {#</li>#}
+                        {#{% endif %}#}
+                    {#{% endfor %}#}
+                    {##}
                 </ul>
                 <ul>
                     <li><h6>РЕКОМЕНДУЕМ</h6></li>
-                    <li><a href=""><h6>Galaxy Note9</h6></a></li>
-                    <li><a href=""><h6>Galaxy S9 | S9+</h6></a></li>
-                    <li><a href=""><h6>Gear VR (2017)</h6></a></li>
-                    <li><a href=""><h6>Gear S3 Frontier</h6></a></li>
+                    {#{% for category in categories %}#}
+                        {#{% if (category.iParent == 11) %}#}
+                            {#<li>#}
+                                {#<a href="">#}
+                                    {#<h6>#}
+                                        {#{{ category.name }}#}
+                                    {#</h6>#}
+                                {#</a>#}
+                            {#</li>#}
+                        {#{% endif %}#}
+                    {#{% endfor %}#}
+
                 </ul>
             </div>
         </div>

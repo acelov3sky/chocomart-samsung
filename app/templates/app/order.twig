@@ -1,6 +1,5 @@
 {% extends '@layout-cms/main.twig' %}
 
-{% block title %}{{ product.shortName }}{% endblock %}
 
 {% block head %}
     <style type="text/css" media="screen">
@@ -15,8 +14,6 @@
 {% block content %}
 
     ${require('_tcomponents/header.twig')}
-    ${require('_tcomponents/product-card.twig')}
-    ${require('_tcomponents/footer.twig')}
 
 {% endblock %}
 

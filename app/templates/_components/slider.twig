@@ -1,0 +1,44 @@
+<div class="swiper-container main-slider_wrapper slider-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slider-img">
+        </div>
+        <div class="swiper-slide slider-img">
+        </div>
+        <div class="swiper-slide slider-img">
+        </div>
+    </div>
+    <div class="swiper-pagination slider-pagination"></div>
+</div>
+<style>
+    .slider-img {
+        width: 1981px;
+        height: 250px;
+        background-image: url("https://image.ibb.co/iUsx6V/1-2x.png");
+        background-size: cover;
+        background-position: center center;
+    }
+    .swiper-pagination-bullet-active {
+        opacity: 1 !important;
+    }
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: #1428a0;
+        opacity: 0.5;
+        border: solid 1px #1428a0;
+    }
+</style>
+<script>
+    var slider = new Swiper('.slider-container', {
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: '.slider-pagination',
+            clickable: true
+        }
+    });
+</script>

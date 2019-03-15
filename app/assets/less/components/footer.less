@@ -7,8 +7,12 @@
     background: #fff;
     position: relative;
     width: 1280px;
-    @media (max-width: 1280px) {
+    @media (max-width: 768px) {
       display: none !important;
+    }
+    @media (min-width: 768px) and (max-width: 1280px) {
+      width: 100% !important;
+      padding: 30px !important;
     }
     margin: 0 auto;
     padding: 44px 140px 30px 140px;
@@ -105,3 +109,25 @@
   }
 }
 
+.mobile {
+  &-footer {
+    width: 100%;
+    padding: 35px 25px;
+    @media (min-width: 768px) {
+      display: none !important;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.29;
+      letter-spacing: normal;
+      text-align: center;
+      color: #444444;
+      a {
+        color: black !important;
+      }
+    }
+  }
+}
