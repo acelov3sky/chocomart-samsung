@@ -15,6 +15,7 @@
   "license": "ISC",
   "homepage": "http://gitlab.chocomart.kz/lebaur/new_chocomart_front.git",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.0.0-alpha.6",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "fullcalendar": "^3.6.2",
