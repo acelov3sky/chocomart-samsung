@@ -1,0 +1,27 @@
+{% extends '@layout-cms/main.twig' %}
+
+{% block title %}{{ product.shortName }}{% endblock %}
+
+{% block head %}
+    <style type="text/css" media="screen">
+        {{ DebugBar.dumpCssAssets() | raw }}
+    </style>
+    <script charset="utf-8">
+        {{ DebugBar.dumpJsAssets() | raw }}
+    </script>
+{% endblock %}
+
+
+{% block content %}
+
+    ${require('_tcomponents/header.twig')}
+    ${require('_tcomponents/product-card.twig')}
+    ${require('_tcomponents/footer.twig')}
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+    </script>
+    {{ parent() }}
+{% endblock %}

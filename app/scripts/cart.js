@@ -1,7 +1,8 @@
 import {TheMask} from 'vue-the-mask';
-
+import axios from 'axios';
 var vm = new Vue({
     el: '#cart',
+    delimiters: ['~{', '}'],
     data: function () {
         return {
             productsList: [
@@ -149,6 +150,10 @@ var vm = new Vue({
         }
     },
     mounted() {
+        axios.get('/order/list').then(res => {
+            console.log(res);
+        });
+        // axios.get('/order/add' + id + '/' + count)
         this.productsList.forEach((item) => {
             this.productsSum += (parseInt(item.productPrice) * parseInt(item.productCount));
             this.productsCount += parseInt(item.productCount);
