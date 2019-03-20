@@ -5,32 +5,7 @@ var vm = new Vue({
     delimiters: ['~{', '}'],
     data: function () {
         return {
-            productsList: [
-                {
-                    id: '0',
-                    image: './../app/assets/images/note9/note-9-front.png',
-                    productType: 'Смартфоны',
-                    productName: 'Смартфон Samsung Galaxy Note 9, 64 GB, Black',
-                    productPrice: '125000',
-                    productCount: 1
-                },
-                {
-                    id: '1',
-                    image: './../app/assets/images/note9/note-9-front.png',
-                    productType: 'Смартфоны',
-                    productName: 'Смартфон Samsung Galaxy Note 9, 128 GB, Black',
-                    productPrice: '150000',
-                    productCount: 4
-                },
-                {
-                    id: '2',
-                    image: './../app/assets/images/note9/note-9-front.png',
-                    productType: 'Смартфоны',
-                    productName: 'Смартфон Samsung Galaxy Note 9, 256 GB, Black',
-                    productPrice: '225000',
-                    productCount: 2
-                }
-            ],
+            productsList: [],
             blockCompletion: [
                 {
                     block: 'chosenProducts',
@@ -66,7 +41,7 @@ var vm = new Vue({
             paymentTypes: [
                 {
                     id: 1,
-                    typeName: 'online-card',
+                    typeName: 'online-payment',
                     state: false
                 },
                 {
@@ -76,7 +51,7 @@ var vm = new Vue({
                 },
                 {
                     id: 3,
-                    typeName: 'bank-branch',
+                    typeName: 'in-bank-payment',
                     state: false
                 },
                 {
@@ -100,7 +75,7 @@ var vm = new Vue({
                     {
                         id: 1,
                         value: 3,
-                        isChosen: true
+                        isChosen: false
                     },
                     {
                         id: 2,
@@ -131,34 +106,58 @@ var vm = new Vue({
                     }
                 ]
             },
+            //Variables of Cart Summary
             productsSum: 0,
             productsCount: 0,
             productCountText:'товаров',
+            order: {},
+            deliveryTypeID: null,
 
+            //Variables of Blocks States
             chosenProducts: true,
             customerInformation: false,
             deliveryInformation: false,
 
-            entityChecked: false,
+            //Variables of Radio Buttons Status
             entityBlock: false,
 
             isPromocodeEnabled: false,
             isBonusEnabled: false,
 
+            //Text variables
             blockName: 'Выбранные товары',
-            cartStateName: 'Корзина'
+            cartStateName: 'Корзина',
+
+            //Variables of inputs values
+            customerName: null,
+            customerSurname: null,
+            customerPhone: null,
+            customerEmail: null,
+            customerSubscribe: false,
+
+            entityChecked: false,
+            companyName: '',
+            companyAddress: '',
+            companyBIN: '',
+            companyIIK: '',
+            companyBank: '',
+            companyBIK: '',
+            companyNDS: false,
+
+            deliveryCity: '',
+            receiverPhone: '',
+            streetName: '',
+            houseNumber: '',
+            flatNumber: ''
+
         }
     },
     mounted() {
-        axios.get('/order/list').then(res => {
-            console.log(res);
-        });
-        // axios.get('/order/add' + id + '/' + count)
+        this.productsList = orderData.offers;
         this.productsList.forEach((item) => {
-            this.productsSum += (parseInt(item.productPrice) * parseInt(item.productCount));
-            this.productsCount += parseInt(item.productCount);
+            this.productsSum += (parseInt(item.offer.price) * parseInt(item.count));
+            this.productsCount += parseInt(item.count);
         });
-
 
         this.productsCount === 1 ? this.productCountText = 'товар':
             (this.productsCount > 1 && this.productsCount < 5 ? this.productCountText = 'товара' :
@@ -170,44 +169,52 @@ var vm = new Vue({
     methods: {
         deleteProduct (productID) {
             this.productsList.forEach((product) => {
-                if(product.id === productID) {
-                    this.productsSum -= (product.productPrice * product.productCount);
-                    this.productsCount -= product.productCount;
+                if(product.product.id === productID) {
+                    this.productsSum -= (product.offer.price * product.count);
+                    this.productsCount -= product.count;
                     this.productsList.splice(this.productsList.indexOf(product), 1);
+                    axios.get('/order/add/' + product.product.id + '/' + 0);
                     this.computeProductsCount();
                 }
             });
         },
         changeProductCount (productID, event) {
             this.productsList.forEach((product) => {
-                if(product.id === productID) {
+                if(product.product.id === productID) {
+                    let timeout = null;
                     if(event === '+') {
-                        product.productCount++;
-                        this.productsSum = 0;
-                        this.productsCount = 0;
-                        this.productsList.forEach((item) => {
-                            this.productsSum += (item.productPrice * item.productCount);
-                            this.productsCount += item.productCount;
-                        });
-                        this.computeProductsCount();
+                        product.count++;
+                        clearTimeout(timeout);
+                        setTimeout(() => {
+                            this.computeCartResult();
+                            axios.get('/order/add/' + product.product.id + '/' + product.count);
+                            this.computeProductsCountText();
+                        }, 500);
                     }
-                    if(event === '-' && product.productCount > 1){
-                        product.productCount--;
-                        this.productsSum = 0;
-                        this.productsCount = 0;
-                        this.productsList.forEach((item) => {
-                            this.productsSum += (item.productPrice * item.productCount);
-                            this.productsCount += item.productCount;
-                        });
-                        this.computeProductsCount();
-                    }else if(event === '-' && product.productCount < 1) {
-                        product.productCount = 1;
-                        this.computeProductsCount();
+                    if(event === '-' && product.count > 1){
+                        product.count--;
+                        clearTimeout(timeout);
+                        setTimeout(() => {
+                            this.computeCartResult();
+                            axios.get('/order/add/' + product.product.id + '/' + product.count);
+                            this.computeProductsCountText();
+                        }, 500);
+                    }else if(event === '-' && product.count < 1) {
+                        product.count = 1;
+                        this.computeProductsCountText();
                     }
                 }
             });
         },
-        computeProductsCount() {
+        computeCartResult () {
+            this.productsSum = 0;
+            this.productsCount = 0;
+            this.productsList.forEach((item) => {
+                this.productsSum += (parseInt(item.offer.price) * parseInt(item.count));
+                this.productsCount += parseInt(item.count);
+            });
+        },
+        computeProductsCountText() {
             this.productsCount === 1 ? this.productCountText = 'товар':
                 (this.productsCount > 1 && this.productsCount < 5 ? this.productCountText = 'товара' :
                     (this.productsCount > 4 ? this.productCountText = 'товаров' : this.productCountText = 'товаров'));
@@ -219,11 +226,38 @@ var vm = new Vue({
                 this.blockCompletion[0].completion = true;
                 this.blockName = 'Информация о покупателе';
             }else if (nextState === 2) {
-                this.customerInformation = false;
-                this.deliveryInformation = true;
-                this.blockCompletion[1].completion = true;
-                this.entityBlock = false;
-                this.blockName = 'Доставка и оплата';
+                if(this.customerEmail === null) {
+                    this.customerEmail = '';
+                }
+                if(this.customerName  && this.customerSurname
+                    && this.customerEmail.indexOf('@') > -1 &&
+                    this.customerEmail.indexOf('.') > -1  && this.customerPhone) {
+
+                    this.customerInformation = false;
+                    this.deliveryInformation = true;
+                    this.blockCompletion[1].completion = true;
+                    this.entityBlock = false;
+                    this.blockName = 'Доставка и оплата';
+                    //gathering data from form
+                    this.order.customerInformation = {};
+                    this.order.customerInformation.customerName = this.customerName;
+                    this.order.customerInformation.customerSurname = this.customerSurname;
+                    this.order.customerInformation.phone = this.customerPhone;
+                    this.order.customerInformation.email = this.customerEmail;
+                    this.order.customerInformation.subscribeStatus = this.customerSubscribe;
+
+                    if(this.entityChecked === true) {
+                        this.order.legalStatus = true;
+                        this.order.companyInformation = {};
+                        this.order.companyInformation.companyName = this.companyName;
+                        this.order.companyInformation.companyAddress = this.companyAddress;
+                        this.order.companyInformation.BIN = this.companyBIN;
+                        this.order.companyInformation.IIK = this.companyIIK;
+                        this.order.companyInformation.Bank = this.companyBank;
+                        this.order.companyInformation.BIK = this.companyBIK;
+                        this.order.companyInformation.ndsStatus = this.companyNDS;
+                    }
+                }
             }
         },
         openCompletedBlock (currentState, completionState) {
@@ -293,6 +327,7 @@ var vm = new Vue({
                 this.deliveryTypes.forEach((type) => {
                     if(type.id === id) {
                         type.state = !state;
+                        this.deliveryTypeID = id;
                     }else {
                         type.state = false;
                     }
@@ -321,6 +356,28 @@ var vm = new Vue({
             }else {
                 alert("ERROR! Period is empty!");
             }
+        },
+        gatherData() {
+            this.order.deliveryInformation = {};
+            this.order.deliveryInformation.deliveryCity = this.deliveryCity;
+            this.deliveryTypes.forEach((type) => {
+                if(type.state === true) {
+                    if(type.id === 2 || type.id === 3) {
+                        this.order.deliveryInformation.deliveryType = type.typeName;
+                        this.order.deliveryInformation.receiverPhone = this.receiverPhone;
+                        this.order.deliveryInformation.streetName = this.streetName;
+                        this.order.deliveryInformation.houseNumber = this.houseNumber;
+                        this.order.deliveryInformation.flatNumber = this.flatNumber;
+                    }else {
+                        this.order.deliveryInformation.deliveryType = type.typeName;
+                    }
+                }
+            });
+            this.paymentTypes.forEach((payment) => {
+               if(payment.state === true) {
+                   this.order.deliveryInformation.paymentType = payment.typeName;
+               }
+            });
         }
     }
 });
