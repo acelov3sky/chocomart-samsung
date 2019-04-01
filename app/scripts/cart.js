@@ -185,7 +185,7 @@ var vm = new Vue({
                     if(event === '+') {
                         product.count++;
                         clearTimeout(timeout);
-                        setTimeout(() => {
+                        timeout = setTimeout(() => {
                             this.computeCartResult();
                             axios.get('/order/add/' + product.product.id + '/' + product.count);
                             this.computeProductsCountText();
@@ -194,7 +194,7 @@ var vm = new Vue({
                     if(event === '-' && product.count > 1){
                         product.count--;
                         clearTimeout(timeout);
-                        setTimeout(() => {
+                        timeout = setTimeout(() => {
                             this.computeCartResult();
                             axios.get('/order/add/' + product.product.id + '/' + product.count);
                             this.computeProductsCountText();
@@ -221,10 +221,21 @@ var vm = new Vue({
         },
         submitBlock (nextState) {
             if(nextState === 1 && this.customerInformation === false) {
-                this.chosenProducts = false;
-                this.customerInformation = true;
-                this.blockCompletion[0].completion = true;
-                this.blockName = 'Информация о покупателе';
+                if(this.productsList.length > 0) {
+                    this.chosenProducts = false;
+                    this.customerInformation = true;
+                    this.blockCompletion[0].completion = true;
+                    this.blockName = 'Информация о покупателе';
+                    this.order.productsList = [];
+                    this.productsList.forEach((product) => {
+                       this.order.productsList.push({
+                           id: product.product.id,
+                           fullName: product.product.fullName,
+                           count: product.count,
+                           price: parseInt(product.offer.price)
+                       })
+                    });
+                }
             }else if (nextState === 2) {
                 if(this.customerEmail === null) {
                     this.customerEmail = '';
@@ -239,23 +250,27 @@ var vm = new Vue({
                     this.entityBlock = false;
                     this.blockName = 'Доставка и оплата';
                     //gathering data from form
-                    this.order.customerInformation = {};
-                    this.order.customerInformation.customerName = this.customerName;
-                    this.order.customerInformation.customerSurname = this.customerSurname;
-                    this.order.customerInformation.phone = this.customerPhone;
-                    this.order.customerInformation.email = this.customerEmail;
-                    this.order.customerInformation.subscribeStatus = this.customerSubscribe;
+                    this.order.customerInformation = {
+                        customerName: this.customerName,
+                        customerSurname: this.customerSurname,
+                        phone: this.customerPhone,
+                        email: this.customerEmail,
+                        subscribeStatus: this.customerSubscribe
+                    };
 
                     if(this.entityChecked === true) {
                         this.order.legalStatus = true;
-                        this.order.companyInformation = {};
-                        this.order.companyInformation.companyName = this.companyName;
-                        this.order.companyInformation.companyAddress = this.companyAddress;
-                        this.order.companyInformation.BIN = this.companyBIN;
-                        this.order.companyInformation.IIK = this.companyIIK;
-                        this.order.companyInformation.Bank = this.companyBank;
-                        this.order.companyInformation.BIK = this.companyBIK;
-                        this.order.companyInformation.ndsStatus = this.companyNDS;
+                        this.order.companyInformation = {
+                            companyName: this.companyName,
+                            companyAddress: this.companyAddress,
+                            BIN: this.companyBIN,
+                            IIK: this.companyIIK,
+                            Bank: this.companyBank,
+                            BIK: this.companyBIK,
+                            ndsStatus: this.companyNDS
+                        };
+                    }else {
+                        this.order.legalStatus = false;
                     }
                 }
             }
@@ -358,16 +373,18 @@ var vm = new Vue({
             }
         },
         gatherData() {
-            this.order.deliveryInformation = {};
+            this.order.deliveryInformation = {}
             this.order.deliveryInformation.deliveryCity = this.deliveryCity;
             this.deliveryTypes.forEach((type) => {
                 if(type.state === true) {
                     if(type.id === 2 || type.id === 3) {
-                        this.order.deliveryInformation.deliveryType = type.typeName;
-                        this.order.deliveryInformation.receiverPhone = this.receiverPhone;
-                        this.order.deliveryInformation.streetName = this.streetName;
-                        this.order.deliveryInformation.houseNumber = this.houseNumber;
-                        this.order.deliveryInformation.flatNumber = this.flatNumber;
+                        this.order.deliveryInformation = {
+                            deliveryType: type.typeName,
+                            receiverPhone: this.receiverPhone,
+                            streetName: this.streetName,
+                            houseNumber: this.houseNumber,
+                            flatNumber: this.flatNumber
+                        };
                     }else {
                         this.order.deliveryInformation.deliveryType = type.typeName;
                     }
@@ -377,6 +394,10 @@ var vm = new Vue({
                if(payment.state === true) {
                    this.order.deliveryInformation.paymentType = payment.typeName;
                }
+            });
+            console.log(this.order);
+            axios.get('/order/get-data/' + this.order + '/').then((response) => {
+               console.log(response);
             });
         }
     }
