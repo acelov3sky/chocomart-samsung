@@ -395,9 +395,14 @@ var vm = new Vue({
                    this.order.deliveryInformation.paymentType = payment.typeName;
                }
             });
-            console.log(this.order);
-            axios.get('/order/get-data/' + this.order + '/').then((response) => {
-               console.log(response);
+            // console.log(this.order);
+            this.$http.post('/order/set-data', {data: this.order}, {
+                emulateJSON: true
+            }).then((response) => {
+                console.log(response);
+            });
+            this.$http.get('/order/get-data').then((response) => {
+                console.log(response.body);
             });
         }
     }
