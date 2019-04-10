@@ -2,7 +2,7 @@
     let orderData = {{ order | json_encode() | raw }};
 </script>
 <div id="cart" class="p-0 col-md-12 col-sm-12 col-xs-12 cart-wrapper w-100">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 cart-wrapper__cart-block cart-block">
+    <div v-cloak class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 cart-wrapper__cart-block cart-block">
         <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-block__cart-heading"> ~{ chosenProducts ? cartStateName = 'Корзина' : cartStateName = 'ОФОРМЛЕНИЕ ЗАКАЗА'}</h1>
         {% if order.offers | length > 0 %}
         <div class="col-sm-12 col-xs-12 cart-block__mobile-progress-bar mobile-progress-bar d-none flex-column">
@@ -301,26 +301,26 @@
             </div>
 
             <div :class="{'cart-close' : !deliveryInformation}" class="p-0 col-lg-12 col-md-12 col-sm-12 cart-block__cart-content-option cart-content-option-wrapper float-right option-last">
-            <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-content-option-wrapper__cart-option cart-option-wrapper w-100">
-                <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-option-wrapper__option-description option-description w-100 d-flex align-items-center">
-                    <div :class="{'option-image--active' : deliveryInformation}" class="option-description__option-image d-flex justify-content-center align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.995 25.663">
-                            <g id="credit-card_3_" data-name="credit-card (3)" transform="translate(1 -67.267)">
-                                <g id="Group_1083" data-name="Group 1083" transform="translate(-1 67.267)">
-                                    <g id="Group_1082" data-name="Group 1082">
-                                        <path id="Path_1087" d="M31.078 67.267H1.916A2.888 2.888 0 0 0-1 70.183v19.83a2.888 2.888 0 0 0 2.916 2.917h29.163a2.888 2.888 0 0 0 2.916-2.916V70.183a2.888 2.888 0 0 0-2.917-2.916zM1.916 68.433h29.163a1.718 1.718 0 0 1 1.75 1.75v.583H.167v-.583a1.719 1.719 0 0 1 1.749-1.75zm30.912 7H.167v-3.5h32.661v3.5zm-1.75 16.331H1.916a1.718 1.718 0 0 1-1.75-1.75V76.6h32.662v13.414a1.719 1.719 0 0 1-1.75 1.749z" class="cls-1" data-name="Path 1087" transform="translate(1 -67.267)"/>
-                                        <path id="Path_1088" d="M300.216 289.133h-10.5a.551.551 0 0 0-.583.583v5.832a.551.551 0 0 0 .583.583h10.5a.551.551 0 0 0 .583-.583v-5.832a.551.551 0 0 0-.583-.583zm-.583 5.833H290.3V290.3h9.332z" class="cls-1" data-name="Path 1088" transform="translate(-269.304 -273.969)"/>
+                <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-content-option-wrapper__cart-option cart-option-wrapper w-100">
+                    <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-option-wrapper__option-description option-description w-100 d-flex align-items-center">
+                        <div :class="{'option-image--active' : deliveryInformation}" class="option-description__option-image d-flex justify-content-center align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.995 25.663">
+                                <g id="credit-card_3_" data-name="credit-card (3)" transform="translate(1 -67.267)">
+                                    <g id="Group_1083" data-name="Group 1083" transform="translate(-1 67.267)">
+                                        <g id="Group_1082" data-name="Group 1082">
+                                            <path id="Path_1087" d="M31.078 67.267H1.916A2.888 2.888 0 0 0-1 70.183v19.83a2.888 2.888 0 0 0 2.916 2.917h29.163a2.888 2.888 0 0 0 2.916-2.916V70.183a2.888 2.888 0 0 0-2.917-2.916zM1.916 68.433h29.163a1.718 1.718 0 0 1 1.75 1.75v.583H.167v-.583a1.719 1.719 0 0 1 1.749-1.75zm30.912 7H.167v-3.5h32.661v3.5zm-1.75 16.331H1.916a1.718 1.718 0 0 1-1.75-1.75V76.6h32.662v13.414a1.719 1.719 0 0 1-1.75 1.749z" class="cls-1" data-name="Path 1087" transform="translate(1 -67.267)"/>
+                                            <path id="Path_1088" d="M300.216 289.133h-10.5a.551.551 0 0 0-.583.583v5.832a.551.551 0 0 0 .583.583h10.5a.551.551 0 0 0 .583-.583v-5.832a.551.551 0 0 0-.583-.583zm-.583 5.833H290.3V290.3h9.332z" class="cls-1" data-name="Path 1088" transform="translate(-269.304 -273.969)"/>
+                                        </g>
                                     </g>
                                 </g>
-                            </g>
-                        </svg>
+                            </svg>
+                        </div>
+                        <div class="option-description__option-name" id="delivery-name">
+                            Доставка и оплата
+                        </div>
                     </div>
-                    <div class="option-description__option-name" id="delivery-name">
-                        Доставка и оплата
-                    </div>
-                </div>
 
-                <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-option-wrapper__option-wrapper option-wrapper" v-show="deliveryInformation">
+                    <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-option-wrapper__option-wrapper option-wrapper" v-show="deliveryInformation">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 option-wrapper__delivery-wrapper delivery-wrapper d-flex flex-column w-100">
                         <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 delivery-wrapper__delivery-row delivery-row d-flex flex-column w-100">
 
@@ -503,8 +503,8 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
         </form>
         {% endif %}
 
@@ -545,7 +545,7 @@
                             <div class="option-content col-lg-12 col-md-12 col-xs-9 col-sm-10 p-0 d-flex align-items-center">
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cart-item__item-name p-0 item-name d-flex flex-column justify-content-start">
                                     <h3 class="item-name__heading font-weight-normal">Category</h3>
-                                    <p class="item-name__par">{{ order.offers.0.product.fullName }}</p>
+                                    <p class="item-name__par">{{ product.product.fullName }}</p>
                                 </div>
 
                                 <div class="initial-price col-lg-1 col-md-1 col-sm-12 col-xs-12 cart-item__item-price item-price d-flex align-items-center justify-content-center">

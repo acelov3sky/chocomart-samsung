@@ -17422,6 +17422,9 @@ template {
 .product-wrapper:hover .product-content__actions .actions__action-block .mt5 {
   margin-top: 5px;
 }
+[v-cloak] {
+  display: none;
+}
 .cart-wrapper {
   overflow: hidden;
 }
