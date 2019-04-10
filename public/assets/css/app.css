@@ -17651,7 +17651,7 @@ template {
   height: 40px;
   background: #1428a0;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 5px;
   border: 1px solid #1428a0;
   cursor: pointer;
@@ -17834,8 +17834,11 @@ template {
   margin-left: 25px;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block .submit-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  width: 315px;
+  width: 210px;
   height: 40px;
   border-radius: 5px;
   background-color: #1428a0;
@@ -17843,9 +17846,11 @@ template {
   color: #fff;
   font-size: 16px;
   border: 1px solid #1428a0;
+  text-decoration: none;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block .submit-form:hover {
   background: #1a33cd;
+  text-decoration: none;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block__text {
   font-size: 16px;
