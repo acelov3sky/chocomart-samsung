@@ -1,90 +1,14 @@
-<div class="product-card-wrapper flex-wrap d-none d-sm-flex">
-    <div id="product-card-basket-modal" class="product-card-basket-modal">
-        <div class="product-card-basket">
-            <div onclick="closeBasket()" class="product-card-basket-close">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
-                    <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
-                        <path id="Line_51" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 51" transform="translate(-9420.5 -3811.5)"/>
-                        <path id="Line_52" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 52" transform="rotate(90 -2796.5 -6608)"/>
-                    </g>
-                </svg>
+<div id="product-card" class="product-card-wrapper flex-wrap d-none d-sm-flex">
 
-            </div>
-            <div class="product-card-basket-header">
-                <div class="w-100 d-flex justify-content-center">
-                    <h4 class="text-center m-0 d-flex align-content-center align-items-center">Товар добавлен в корзину
-                    </h4>
-                    <div class="check">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.187 15.528">
-                            <path id="checked_1_" d="M.233 11.541a.751.751 0 0 1 0-1.087L1.32 9.367a.751.751 0 0 1 1.087 0l.078.078 4.27 4.581a.375.375 0 0 0 .543 0L17.7 3.233h.078a.751.751 0 0 1 1.087 0l1.089 1.087a.751.751 0 0 1 0 1.087L7.531 18.3a.751.751 0 0 1-1.087 0L.388 11.774l-.155-.233z" fill="#fff" data-name="checked (1)" transform="translate(0 -3)"/>
-                        </svg>
-                    </div>
-                </div>
-                <div id="product-card-basket-wrapper">
-                    <div class="w-100 d-flex align-content-center align-items-center justify-content-between mt-3">
-                        <div class="product-card-basket-img-wrapper">
-                            <img width="100%" src="../../assets/images/s9/s9front.png" alt="">
-                        </div>
-                        <div class="product-card-basket-title-wrapper">
-                            <h4>
-                                Смартфон Samsung 32GB <br>
-                                Смартфон Samsung
-                            </h4>
-                        </div>
-                        <div class="product-card-basket-stepper d-flex align-items-center">
-                            <input type="number" value="1" name="quantity" min="1" max="8"> шт.
-                        </div>
-                        <div class="product-card-basket-price-total">
-                            <h4>250 000 тг</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card-basket-content">
-                <div class="w-100 d-flex align-content-center align-items-center mt-3">
-                    <div class="product-card-basket-img-wrapper">
-                        <!--<img width="100%" src="../../assets/images/s9/s9front.png" alt="">-->
-                    </div>
-                    <div id="product-card-total" class="product-card-basket-title-total">
-                        <h4>
-                            Всего в корзине: <span>5 товаров</span>
-                        </h4>
-                        <h4>
-                            Общая сумма: <span>500 000 тенге</span>
-                        </h4>
-                        <button class="order">Оформить заказ</button>
-                        <button class="basket">Перейти в корзину
-                            <svg xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
-                                <path fill="#ff5d5d" id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" data-name="Path 147" transform="translate(-17.2)"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card-basket-content">
-                <div class="w-100 d-flex align-content-center align-items-center mt-3">
-                    <div class="product-card-basket-img-wrapper">
-                        <!--<img width="100%" src="../../assets/images/s9/s9front.png" alt="">-->
-                    </div>
-                    <div class="product-card-basket-title-total">
-                        <a onclick="closeBasket()" class="continue">Продолжить покупки</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="product-card-basket-background"></div>
-    </div>
     <div id="product-card-onclick-modal" class="product-card-basket-modal">
         <div class="product-card-basket">
-            <div onclick="closeOneClick()" class="product-card-basket-close">
+            <div v-on:click="closeOneClick()" class="product-card-basket-close">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
                     <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
                         <path id="Line_51" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 51" transform="translate(-9420.5 -3811.5)"/>
                         <path id="Line_52" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 52" transform="rotate(90 -2796.5 -6608)"/>
                     </g>
                 </svg>
-
             </div>
             <div class="product-card-basket-header">
                 <div class="w-100 d-flex justify-content-center">
@@ -124,68 +48,36 @@
             <div class="product-card-basket-content">
                 <div class="w-100 d-flex align-content-center justify-content-center align-items-center ">
                     <div class="product-card-basket-title-total">
-                        <a onclick="closeOneClick()" class="continue">Продолжить покупки</a>
+                        <a v-on:click="closeOneClick()" class="continue">Продолжить покупки</a>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="product-card-basket-background"></div>
     </div>
     <div class="row no-margin w-100">
         <div class="col-lg-6 product-card-image-container">
             <div id="main_img" class="product-card-image-wrapper d-flex justify-content-center align-items-center" style="background-image: url('{{ (product.images | first).image.getUri() }}')">
-                {#<img id="main_img" width="100%" src="{{ (product.images | first).image.getUri() }}" alt="">#}
                 <div class="product-card-images-list">
                     {% for image in product.images %}
                         {% if loop.index == 1 %}
-                            <img width="85px" height="55px" onclick="changeThis(this)" class="product-card-images-list_item product-card-images-list_item__active" src="{{ image.image.getUri() }}" alt="">
+                            <img width="85px" height="55px" v-on:click="changeThis($event.target)" class="product-card-images-list_item product-card-images-list_item__active" src="{{ image.image.getUri() }}" alt="">
                         {% else %}
-                            <img width="85px" height="55px" onclick="changeThis(this)" class="product-card-images-list_item" src="{{ image.image.getUri() }}" alt="">
+                            <img width="85px" height="55px" v-on:click="changeThis($event.target)" class="product-card-images-list_item" src="{{ image.image.getUri() }}" alt="">
                         {% endif %}
                     {% endfor %}
-                    {#<img onclick="changeThis(this)" class="product-card-images-list_item" width="100%" src="https://learnbonds.com/wp-content/uploads/Samsung-logo-square.png" alt="">#}
-                </div>
-                <div class="product-card-bonus d-flex align-items-center justify-content-between">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="coins-money-stack" viewBox="0 0 24.579 24.579">
-                        <path d="M21.25 7.208a2.483 2.483 0 0 0 .257-1.065V4.609C21.507 2.064 17.38 0 12.289 0S3.072 2.064 3.072 4.609a2.37 2.37 0 0 1 .037-.372C1.206 5.08 0 6.31 0 7.681v1.536c0 1.425 1.3 2.7 3.329 3.543a2.483 2.483 0 0 0-.257 1.065v1.536a2.642 2.642 0 0 0 .537 1.539 2.642 2.642 0 0 0-.537 1.536v1.534c0 2.544 4.127 4.609 9.217 4.609s9.217-2.064 9.217-4.609v-1.536a2.664 2.664 0 0 0-.554-1.56l-.009.011a2.816 2.816 0 0 0 .525-1.151c1.9-.845 3.11-2.073 3.11-3.444v-1.537c.001-1.425-1.295-2.7-3.328-3.545zM12.289.768c4.979 0 8.449 2.024 8.449 3.84s-3.47 3.84-8.449 3.84S3.84 6.424 3.84 4.609 7.31.768 12.289.768zM.768 7.681c0-.9.851-1.841 2.3-2.57v1.034c0 2.544 4.127 4.609 9.217 4.609a18.007 18.007 0 0 0 2.2-.138 14.792 14.792 0 0 1-5.275.906C4.238 11.521.768 9.5.768 7.681zm19.97 10.753c0 1.815-3.47 3.84-8.449 3.84s-8.449-2.025-8.449-3.84a1.83 1.83 0 0 1 .311-.911.033.033 0 0 1-.006-.007c1.547 1.46 4.613 2.454 8.144 2.454s6.587-1 8.131-2.465a1.822 1.822 0 0 1 .318.929zm-3.171-1.674a14.776 14.776 0 0 1-5.278.906c-4.979 0-8.449-2.025-8.449-3.84a1.723 1.723 0 0 1 .227-.786 14.563 14.563 0 0 0 2.475.587c1.146 1.892 4.658 3.273 8.82 3.273a17.847 17.847 0 0 0 2.211-.14zm-2.205-2.166a15.042 15.042 0 0 1-5.068-.821c4.331-.255 7.751-1.994 8.1-4.184a6.531 6.531 0 0 0 2.421-1.7c1.86.756 2.994 1.836 2.994 2.862.002 1.817-3.468 3.843-8.447 3.843z"></path>
-                    </svg>
-                    <h4>
-                        Бонус<br>
-                        <span>2276 ₸</span>
-                    </h4>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 product-card-description-container">
             <div class="product-card-description-wrapper">
                 <div class="product-card-description-header">
-                    <h4>{{ product.fullName }}</h4>
-                    <div class="product-card-rating d-flex align-items-top">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                            <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.657 25.529">
-                            <path fill="#fafafa" stroke="#707070" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(.514 -.547)"/>
-                        </svg>
-                    </div>
+                    <h4 class="m-0">{{ product.fullName }}</h4>
                 </div>
                 <div class="product-card-description-content d-flex justify-content-between">
                     <div class="product-card-price-info">
-                        {#<h5>#}
-                            {#500 000 тг#}
-                        {#</h5>#}
                         <h4>
-                            {{ product.getBestOffer().price | number_format }} тг
+                            {{ product.getBestOffer().price | round }} тг
                         </h4>
                         <div class="product-card-action d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.39 21.829">
@@ -262,27 +154,28 @@
         <div class="col-12 product-card-info-container">
             <div class="product-card-info-wrapper">
                 <div class="product-card-info-header d-flex w-100">
-                    <h4 onclick="openLink(this, '0')" class="links link-active">Характеристики</h4>
-                    {#<h4 onclick="openLink(this, '1')" class="links">Отзывы</h4>#}
-                    <h4 onclick="openLink(this, '2')" class="links">Chocomart гарантирует</h4>
-                    {#<h4 onclick="openLink(this, '3')" class="links">Рассрочка и кредит</h4>#}
+                    <h4 v-on:click="openLink($event.target, '0')" class="links link-active">Характеристики</h4>
+                    <h4 v-on:click="openLink($event.target, '2')" class="links">Chocomart гарантирует</h4>
                 </div>
                 <div class="product-card-info-content">
                     <div id="product-card-info-content-0">
                         <div class="product-card-characteristic">
                             <div class="characteristic-detail d-flex">
-                                <div class="">
+                                <div class="col-md-3 p-0">
                                     <h4>
                                         Основные характеристики
                                     </h4>
                                 </div>
-
-                                <div class="product-card-characteristic-detail">
+                                <div class="product-card-characteristic-detail col-md-9 p-0">
                                     {% for characteristic in product.comparedProperties %}
-                                    <div class="d-flex w-100">
-                                        <h5 class="characteristic-title">{{ characteristic.property.label }}</h5>
-                                        <h5 class="product-card-dashed-border"></h5>
-                                        <h5 class="characteristic-info">
+                                    <div class="w-100 d-flex">
+                                        <div class="d-inline-block w-50" style="vertical-align: top;margin-top: 0">
+                                            <div class="d-flex mt-0">
+                                                <h5 class="characteristic-title">{{ characteristic.property.label }}</h5>
+                                                <h5 class="product-card-dashed-border"></h5>
+                                            </div>
+                                        </div>
+                                        <div class="d-inline-block" style="width: 49%">
                                             {% for detail in characteristic.params %}
                                                 {% if characteristic.params|length > 1 %}
                                                     {% if loop.index == characteristic.params|length %}
@@ -293,9 +186,8 @@
                                                 {% else %}
                                                     {{ detail }}
                                                 {% endif %}
-
                                             {% endfor %}
-                                        </h5>
+                                        </div>
                                     </div>
                                     {% endfor %}
                                 </div>
@@ -390,104 +282,6 @@
                             </div>
                         </div>
                     </div>
-                    <div id="product-card-info-content-1">
-                        <div class="product-card-review d-flex">
-                            <div class="product-card-review-img">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.262 35.578">
-                                    <g id="avatar_1_" data-name="avatar (1)" transform="translate(-36.073)">
-                                        <g id="Group_920" data-name="Group 920" transform="translate(36.073)">
-                                            <path id="Path_987" d="M144.642 19.17h.236a6.8 6.8 0 0 0 5.194-2.247c2.836-3.2 2.365-8.679 2.313-9.2-.184-3.927-2.041-5.806-3.573-6.682A8.191 8.191 0 0 0 144.848 0h-.125a8.2 8.2 0 0 0-3.964 1.009c-1.547.877-3.433 2.755-3.617 6.712-.052.523-.523 6 2.313 9.2a6.771 6.771 0 0 0 5.187 2.249zm-5.533-11.265c0-.022.007-.044.007-.059.243-5.282 3.993-5.85 5.6-5.85h.088c1.989.044 5.371.855 5.6 5.85a.144.144 0 0 0 .007.059c.007.052.523 5.061-1.82 7.7a4.829 4.829 0 0 1-3.794 1.577h-.074a4.813 4.813 0 0 1-3.787-1.577c-2.336-2.623-1.836-7.655-1.827-7.7z" fill="#b4b4b4" data-name="Path 987" transform="translate(-129.64)"/>
-                                            <path id="Path_988" d="M66.333 268.406v-.022c0-.059-.007-.118-.007-.184-.044-1.459-.14-4.87-3.337-5.96l-.074-.022a21.258 21.258 0 0 1-6.115-2.785.994.994 0 0 0-1.142 1.628 22.946 22.946 0 0 0 6.727 3.072c1.717.611 1.908 2.446 1.96 4.126a1.479 1.479 0 0 0 .007.184 13.373 13.373 0 0 1-.155 2.277 27.114 27.114 0 0 1-12.989 3.021 27.27 27.27 0 0 1-13-3.028 12.66 12.66 0 0 1-.155-2.277c0-.059.007-.118.007-.184.052-1.68.243-3.514 1.96-4.126a23.163 23.163 0 0 0 6.727-3.072.994.994 0 0 0-1.142-1.628 21.025 21.025 0 0 1-6.115 2.785c-.029.007-.052.015-.074.022-3.2 1.1-3.293 4.509-3.337 5.96a1.48 1.48 0 0 1-.007.184v.022a11.3 11.3 0 0 0 .376 3.337.945.945 0 0 0 .383.464c.221.147 5.518 3.522 14.381 3.522S65.375 272.34 65.6 272.2a.986.986 0 0 0 .383-.464 11.853 11.853 0 0 0 .35-3.33z" fill="#b4b4b4" data-name="Path 988" transform="translate(-36.073 -240.144)"/>
-                                        </g>
-                                    </g>
-                                </svg>
-                            </div>
-                            <div class="product-card-review-name">
-                                <h4>Иван Иванов</h4>
-                                <div class="product-card-rating d-flex align-items-top justify-content-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                                        <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                                        <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                                        <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                                        <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.657 25.529">
-                                        <path fill="#fafafa" stroke="#707070" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(.514 -.547)"/>
-                                    </svg>
-                                </div>
-                                <h5>29 июня 2016</h5>
-                                <img width="100px" src="../../assets/images/yandex.png" alt="">
-                            </div>
-                            <div class="product-card-review-text">
-                                <h4>
-                                    Всегда смотрел на обладателей iPhone, как на счастливчиков, которые в руках держат что-то необычное,
-                                    выделяющее их из толпы. iPhone 6 нравится своим внешним видом, его металлический корпус, звук и
-                                    даже дисплей с диагональю всего 4,7" мне не кажется каким-то маленьким, неудобным, даже наоборот –
-                                    он удобен, качественен, с хорошими углами обзора.
-                                </h4>
-                                <h4>
-                                    Всегда смотрел на обладателей iPhone, как на счастливчиков, которые в руках держат что-то необычное,
-                                    выделяющее их из толпы. iPhone 6 нравится своим внешним видом, его металлический корпус, звук и
-                                    даже дисплей с диагональю всего 4,7" мне не кажется каким-то маленьким, неудобным, даже наоборот –
-                                    он удобен, качественен, с хорошими углами обзора.
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="product-card-review d-flex">
-                            <div class="product-card-review-img">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.262 35.578">
-                                    <g id="avatar_1_" data-name="avatar (1)" transform="translate(-36.073)">
-                                        <g id="Group_920" data-name="Group 920" transform="translate(36.073)">
-                                            <path id="Path_987" d="M144.642 19.17h.236a6.8 6.8 0 0 0 5.194-2.247c2.836-3.2 2.365-8.679 2.313-9.2-.184-3.927-2.041-5.806-3.573-6.682A8.191 8.191 0 0 0 144.848 0h-.125a8.2 8.2 0 0 0-3.964 1.009c-1.547.877-3.433 2.755-3.617 6.712-.052.523-.523 6 2.313 9.2a6.771 6.771 0 0 0 5.187 2.249zm-5.533-11.265c0-.022.007-.044.007-.059.243-5.282 3.993-5.85 5.6-5.85h.088c1.989.044 5.371.855 5.6 5.85a.144.144 0 0 0 .007.059c.007.052.523 5.061-1.82 7.7a4.829 4.829 0 0 1-3.794 1.577h-.074a4.813 4.813 0 0 1-3.787-1.577c-2.336-2.623-1.836-7.655-1.827-7.7z" fill="#b4b4b4" data-name="Path 987" transform="translate(-129.64)"/>
-                                            <path id="Path_988" d="M66.333 268.406v-.022c0-.059-.007-.118-.007-.184-.044-1.459-.14-4.87-3.337-5.96l-.074-.022a21.258 21.258 0 0 1-6.115-2.785.994.994 0 0 0-1.142 1.628 22.946 22.946 0 0 0 6.727 3.072c1.717.611 1.908 2.446 1.96 4.126a1.479 1.479 0 0 0 .007.184 13.373 13.373 0 0 1-.155 2.277 27.114 27.114 0 0 1-12.989 3.021 27.27 27.27 0 0 1-13-3.028 12.66 12.66 0 0 1-.155-2.277c0-.059.007-.118.007-.184.052-1.68.243-3.514 1.96-4.126a23.163 23.163 0 0 0 6.727-3.072.994.994 0 0 0-1.142-1.628 21.025 21.025 0 0 1-6.115 2.785c-.029.007-.052.015-.074.022-3.2 1.1-3.293 4.509-3.337 5.96a1.48 1.48 0 0 1-.007.184v.022a11.3 11.3 0 0 0 .376 3.337.945.945 0 0 0 .383.464c.221.147 5.518 3.522 14.381 3.522S65.375 272.34 65.6 272.2a.986.986 0 0 0 .383-.464 11.853 11.853 0 0 0 .35-3.33z" fill="#b4b4b4" data-name="Path 988" transform="translate(-36.073 -240.144)"/>
-                                        </g>
-                                    </g>
-                                </svg>
-                            </div>
-                            <div class="product-card-review-name">
-                                <h4>Иван Иванов</h4>
-                                <div class="product-card-rating d-flex align-items-top justify-content-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                                        <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                                        <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                                        <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.626 24.508">
-                                        <path fill="#fdcc05" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(-.001 -1.047)"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.657 25.529">
-                                        <path fill="#fafafa" stroke="#707070" id="star" d="M14.051 1.816l2.89 5.857a1.38 1.38 0 0 0 1.039.755l6.463.939a1.38 1.38 0 0 1 .765 2.354l-4.677 4.559a1.38 1.38 0 0 0-.4 1.221l1.1 6.437a1.38 1.38 0 0 1-2 1.455l-5.781-3.039a1.382 1.382 0 0 0-1.285 0l-5.774 3.039a1.38 1.38 0 0 1-2-1.455l1.1-6.437a1.38 1.38 0 0 0-.4-1.221L.419 11.72a1.38 1.38 0 0 1 .765-2.354l6.463-.939a1.38 1.38 0 0 0 1.039-.755l2.89-5.857a1.38 1.38 0 0 1 2.475.001z" transform="translate(.514 -.547)"/>
-                                    </svg>
-                                </div>
-                                <h5>29 июня 2016</h5>
-                                <img width="100px" src="../../assets/images/yandex.png" alt="">
-                            </div>
-                            <div class="product-card-review-text">
-                                <h4>
-                                    Всегда смотрел на обладателей iPhone, как на счастливчиков, которые в руках держат что-то необычное,
-                                    выделяющее их из толпы. iPhone 6 нравится своим внешним видом, его металлический корпус, звук и
-                                    даже дисплей с диагональю всего 4,7" мне не кажется каким-то маленьким, неудобным, даже наоборот –
-                                    он удобен, качественен, с хорошими углами обзора.
-                                </h4>
-                                <h4>
-                                    Всегда смотрел на обладателей iPhone, как на счастливчиков, которые в руках держат что-то необычное,
-                                    выделяющее их из толпы. iPhone 6 нравится своим внешним видом, его металлический корпус, звук и
-                                    даже дисплей с диагональю всего 4,7" мне не кажется каким-то маленьким, неудобным, даже наоборот –
-                                    он удобен, качественен, с хорошими углами обзора.
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
                     <div id="product-card-info-content-2">
                         <div class="product-card-warranty">
                             <div class="warranty-image">
@@ -528,7 +322,6 @@
                                         <tspan x="0" y="0">14</tspan>
                                     </text>
                                 </svg>
-
                             </div>
                             <div class="warranty-description">
                                 <h4>
@@ -570,7 +363,6 @@
                                         </g>
                                     </g>
                                 </svg>
-
                             </div>
                             <div class="warranty-description">
                                 <h4>
@@ -580,87 +372,95 @@
                             </div>
                         </div>
                     </div>
-                    <div id="product-card-info-content-3">
-                        <div class="product-card-credit">
-                            <div class="product-card-credit-buttons d-flex">
-                                <button class="product-card-credit_button product-card-credit_button__active">Рассрочка</button>
-                                <button class="product-card-credit_button">Кредит</button>
-                            </div>
-                            <div class="product-card-months d-flex">
-                                <div class="product-card-month d-flex justify-content-center align-content-center">
-                                    3
-                                </div>
-                                <div class="product-card-month product-card-month__active d-flex justify-content-center align-content-center">
-                                    6
-                                </div>
-                                <div class="product-card-month d-flex justify-content-center align-content-center">
-                                    8
-                                </div>
-                                <div class="product-card-month d-flex justify-content-center align-content-center">
-                                    9
-                                </div>
-                                <div class="product-card-month d-flex justify-content-center align-content-center">
-                                    10
-                                </div>
-                                <div class="product-card-month d-flex justify-content-center align-content-center">
-                                    12
-                                </div>
-                                <div class="product-card-month d-flex justify-content-center align-content-center">
-                                    24
-                                </div>
-                                <h4>месяцев</h4>
-                            </div>
-                            <div class="product-card-banks ">
-                                <div class="bank d-flex align-content-center">
-                                    <div class="product-card-banks_image">
-                                        <img src="../../assets/images/homebank.png" alt="">
-                                    </div>
-                                    <div class="product-card-banks_credit d-flex align-content-center">
-                                        <h4 class="d-flex justify-content-center align-items-center">
-                                            240 000  <span>тг/мес</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="bank d-flex align-content-center">
-                                    <div class="product-card-banks_image">
-                                        <img src="../../assets/images/forte.png" alt="">
-                                    </div>
-                                    <div class="product-card-banks_credit d-flex align-content-center">
-                                        <h4 class="d-flex justify-content-center align-items-center">
-                                            240 000  <span>тг/мес</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="bank d-flex align-content-center">
-                                    <div class="product-card-banks_image">
-                                        <img src="../../assets/images/kaspi.png" alt="">
-                                    </div>
-                                    <div class="product-card-banks_credit d-flex align-content-center">
-                                        <h4 class="d-flex justify-content-center align-items-center">
-                                            240 000  <span>тг/мес</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<div id="product-card-basket-modal" class="product-card-basket-modal">
+    <div class="product-card-basket">
+        <div v-on:click="closeBasket()" class="product-card-basket-close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
+                <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
+                    <path id="Line_51" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 51" transform="translate(-9420.5 -3811.5)"/>
+                    <path id="Line_52" d="M0 0l16 16" fill="none" stroke="#ff5d5d" data-name="Line 52" transform="rotate(90 -2796.5 -6608)"/>
+                </g>
+            </svg>
+        </div>
+        <div class="product-card-basket-header">
+            <div class="w-100 d-flex justify-content-center">
+                <h4 class="text-center m-0 d-flex align-content-center align-items-center">Товар добавлен в корзину
+                </h4>
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.187 15.528">
+                        <path id="checked_1_" d="M.233 11.541a.751.751 0 0 1 0-1.087L1.32 9.367a.751.751 0 0 1 1.087 0l.078.078 4.27 4.581a.375.375 0 0 0 .543 0L17.7 3.233h.078a.751.751 0 0 1 1.087 0l1.089 1.087a.751.751 0 0 1 0 1.087L7.531 18.3a.751.751 0 0 1-1.087 0L.388 11.774l-.155-.233z" fill="#fff" data-name="checked (1)" transform="translate(0 -3)"/>
+                    </svg>
+                </div>
+            </div>
+            <div id="product-card-basket-wrapper">
+                <div class="w-100 d-flex align-content-center align-items-center justify-content-between mt-3">
+                    <div class="product-card-basket-img-wrapper">
+                        <img width="100%" src="../../assets/images/s9/s9front.png" alt="">
+                    </div>
+                    <div class="product-card-basket-title-wrapper">
+                        <h4>
+                            Смартфон Samsung 32GB <br>
+                            Смартфон Samsung
+                        </h4>
+                    </div>
+                    <div class="product-card-basket-stepper d-flex align-items-center">
+                        <input type="number" value="1" name="quantity" min="1" max="8"> шт.
+                    </div>
+                    <div class="product-card-basket-price-total">
+                        <h4>250 000 тг</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-card-basket-content">
+            <div class="w-100 d-flex align-content-center align-items-center mt-3">
+                <div class="product-card-basket-img-wrapper">
+                </div>
+                <div id="product-card-total" class="product-card-basket-title-total">
+                    <h4>
+                        Всего в корзине: <span>5 товаров</span>
+                    </h4>
+                    <h4>
+                        Общая сумма: <span>500 000 тенге</span>
+                    </h4>
+                    <a class="order">Оформить заказ</a>
+                    <a class="basket">Перейти в корзину
+                        <svg xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
+                            <path fill="#ff5d5d" id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" data-name="Path 147" transform="translate(-17.2)"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="product-card-basket-content">
+            <div class="w-100 d-flex align-content-center align-items-center mt-3">
+                <div class="product-card-basket-img-wrapper">
+                </div>
+                <div class="product-card-basket-title-total">
+                    <a v-on:click="closeBasket()" class="continue">Продолжить покупки</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-card-basket-background"></div>
+</div>
 <div class="product-card-mobile-wrapper">
     <div class="product-card-mobile-category d-flex align-items-center justify-content-between">
         <div>
-            <svg width="20px" height="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.707 15.485">
-                <g id="Group_1118" data-name="Group 1118" transform="translate(-15.293 -14.793)">
-                    <path id="Line_330" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 330" transform="rotate(-45 35.246 -8.028)"/>
-                    <path id="Line_331" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 331" transform="translate(16.5 22.5)"/>
-                    <path id="Line_368" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 368" transform="rotate(45 -19.16 30.564)"/>
-                </g>
-            </svg>
+            <a href="/">
+                <svg width="20px" height="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.707 15.485">
+                    <g id="Group_1118" data-name="Group 1118" transform="translate(-15.293 -14.793)">
+                        <path id="Line_330" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 330" transform="rotate(-45 35.246 -8.028)"/>
+                        <path id="Line_331" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 331" transform="translate(16.5 22.5)"/>
+                        <path id="Line_368" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 368" transform="rotate(45 -19.16 30.564)"/>
+                    </g>
+                </svg>
+            </a>
         </div>
         <div>
             <h1 class="products-mobile-content__title text-uppercase font-weight-normal text-algin-center no-margin">Смартфоны</h1>
@@ -672,7 +472,6 @@
         <h4 class="product-card-mobile__title">
             {{ product.fullName }}
         </h4>
-
         <div class="swiper-container swiper-mobile-product-wrapper">
             <div class="swiper-wrapper">
                 {% for image in product.images %}
@@ -691,7 +490,7 @@
             <div class="product-card-mobile-info_prices d-flex flex-wrap justify-content-between">
                 <div class="product-card-mobile-info__price">
                     <h5 class="mb-0"></h5>
-                    <h5>{{ product.getBestOffer().price | number_format }} тг</h5>
+                    <h5>{{ product.getBestOffer().price | round }} тг</h5>
                 </div>
                 <div class="product-card-mobile-info__bonus d-none align-items-center">
                     <svg width="30px" height="30px" fill="#fdcc05" xmlns="http://www.w3.org/2000/svg" id="coins-money-stack" viewBox="0 0 24.579 24.579">
@@ -731,7 +530,6 @@
                             </h5>
                         </div>
                     {% endfor %}
-
                 </div>
             </div>
             <div class="product-card-mobile-info__specifications">
@@ -770,7 +568,7 @@
                 </div>
             </div>
             <div class="product-card-mobile-buy">
-                <button class="buy_now">Купить сейчас
+                <button v-on:click="BuyNow({{ product.getBestOffer().id }}, 1)" class="buy_now">Купить сейчас
                     <svg xmlns="http://www.w3.org/2000/svg" width="20.723" height="23.04" viewBox="0 0 20.723 23.04">
                         <g id="click_1_" data-name="click (1)" transform="translate(-24.632)">
                             <g id="Group_1191" data-name="Group 1191" transform="translate(24.632)">
@@ -781,16 +579,11 @@
                         </g>
                     </svg>
                 </button>
-                <button class="add_basket">Добавить в корзину
+                <button v-on:click="ToBasket({{ product.getBestOffer().id }}, 1)" class="add_basket">Добавить в корзину
                     <svg xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" width="21.374" height="23" data-name="shopping-cart (1)" viewBox="0 0 21.374 23">
                         <path id="Path_147" d="M23.292 15.144h12.673a2.615 2.615 0 0 0 2.609-2.609V7.146a.06.06 0 0 0 0-.028v-.033-.028a.3.3 0 0 1-.009-.033c0-.009 0-.019-.009-.028s0-.019-.009-.028a.23.23 0 0 1-.014-.033.1.1 0 0 0-.033-.025l-.014-.028c0-.009-.009-.014-.014-.024s-.014-.019-.019-.028a.083.083 0 0 0-.019-.024c0-.009-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.009 0-.014-.014-.024-.019s-.019-.014-.028-.019l-.024-.014a.1.1 0 0 1-.028-.019l-.028-.014-.021-.014-.032-.016c-.009 0-.019 0-.028-.009a.088.088 0 0 0-.033-.009.2.2 0 0 1-.024 0 .1.1 0 0 0-.038 0h-.019l-16.062-2.23v-2.24a.291.291 0 0 0 0-.066.036.036 0 0 0 0-.019v-.043c0-.015 0-.024-.009-.038s0-.014 0-.024l-.014-.043V1.86a.142.142 0 0 0-.019-.038s0-.014-.009-.019a.1.1 0 0 0-.019-.028c0-.009-.009-.014-.014-.024l-.014-.024c-.005-.01-.014-.019-.019-.028l-.014-.014-.028-.028-.014-.014a.206.206 0 0 0-.033-.028s-.014-.009-.019-.014-.019-.014-.028-.024a.436.436 0 0 0-.038-.024s-.009 0-.014-.009l-.061-.028L18.087.051a.639.639 0 0 0-.5 1.177l3.091 1.3v13.987a2.612 2.612 0 0 0 2.278 2.585 2.575 2.575 0 1 0 4.784 1.324 2.527 2.527 0 0 0-.355-1.3h5.739a2.54 2.54 0 0 0-.355 1.3 2.576 2.576 0 1 0 2.576-2.576H23.292a1.334 1.334 0 0 1-1.333-1.333v-1.73a2.639 2.639 0 0 0 1.333.359zm3.177 5.275a1.3 1.3 0 1 1-1.3-1.3 1.3 1.3 0 0 1 1.299 1.3zm10.182 0a1.3 1.3 0 1 1-1.3-1.3 1.3 1.3 0 0 1 1.299 1.3zm-.685-6.552H23.292a1.334 1.334 0 0 1-1.333-1.333v-6.9L37.3 7.751v4.779a1.336 1.336 0 0 1-1.335 1.338z" style="fill:#ff5d5d" data-name="Path 147" transform="translate(-17.2)"/>
                     </svg>
                 </button>
-                {#<button class="rass_button">Оплатить частями#}
-                    {#<svg xmlns="http://www.w3.org/2000/svg" width="18.622" height="23" viewBox="0 0 18.622 23">#}
-                        {#<path id="database_1_" d="M66.911 11C61.6 11 57.6 12.807 57.6 15.2v14.59c0 2.4 4 4.21 9.311 4.21s9.311-1.807 9.311-4.21V15.2c0-2.393-4.004-4.2-9.311-4.2zm8.161 13.929c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm0-4.862c0 1.445-3.351 3.06-8.161 3.06s-8.161-1.61-8.161-3.06v-2.774c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121zm-8.161-7.917c4.81 0 8.161 1.61 8.161 3.06s-3.351 3.06-8.161 3.06-8.161-1.61-8.161-3.06 3.35-3.06 8.161-3.06zm0 20.7c-4.81 0-8.161-1.61-8.161-3.06v-2.778c1.558 1.286 4.557 2.121 8.161 2.121s6.608-.835 8.161-2.121v2.774c0 1.45-3.351 3.06-8.161 3.06z" style="fill:#fff" data-name="database (1)" transform="translate(-57.6 -11)"/>#}
-                    {#</svg>#}
-                {#</button>#}
             </div>
             <div class="product-card-mobile-info__specifications">
                 <div v-on:click="warrant = !warrant" class="d-flex align-items-center">
@@ -903,7 +696,7 @@
                 let response = this.response;
                 response = JSON.parse(response);
                 for(let i = 0; i < response.length ; i++) {
-                    if (parseInt(response[i].product.id) === parseInt(id) ) {
+                    if (parseInt(response[i].offer.id) === parseInt(id) ) {
                         basket_result =
                             '<div class="product-card-basket-img-wrapper">' +
                                 '<img width="100%" src="' + response[i].product.imagesList[0] +'" alt="">' +
@@ -921,6 +714,9 @@
                                 '<h4>'+ parseInt(response[i].offer.price) +' тг</h4>' +
                             '</div>';
                         basket_wrapper.innerHTML = basket_result;
+                    } else {
+                        one_click.open("GET", "/order/add/" + response[i].offer.id + "/" + 0, true);
+                        one_click.send();
                     }
                 }
                 var timeout = null;
@@ -1018,35 +814,11 @@
         list.open("GET", "/order/list", true);
         list.send();
     }
-    function closeBasket() {
-        document.getElementById('product-card-basket-modal').style.display = "none";
-    }
-    function closeOneClick() {
-        document.getElementById('product-card-onclick-modal').style.display = "none";
-    }
     var current_header_index = 0;
     document.addEventListener("DOMContentLoaded", function(event) {
         setTimeout(() => {
             document.documentElement.scrollTop = 0;
         },100)
     });
-    function openLink(y, x) {
-        if (current_header_index !== x) {
-            document.getElementById('product-card-info-content-' + x).style.display = "block";
-            document.getElementById('product-card-info-content-' + current_header_index).style.display = "none";
-            var cur_link = document.getElementsByClassName('link-active');
-            cur_link[0].classList.remove('link-active');
-            y.classList.add('link-active');
-            current_header_index = x;
-        }
-    }
-    function changeThis(x) {
-        var cur_sub_img = document.getElementsByClassName('product-card-images-list_item__active');
-        cur_sub_img[0].classList.remove('product-card-images-list_item__active');
-        var cur_img = document.getElementById('main_img');
-        cur_img.style.backgroundImage = "url("+ x.src +")";
-        x.classList.add('product-card-images-list_item__active');
-    }
 </script>
 
-{#/order/id/count#}

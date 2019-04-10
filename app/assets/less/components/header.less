@@ -3,6 +3,10 @@
   width: 100%;
   background-color: @white_color;
   border-bottom: 1px solid #e6e6e6;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
 
   .mobile-header {
     display: none;
@@ -298,8 +302,11 @@
         font-size: 16px;
         border-radius: 5px;
         border: none;
+        line-height: 40px;
+        text-align: center;
         &:hover {
           background-color: #E62323;
+          text-decoration: none;
         }
         &:focus {
           outline: none;
