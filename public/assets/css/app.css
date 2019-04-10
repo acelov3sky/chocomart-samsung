@@ -16258,6 +16258,10 @@ template {
   width: 100%;
   background-color: #ffffff;
   border-bottom: 1px solid #e6e6e6;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
 }
 #ChocomartHeader .mobile-header {
   display: none;
@@ -16535,9 +16539,12 @@ template {
   font-size: 16px;
   border-radius: 5px;
   border: none;
+  line-height: 40px;
+  text-align: center;
 }
 #ChocomartHeader .header .basket_button:hover {
   background-color: #E62323;
+  text-decoration: none;
 }
 #ChocomartHeader .header .basket_button:focus {
   outline: none;
@@ -17116,7 +17123,6 @@ template {
 }
 .product-wrapper {
   position: relative;
-  min-height: 315px;
   margin-top: 10px;
   transition: ease 0.4s;
   border-radius: 4px;
@@ -17135,11 +17141,14 @@ template {
   box-sizing: border-box;
   background-color: white;
   transition: ease 0.4s;
+  border: solid 1px #e2e2e2;
+  border-radius: 5px;
+  overflow: hidden;
   left: 0;
 }
 .product-wrapper .product-wrapper__content .product-content__description {
   position: relative;
-  height: 315px;
+  height: 285px;
 }
 .product-wrapper .product-wrapper__content .product-content__description .description__promotion {
   position: absolute;
@@ -17162,12 +17171,11 @@ template {
   line-height: 16px;
 }
 .product-wrapper .product-wrapper__content .product-content__description .description__product-image {
-  height: 186px;
   margin-bottom: 5px;
 }
 .product-wrapper .product-wrapper__content .product-content__description .description__product-image .product-image-wrapper {
   position: relative;
-  height: 138px;
+  height: 145px;
 }
 .product-wrapper .product-wrapper__content .product-content__description .description__product-image .product-image-wrapper .swiper-container {
   position: absolute;
@@ -17201,8 +17209,9 @@ template {
 }
 .product-wrapper .product-wrapper__content .product-content__description .description__text .text__title {
   font-size: 16px;
+  margin-top: 20px;
   color: #707070;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   line-height: 1.15;
 }
 @media (max-width: 768px) {
@@ -18556,7 +18565,7 @@ template {
 .product-card-wrapper {
   width: 1180px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 117px;
 }
 @media (max-width: 1200px) {
   .product-card-wrapper {
@@ -18909,7 +18918,7 @@ template {
   min-width: 255px;
 }
 .product-card-info-content .characteristic-detail .product-card-characteristic-detail {
-  margin-left: 56px;
+  margin-left: 20px;
   min-width: 540px;
 }
 @media (max-width: 768px) {
@@ -19767,6 +19776,9 @@ template {
   background: #1428a0;
   opacity: 0.5;
   border: solid 1px #1428a0;
+}
+.main-slider_wrapper {
+  margin-top: 77px;
 }
 @media (max-width: 768px) {
   .main-slider_wrapper {
