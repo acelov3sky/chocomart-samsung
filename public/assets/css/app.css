@@ -17678,6 +17678,15 @@ template {
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row {
   margin-bottom: 25px;
 }
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .option-or-text {
+  display: flex;
+  align-items: flex-end;
+  font-size: 16px;
+  color: #707070;
+  margin: 0 20px 0 0 !important;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column {
   margin-right: 25px;
 }
@@ -17703,9 +17712,11 @@ template {
   height: 40px;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-additional-row .additional-options .option-or {
+  display: flex;
+  align-items: center;
   font-size: 16px;
   color: #707070;
-  margin-right: 20px;
+  margin: 0 20px 0 0 !important;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .customer-information-wrapper .information-row .information-column .information-additional-row .additional-options .option-signin-button {
   width: 225px;
@@ -17840,7 +17851,6 @@ template {
   text-align: center;
   color: #fff;
   font-size: 16px;
-  margin-top: 30px;
   border: 1px solid #1428a0;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .delivery-wrapper .delivery-row .delivery-information-row .bonus-block .submit-form:hover {

@@ -1,0 +1,884 @@
+<script>
+    let orderData = {{ order | json_encode() | raw }};
+</script>
+<div id="cart" class="p-0 col-md-12 col-sm-12 col-xs-12 cart-wrapper w-100">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 cart-wrapper__cart-block cart-block">
+        <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-block__cart-heading"> ~{ chosenProducts ? cartStateName = 'Корзина' : cartStateName = 'ОФОРМЛЕНИЕ ЗАКАЗА'}</h1>
+        {% if order.offers | length > 0 %}
+        <div class="col-sm-12 col-xs-12 cart-block__mobile-progress-bar mobile-progress-bar d-none flex-column">
+            <div class="mobile-progress-bar__content pbar-content w-100 d-flex align-items-center justify-content-center">
+                <div :class="{'block-icon--active' : chosenProducts}" class="pbar-content__block-icon block-icon" @click="openMobileBlock(1, blockCompletion[0].completion, blockCompletion[1].completion)">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="shopping-cart_3_" data-name="shopping-cart (3)" viewBox="0 0 27.607 29.721">
+                        <g id="Group_1086" data-name="Group 1086">
+                            <path id="Path_1089" d="M221.935 129.717a.738.738 0 0 0 .521.214.749.749 0 0 0 .521-.214l4.529-4.529a.737.737 0 0 0-1.042-1.042l-4.008 4.014-1.618-1.618a.737.737 0 0 0-1.042 1.042z" class="cls-1" data-name="Path 1089" transform="translate(-207.18 -116.335)"/>
+                            <path id="Path_1090" d="M25.08 19.511h16.48a3.3 3.3 0 0 0 3.3-3.3V9.27a.735.735 0 1 0-1.471 0v6.938a1.827 1.827 0 0 1-1.826 1.826H25.08a1.827 1.827 0 0 1-1.826-1.826V2.651a.349.349 0 0 0-.006-.08v-.018c0-.018-.006-.037-.006-.049a.114.114 0 0 0-.012-.043c0-.006-.006-.018-.006-.025s-.012-.031-.018-.049-.006-.012-.006-.018-.012-.031-.018-.043-.006-.018-.012-.025l-.018-.037c-.006-.012-.012-.018-.018-.031s-.012-.018-.018-.025a.134.134 0 0 0-.025-.031l-.018-.018c-.012-.012-.018-.025-.031-.037s-.012-.012-.018-.012a.163.163 0 0 0-.037-.031l-.018-.018c-.012-.006-.025-.018-.037-.025s-.031-.018-.043-.031A.013.013 0 0 1 22.874 2l-.074-.041-4.529-1.9a.735.735 0 1 0-.57 1.354l4.076 1.722v18.239a3.3 3.3 0 0 0 3.023 3.285 3.258 3.258 0 1 0 5.442.012h7.8a3.262 3.262 0 1 0 2.727-1.471H25.08a1.827 1.827 0 0 1-1.826-1.826v-2.42a3.279 3.279 0 0 0 1.826.557zm4.223 6.95a1.79 1.79 0 1 1-1.79-1.79 1.792 1.792 0 0 1 1.787 1.79zm13.25 0a1.79 1.79 0 1 1-1.79-1.79 1.792 1.792 0 0 1 1.79 1.79z" class="cls-1" data-name="Path 1090" transform="translate(-17.25)"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class=" pbar-content__block-line block-line h-100 d-flex align-items-center justify-content-center">
+                    <div class="block-line__pbar-icon pbar-icon active products" v-if="!blockCompletion[0].completion && chosenProducts"></div>
+                    <div class="block-line__pbar-icon pbar-icon products done d-flex align-items-center justify-content-center" v-if="blockCompletion[0].completion">
+                        <img class="pbar-icon-done" src="../../assets/images/svg/checked.png">
+                    </div>
+                    <img src="../../assets/images/progressLine.png" class="block-line__pbar-line pbar-line"/>
+                    <div class="block-line__pbar-icon pbar-icon active customer" v-if="blockCompletion[0].completion && !blockCompletion[1].completion"></div>
+                </div>
+                <div :class="{'block-icon--active' : customerInformation}" class="pbar-content__block-icon block-icon" @click="openMobileBlock(2, blockCompletion[0].completion, blockCompletion[1].completion)">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.208 33.163">
+                        <g id="avatar_2_" data-name="avatar (2)" transform="translate(-36.073)">
+                            <g id="Group_1081" data-name="Group 1081" transform="translate(36.073)">
+                                <path id="Path_1085" d="M144.129 17.869h.22a6.337 6.337 0 0 0 4.842-2.095c2.644-2.98 2.2-8.09 2.156-8.577-.172-3.66-1.9-5.412-3.331-6.229A7.635 7.635 0 0 0 144.321 0h-.121a7.647 7.647 0 0 0-3.695.941c-1.442.817-3.2 2.568-3.372 6.256-.048.488-.488 5.6 2.156 8.577a6.312 6.312 0 0 0 4.84 2.095zm-5.157-10.5c0-.021.007-.041.007-.055.221-4.924 3.721-5.453 5.221-5.453h.082c1.854.041 5.006.8 5.219 5.453a.134.134 0 0 0 .007.055c.007.048.488 4.718-1.7 7.177a4.5 4.5 0 0 1-3.537 1.47h-.071a4.486 4.486 0 0 1-3.53-1.47c-2.17-2.446-1.705-7.136-1.699-7.177z" class="cls-1" data-name="Path 1085" transform="translate(-130.145)"/>
+                                <path id="Path_1086" d="M64.279 267.784v-.021c0-.055-.007-.11-.007-.172-.041-1.36-.13-4.539-3.111-5.556l-.069-.021a19.815 19.815 0 0 1-5.7-2.6.927.927 0 0 0-1.064 1.518A21.39 21.39 0 0 0 60.6 263.8c1.6.57 1.779 2.28 1.827 3.846a1.379 1.379 0 0 0 .007.172 12.465 12.465 0 0 1-.144 2.122 25.274 25.274 0 0 1-12.107 2.816 25.419 25.419 0 0 1-12.114-2.823 11.8 11.8 0 0 1-.144-2.122c0-.055.007-.11.007-.172.048-1.566.227-3.276 1.827-3.846a21.589 21.589 0 0 0 6.27-2.864.927.927 0 1 0-1.064-1.518 19.6 19.6 0 0 1-5.7 2.6c-.027.007-.048.014-.069.021-2.98 1.023-3.07 4.2-3.111 5.556a1.379 1.379 0 0 1-.007.172v.021a10.531 10.531 0 0 0 .35 3.111.881.881 0 0 0 .357.433c.206.137 5.144 3.283 13.405 3.283s13.2-3.152 13.405-3.283a.919.919 0 0 0 .357-.433 11.048 11.048 0 0 0 .327-3.108z" class="cls-1" data-name="Path 1086" transform="translate(-36.073 -241.441)"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="pbar-content__block-line block-line h-100 d-flex align-items-center justify-content-center">
+                    <div class="block-line__pbar-icon pbar-icon products done d-flex align-items-center justify-content-center" v-if="blockCompletion[1].completion">
+                        <img class="pbar-icon-done" src="../../assets/images/svg/checked.png">
+                    </div>
+                    <img src="../../assets/images/progressLine.png" class="block-line__pbar-line pbar-line"/>
+                    <div class="block-line__pbar-icon pbar-icon active customer" v-if="blockCompletion[1].completion"></div>
+                </div>
+                <div :class="{'block-icon--active' : deliveryInformation}" class="pbar-content__block-icon block-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.995 25.663">
+                        <g id="credit-card_3_" data-name="credit-card (3)" transform="translate(1 -67.267)">
+                            <g id="Group_1083" data-name="Group 1083" transform="translate(-1 67.267)">
+                                <g id="Group_1082" data-name="Group 1082">
+                                    <path id="Path_1087" d="M31.078 67.267H1.916A2.888 2.888 0 0 0-1 70.183v19.83a2.888 2.888 0 0 0 2.916 2.917h29.163a2.888 2.888 0 0 0 2.916-2.916V70.183a2.888 2.888 0 0 0-2.917-2.916zM1.916 68.433h29.163a1.718 1.718 0 0 1 1.75 1.75v.583H.167v-.583a1.719 1.719 0 0 1 1.749-1.75zm30.912 7H.167v-3.5h32.661v3.5zm-1.75 16.331H1.916a1.718 1.718 0 0 1-1.75-1.75V76.6h32.662v13.414a1.719 1.719 0 0 1-1.75 1.749z" class="cls-1" data-name="Path 1087" transform="translate(1 -67.267)"/>
+                                    <path id="Path_1088" d="M300.216 289.133h-10.5a.551.551 0 0 0-.583.583v5.832a.551.551 0 0 0 .583.583h10.5a.551.551 0 0 0 .583-.583v-5.832a.551.551 0 0 0-.583-.583zm-.583 5.833H290.3V290.3h9.332z" class="cls-1" data-name="Path 1088" transform="translate(-269.304 -273.969)"/>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="mobile-progress-bar__block-name block-name w-100 d-flex justify-content-center">
+                ~{blockName}
+            </div>
+        </div>
+
+        <form action="#" method="post" onsubmit="return false" class="p-0 w-100 d-flex flex-column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div :class="{'cart-close' : !chosenProducts}" class="col-lg-12 col-md-12 col-sm-12 p-0 col-xs-12 cart-block__cart-content-option cart-content-option-wrapper float-right">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-content-option-wrapper__cart-option cart-option-wrapper w-100 p-0">
+                <div class="col-lg-12 col-md-12 col-sm-12 p-0 cart-option-wrapper__option-description option-description w-100 d-flex align-items-center">
+                    <div :class="{'option-image--active' : chosenProducts}" class="option-description__option-image d-flex justify-content-center align-items-center" @click="openCompletedBlock(1, blockCompletion[0].completion)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.947 32.24">
+                            <g id="shopping-cart_3_" data-name="shopping-cart (3)" transform="translate(-17.25)">
+                                <g id="Group_1086" data-name="Group 1086" transform="translate(17.25)">
+                                    <path id="Path_1089" d="M222.135 130.207a.8.8 0 0 0 .565.233.812.812 0 0 0 .565-.233l4.913-4.913a.8.8 0 1 0-1.13-1.13l-4.348 4.355-1.755-1.755a.8.8 0 1 0-1.13 1.13z" class="cls-1" data-name="Path 1089" transform="translate(-206.129 -115.691)"/>
+                                    <path id="Path_1090" d="M25.744 21.165H43.62a3.582 3.582 0 0 0 3.58-3.577v-7.532a.8.8 0 1 0-1.6 0v7.526a1.982 1.982 0 0 1-1.981 1.981H25.744a1.982 1.982 0 0 1-1.981-1.981V2.876a.379.379 0 0 0-.007-.086v-.02c0-.02-.007-.04-.007-.053a.123.123 0 0 0-.013-.047c0-.007-.007-.02-.007-.027s-.013-.033-.02-.053-.007-.013-.007-.02-.013-.033-.02-.047-.007-.02-.013-.027l-.02-.04-.02-.033a.105.105 0 0 0-.02-.027.145.145 0 0 0-.027-.033l-.02-.02c-.013-.013-.02-.027-.033-.04s-.013-.013-.02-.013a.176.176 0 0 0-.04-.033l-.02-.02c-.013-.007-.027-.02-.04-.027s-.033-.02-.047-.033a.014.014 0 0 1-.013-.013l-.08-.04-4.911-2.06a.8.8 0 1 0-.618 1.469L22.16 3.4v19.786a3.577 3.577 0 0 0 3.278 3.563 3.535 3.535 0 1 0 5.9.013H39.8a3.538 3.538 0 1 0 2.958-1.6H25.744a1.982 1.982 0 0 1-1.981-1.981V20.56a3.556 3.556 0 0 0 1.981.605zm4.58 7.535a1.941 1.941 0 1 1-1.941-1.941 1.944 1.944 0 0 1 1.941 1.941zm14.373 0a1.941 1.941 0 1 1-1.941-1.941A1.944 1.944 0 0 1 44.7 28.7z" class="cls-1" data-name="Path 1090" transform="translate(-17.25)"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="option__completed-symbol d-flex align-items-center justify-content-center" v-if="blockCompletion[0].completion">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.285 10.989">
+                            <path id="checked_1_" d="M.165 9.044a.531.531 0 0 1 0-.769l.769-.769a.531.531 0 0 1 .769 0l.055.055L4.78 10.8a.266.266 0 0 0 .385 0l7.362-7.637h.055a.531.531 0 0 1 .769 0l.769.769a.531.531 0 0 1 0 .769l-8.791 9.123a.531.531 0 0 1-.769 0L.275 9.209l-.11-.165z" class="cls-1" data-name="checked (1)" transform="translate(0 -3)"/>
+                        </svg>
+                    </div>
+                    <div :class="{'option-name__completed' : blockCompletion[0].completion}" class="option-description__option-name" @click="openCompletedBlock(1, blockCompletion[0].completion)">
+                        Выбранные товары
+                        <!--option-name__completed-->
+                    </div>
+                    <div class="option-able-symbol" v-if="blockCompletion[0].completion" @click="openCompletedBlock(1, blockCompletion[0].completion)">
+                        <img :class="[blockCompletion[0].completion && chosenProducts ? 'able-symbol__opened' : '']" src="../../assets/images/svg/closed.svg" class="able-symbol__closed">
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-option-wrapper__option-wrapper option-wrapper p-0" v-show="chosenProducts">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 option-wrapper-products p-0 w-100">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 option-wrapper__cart-item cart-item d-flex align-items-center" v-for="product in productsList">
+                            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 p-0 cart-item__item-image d-flex justify-content-center">
+                                <img :src="product.product.imagesList[0]" class="product-image">
+                            </div>
+                            <div class="option-content col-lg-12 col-md-12 col-xs-9 col-sm-10 p-0 d-flex align-items-center">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cart-item__item-name p-0 item-name d-flex flex-column justify-content-start">
+                                    <h3 class="item-name__heading font-weight-normal">Category</h3>
+                                    <p class="item-name__par">{{ order.offers.0.product.fullName }}</p>
+                                </div>
+
+                                <div class="initial-price col-lg-1 col-md-1 col-sm-12 col-xs-12 cart-item__item-price item-price d-flex align-items-center justify-content-center">
+                                    ~{parseInt(product.offer.price)} <span class="tenge-small">тг</span>
+                                </div>
+                                <div class="cart-item_item-count item-count d-flex p-0">
+                                    <div class="item-count__button button-add h-100" @click="changeProductCount(product.product.id, '+')">
+                                        +
+                                    </div>
+                                    <div class="item-count__button button-count h-100">
+                                        ~{parseInt(product.count)}
+                                    </div>
+                                    <div class="item-count__button button-subtract h-100" @click="changeProductCount(product.product.id, '-')">
+                                        -
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12 cart-item__item-price item-price d-flex align-items-center justify-content-center">
+                                    ~{parseInt(product.offer.price) * parseInt(product.count)} <span class="tenge-small">тг</span>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-1 p-0 cart-item__button-remove button-remove" @click="deleteProduct(product.product.id)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
+                                        <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
+                                            <path id="Line_51" d="M0 0l16 16" class="cls-1" data-name="Line 51" transform="translate(-9420.5 -3811.5)"/>
+                                            <path id="Line_52" d="M0 0l16 16" class="cls-1" data-name="Line 52" transform="rotate(90 -2796.5 -6608)"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 option-wrapper__cart-summary cart-summary w-100 d-flex flex-column">
+                        <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-summary__heading">итого</div>
+                        <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-summary__item-count">
+                            Всего в корзине: <span class="item-count-number" id="item-count">~{productsCount}</span> ~{productCountText}
+                        </div>
+                        <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-summary__item-count">
+                            Общая сумма: <span class="item-count-number" id="item-summary">~{productsSum}</span> тенге
+                        </div>
+                        <button @click="submitBlock(1)" class="cart-summary__submit-button">Оформить заказ</button>
+                    </div>
+
+                    <div class="d-none col-sm-12 col-xs-12 submit-button w-100 align-items-center justify-content-center">
+                        <button @click="submitBlock(1)" class="cart-summary__submit-button">Оформить заказ</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div :class="{'cart-close' : !customerInformation}" class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-block__cart-content-option cart-content-option-wrapper float-right">
+            <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-content-option-wrapper__cart-option cart-option-wrapper w-100">
+                <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-option-wrapper__option-description option-description w-100 d-flex align-items-center">
+                    <div :class="{'option-image--active' : customerInformation}" class="option-description__option-image d-flex justify-content-center align-items-center" @click="openCompletedBlock(2, blockCompletion[1].completion)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.208 33.163">
+                            <g id="avatar_2_" data-name="avatar (2)" transform="translate(-36.073)">
+                                <g id="Group_1081" data-name="Group 1081" transform="translate(36.073)">
+                                    <path id="Path_1085" d="M144.129 17.869h.22a6.337 6.337 0 0 0 4.842-2.095c2.644-2.98 2.2-8.09 2.156-8.577-.172-3.66-1.9-5.412-3.331-6.229A7.635 7.635 0 0 0 144.321 0h-.121a7.647 7.647 0 0 0-3.695.941c-1.442.817-3.2 2.568-3.372 6.256-.048.488-.488 5.6 2.156 8.577a6.312 6.312 0 0 0 4.84 2.095zm-5.157-10.5c0-.021.007-.041.007-.055.221-4.924 3.721-5.453 5.221-5.453h.082c1.854.041 5.006.8 5.219 5.453a.134.134 0 0 0 .007.055c.007.048.488 4.718-1.7 7.177a4.5 4.5 0 0 1-3.537 1.47h-.071a4.486 4.486 0 0 1-3.53-1.47c-2.17-2.446-1.705-7.136-1.699-7.177z" class="cls-1" data-name="Path 1085" transform="translate(-130.145)"/>
+                                    <path id="Path_1086" d="M64.279 267.784v-.021c0-.055-.007-.11-.007-.172-.041-1.36-.13-4.539-3.111-5.556l-.069-.021a19.815 19.815 0 0 1-5.7-2.6.927.927 0 0 0-1.064 1.518A21.39 21.39 0 0 0 60.6 263.8c1.6.57 1.779 2.28 1.827 3.846a1.379 1.379 0 0 0 .007.172 12.465 12.465 0 0 1-.144 2.122 25.274 25.274 0 0 1-12.107 2.816 25.419 25.419 0 0 1-12.114-2.823 11.8 11.8 0 0 1-.144-2.122c0-.055.007-.11.007-.172.048-1.566.227-3.276 1.827-3.846a21.589 21.589 0 0 0 6.27-2.864.927.927 0 1 0-1.064-1.518 19.6 19.6 0 0 1-5.7 2.6c-.027.007-.048.014-.069.021-2.98 1.023-3.07 4.2-3.111 5.556a1.379 1.379 0 0 1-.007.172v.021a10.531 10.531 0 0 0 .35 3.111.881.881 0 0 0 .357.433c.206.137 5.144 3.283 13.405 3.283s13.2-3.152 13.405-3.283a.919.919 0 0 0 .357-.433 11.048 11.048 0 0 0 .327-3.108z" class="cls-1" data-name="Path 1086" transform="translate(-36.073 -241.441)"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="option__completed-symbol d-flex align-items-center justify-content-center" v-if="blockCompletion[1].completion">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.285 10.989">
+                            <path id="checked_1_" d="M.165 9.044a.531.531 0 0 1 0-.769l.769-.769a.531.531 0 0 1 .769 0l.055.055L4.78 10.8a.266.266 0 0 0 .385 0l7.362-7.637h.055a.531.531 0 0 1 .769 0l.769.769a.531.531 0 0 1 0 .769l-8.791 9.123a.531.531 0 0 1-.769 0L.275 9.209l-.11-.165z" class="cls-1" data-name="checked (1)" transform="translate(0 -3)"/>
+                        </svg>
+                    </div>
+                    <div :class="{'option-name__completed' : blockCompletion[1].completion}" class="option-description__option-name" @click="openCompletedBlock(2, blockCompletion[1].completion)">
+                        Информация о покупателе
+                    </div>
+                    <div class="option-able-symbol" v-if="blockCompletion[1].completion" @click="openCompletedBlock(2, blockCompletion[1].completion)">
+                        <img :class="[blockCompletion[1].completion && customerInformation ? 'able-symbol__opened' : '']" src="../../assets/images/svg/closed.svg" class="able-symbol__closed">
+                    </div>
+                </div>
+
+                <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-option-wrapper__option-wrapper option-wrapper" v-show="customerInformation">
+                    <div class=" col-sm-12 col-xs-12 option-wrapper__customer-information customer-information-wrapper w-100">
+
+                            <div class="col-sm-12 col-xs-12 p-0 customer-information-wrapper__information-row information-row d-flex w-100">
+                                <div class="information-row__information-column information-column d-flex flex-column">
+                                    <label for="customer-name" class="information-label">Имя</label>
+                                    <input type="text" class="information-input" v-model="customerName" name="customer-name" id="customer-name" placeholder="Ваше имя" required>
+                                </div>
+                                <div class="information-row__information-column information-column d-flex flex-column">
+                                    <label for="customer-surname" class="information-label">Фамилия</label>
+                                    <input type="text" class="information-input" v-model="customerSurname" name="customer-surname" id="customer-surname" placeholder="Ваша фамилия" required>
+                                </div>
+                                <div class="option-or-text">или</div>
+                                <div class="information-row__information-column information-column d-flex flex-column">
+                                    <div class="information-additional-row h-100 d-flex align-items-end">
+                                        <div class="information-additional-row__additional-options additional-options d-flex align-items-center">
+                                            <button class="option-signin-button h-100">Войти в личный кабинет</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-12 p-0 customer-information-wrapper__information-row information-row d-flex w-100">
+                                <div class="information-row__information-column information-column d-flex flex-column">
+                                    <label for="customer-phone" class="information-label">Мобильный телефон</label>
+                                    <the-mask id="customer-phone" mask="# (###) ### ## ##" class="information-input" v-model="customerPhone" type="text" placeholder="Номер телефона" required/>
+                                </div>
+                                <div class="information-row__information-column information-column d-flex flex-column">
+                                    <label for="customer-email" class="information-label">E-mail</label>
+                                    <input type="email" class="information-input" name="customer-email" v-model="customerEmail" id="customer-email" placeholder="E-mail" required>
+                                </div>
+                                <div class="information-row__information-column information-column d-flex flex-column">
+                                    <div class="information-additional-row h-100 d-flex align-items-end">
+                                        <div class="information-additional-row__additional-options additional-options d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-subscribe" id="customer-subscribe" v-model="customerSubscribe" class="checkbox-container__checkbox">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <label for="customer-subscribe" class="option-or">Я хочу первым узнавать об акциях и скидках</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-12 p-0 customer-information-wrapper__information-row entity-block-row information-row d-flex w-100">
+                                <div class="information-row__block-entity block-entity d-flex flex-column">
+                                    <div class="block-entity__entity-row entity-row w-100">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="customer-islegal" class="checkbox-container__checkbox" id="customer-islegal" v-model="entityChecked" @click="changeState('entity')">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <label for="customer-islegal" class="entity-row__par">Юридическое лицо</label>
+                                        <div :class="[entityBlock ? 'open-block--opened' : '']"  class="entity-row__open-block open-block" @click="openCompletedBlock(3, true)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.271 11.768">
+                                                <g id="back" transform="rotate(90 67.392 -45.121)">
+                                                    <path id="Path_424" d="M114.038 11.135L124.1 1.077a.63.63 0 0 0-.9-.891l-10.5 10.506a.628.628 0 0 0 0 .891l10.506 10.5a.634.634 0 0 0 .443.187.615.615 0 0 0 .443-.187.628.628 0 0 0 0-.891z" class="cls-1" data-name="Path 424"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="information-row__entity-block entity-wrapper w-100" v-show="entityBlock">
+                                        <div class="entity-wrapper__block d-flex flex-column w-100">
+                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                                <label for="customer-company-name" class="block-row__par">
+                                                    Юр. название компании
+                                                </label>
+                                                <input type="text" class="block-row__input" name="customer-company-name" v-model="companyName" id="customer-company-name" placeholder="Название" >
+                                            </div>
+
+                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                                <label for="customer-company-address" class="block-row__par">
+                                                    Юридический адрес
+                                                </label>
+                                                <input type="text" class="block-row__input" name="customer-company-address" v-model="companyAddress" id="customer-company-address" placeholder="Адрес" >
+                                            </div>
+
+                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                                <label for="customer-company-bin" class="block-row__par">
+                                                    БИН
+                                                </label>
+                                                <the-mask id="customer-company-bin" mask="####-#####-####" class="block-row__input" v-model="companyBIN" type="text" placeholder="1234-45678-1234" />
+                                            </div>
+
+                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                                <label for="customer-company-iik" class="block-row__par">
+                                                    ИИК
+                                                </label>
+                                                <the-mask id="customer-company-iik" mask="####-#####-####-####-####" class="block-row__input" v-model="companyIIK" type="text" placeholder="1234-45678-1234-5678-1234" />
+                                            </div>
+
+                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                                <label for="customer-company-bank" class="block-row__par">
+                                                    Банк
+                                                </label>
+                                                <input type="text" class="block-row__input" name="customer-company-bank" v-model="companyBank" id="customer-company-bank" placeholder="Банк" >
+                                            </div>
+
+                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                                <label for="customer-company-bik" class="block-row__par">
+                                                    БИК
+                                                </label>
+                                                <the-mask id="customer-company-bik" mask="#########" class="block-row__input" v-model="companyBIK" type="text" placeholder="123456789" />
+                                            </div>
+
+                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
+                                                <div class="block-row__additional d-flex align-items-center">
+                                                    <label class="checkbox-container">
+                                                        <input type="checkbox" name="customer-nds-payer" id="isNDSpayer" v-model="companyNDS" class="checkbox-container__checkbox">
+                                                        <span class="checkbox-container__custom-checkbox"></span>
+                                                    </label>
+                                                    <label for="isNDSpayer" class="additional__par">Плательщик НДС</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="information-row__entity-row entity-row w-100 d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="customer-nds-payer" id="save-this-computer" class="checkbox-container__checkbox">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <label for="save-this-computer" class="entity-row__par">Запомнить на этом компьютере</label>
+                                    </div>
+
+                                    <div class="button-row-next">
+                                        <input type="submit" @click="submitBlock(2)" value="Далее" class="information-row__next-button next-button">
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div :class="{'cart-close' : !deliveryInformation}" class="p-0 col-lg-12 col-md-12 col-sm-12 cart-block__cart-content-option cart-content-option-wrapper float-right option-last">
+            <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-content-option-wrapper__cart-option cart-option-wrapper w-100">
+                <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-option-wrapper__option-description option-description w-100 d-flex align-items-center">
+                    <div :class="{'option-image--active' : deliveryInformation}" class="option-description__option-image d-flex justify-content-center align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.995 25.663">
+                            <g id="credit-card_3_" data-name="credit-card (3)" transform="translate(1 -67.267)">
+                                <g id="Group_1083" data-name="Group 1083" transform="translate(-1 67.267)">
+                                    <g id="Group_1082" data-name="Group 1082">
+                                        <path id="Path_1087" d="M31.078 67.267H1.916A2.888 2.888 0 0 0-1 70.183v19.83a2.888 2.888 0 0 0 2.916 2.917h29.163a2.888 2.888 0 0 0 2.916-2.916V70.183a2.888 2.888 0 0 0-2.917-2.916zM1.916 68.433h29.163a1.718 1.718 0 0 1 1.75 1.75v.583H.167v-.583a1.719 1.719 0 0 1 1.749-1.75zm30.912 7H.167v-3.5h32.661v3.5zm-1.75 16.331H1.916a1.718 1.718 0 0 1-1.75-1.75V76.6h32.662v13.414a1.719 1.719 0 0 1-1.75 1.749z" class="cls-1" data-name="Path 1087" transform="translate(1 -67.267)"/>
+                                        <path id="Path_1088" d="M300.216 289.133h-10.5a.551.551 0 0 0-.583.583v5.832a.551.551 0 0 0 .583.583h10.5a.551.551 0 0 0 .583-.583v-5.832a.551.551 0 0 0-.583-.583zm-.583 5.833H290.3V290.3h9.332z" class="cls-1" data-name="Path 1088" transform="translate(-269.304 -273.969)"/>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="option-description__option-name" id="delivery-name">
+                        Доставка и оплата
+                    </div>
+                </div>
+
+                <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-option-wrapper__option-wrapper option-wrapper" v-show="deliveryInformation">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 option-wrapper__delivery-wrapper delivery-wrapper d-flex flex-column w-100">
+                        <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 delivery-wrapper__delivery-row delivery-row d-flex flex-column w-100">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 delivery-information-row-padding delivery-row__delivery-information-row delivery-information-row w-100 d-flex align-items-center">
+                                <label for="delivery-city" class="delivery-information-row__label">Ваш город:</label>
+                                <select v-model="deliveryCity" type="text" class="delivery-information-row__input" name="delivery-city" id="delivery-city">
+                                    <option value="Almaty">Алматы</option>
+                                    <option value="Astana">Астана</option>
+                                    <option value="Aqtau">Актау</option>
+                                </select>
+                            </div>
+
+                            <div class="delivery-types delivery-row__delivery-information-row delivery-information-row w-100 d-flex align-items-center">
+                                <div class="delivery-information-column d-flex flex-column">
+                                    <div class="delivery-information-column__delivery-block delivery-block d-flex flex-column">
+                                        <div class="delivery-block__delivery-type delivery-type d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-pickup" class="checkbox-container__checkbox" id="customer-pickup" v-model="deliveryTypes[0].state" @click="checkType('delivery', deliveryTypes[0].state, deliveryTypes[0].id)">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <label for="customer-pickup" class="delivery-type__par">
+                                                Самовывоз ..................... БЕСПЛАТНО
+                                            </label>
+                                        </div>
+                                        <div class="delivery-block__additional-information additional-information">
+                                            Алматы, ул. Макатаева 117Д, этаж 2, офис 201
+                                        </div>
+                                    </div>
+
+                                    <div class="delivery-information-column__delivery-block delivery-block d-flex flex-column">
+                                        <div class="delivery-block__delivery-type delivery-type d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-courier-eco" class="checkbox-container__checkbox" id="customer-courier-eco" v-model="deliveryTypes[1].state" @click="checkType('delivery', deliveryTypes[1].state, deliveryTypes[1].id)">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <label for="customer-courier-eco" class="delivery-type__par">
+                                                Курьер (эконом) .................... 3 000 тг
+                                            </label>
+                                        </div>
+                                        <div class="delivery-block__additional-information additional-information">
+                                            Доставим 18 октября
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="delivery-information-column d-flex flex-column">
+                                    <div class="delivery-information-column__delivery-block delivery-block d-flex flex-column">
+                                        <div class="delivery-block__delivery-type delivery-type d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-courier-express" class="checkbox-container__checkbox" id="customer-courier-express" v-model="deliveryTypes[2].state" @click="checkType('delivery', deliveryTypes[2].state, deliveryTypes[2].id)">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <label for="customer-courier-express" class="delivery-type__par">
+                                                Курьер (экспресс) .................. 3 000 тг
+                                            </label>
+                                        </div>
+                                        <div class="delivery-block__additional-information additional-information">
+                                            Доставим 25 октября
+                                        </div>
+                                    </div>
+
+                                    <div class="delivery-information-column__delivery-block delivery-block d-flex flex-column">
+                                        <div class="delivery-block__delivery-type delivery-type d-flex align-items-center">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" name="customer-post" class="checkbox-container__checkbox" id="customer-post" v-model="deliveryTypes[3].state" @click="checkType('delivery', deliveryTypes[3].state, deliveryTypes[3].id)">
+                                                <span class="checkbox-container__custom-checkbox"></span>
+                                            </label>
+                                            <label for="customer-post" class="delivery-type__par">
+                                                АО "Казпочта" ........................ 2 000 тг
+                                            </label>
+                                        </div>
+                                        <div class="delivery-block__additional-information additional-information">
+                                            Доставим 25 октября
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 delivery-row__delivery-information-row delivery-information-row w-100 d-flex p-0">
+                                <!-- Блок для курьера -->
+                                <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 delivery-information-row__delivery-customer-information delivery-customer-information w-100 courier" v-show="deliveryTypes[1].state || deliveryTypes[2].state">
+                                    <div class="block-courier col-lg-12 col-md-12 col-sm-12 w-100 d-flex align-items-center h-100 flex-wrap">
+                                        <div class="delivery-customer-information__form-block form-block d-flex flex-column">
+                                            <label class="form-block__label">
+                                                Телефон получателя
+                                            </label>
+                                            <the-mask  mask="+7 (###) ### - ## - ##" v-model="receiverPhone" class="form-block__input" type="text" placeholder="+7 ( _ _ _ ) _ _ _ - _ _ - _ _"/>
+                                        </div>
+
+                                        <div class="delivery-customer-information__form-block form-block d-flex flex-column">
+                                            <label for="delivery-street" class="form-block__label">
+                                                Улица
+                                            </label>
+                                            <input type="text" class="form-block__input" v-model="streetName" name="delivery-street" id="delivery-street" placeholder="Улица">
+                                        </div>
+
+                                        <div class="d-flex align-items-center">
+                                            <div class="delivery-customer-information__form-block form-block d-flex flex-column">
+                                                <label class="form-block__label">
+                                                    Дом
+                                                </label>
+                                                <the-mask  mask="###" class="form-block__input form-block__input-small" v-model="houseNumber" type="text" placeholder="21"/>
+                                            </div>
+
+                                            <div class="delivery-customer-information__form-block form-block d-flex flex-column">
+                                                <label class="form-block__label">
+                                                    Квартира
+                                                </label>
+                                                <the-mask  mask="###" class="form-block__input form-block__input-small" v-model="flatNumber" type="text" placeholder="35"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- Блок для Самовывоза -->
+                                <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 delivery-information-row__delivery-customer-information delivery-customer-information w-100 pickup" v-if="deliveryTypes[0].state">
+                                    <div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 w-100 d-block h-100 block-pickup">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 delivery-customer-information__pickup-address pickup-address d-flex flex-column h-100">
+                                            <p class="pickup-address__information">Можно забрать завтра с 16:00 до 20:00</p>
+                                            <p class="pickup-address__information m-0">Адрес: ул. Макатаева 117Д, этаж 2, офис 201</p>
+                                        </div>
+                                        <div class="p-0 col-lg-6 col-md-6 col-sm-12 col-xs-12 delivery-customer-information__pickup-location pickup-location h-100 d-flex justify-content-center align-items-center">
+                                            <iframe src="https://yandex.kz/map-widget/v1/-/CBFaMIrdKC" width="550" height="110" frameborder="w" allowfullscreen="true"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="p-0 col-lg-12 col-md-12 col-sm-12 delivery-wrapper__delivery-row delivery-row d-flex flex-column w-100">
+
+                            <div class=" delivery-row__delivery-information-row delivery-information-row w-100 d-flex flex-column m-0">
+                                <div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">
+                                    <div class="payment-row__block w-100  d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="payment-card-online" class="checkbox-container__checkbox" id="payment-card-online" v-model="paymentTypes[0].state" @click="checkType('payment', paymentTypes[0].state, paymentTypes[0].id)">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <label for="payment-card-online" class="payment-row__information">
+                                            Онлайн оплата <span class="information-details">(Visa, MasterCard, AmEx)</span>
+                                        </label>
+                                    </div>
+                                    {#<div class="p-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 payment-row__block-form block-form" id="card-online" v-show="paymentTypes[0].state">#}
+                                        {#<div class="d-flex flex-column">#}
+                                            {#<div class="block-form__row w-100 d-flex flex-column">#}
+                                                {#<label for="payment-credit-card" class="row__label">Номер карты</label>#}
+                                                {#<the-mask  mask="#### - #### - #### - ####" type="text" class="payment__input" name="payment-credit-card" id="payment-credit-card" placeholder="ХХХХ - ХХХХ - ХХХХ - ХХХХ"/>#}
+                                            {#</div>#}
+                                            {#<div class="block-form__row w-100 d-flex">#}
+                                                {#<div class="block-form__row-small d-flex flex-column">#}
+                                                    {#<label for="payment-month" class="row__label">Срок действия</label>#}
+                                                    {#<div class="payment-small-block d-flex align-items-center">#}
+                                                        {#<div class="payment-small-block d-flex align-items-center">#}
+                                                            {#<the-mask  mask="##" type="text" class="payment__input-small" id="payment-month" name="payment-credit-card-month" placeholder="ММ" maxlength="2"/>#}
+                                                        {#</div>#}
+                                                        {#<div class="payment-small-block d-flex align-items-center">#}
+                                                            {#<span class="payment-slash">/</span>#}
+                                                            {#<the-mask  mask="##" type="text" class="payment__input-small" name="payment-credit-card-year" placeholder="ГГ" maxlength="2"/>#}
+                                                        {#</div>#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                                {#<div class="block-form__row-small d-flex flex-column">#}
+                                                    {#<label for="payment-credit-card-cvv" class="row__label">CVV</label>#}
+                                                    {#<input type="text" class="payment__input-small cvv" name="payment-credit-card-cvv" id="payment-credit-card-cvv" placeholder="XXX" maxlength="3">#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                            {#<div class="block-form__row w-100 d-flex flex-column">#}
+                                                {#<label for="payment-credit-card-owner" class="row__label">Владелец карты</label>#}
+                                                {#<input type="text" class="payment__input" name="payment-credit-card-owner" id="payment-credit-card-owner" placeholder="Имя на карте">#}
+                                            {#</div>#}
+                                            {#<div class="block-form__row w-100 d-flex align-items-center">#}
+                                                {#<label class="checkbox-container">#}
+                                                    {#<input type="checkbox" name="payment-card-save" class="checkbox-container__checkbox">#}
+                                                    {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                                {#</label>#}
+                                                {#<p class="payment-row__information m-0">#}
+                                                    {#Сохранить карту#}
+                                                {#</p>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                </div>
+
+                                {#<div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">#}
+                                    {#<div class="payment-row__block w-100  d-flex align-items-center">#}
+                                        {#<label class="checkbox-container">#}
+                                            {#<input type="checkbox" name="payment-bank-transfer" class="checkbox-container__checkbox" id="payment-bank-transfer" v-model="paymentTypes[1].state" @click="checkType('payment', paymentTypes[1].state, paymentTypes[1].id)">#}
+                                            {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                        {#</label>#}
+                                        {#<label for="payment-bank-transfer" class="payment-row__information">#}
+                                            {#Банковский перевод <span class="information-details">(по электронному счету)</span>#}
+                                        {#</label>#}
+                                    {#</div>#}
+                                {#</div>#}
+
+                                <div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">
+                                    <div class="payment-row__block w-100  d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="payment-bank-inside" class="checkbox-container__checkbox" id="payment-bank-inside" v-model="paymentTypes[2].state" @click="checkType('payment', paymentTypes[2].state, paymentTypes[2].id)">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <label for="payment-bank-inside" class="payment-row__information">
+                                            В отделении банка <span class="information-details">(любое в вашем городе)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">
+                                    <div class="payment-row__block w-100  d-flex align-items-center">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" name="payment-courier-cash" class="checkbox-container__checkbox" id="payment-courier-cash" v-model="paymentTypes[3].state" @click="checkType('payment', paymentTypes[3].state, paymentTypes[3].id)">
+                                            <span class="checkbox-container__custom-checkbox"></span>
+                                        </label>
+                                        <label for="payment-courier-cash" class="payment-row__information">
+                                            Наличными курьеру
+                                        </label>
+                                    </div>
+                                </div>
+
+                                {#<div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">#}
+                                    {#<div class="payment-row__block w-100  d-flex align-items-center">#}
+                                        {#<label class="checkbox-container">#}
+                                            {#<input type="checkbox" name="payment-installment-plan" class="checkbox-container__checkbox" id="payment-installment-plan" v-model="paymentTypes[4].state" @click="checkType('payment', paymentTypes[4].state, paymentTypes[4].id)">#}
+                                            {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                        {#</label>#}
+                                        {#<label for="payment-installment-plan" class="payment-row__information">#}
+                                            {#Рассрочка#}
+                                        {#</label>#}
+                                    {#</div>#}
+                                    {#<div class="col-lg-12 col-md-12 col-sm-12 payment-row__block-form block-form credit-form" id="installment-plan" v-show="paymentTypes[4].state">#}
+                                        {#<div class="d-flex flex-column">#}
+                                            {#<div class="block-form__row w-100 d-flex flex-column">#}
+                                                {#<div class="block-month d-flex align-items-center">#}
+                                                    {#<input type="button" :class="{'box-active' : paymentPeriods.installment[0].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.installment[0].value" @click="chooseCreditPeriod(paymentPeriods.installment[0].value, 'installment')">#}
+                                                    {#<input type="button" :class="{'box-active' : paymentPeriods.installment[1].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.installment[1].value" @click="chooseCreditPeriod(paymentPeriods.installment[1].value, 'installment')">#}
+                                                    {#<p class="month-count m-0">месяцев</p>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                            {#<div class="block-form__row w-100 mt15 d-flex align-items-center">#}
+                                                {#<label class="checkbox-container">#}
+                                                    {#<input type="checkbox" name="payment-bank-hcb" class="checkbox-container__checkbox">#}
+                                                    {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                                {#</label>#}
+                                                {#<div class="row__bank-block d-flex">#}
+                                                    {#<div class="bank-line"></div>#}
+                                                    {#<div class="bank_img d-flex align-items-center">#}
+                                                        {#<img src="../../assets/images/banks/hcb-logo.png" alt="" class="bank-block__img">#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-price-text d-flex align-items-center">#}
+                                                        {#240 000 тг/мес#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</div>#}
+
+                                            {#<div class="block-form__row w-100 mt15 d-flex align-items-center">#}
+                                                {#<label class="checkbox-container">#}
+                                                    {#<input type="checkbox" name="payment-bank-fortebank" class="checkbox-container__checkbox">#}
+                                                    {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                                {#</label>#}
+                                                {#<div class="row__bank-block d-flex">#}
+                                                    {#<div class="bank-line"></div>#}
+                                                    {#<div class="bank_img d-flex align-items-center">#}
+                                                        {#<img src="../../assets/images/banks/forte-logo.png" alt="" class="bank-block__img">#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-price-text d-flex align-items-center">#}
+                                                        {#240 000 тг/мес#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</div>#}
+
+                                            {#<div class="block-form__row w-100 mt15 d-flex align-items-center">#}
+                                                {#<label class="checkbox-container">#}
+                                                    {#<input type="checkbox" name="payment-bank-kaspi" class="checkbox-container__checkbox">#}
+                                                    {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                                {#</label>#}
+                                                {#<div class="row__bank-block d-flex">#}
+                                                    {#<div class="bank_img d-flex align-items-center">#}
+                                                        {#<img src="../../assets/images/banks/kaspi.png" alt="" class="bank-block__img">#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-price-text d-flex align-items-center">#}
+                                                        {#240 000 тг/мес#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</div>#}
+
+                                            {#<div class="block-form__row w-100 mt15 d-flex flex-column">#}
+                                                {#<div class="row__bank-credit-information d-flex">#}
+                                                    {#<div class="bank-credit-information__info-column d-flex flex-column">#}
+                                                        {#<label for="bank-phone-number-installment" class="info-column__label">Мобильный телефон</label>#}
+                                                        {#<the-mask mask="# (###) ### ## ##" id="bank-phone-number-installment" class="info-column__input" type="text" placeholder="Номер телефона" />#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-credit-information__info-column d-flex flex-column">#}
+                                                        {#<label for="bank-iin-installment" class="info-column__label">ИИН</label>#}
+                                                        {#<the-mask mask="############" id="bank-iin-installment" class="info-column__input" type="text" placeholder="XXXXXXXXXXXX" />#}
+                                                    {#</div>#}
+                                                {#</div>#}
+
+                                                {#<div class="row__bank-credit-information d-flex">#}
+                                                    {#<div class="bank-credit-information__info-column d-flex flex-column">#}
+                                                        {#<label for="bank-customer-name-installment" class="info-column__label">Имя</label>#}
+                                                        {#<input type="text" class="info-column__input" id="bank-customer-name-installment" name="bank-customer-name" placeholder="Ваше имя">#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-credit-information__info-column d-flex flex-column">#}
+                                                        {#<label for="bank-customer-surname-installment" class="info-column__label">Фамилия</label>#}
+                                                        {#<input type="text" id="bank-customer-surname-installment" class="info-column__input" name="bank-customer-surname" placeholder="Ваша фамилия">#}
+                                                    {#</div>#}
+                                                {#</div>#}
+
+                                            {#</div>#}
+                                        {#</div>#}
+
+                                    {#</div>#}
+                                {#</div>#}
+
+                                {#<div class="delivery-information-row__payment-row payment-row w-100 d-flex flex-column">#}
+                                    {#<div class="payment-row__block w-100  d-flex align-items-center">#}
+                                        {#<label class="checkbox-container">#}
+                                            {#<input type="checkbox" name="payment-credit" class="checkbox-container__checkbox" id="payment-credit" v-model="paymentTypes[5].state" @click="checkType('payment', paymentTypes[5].state, paymentTypes[5].id)">#}
+                                            {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                        {#</label>#}
+                                        {#<label for="payment-credit" class="payment-row__information">#}
+                                            {#Кредит#}
+                                        {#</label>#}
+                                    {#</div>#}
+                                    {#<div class="col-lg-12 col-md-12 col-sm-12 p-0 payment-row__block-form block-form credit-form" id="credit" v-show="paymentTypes[5].state">#}
+                                        {#<div class="d-flex flex-column">#}
+                                            {#<div class="block-form__row w-100 d-flex flex-column">#}
+                                                {#<div class="block-month d-flex align-items-center">#}
+                                                    {#<input type="button" :class="{'box-active' : paymentPeriods.credit[0].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[0].value" @click="chooseCreditPeriod(paymentPeriods.credit[0].value, 'credit')">#}
+                                                    {#<input type="button" :class="{'box-active' : paymentPeriods.credit[1].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[1].value" @click="chooseCreditPeriod(paymentPeriods.credit[1].value, 'credit')">#}
+                                                    {#<input type="button" :class="{'box-active' : paymentPeriods.credit[2].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[2].value" @click="chooseCreditPeriod(paymentPeriods.credit[2].value, 'credit')">#}
+                                                    {#<input type="button" :class="{'box-active' : paymentPeriods.credit[3].isChosen}" class="block-month__box d-flex align-items-center justify-content-center" :value="paymentPeriods.credit[3].value" @click="chooseCreditPeriod(paymentPeriods.credit[3].value, 'credit')">#}
+                                                    {#<p class="month-count m-0">месяцев</p>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                            {#<div class="block-form__row w-100 mt15 d-flex align-items-center">#}
+                                                {#<label class="checkbox-container">#}
+                                                    {#<input type="checkbox" name="payment-bank-hcb" class="checkbox-container__checkbox">#}
+                                                    {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                                {#</label>#}
+                                                {#<div class="row__bank-block d-flex">#}
+                                                    {#<div class="bank-line"></div>#}
+                                                    {#<div class="bank_img d-flex align-items-center">#}
+                                                        {#<img src="../../assets/images/banks/hcb-logo.png" alt="" class="bank-block__img">#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-price-text d-flex align-items-center">#}
+                                                        {#240 000 тг/мес#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</div>#}
+
+                                            {#<div class="block-form__row w-100 mt15 d-flex align-items-center">#}
+                                                {#<label class="checkbox-container">#}
+                                                    {#<input type="checkbox" name="payment-bank-fortebank" class="checkbox-container__checkbox">#}
+                                                    {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                                {#</label>#}
+                                                {#<div class="row__bank-block d-flex">#}
+                                                    {#<div class="bank-line"></div>#}
+                                                    {#<div class="bank_img d-flex align-items-center">#}
+                                                        {#<img src="../../assets/images/banks/forte-logo.png" alt="" class="bank-block__img">#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-price-text d-flex align-items-center">#}
+                                                        {#240 000 тг/мес#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</div>#}
+
+                                            {#<div class="block-form__row w-100 mt15 d-flex align-items-center">#}
+                                                {#<label class="checkbox-container">#}
+                                                    {#<input type="checkbox" name="payment-bank-kaspi" class="checkbox-container__checkbox">#}
+                                                    {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                                {#</label>#}
+                                                {#<div class="row__bank-block d-flex">#}
+                                                    {#<div class="bank_img d-flex align-items-center">#}
+                                                        {#<img src="../../assets/images/banks/kaspi.png" alt="" class="bank-block__img">#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-price-text d-flex align-items-center">#}
+                                                        {#240 000 тг/мес#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</div>#}
+
+                                            {#<div class="block-form__row w-100 mt15 d-flex flex-column">#}
+                                                {#<div class="row__bank-credit-information d-flex">#}
+                                                    {#<div class="bank-credit-information__info-column d-flex flex-column">#}
+                                                        {#<label for="bank-phone-number-credit" class="info-column__label">Мобильный телефон</label>#}
+                                                        {#<the-mask mask="# (###) ### ## ##" id="bank-phone-number-credit" class="info-column__input" type="text" placeholder="Номер телефона" />#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-credit-information__info-column d-flex flex-column">#}
+                                                        {#<label for="bank-iin-credit" class="info-column__label">ИИН</label>#}
+                                                        {#<the-mask mask="############" id="bank-iin-credit" class="info-column__input" type="text" placeholder="XXXXXXXXXXXX" />#}
+                                                    {#</div>#}
+                                                {#</div>#}
+
+                                                {#<div class="row__bank-credit-information d-flex">#}
+                                                    {#<div class="bank-credit-information__info-column d-flex flex-column">#}
+                                                        {#<label for="bank-customer-name-credit" class="info-column__label">Имя</label>#}
+                                                        {#<input type="text" id="bank-customer-name-credit" class="info-column__input" name="bank-customer-name" id="bank-customer-name" placeholder="Ваше имя">#}
+                                                    {#</div>#}
+                                                    {#<div class="bank-credit-information__info-column d-flex flex-column">#}
+                                                        {#<label for="bank-customer-surname-credit" class="info-column__label">Фамилия</label>#}
+                                                        {#<input type="text" id="bank-customer-surname-credit" class="info-column__input" name="bank-customer-surname" id="bank-customer-surname" placeholder="Ваша фамилия">#}
+                                                    {#</div>#}
+                                                {#</div>#}
+
+                                            {#</div>#}
+                                        {#</div>#}
+
+                                    {#</div>#}
+                                {#</div>#}
+                            </div>
+                        </div>
+
+                        {#<div class="delivery-wrapper__delivery-row delivery-row d-flex flex-column w-100">#}
+
+                            {#<div class="delivery-row__delivery-information-row delivery-information-row w-100 d-flex align-items-center">#}
+                                {#<div class="delivery-information-row__bonus-block bonus-block w-100 d-flex align-items-center">#}
+                                    {#<div class="bonus-block-row d-flex align-items-center">#}
+                                        {#<label class="checkbox-container">#}
+                                            {#<input type="checkbox" name="customer-promocode" id="promocode" class="checkbox-container__checkbox" v-model="isPromocodeEnabled">#}
+                                            {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                        {#</label>#}
+                                        {#<label for="promocode" class="bonus-block__text m-0">У меня есть ПРОМОКОД</label>#}
+                                    {#</div>#}
+                                    {#<input type="text" :disabled="isPromocodeEnabled === false" class="bonus-block__input" name="customer-promocode" placeholder="ПРОМОКОД">#}
+                                {#</div>#}
+                            {#</div>#}
+
+                        {#</div>#}
+
+                        <div class="delivery-wrapper__delivery-row delivery-row no-border d-flex flex-column w-100 m-0">
+
+                            <div class="delivery-row__delivery-information-row delivery-information-row w-100 d-flex flex-column ">
+                                {#<div class="delivery-information-row__bonus-block bonus-block w-100 d-flex align-items-center">#}
+                                    {#<div class="bonus-block-row d-flex align-items-center">#}
+                                        {#<label class="checkbox-container">#}
+                                            {#<input type="checkbox" name="customer-promocode" id="bonus" class="checkbox-container__checkbox" v-model="isBonusEnabled">#}
+                                            {#<span class="checkbox-container__custom-checkbox"></span>#}
+                                        {#</label>#}
+                                        {#<div class="bonus-block__bonus-column bonus-column d-flex flex-column">#}
+                                            {#<label for="bonus" class="bonus-block__text m-0">Потратить бонусы</label>#}
+                                            {#<p class="bonus-block__bonus-count m-0">Доступно 1800</p>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<the-mask mask="######" :disabled="isBonusEnabled === false" type="text" class="bonus-block__input" name="customer-bonus" placeholder="1800" />#}
+                                {#</div>#}
+                                <div class="delivery-information-row__bonus-block bonus-block w-100 d-flex align-items-center">
+                                    <button class="submit-form" @click="gatherData()">Оформить заказ</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        {% endif %}
+
+        {% if order.offers | length <= 0 %}
+        <div  class="col-lg-12 col-md-12 col-sm-12 p-0 col-xs-12 cart-block__cart-content-option cart-content-option-wrapper float-right">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-content-option-wrapper__cart-option cart-option-wrapper w-100 p-0">
+                <div class="col-lg-12 col-md-12 col-sm-12 p-0 cart-option-wrapper__option-description option-description w-100 d-flex align-items-center">
+                    <div class="option-image--active option-description__option-image d-flex justify-content-center align-items-center" @click="openCompletedBlock(1, blockCompletion[0].completion)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.947 32.24">
+                            <g id="shopping-cart_3_" data-name="shopping-cart (3)" transform="translate(-17.25)">
+                                <g id="Group_1086" data-name="Group 1086" transform="translate(17.25)">
+                                    <path id="Path_1089" d="M222.135 130.207a.8.8 0 0 0 .565.233.812.812 0 0 0 .565-.233l4.913-4.913a.8.8 0 1 0-1.13-1.13l-4.348 4.355-1.755-1.755a.8.8 0 1 0-1.13 1.13z" class="cls-1" data-name="Path 1089" transform="translate(-206.129 -115.691)"/>
+                                    <path id="Path_1090" d="M25.744 21.165H43.62a3.582 3.582 0 0 0 3.58-3.577v-7.532a.8.8 0 1 0-1.6 0v7.526a1.982 1.982 0 0 1-1.981 1.981H25.744a1.982 1.982 0 0 1-1.981-1.981V2.876a.379.379 0 0 0-.007-.086v-.02c0-.02-.007-.04-.007-.053a.123.123 0 0 0-.013-.047c0-.007-.007-.02-.007-.027s-.013-.033-.02-.053-.007-.013-.007-.02-.013-.033-.02-.047-.007-.02-.013-.027l-.02-.04-.02-.033a.105.105 0 0 0-.02-.027.145.145 0 0 0-.027-.033l-.02-.02c-.013-.013-.02-.027-.033-.04s-.013-.013-.02-.013a.176.176 0 0 0-.04-.033l-.02-.02c-.013-.007-.027-.02-.04-.027s-.033-.02-.047-.033a.014.014 0 0 1-.013-.013l-.08-.04-4.911-2.06a.8.8 0 1 0-.618 1.469L22.16 3.4v19.786a3.577 3.577 0 0 0 3.278 3.563 3.535 3.535 0 1 0 5.9.013H39.8a3.538 3.538 0 1 0 2.958-1.6H25.744a1.982 1.982 0 0 1-1.981-1.981V20.56a3.556 3.556 0 0 0 1.981.605zm4.58 7.535a1.941 1.941 0 1 1-1.941-1.941 1.944 1.944 0 0 1 1.941 1.941zm14.373 0a1.941 1.941 0 1 1-1.941-1.941A1.944 1.944 0 0 1 44.7 28.7z" class="cls-1" data-name="Path 1090" transform="translate(-17.25)"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="option__completed-symbol d-flex align-items-center justify-content-center" v-if="blockCompletion[0].completion">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.285 10.989">
+                            <path id="checked_1_" d="M.165 9.044a.531.531 0 0 1 0-.769l.769-.769a.531.531 0 0 1 .769 0l.055.055L4.78 10.8a.266.266 0 0 0 .385 0l7.362-7.637h.055a.531.531 0 0 1 .769 0l.769.769a.531.531 0 0 1 0 .769l-8.791 9.123a.531.531 0 0 1-.769 0L.275 9.209l-.11-.165z" class="cls-1" data-name="checked (1)" transform="translate(0 -3)"/>
+                        </svg>
+                    </div>
+                    <div :class="{'option-name__completed' : blockCompletion[0].completion}" class="option-description__option-name" @click="openCompletedBlock(1, blockCompletion[0].completion)">
+                        Выбранные товары
+                        <!--option-name__completed-->
+                    </div>
+                    <div class="option-able-symbol" v-if="blockCompletion[0].completion" @click="openCompletedBlock(1, blockCompletion[0].completion)">
+                        <img :class="[blockCompletion[0].completion && chosenProducts ? 'able-symbol__opened' : '']" src="../../assets/images/svg/closed.svg" class="able-symbol__closed">
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-option-wrapper__option-wrapper option-wrapper p-0" v-show="chosenProducts">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 option-wrapper-products p-0 w-100">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 option-wrapper__cart-item cart-item d-flex align-items-center" v-for="product in productsList">
+                            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 p-0 cart-item__item-image d-flex justify-content-center">
+                                <img :src="product.product.imagesList[0]" class="product-image">
+                            </div>
+                            <div class="option-content col-lg-12 col-md-12 col-xs-9 col-sm-10 p-0 d-flex align-items-center">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cart-item__item-name p-0 item-name d-flex flex-column justify-content-start">
+                                    <h3 class="item-name__heading font-weight-normal">Category</h3>
+                                    <p class="item-name__par">{{ order.offers.0.product.fullName }}</p>
+                                </div>
+
+                                <div class="initial-price col-lg-1 col-md-1 col-sm-12 col-xs-12 cart-item__item-price item-price d-flex align-items-center justify-content-center">
+                                    ~{parseInt(product.offer.price)} <span class="tenge-small">тг</span>
+                                </div>
+                                <div class="cart-item_item-count item-count d-flex p-0">
+                                    <div class="item-count__button button-add h-100" @click="changeProductCount(product.product.id, '+')">
+                                        +
+                                    </div>
+                                    <div class="item-count__button button-count h-100">
+                                        ~{parseInt(product.count)}
+                                    </div>
+                                    <div class="item-count__button button-subtract h-100" @click="changeProductCount(product.product.id, '-')">
+                                        -
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12 cart-item__item-price item-price d-flex align-items-center justify-content-center">
+                                    ~{parseInt(product.offer.price) * parseInt(product.count)} <span class="tenge-small">тг</span>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-1 p-0 cart-item__button-remove button-remove" @click="deleteProduct(product.product.id)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
+                                        <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
+                                            <path id="Line_51" d="M0 0l16 16" class="cls-1" data-name="Line 51" transform="translate(-9420.5 -3811.5)"/>
+                                            <path id="Line_52" d="M0 0l16 16" class="cls-1" data-name="Line 52" transform="rotate(90 -2796.5 -6608)"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 option-wrapper__cart-summary cart-summary w-100 d-flex flex-column">
+                        <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-summary__heading">итого</div>
+                        <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-summary__item-count">
+                            Всего в корзине: <span class="item-count-number" id="item-count">~{productsCount}</span> ~{productCountText}
+                        </div>
+                        <div class="p-0 col-lg-12 col-md-12 col-sm-12 cart-summary__item-count">
+                            Общая сумма: <span class="item-count-number" id="item-summary">~{productsSum}</span> тенге
+                        </div>
+                        <button @click="submitBlock(1)" class="cart-summary__submit-button">Оформить заказ</button>
+                    </div>
+
+                    <div class="d-none col-sm-12 col-xs-12 submit-button w-100 align-items-center justify-content-center">
+                        <button @click="submitBlock(1)" class="cart-summary__submit-button">Оформить заказ</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

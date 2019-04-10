@@ -1,0 +1,18 @@
+{% extends '@layout-cms/main.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+    <style type="text/css" media="screen">
+        {{ DebugBar.dumpCssAssets() | raw }}
+    </style>
+    <script charset="utf-8">
+        {{ DebugBar.dumpJsAssets() | raw }}
+    </script>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+    </script>
+    {{ parent() }}
+{% endblock %}
