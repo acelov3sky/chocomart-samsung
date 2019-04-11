@@ -96,20 +96,20 @@
                                 <div class="option-content col-lg-12 col-md-12 col-xs-9 col-sm-10 p-0 d-flex align-items-center">
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cart-item__item-name p-0 item-name d-flex flex-column justify-content-start">
                                         <h3 class="item-name__heading font-weight-normal">Category</h3>
-                                        <p class="item-name__par">{{ order.offers.0.product.fullName }}</p>
+                                        <p class="item-name__par">~{ product.product.fullName }</p>
                                     </div>
 
                                     <div class="initial-price col-lg-1 col-md-1 col-sm-12 col-xs-12 cart-item__item-price item-price d-flex align-items-center justify-content-center">
                                         ~{parseInt(product.offer.price)} <span class="tenge-small">тг</span>
                                     </div>
                                     <div class="cart-item_item-count item-count d-flex p-0">
-                                        <div class="item-count__button button-add h-100" @click="changeProductCount(product.product.id, '+')">
+                                        <div class="item-count__button button-add h-100" @mouseleave="sendProductCount(product.product.id, product.count)" @click="changeProductCount(product.product.id, '+')">
                                             +
                                         </div>
                                         <div class="item-count__button button-count h-100">
                                             ~{parseInt(product.count)}
                                         </div>
-                                        <div class="item-count__button button-subtract h-100" @click="changeProductCount(product.product.id, '-')">
+                                        <div class="item-count__button button-subtract h-100" @mouseleave="sendProductCount(product.product.id, product.count)" @click="changeProductCount(product.product.id, '-')">
                                             -
                                         </div>
                                     </div>
@@ -444,7 +444,7 @@
                                             <p class="pickup-address__information m-0">Адрес: ул. Макатаева 117Д, этаж 2, офис 201</p>
                                         </div>
                                         <div class="p-0 col-lg-6 col-md-6 col-sm-12 col-xs-12 delivery-customer-information__pickup-location pickup-location h-100 d-flex justify-content-center align-items-center">
-                                            <iframe src="https://yandex.kz/map-widget/v1/-/CBFaMIrdKC" width="550" height="110" frameborder="w" allowfullscreen="true"></iframe>
+                                            {#<iframe src="https://yandex.kz/map-widget/v1/-/CBFaMIrdKC" width="550" height="110" frameborder="w" allowfullscreen="true"></iframe>#}
                                         </div>
                                     </div>
                                 </div>

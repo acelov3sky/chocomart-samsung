@@ -116,6 +116,7 @@ window.onload = function() {
                 deliveryTypeID: null,
                 inputTimeout: null,
                 checkTimeout: null,
+                counterTimeout: null,
                 productCounter: 0,
 
                 //Variables of Blocks States
@@ -155,6 +156,10 @@ window.onload = function() {
             }
         },
         beforeMount() {
+            let action = orderData.action;
+            if(action !== undefined) {
+                this.checkAction('something');
+            }
             this.productData = orderData.data.data;
 
             console.log(this.productData);
@@ -234,6 +239,9 @@ window.onload = function() {
             TheMask
         },
         methods: {
+            checkAction(actionName) {
+                console.log(actionName);
+            },
             deleteProduct (productID) {
                 this.productsList.forEach((product) => {
                     if(product.product.id === productID) {
@@ -245,77 +253,28 @@ window.onload = function() {
                     }
                 });
             },
-            change() {
-                let product_id = null;
-                let product_count = 0;
-
-                this.productsList.forEach((product) => {
-                    if(product.product.id === productID) {
-                        if(event === '+') {
-                            product.count++;}
-                        if(event === '-' && product.count > 1){
-                            product.count--;
-                        }else if(event === '-' && product.count < 1) {
-                            product.count = 1;
-                            this.computeProductsCountText();
-                        }
-
-                        product_id = productID;
-                        product_count = product.count;
-
-                    }
-                });
-
-                let timeout = null;
-
-                clearTimeout(timeout);
-                timeout = setTimeout(() => {
-                    this.computeCartResult();
-                    this.$http.get('/order/add/' + product_id + '/' + product_count);
-                    this.computeProductsCountText();
-                }, 3000);
-            },
             changeProductCount (productID, event) {
-                let timeout = null;
-
-                this.productsList.forEach((product) => {
-                    if(product.product.id === productID) {
-                        this.productCounter = product.count;
-                    }
-                });
-
                 this.productsList.forEach((p) => {
                     if(event === '+') {
                         p.count++;
-                        this.productCounter++;
                     }
                     if(event === '-' && p.count > 1){
                         p.count--;
-                        this.productCounter--;
                     }else if(event === '-' && p.count < 1) {
                         p.count = 1;
-                        this.productCounter = 1;
                         this.computeProductsCountText();
                     }
-
+                    this.computeCartResult();
+                    this.computeProductsCountText();
                 });
-
-                clearTimeout(timeout);
-                let temp_count = this.productCounter;
-
-                timeout = setTimeout(() => {
-                    if(this.productCounter === temp_count) {
-                        console.log(true);
-                        this.$http.get('/order/add/' + productID + '/' + this.productCounter);
-                    }else {
-                        this.productCounter = temp_count;
-                        this.$http.get('/order/add/' + productID + '/' + this.productCounter);
+            },
+            sendProductCount(id, count) {
+                clearTimeout(this.counterTimeout);
+                this.counterTimeout = setTimeout(() => {
+                    if(id !== undefined && count !== undefined) {
+                        this.$http.get('/order/add/' + id + '/' + count);
                     }
-                }, 5000);
-
-                this.computeCartResult();
-                this.computeProductsCountText();
-
+                }, 3000);
             },
             computeCartResult () {
                 this.productsSum = 0;
