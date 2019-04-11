@@ -185,14 +185,6 @@
                                     <label for="customer-surname" class="information-label">Фамилия</label>
                                     <input type="text" class="information-input" v-model="customerSurname" name="customer-surname" id="customer-surname" @keyup="checkInputData()" placeholder="Ваша фамилия" required>
                                 </div>
-                                <div class="option-or-text">или</div>
-                                <div class="information-row__information-column information-column d-flex flex-column">
-                                    <div class="information-additional-row h-100 d-flex align-items-end">
-                                        <div class="information-additional-row__additional-options additional-options d-flex align-items-center">
-                                            <button class="option-signin-button h-100">Войти в личный кабинет</button>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="col-sm-12 col-xs-12 p-0 customer-information-wrapper__information-row information-row d-flex w-100">
@@ -219,77 +211,6 @@
 
                             <div class="col-sm-12 col-xs-12 p-0 customer-information-wrapper__information-row entity-block-row information-row d-flex w-100">
                                 <div class="information-row__block-entity block-entity d-flex flex-column">
-                                    <div class="block-entity__entity-row entity-row w-100">
-                                        <label class="checkbox-container">
-                                            <input type="checkbox" name="customer-islegal" class="checkbox-container__checkbox" id="customer-islegal" v-model="entityChecked" @click="changeState('entity')">
-                                            <span class="checkbox-container__custom-checkbox"></span>
-                                        </label>
-                                        <label for="customer-islegal" class="entity-row__par">Юридическое лицо</label>
-                                        <div :class="[entityBlock ? 'open-block--opened' : '']"  class="entity-row__open-block open-block" @click="openCompletedBlock(3, true)">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.271 11.768">
-                                                <g id="back" transform="rotate(90 67.392 -45.121)">
-                                                    <path id="Path_424" d="M114.038 11.135L124.1 1.077a.63.63 0 0 0-.9-.891l-10.5 10.506a.628.628 0 0 0 0 .891l10.506 10.5a.634.634 0 0 0 .443.187.615.615 0 0 0 .443-.187.628.628 0 0 0 0-.891z" class="cls-1" data-name="Path 424"/>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                    <div class="information-row__entity-block entity-wrapper w-100" v-show="entityBlock">
-                                        <div class="entity-wrapper__block d-flex flex-column w-100">
-                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
-                                                <label for="customer-company-name" class="block-row__par">
-                                                    Юр. название компании
-                                                </label>
-                                                <input type="text" class="block-row__input" @keyup="checkInputData()" name="customer-company-name" v-model="companyName" id="customer-company-name" placeholder="Название" >
-                                            </div>
-
-                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
-                                                <label for="customer-company-address" class="block-row__par">
-                                                    Юридический адрес
-                                                </label>
-                                                <input type="text" class="block-row__input" @keyup="checkInputData()" name="customer-company-address" v-model="companyAddress" id="customer-company-address" placeholder="Адрес" >
-                                            </div>
-
-                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
-                                                <label for="customer-company-bin" class="block-row__par">
-                                                    БИН
-                                                </label>
-                                                <the-mask id="customer-company-bin" @keyup="checkInputData()" mask="####-#####-####" class="block-row__input" v-model="companyBIN" type="text" placeholder="1234-45678-1234" />
-                                            </div>
-
-                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
-                                                <label for="customer-company-iik" class="block-row__par">
-                                                    ИИК
-                                                </label>
-                                                <the-mask id="customer-company-iik" @keyup="checkInputData()" mask="####-#####-####-####-####" class="block-row__input" v-model="companyIIK" type="text" placeholder="1234-45678-1234-5678-1234" />
-                                            </div>
-
-                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
-                                                <label for="customer-company-bank" class="block-row__par">
-                                                    Банк
-                                                </label>
-                                                <input type="text" class="block-row__input" @keyup="checkInputData()" name="customer-company-bank" v-model="companyBank" id="customer-company-bank" placeholder="Банк" >
-                                            </div>
-
-                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
-                                                <label for="customer-company-bik" class="block-row__par">
-                                                    БИК
-                                                </label>
-                                                <the-mask id="customer-company-bik" mask="#########" @keyup="checkInputData()" class="block-row__input" v-model="companyBIK" type="text" placeholder="123456789" />
-                                            </div>
-
-                                            <div class="entity-wrapper__block-row block-row w-100 d-flex align-items-center">
-                                                <div class="block-row__additional d-flex align-items-center">
-                                                    <label class="checkbox-container">
-                                                        <input type="checkbox" name="customer-nds-payer" id="isNDSpayer" v-model="companyNDS" class="checkbox-container__checkbox">
-                                                        <span class="checkbox-container__custom-checkbox"></span>
-                                                    </label>
-                                                    <label for="isNDSpayer" class="additional__par">Плательщик НДС</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="button-row-next">
                                         <input type="submit" @click="submitBlock(2)" value="Далее" class="information-row__next-button next-button">
                                     </div>
@@ -444,7 +365,7 @@
                                             <p class="pickup-address__information m-0">Адрес: ул. Макатаева 117Д, этаж 2, офис 201</p>
                                         </div>
                                         <div class="p-0 col-lg-6 col-md-6 col-sm-12 col-xs-12 delivery-customer-information__pickup-location pickup-location h-100 d-flex justify-content-center align-items-center">
-                                            {#<iframe src="https://yandex.kz/map-widget/v1/-/CBFaMIrdKC" width="550" height="110" frameborder="w" allowfullscreen="true"></iframe>#}
+                                            <iframe src="https://yandex.kz/map-widget/v1/-/CBFaMIrdKC" width="550" height="110" frameborder="w" allowfullscreen="true"></iframe>
                                         </div>
                                     </div>
                                 </div>

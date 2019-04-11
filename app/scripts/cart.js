@@ -169,18 +169,6 @@ window.onload = function() {
                     this.customerSurname = this.productData.customerInformation.customerSurname;
                     this.customerPhone = this.productData.customerInformation.phone;
                     this.customerEmail = this.productData.customerInformation.email;
-
-
-                    if(this.productData.customerInformation.legal !== 'false') {
-                        this.entityChecked = true;
-                        this.companyName = this.productData.customerInformation.legal.companyName;
-                        this.companyAddress = this.productData.customerInformation.legal.companyAddress;
-                        this.companyBIN = this.productData.customerInformation.legal.bin;
-                        this.companyIIK = this.productData.customerInformation.legal.iik;
-                        this.companyBank = this.productData.customerInformation.legal.bank;
-                        this.companyBIK = this.productData.customerInformation.legal.bik;
-                        this.companyNDS = this.productData.customerInformation.legal.ndsStatus;
-                    }
                 }
 
                 if(this.productData.blockState === "1") {
@@ -427,32 +415,13 @@ window.onload = function() {
             },
             gatherCustomerInformation() {
                 this.order.blockState = 1;
-                if(this.entityChecked === false) {
-                    this.order.customerInformation = {
-                        customerName: this.customerName,
-                        customerSurname: this.customerSurname,
-                        phone: this.customerPhone,
-                        email: this.customerEmail,
-                        subscribeStatus: this.customerSubscribe,
-                        legal: false
-                    }
-                }else {
-                    this.order.customerInformation = {
-                        customerName: this.customerName,
-                        customerSurname: this.customerSurname,
-                        phone: this.customerPhone,
-                        email: this.customerEmail,
-                        subscribeStatus: this.customerSubscribe,
-                        legal: {
-                            companyName: this.companyName,
-                            companyAddress: this.companyAddress,
-                            bin: this.companyBIN,
-                            iik: this.companyIIK,
-                            bank: this.companyBank,
-                            bik: this.companyBIK,
-                            ndsStatus: this.companyNDS
-                        }
-                    }
+                this.order.customerInformation = {
+                    customerName: this.customerName,
+                    customerSurname: this.customerSurname,
+                    phone: this.customerPhone,
+                    email: this.customerEmail,
+                    subscribeStatus: this.customerSubscribe,
+                    legal: false
                 }
             },
             gatherData() {
