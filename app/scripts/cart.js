@@ -9,6 +9,7 @@ window.onload = function() {
                 productsList: [],
                 productData: [],
                 offers: [],
+                actions: null,
                 blockCompletion: [
                     {
                         block: 'chosenProducts',
@@ -572,10 +573,16 @@ window.onload = function() {
                     });
                 }, 2000);
             },
+            actionRedirect(url) {
+                if(url !== undefined) {
+                    window.location.href = url;
+                }
+            },
             submitCheckout() {
                 console.log(this.order);
                 this.$http.get('/order/checkout').then((res) => {
-                   console.log(res);
+                   console.log(res.action);
+                   this.actions = res.action;
                 });
             }
         }
