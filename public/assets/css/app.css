@@ -17550,7 +17550,7 @@ template {
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .cart-item {
   position: relative;
   overflow: hidden;
-  padding: 25px 10px !important;
+  padding: 25px 10px 25px 20px !important;
   border-bottom: 1px solid #ebebeb;
   box-sizing: border-box;
 }
@@ -17630,7 +17630,7 @@ template {
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .cart-summary {
   margin-top: 30px;
-  padding-left: 120px;
+  padding-left: 20px;
   padding-bottom: 20px;
 }
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .cart-summary__heading {

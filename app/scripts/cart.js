@@ -574,7 +574,7 @@ window.onload = function() {
             },
             submitCheckout() {
                 console.log(this.order);
-                this.$http.post('/order/checkout').then((res) => {
+                this.$http.get('/order/checkout').then((res) => {
                    console.log(res);
                 });
             }
