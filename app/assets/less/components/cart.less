@@ -1,3 +1,6 @@
+[v-cloak] {
+  display: none;
+}
 .cart-wrapper {
   overflow: hidden;
   @media(max-width: 768px) {
@@ -219,7 +222,7 @@
               height: 40px;
               background: #1428a0;
               color: #fff;
-              font-size: 18px;
+              font-size: 16px;
               border-radius: 5px;
               border: 1px solid #1428a0;
               cursor: pointer;
@@ -405,8 +408,11 @@
                 }
                 .bonus-block {
                   .submit-form {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     cursor: pointer;
-                    width: 315px;
+                    width: 210px;
                     height: 40px;
                     border-radius: 5px;
                     background-color: #1428a0;
@@ -415,8 +421,10 @@
                     font-size: 16px;
                     //margin-top: 30px;
                     border: 1px solid #1428a0;
+                    text-decoration: none;
                     &:hover {
                       background: #1a33cd;
+                      text-decoration: none;
                     }
                   }
                   &__text {
