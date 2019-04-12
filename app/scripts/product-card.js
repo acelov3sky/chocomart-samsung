@@ -38,6 +38,7 @@ var product_card = new Vue({
     },
     methods: {
         closeBasket() {
+            console.log("asdsad");
             document.getElementById('product-card-basket-modal').style.display = "none";
         },
         changeThis(x) {
