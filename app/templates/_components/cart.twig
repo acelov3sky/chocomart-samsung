@@ -103,13 +103,13 @@
                                         ~{parseInt(product.offer.price)} <span class="tenge-small">тг</span>
                                     </div>
                                     <div class="cart-item_item-count item-count d-flex p-0">
-                                        <div class="item-count__button button-add h-100" @mouseleave="sendProductCount(product.product.id, product.count)" @click="changeProductCount(product.product.id, '+')">
+                                        <div class="item-count__button button-add h-100" @click="changeProductCount(product.product.id, '+')">
                                             +
                                         </div>
                                         <div class="item-count__button button-count h-100">
                                             ~{parseInt(product.count)}
                                         </div>
-                                        <div class="item-count__button button-subtract h-100" @mouseleave="sendProductCount(product.product.id, product.count)" @click="changeProductCount(product.product.id, '-')">
+                                        <div class="item-count__button button-subtract h-100" @click="changeProductCount(product.product.id, '-')">
                                             -
                                         </div>
                                     </div>
@@ -190,7 +190,9 @@
                             <div class="col-sm-12 col-xs-12 p-0 customer-information-wrapper__information-row information-row d-flex w-100">
                                 <div class="information-row__information-column information-column d-flex flex-column">
                                     <label for="customer-phone" class="information-label">Мобильный телефон</label>
-                                    <the-mask id="customer-phone" mask="+7 (###) ### - ## - ##" class="information-input" v-model="customerPhone" @keyup="checkInputData()" type="text" placeholder="+7 ( _ _ _ ) _ _ _ - _ _ - _ _" required/>
+                                    <div @mouseleave="checkInputData()">
+                                        <the-mask type="text" id="customer-phone" mask="# (###) ### - ## - ##" class="information-input" v-model="customerPhone" placeholder="8 ( _ _ _ ) _ _ _ - _ _ - _ _" required />
+                                    </div>
                                 </div>
                                 <div class="information-row__information-column information-column d-flex flex-column">
                                     <label for="customer-email" class="information-label">E-mail</label>
@@ -198,9 +200,9 @@
                                 </div>
                                 <div class="information-row__information-column information-column d-flex flex-column">
                                     <div class="information-additional-row h-100 d-flex align-items-end">
-                                        <div class="information-additional-row__additional-options additional-options d-flex align-items-center">
+                                        <div class="information-additional-row__additional-options additional-options d-flex align-items-center" @mouseleave="checkSubscribe()">
                                             <label class="checkbox-container">
-                                                <input type="checkbox" name="customer-subscribe" id="customer-subscribe" v-model="customerSubscribe" class="checkbox-container__checkbox">
+                                                <input type="checkbox" name="customer-subscribe" id="customer-subscribe" @click="" v-model="customerSubscribe" class="checkbox-container__checkbox">
                                                 <span class="checkbox-container__custom-checkbox"></span>
                                             </label>
                                             <label for="customer-subscribe" class="option-or">Я хочу первым узнавать об акциях и скидках</label>
@@ -247,7 +249,7 @@
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 delivery-information-row-padding delivery-row__delivery-information-row delivery-information-row w-100 d-flex align-items-center">
                                 <label for="delivery-city" class="delivery-information-row__label">Ваш город:</label>
-                                <select v-model="deliveryCity" type="text" class="delivery-information-row__input" name="delivery-city" @mouseleave="gatherData()" id="delivery-city" required>
+                                <select v-model="deliveryCity" type="text" class="delivery-information-row__input" name="delivery-city" @mouseleave="gatherData()" id="delivery-city">
                                     <option value="Almaty">Алматы</option>
                                     <option value="Astana">Астана</option>
                                     <option value="Aqtau">Актау</option>
@@ -328,7 +330,7 @@
                                             <label class="form-block__label">
                                                 Телефон получателя
                                             </label>
-                                            <the-mask  mask="+7 (###) ### - ## - ##" v-model="receiverPhone" class="form-block__input" type="text" placeholder="+7 ( _ _ _ ) _ _ _ - _ _ - _ _"/>
+                                            <the-mask mask="# (###) ### - ## - ##" v-model="customerPhone" class="form-block__input" type="text" placeholder="+7 ( _ _ _ ) _ _ _ - _ _ - _ _"/>
                                         </div>
 
                                         <div class="delivery-customer-information__form-block form-block d-flex flex-column">
@@ -418,7 +420,7 @@
                         <div class="delivery-wrapper__delivery-row delivery-row no-border d-flex flex-column w-100 m-0">
                             <div class="delivery-row__delivery-information-row delivery-information-row w-100 d-flex flex-column ">
                                 <div class="delivery-information-row__bonus-block bonus-block w-100 d-flex align-items-center">
-                                    <a href="/order/checkout" class="submit-form">Оформить заказ</a>
+                                    <div class="submit-form" @click="submitCheckout()">Оформить заказ</div>
                                 </div>
                             </div>
                         </div>

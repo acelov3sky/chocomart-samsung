@@ -8,6 +8,7 @@ window.onload = function() {
             return {
                 productsList: [],
                 productData: [],
+                offers: [],
                 blockCompletion: [
                     {
                         block: 'chosenProducts',
@@ -113,11 +114,11 @@ window.onload = function() {
                 productsCount: 0,
                 productCountText:'товаров',
                 order: {},
-                deliveryTypeID: null,
                 inputTimeout: null,
                 checkTimeout: null,
                 counterTimeout: null,
                 productCounter: 0,
+                isRunning: false,
 
                 //Variables of Blocks States
                 chosenProducts: true,
@@ -156,10 +157,6 @@ window.onload = function() {
             }
         },
         beforeMount() {
-            let action = orderData.action;
-            if(action !== undefined) {
-                this.checkAction('something');
-            }
             this.productData = orderData.data.data;
 
             console.log(this.productData);
@@ -169,6 +166,11 @@ window.onload = function() {
                     this.customerSurname = this.productData.customerInformation.customerSurname;
                     this.customerPhone = this.productData.customerInformation.phone;
                     this.customerEmail = this.productData.customerInformation.email;
+                    if(this.productData.customerInformation.subscribeStatus === 'true') {
+                        this.customerSubscribe = true;
+                    }else {
+                        this.customerSubscribe = false;
+                    }
                 }
 
                 if(this.productData.blockState === "1") {
@@ -213,6 +215,9 @@ window.onload = function() {
         },
         mounted() {
             this.productsList = orderData.offers;
+            this.$http.get('/order/get-data').then((res) => {
+               this.offers = res.body.offers;
+            });
 
             this.productsList.forEach((item) => {
                 this.productsSum += (parseInt(item.offer.price) * parseInt(item.count));
@@ -227,9 +232,6 @@ window.onload = function() {
             TheMask
         },
         methods: {
-            checkAction(actionName) {
-                console.log(actionName);
-            },
             deleteProduct (productID) {
                 this.productsList.forEach((product) => {
                     if(product.product.id === productID) {
@@ -243,26 +245,35 @@ window.onload = function() {
             },
             changeProductCount (productID, event) {
                 this.productsList.forEach((p) => {
-                    if(event === '+') {
-                        p.count++;
-                    }
-                    if(event === '-' && p.count > 1){
-                        p.count--;
-                    }else if(event === '-' && p.count < 1) {
-                        p.count = 1;
-                        this.computeProductsCountText();
+                    if(p.product.id === productID) {
+                        if(event === '+') {
+                            p.count++;
+                        }
+                        if(event === '-' && p.count > 1){
+                            p.count--;
+                        }else if(event === '-' && p.count < 1) {
+                            p.count = 1;
+                            this.computeProductsCountText();
+                        }
+                        this.productCounter = p.count;
                     }
                     this.computeCartResult();
                     this.computeProductsCountText();
                 });
-            },
-            sendProductCount(id, count) {
-                clearTimeout(this.counterTimeout);
-                this.counterTimeout = setTimeout(() => {
-                    if(id !== undefined && count !== undefined) {
-                        this.$http.get('/order/add/' + id + '/' + count);
-                    }
-                }, 3000);
+                this.offers.forEach((item) => {
+                   if(item.product.id === productID) {
+                       clearTimeout(this.counterTimeout);
+                       this.counterTimeout = setTimeout(() => {
+                           if(item.count !== this.productCounter) {
+                               this.$http.get('/order/add/' + productID + '/' + this.productCounter).then((res) => {
+                                   console.log(res);
+                               });
+                           }else if(item.count === this.productCounter) {
+                               console.log('same');
+                           }
+                       }, 3000);
+                   }
+                });
             },
             computeCartResult () {
                 this.productsSum = 0;
@@ -280,10 +291,38 @@ window.onload = function() {
             submitBlock (nextState) {
                 if(nextState === 1 && this.customerInformation === false) {
                     if(this.productsList.length > 0) {
+                        this.order.blockState = 1;
                         this.chosenProducts = false;
                         this.customerInformation = true;
                         this.blockCompletion[0].completion = true;
                         this.blockName = 'Информация о покупателе';
+                    }
+                    if(this.productData !== undefined) {
+                        if(this.productData.blockState !== undefined) {
+                            this.$http.post('/order/set-data', {data: this.order}, {
+                                emulateJSON: true
+                            });
+                        }
+                        else if(this.productData.blockState === '1') {
+                            this.gatherCustomerInformation();
+                            this.chosenProducts = false;
+                            this.$http.post('/order/set-data', {data: this.order}, {
+                                emulateJSON: true
+                            });
+                        }else if(this.productData.blockState === '2') {
+                            this.gatherCustomerInformation();
+                            this.chosenProducts = false;
+                            this.gatherDeliveryInformation();
+                            this.$http.post('/order/set-data', {data: this.order}, {
+                                emulateJSON: true
+                            });
+                        }
+                    }else {
+                        this.order.blockState = 1;
+
+                        this.$http.post('/order/set-data', {data: this.order}, {
+                            emulateJSON: true
+                        });
                     }
                 }else if (nextState === 2) {
                     if(this.customerEmail === null) {
@@ -299,11 +338,20 @@ window.onload = function() {
                         this.entityBlock = false;
                         this.blockName = 'Доставка и оплата';
                     }
-                    this.order.blockState = 2;
-                    this.gatherData();
-                    this.$http.post('/order/set-data', {data: this.order}, {
-                        emulateJSON: true
-                    });
+                    if(this.productData.blockState === '1') {
+                        this.gatherCustomerInformation();
+                        this.order.blockState = 2;
+                        this.$http.post('/order/set-data', {data: this.order}, {
+                            emulateJSON: true
+                        });
+                    }
+                    if(this.productData.blockState === '2') {
+                        this.gatherCustomerInformation();
+                        this.gatherDeliveryInformation();
+                        this.$http.post('/order/set-data', {data: this.order}, {
+                            emulateJSON: true
+                        });
+                    }
                 }
             },
             openCompletedBlock (currentState, completionState) {
@@ -388,28 +436,72 @@ window.onload = function() {
                     });
                 }
             },
-            chooseCreditPeriod(period, paymentType) {
-                if(period !== "") {
-                    if (paymentType === 'credit') {
-                        this.paymentPeriods.credit.forEach((p) => {
-                            p.value === period ? p.isChosen = true : p.isChosen = false;
-                        });
-                    }else if(paymentType === 'installment') {
-                        this.paymentPeriods.installment.forEach((p) => {
-                            p.value === period ? p.isChosen = true : p.isChosen = false;
-                        });
-                    }
-                }else {
-                    alert("ERROR! Period is empty!");
-                }
-            },
             checkInputData() {
-                clearTimeout(this.inputTimeout);
-
+                if(this.isRunning === true) {
+                    clearTimeout(this.inputTimeout);
+                    this.isRunning = false;
+                }
+                this.isRunning = true;
                 this.inputTimeout = setTimeout(() => {
                     this.gatherCustomerInformation();
-                    this.$http.post('/order/set-data', {data: this.order}, {
-                        emulateJSON: true
+                    this.order.blockState = 1;
+
+                    let data = null;
+                    this.$http.get('/order/get-data').then((res) => {
+                        data = res.body.data.data;
+
+                        if (this.data.data !== undefined) {
+                            if (data.customerInformation !== undefined) {
+                                if (data.customerInformation.customerName !== this.customerName ||
+                                    data.customerInformation.customerSurname !== this.customerSurname ||
+                                    data.customerInformation.phone !== this.customerPhone ||
+                                    data.customerInformation.email !== this.customerEmail) {
+
+                                    this.$http.post('/order/set-data', {data: this.order}, {
+                                        emulateJSON: true
+                                    });
+                                }
+                            } else {
+                                this.$http.post('/order/set-data', {data: this.order}, {
+                                    emulateJSON: true
+                                });
+                            }
+                        } else {
+                            this.$http.post('/order/set-data', {data: this.order}, {
+                                emulateJSON: true
+                            });
+                        }
+                    });
+                }, 3000);
+            },
+            checkSubscribe() {
+                clearTimeout(this.inputTimeout);
+                this.inputTimeout = setTimeout(() => {
+                    let data = null;
+                    this.$http.get('/order/get-data').then((res) => {
+                        data = res.body.data.data;
+                        if (data !== undefined) {
+                            if (data.customerInformation !== undefined) {
+                                if (data.customerInformation.subscribeStatus != this.customerSubscribe.toString()) {
+                                    if (this.productData.blockState === '1') {
+                                        this.gatherCustomerInformation();
+                                        this.$http.post('/order/set-data', {data: this.order}, {
+                                            emulateJSON: true
+                                        });
+                                    } else if (this.productData.blockState === '2') {
+                                        this.gatherCustomerInformation();
+                                        this.gatherDeliveryInformation();
+                                        this.$http.post('/order/set-data', {data: this.order}, {
+                                            emulateJSON: true
+                                        });
+                                    }
+                                }
+                            }
+                        } else {
+                            this.$http.post('/order/set-data', {data: this.order}, {
+                                emulateJSON: true
+                            });
+                        }
                     });
                 }, 2000);
             },
@@ -420,41 +512,71 @@ window.onload = function() {
                     customerSurname: this.customerSurname,
                     phone: this.customerPhone,
                     email: this.customerEmail,
-                    subscribeStatus: this.customerSubscribe,
-                    legal: false
+                    subscribeStatus: this.customerSubscribe
                 }
+            },
+            gatherDeliveryInformation() {
+                this.order.blockState = 2;
+                this.order.deliveryInformation = {};
+                this.order.deliveryInformation.deliveryCity = this.deliveryCity;
+                this.deliveryTypes.forEach((type) => {
+                    if(type.state === true) {
+                        if(type.id === 2 || type.id === 3) {
+                            this.order.deliveryInformation.deliveryType = type.typeName;
+                            this.order.deliveryInformation.receiverPhone = this.receiverPhone;
+                            this.order.deliveryInformation.streetName = this.streetName;
+                            this.order.deliveryInformation.houseNumber = this.houseNumber;
+                            this.order.deliveryInformation.flatNumber = this.flatNumber;
+                        }else {
+                            this.order.deliveryInformation.deliveryType = type.typeName;
+                        }
+                    }
+                });
+                this.paymentTypes.forEach((payment) => {
+                    if(payment.state === true) {
+                        this.order.deliveryInformation.paymentType = payment.typeName;
+                    }
+                });
             },
             gatherData() {
                 clearTimeout(this.checkTimeout);
 
                 this.checkTimeout = setTimeout(() => {
-                    this.gatherCustomerInformation();
                     this.order.blockState = 2;
-                    this.order.deliveryInformation = {};
-                    this.order.deliveryInformation.deliveryCity = this.deliveryCity;
-                    this.deliveryTypes.forEach((type) => {
-                        if(type.state === true) {
-                            if(type.id === 2 || type.id === 3) {
-                                this.order.deliveryInformation.deliveryType = type.typeName;
-                                this.order.deliveryInformation.receiverPhone = this.receiverPhone;
-                                this.order.deliveryInformation.streetName = this.streetName;
-                                this.order.deliveryInformation.houseNumber = this.houseNumber;
-                                this.order.deliveryInformation.flatNumber = this.flatNumber;
+                    this.gatherCustomerInformation();
+                    this.gatherDeliveryInformation();
+
+                    let data = null;
+                    this.$http.get('/order/get-data').then((res) => {
+                        data = res.body.data.data;
+
+                        if (data !== undefined) {
+                            if (data.deliveryInformation !== undefined) {
+                                if (data.deliveryInformation.deliveryType !== this.order.deliveryInformation.deliveryType ||
+                                    data.deliveryInformation.receiverPhone !== this.order.deliveryInformation.receiverPhone ||
+                                    data.deliveryInformation.streetName !== this.order.deliveryInformation.streetName ||
+                                    data.deliveryInformation.houseNumber !== this.order.deliveryInformation.houseNumber ||
+                                    data.deliveryInformation.flatNumber !== this.order.deliveryInformation.flatNumber ||
+                                    data.deliveryInformation.paymentType !== this.order.deliveryInformation.paymentType) {
+
+                                    this.$http.post('/order/set-data', {data: this.order}, {
+                                        emulateJSON: true
+                                    });
+                                }
                             }else {
-                                this.order.deliveryInformation.deliveryType = type.typeName;
+                                this.$http.post('/order/set-data', {data: this.order}, {
+                                    emulateJSON: true
+                                });
                             }
                         }
                     });
-                    this.paymentTypes.forEach((payment) => {
-                        if(payment.state === true) {
-                            this.order.deliveryInformation.paymentType = payment.typeName;
-                        }
-                    });
-
-                    this.$http.post('/order/set-data', {data: this.order}, {
-                        emulateJSON: true
-                    });
                 }, 2000);
+            },
+            submitCheckout() {
+                console.log(this.order);
+                this.$http.post('/order/checkout').then((res) => {
+                   console.log(res);
+                });
             }
         }
     });
