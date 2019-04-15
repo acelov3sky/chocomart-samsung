@@ -6,7 +6,9 @@ window.onload = function() {
         delimiters: ['~{', '}'],
         data: function () {
             return {
+                loadingState: true,
                 productsList: [],
+                getData: [],
                 productData: [],
                 offers: [],
                 actions: null,
@@ -118,6 +120,7 @@ window.onload = function() {
                 inputTimeout: null,
                 checkTimeout: null,
                 counterTimeout: null,
+                typeTimeout: null,
                 productCounter: 0,
                 isRunning: false,
 
@@ -158,6 +161,7 @@ window.onload = function() {
             }
         },
         beforeMount() {
+            this.loading();
             this.productData = orderData.data.data;
 
             console.log(this.productData);
@@ -217,7 +221,7 @@ window.onload = function() {
         mounted() {
             this.productsList = orderData.offers;
             this.$http.get('/order/get-data').then((res) => {
-               this.offers = res.body.offers;
+               this.getData = res.body;
             });
 
             this.productsList.forEach((item) => {
@@ -261,7 +265,7 @@ window.onload = function() {
                     this.computeCartResult();
                     this.computeProductsCountText();
                 });
-                this.offers.forEach((item) => {
+                this.getData.offers.forEach((item) => {
                    if(item.product.id === productID) {
                        clearTimeout(this.counterTimeout);
                        this.counterTimeout = setTimeout(() => {
@@ -423,6 +427,15 @@ window.onload = function() {
                         if(type.id === id) {
                             type.state = !state;
                             this.deliveryTypeID = id;
+                            clearTimeout(this.typeTimeout);
+
+                            this.typeTimeout = setTimeout(() => {
+                                this.gatherCustomerInformation();
+                                this.gatherDeliveryInformation();
+                                this.$http.post('/order/set-data', {data: this.order}, {
+                                    emulateJSON: true
+                                });
+                            }, 2000);
                         }else {
                             type.state = false;
                         }
@@ -431,6 +444,15 @@ window.onload = function() {
                     this.paymentTypes.forEach((type) => {
                         if(type.id === id) {
                             type.state = !state;
+                            clearTimeout(this.typeTimeout);
+
+                            this.typeTimeout = setTimeout(() => {
+                                this.gatherCustomerInformation();
+                                this.gatherDeliveryInformation();
+                                this.$http.post('/order/set-data', {data: this.order}, {
+                                    emulateJSON: true
+                                });
+                            }, 2000);
                         }else {
                             type.state = false;
                         }
@@ -444,66 +466,40 @@ window.onload = function() {
                 }
                 this.isRunning = true;
                 this.inputTimeout = setTimeout(() => {
-                    this.gatherCustomerInformation();
-                    this.order.blockState = 1;
+                    if(this.productData.blockState === '1') {
+                        this.gatherCustomerInformation();
+                        this.order.blockState = 1;
 
-                    let data = null;
-                    this.$http.get('/order/get-data').then((res) => {
-                        data = res.body.data.data;
+                        this.$http.post('/order/set-data', {data: this.order}, {
+                            emulateJSON: true
+                        });
+                    }else if(this.productData.blockState === '2') {
+                        this.gatherCustomerInformation();
+                        this.gatherDeliveryInformation();
+                        this.order.blockState = 2;
 
-                        if (this.data.data !== undefined) {
-                            if (data.customerInformation !== undefined) {
-                                if (data.customerInformation.customerName !== this.customerName ||
-                                    data.customerInformation.customerSurname !== this.customerSurname ||
-                                    data.customerInformation.phone !== this.customerPhone ||
-                                    data.customerInformation.email !== this.customerEmail) {
-
-                                    this.$http.post('/order/set-data', {data: this.order}, {
-                                        emulateJSON: true
-                                    });
-                                }
-                            } else {
-                                this.$http.post('/order/set-data', {data: this.order}, {
-                                    emulateJSON: true
-                                });
-                            }
-                        } else {
-                            this.$http.post('/order/set-data', {data: this.order}, {
-                                emulateJSON: true
-                            });
-                        }
-                    });
-                }, 3000);
+                        this.$http.post('/order/set-data', {data: this.order}, {
+                            emulateJSON: true
+                        });
+                    }
+                }, 2000);
             },
             checkSubscribe() {
                 clearTimeout(this.inputTimeout);
                 this.inputTimeout = setTimeout(() => {
-                    let data = null;
-                    this.$http.get('/order/get-data').then((res) => {
-                        data = res.body.data.data;
-                        if (data !== undefined) {
-                            if (data.customerInformation !== undefined) {
-                                if (data.customerInformation.subscribeStatus != this.customerSubscribe.toString()) {
-                                    if (this.productData.blockState === '1') {
-                                        this.gatherCustomerInformation();
-                                        this.$http.post('/order/set-data', {data: this.order}, {
-                                            emulateJSON: true
-                                        });
-                                    } else if (this.productData.blockState === '2') {
-                                        this.gatherCustomerInformation();
-                                        this.gatherDeliveryInformation();
-                                        this.$http.post('/order/set-data', {data: this.order}, {
-                                            emulateJSON: true
-                                        });
-                                    }
-                                }
-                            }
-                        } else {
-                            this.$http.post('/order/set-data', {data: this.order}, {
-                                emulateJSON: true
-                            });
-                        }
-                    });
+
+                    if (this.productData.blockState === '1') {
+                        this.gatherCustomerInformation();
+                        this.$http.post('/order/set-data', {data: this.order}, {
+                            emulateJSON: true
+                        });
+                    } else if (this.productData.blockState === '2') {
+                        this.gatherCustomerInformation();
+                        this.gatherDeliveryInformation();
+                        this.$http.post('/order/set-data', {data: this.order}, {
+                            emulateJSON: true
+                        });
+                    }
                 }, 2000);
             },
             gatherCustomerInformation() {
@@ -546,30 +542,8 @@ window.onload = function() {
                     this.order.blockState = 2;
                     this.gatherCustomerInformation();
                     this.gatherDeliveryInformation();
-
-                    let data = null;
-                    this.$http.get('/order/get-data').then((res) => {
-                        data = res.body.data.data;
-
-                        if (data !== undefined) {
-                            if (data.deliveryInformation !== undefined) {
-                                if (data.deliveryInformation.deliveryType !== this.order.deliveryInformation.deliveryType ||
-                                    data.deliveryInformation.receiverPhone !== this.order.deliveryInformation.receiverPhone ||
-                                    data.deliveryInformation.streetName !== this.order.deliveryInformation.streetName ||
-                                    data.deliveryInformation.houseNumber !== this.order.deliveryInformation.houseNumber ||
-                                    data.deliveryInformation.flatNumber !== this.order.deliveryInformation.flatNumber ||
-                                    data.deliveryInformation.paymentType !== this.order.deliveryInformation.paymentType) {
-
-                                    this.$http.post('/order/set-data', {data: this.order}, {
-                                        emulateJSON: true
-                                    });
-                                }
-                            }else {
-                                this.$http.post('/order/set-data', {data: this.order}, {
-                                    emulateJSON: true
-                                });
-                            }
-                        }
+                    this.$http.post('/order/set-data', {data: this.order}, {
+                        emulateJSON: true
                     });
                 }, 2000);
             },
@@ -584,6 +558,9 @@ window.onload = function() {
                    console.log(res.action);
                    this.actions = res.action;
                 });
+            },
+            loading() {
+                $('#loader').css('display', 'none');
             }
         }
     });
