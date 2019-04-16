@@ -164,6 +164,7 @@ if(document.getElementById('cart')) {
             this.loading();
         },
         mounted() {
+
             this.productData = orderData.data.data;
 
             console.log(this.productData);
@@ -216,7 +217,7 @@ if(document.getElementById('cart')) {
                 }
             }
 
-            this.productsList = orderData.offers;
+            this.productsList = orderData.offers;;
             this.$http.get('/order/get-data').then((res) => {
                 this.getData = res.body;
             });
@@ -235,15 +236,19 @@ if(document.getElementById('cart')) {
         },
         methods: {
             deleteProduct (productID) {
-                this.productsList.forEach((product) => {
-                    if(product.product.id === productID) {
-                        this.productsSum -= (product.offer.price * product.count);
-                        this.productsCount -= product.count;
-                        this.productsList.splice(this.productsList.indexOf(product), 1);
-                        this.$http.get('/order/add/' + product.product.id + '/' + 0);
-                        this.computeProductsCount();
-                    }
-                });
+                if(this.productsList.length > 0) {
+                    this.productsList.forEach((product) => {
+                        if(product.product.id === productID) {
+                            this.productsSum -= (product.offer.price * product.count);
+                            this.productsCount -= product.count;
+                            this.productsList.splice(this.productsList.indexOf(product), 1);
+                            this.$http.get('/order/add/' + product.product.id + '/' + 0);
+                        }
+                    });
+                }else {
+                    document.getElementById('products-submit').disabled = true;
+                    this.order.blockState = 1;
+                }
             },
             changeProductCount (productID, event) {
                 this.productsList.forEach((p) => {
@@ -291,7 +296,7 @@ if(document.getElementById('cart')) {
                         (this.productsCount > 4 ? this.productCountText = 'товаров' : this.productCountText = 'товаров'));
             },
             submitBlock (nextState) {
-                if(nextState === 1 && this.customerInformation === false) {
+                if(nextState === 1 && this.customerInformation === false && this.productsList.length > 0) {
                     if(this.productsList.length > 0) {
                         this.order.blockState = 1;
                         this.chosenProducts = false;
@@ -326,7 +331,7 @@ if(document.getElementById('cart')) {
                             emulateJSON: true
                         });
                     }
-                }else if (nextState === 2) {
+                }else if (nextState === 2 && this.productsList.length > 0) {
                     if(this.customerEmail === null) {
                         this.customerEmail = '';
                     }
