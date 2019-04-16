@@ -11,7 +11,7 @@
   margin: -75px 0 0 -75px;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #1428a0;
+  border-top: 8px solid #1428a0;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
@@ -41,6 +41,11 @@
 @keyframes animatebottom {
   from{ bottom:-100px; opacity:0 }
   to{ bottom:0; opacity:1 }
+}
+.empty-basket-text {
+  font-size: 24px;
+  color: #2d3946;
+  font-weight: normal;
 }
 .cart-wrapper {
   overflow: hidden;
@@ -524,7 +529,7 @@
                     }
                   }
                   .pickup-address {
-                    padding-top: 20px;
+                    padding: 20px 20px 0 20px;
                     float: left;
                     &__information {
                       font-size: 16px;

@@ -1,7 +1,7 @@
 import {TheMask} from 'vue-the-mask';
 import axios from 'axios';
-window.onload = function() {
-    var vm = new Vue({
+if(document.getElementById('cart')) {
+    new Vue({
         el: '#cart',
         delimiters: ['~{', '}'],
         data: function () {
@@ -162,6 +162,8 @@ window.onload = function() {
         },
         beforeMount() {
             this.loading();
+        },
+        mounted() {
             this.productData = orderData.data.data;
 
             console.log(this.productData);
@@ -171,11 +173,7 @@ window.onload = function() {
                     this.customerSurname = this.productData.customerInformation.customerSurname;
                     this.customerPhone = this.productData.customerInformation.phone;
                     this.customerEmail = this.productData.customerInformation.email;
-                    if(this.productData.customerInformation.subscribeStatus === 'true') {
-                        this.customerSubscribe = true;
-                    }else {
-                        this.customerSubscribe = false;
-                    }
+                    this.productData.customerInformation.subscribeStatus === 'true' ? this.customerSubscribe = true : this.customerSubscribe = false;
                 }
 
                 if(this.productData.blockState === "1") {
@@ -217,11 +215,10 @@ window.onload = function() {
                     }
                 }
             }
-        },
-        mounted() {
+
             this.productsList = orderData.offers;
             this.$http.get('/order/get-data').then((res) => {
-               this.getData = res.body;
+                this.getData = res.body;
             });
 
             this.productsList.forEach((item) => {
@@ -266,18 +263,18 @@ window.onload = function() {
                     this.computeProductsCountText();
                 });
                 this.getData.offers.forEach((item) => {
-                   if(item.product.id === productID) {
-                       clearTimeout(this.counterTimeout);
-                       this.counterTimeout = setTimeout(() => {
-                           if(item.count !== this.productCounter) {
-                               this.$http.get('/order/add/' + productID + '/' + this.productCounter).then((res) => {
-                                   console.log(res);
-                               });
-                           }else if(item.count === this.productCounter) {
-                               console.log('same');
-                           }
-                       }, 3000);
-                   }
+                    if(item.product.id === productID) {
+                        clearTimeout(this.counterTimeout);
+                        this.counterTimeout = setTimeout(() => {
+                            if(item.count !== this.productCounter) {
+                                this.$http.get('/order/add/' + productID + '/' + this.productCounter).then((res) => {
+                                    console.log(res);
+                                });
+                            }else if(item.count === this.productCounter) {
+                                console.log('same');
+                            }
+                        }, 3000);
+                    }
                 });
             },
             computeCartResult () {
@@ -414,11 +411,7 @@ window.onload = function() {
             changeState(currentState) {
                 if(currentState === 'entity') {
                     this.entityChecked = !this.entityChecked;
-                    if(this.entityChecked) {
-                        this.entityBlock = true;
-                    }else {
-                        this.entityBlock = false;
-                    }
+                    this.entityChecked ? this.entityBlock = true : this.entityBlock = false;
                 }
             },
             checkType (checkType ,state, id) {
@@ -426,7 +419,6 @@ window.onload = function() {
                     this.deliveryTypes.forEach((type) => {
                         if(type.id === id) {
                             type.state = !state;
-                            this.deliveryTypeID = id;
                             clearTimeout(this.typeTimeout);
 
                             this.typeTimeout = setTimeout(() => {
@@ -555,8 +547,8 @@ window.onload = function() {
             submitCheckout() {
                 console.log(this.order);
                 this.$http.get('/order/checkout').then((res) => {
-                   console.log(res.action);
-                   this.actions = res.action;
+                    console.log(res.action);
+                    this.actions = res.action;
                 });
             },
             loading() {

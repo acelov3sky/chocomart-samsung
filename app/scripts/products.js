@@ -1,5 +1,5 @@
-window.onload = function() {
-    var vm = new Vue({
+if(document.getElementById('v-products')) {
+    new Vue({
         el: '#v-products',
         methods: {
             openSidebar () {
