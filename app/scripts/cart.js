@@ -547,13 +547,18 @@ if(document.getElementById('cart')) {
             actionRedirect(url) {
                 if(url !== undefined) {
                     window.location.href = url;
+                }else {
+                    return false;
                 }
             },
             submitCheckout() {
                 console.log(this.order);
                 this.$http.get('/order/checkout').then((res) => {
                     console.log(res.action);
-                    this.actions = res.action;
+                    this.actions = res.actions;
+                    if(this.actions.redirect) {
+                        this.actionRedirect(this.actions.redirect);
+                    }
                 });
             },
             loading() {
