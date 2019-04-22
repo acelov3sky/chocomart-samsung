@@ -140,6 +140,7 @@ module.exports = function(_path) {
                 _node: path.join(_path, 'node_modules'),
                 // - скрипты
                 _scripts: path.join(_path, 'app', 'scripts'),
+                'vue$': 'vue/dist/vue.esm.js',
             }
         },
 
