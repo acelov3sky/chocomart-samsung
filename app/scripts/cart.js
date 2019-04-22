@@ -1,5 +1,6 @@
 import {TheMask} from 'vue-the-mask';
 import axios from 'axios';
+import Vue from 'vue';
 if(document.getElementById('cart')) {
     new Vue({
         el: '#cart',
@@ -167,7 +168,7 @@ if(document.getElementById('cart')) {
 
             this.productData = orderData.data.data;
 
-            console.log(this.productData);
+            console.log(this.productData, "smh");
             if(this.productData !== undefined) {
                 if(this.productData.customerInformation !== undefined) {
                     this.customerName = this.productData.customerInformation.customerName;
@@ -217,8 +218,8 @@ if(document.getElementById('cart')) {
                 }
             }
 
-            this.productsList = orderData.offers;;
-            this.$http.get('/order/get-data').then((res) => {
+            this.productsList = orderData.offers;
+            axios.get('/order/get-data').then((res) => {
                 this.getData = res.body;
             });
 
@@ -242,7 +243,7 @@ if(document.getElementById('cart')) {
                             this.productsSum -= (product.offer.price * product.count);
                             this.productsCount -= product.count;
                             this.productsList.splice(this.productsList.indexOf(product), 1);
-                            this.$http.get('/order/add/' + product.product.id + '/' + 0);
+                            axios.get('/order/add/' + product.product.id + '/' + 0);
                         }
                     });
                 }else {
@@ -272,7 +273,7 @@ if(document.getElementById('cart')) {
                         clearTimeout(this.counterTimeout);
                         this.counterTimeout = setTimeout(() => {
                             if(item.count !== this.productCounter) {
-                                this.$http.get('/order/add/' + productID + '/' + this.productCounter).then((res) => {
+                                axios.get('/order/add/' + productID + '/' + this.productCounter).then((res) => {
                                     console.log(res);
                                 });
                             }else if(item.count === this.productCounter) {
@@ -306,28 +307,28 @@ if(document.getElementById('cart')) {
                     }
                     if(this.productData !== undefined) {
                         if(this.productData.blockState !== undefined) {
-                            this.$http.post('/order/set-data', {data: this.order}, {
+                            axios.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
                         }
                         else if(this.productData.blockState === '1') {
                             this.gatherCustomerInformation();
                             this.chosenProducts = false;
-                            this.$http.post('/order/set-data', {data: this.order}, {
+                            axios.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
                         }else if(this.productData.blockState === '2') {
                             this.gatherCustomerInformation();
                             this.chosenProducts = false;
                             this.gatherDeliveryInformation();
-                            this.$http.post('/order/set-data', {data: this.order}, {
+                            axios.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
                         }
                     }else {
                         this.order.blockState = 1;
 
-                        this.$http.post('/order/set-data', {data: this.order}, {
+                        axios.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }
@@ -348,14 +349,14 @@ if(document.getElementById('cart')) {
                     if(this.productData.blockState === '1') {
                         this.gatherCustomerInformation();
                         this.order.blockState = 2;
-                        this.$http.post('/order/set-data', {data: this.order}, {
+                        axios.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }
                     if(this.productData.blockState === '2') {
                         this.gatherCustomerInformation();
                         this.gatherDeliveryInformation();
-                        this.$http.post('/order/set-data', {data: this.order}, {
+                        axios.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }
@@ -429,7 +430,7 @@ if(document.getElementById('cart')) {
                             this.typeTimeout = setTimeout(() => {
                                 this.gatherCustomerInformation();
                                 this.gatherDeliveryInformation();
-                                this.$http.post('/order/set-data', {data: this.order}, {
+                                axios.post('/order/set-data', {data: this.order}, {
                                     emulateJSON: true
                                 });
                             }, 2000);
@@ -446,7 +447,7 @@ if(document.getElementById('cart')) {
                             this.typeTimeout = setTimeout(() => {
                                 this.gatherCustomerInformation();
                                 this.gatherDeliveryInformation();
-                                this.$http.post('/order/set-data', {data: this.order}, {
+                                axios.post('/order/set-data', {data: this.order}, {
                                     emulateJSON: true
                                 });
                             }, 2000);
@@ -467,7 +468,7 @@ if(document.getElementById('cart')) {
                         this.gatherCustomerInformation();
                         this.order.blockState = 1;
 
-                        this.$http.post('/order/set-data', {data: this.order}, {
+                        axios.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }else if(this.productData.blockState === '2') {
@@ -475,7 +476,7 @@ if(document.getElementById('cart')) {
                         this.gatherDeliveryInformation();
                         this.order.blockState = 2;
 
-                        this.$http.post('/order/set-data', {data: this.order}, {
+                        axios.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }
@@ -487,13 +488,13 @@ if(document.getElementById('cart')) {
 
                     if (this.productData.blockState === '1') {
                         this.gatherCustomerInformation();
-                        this.$http.post('/order/set-data', {data: this.order}, {
+                        axios.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     } else if (this.productData.blockState === '2') {
                         this.gatherCustomerInformation();
                         this.gatherDeliveryInformation();
-                        this.$http.post('/order/set-data', {data: this.order}, {
+                        axios.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }
@@ -539,7 +540,7 @@ if(document.getElementById('cart')) {
                     this.order.blockState = 2;
                     this.gatherCustomerInformation();
                     this.gatherDeliveryInformation();
-                    this.$http.post('/order/set-data', {data: this.order}, {
+                    axios.post('/order/set-data', {data: this.order}, {
                         emulateJSON: true
                     });
                 }, 2000);
@@ -553,7 +554,7 @@ if(document.getElementById('cart')) {
             },
             submitCheckout() {
                 console.log(this.order);
-                this.$http.get('/order/checkout').then((res) => {
+                axios.get('/order/checkout').then((res) => {
                     console.log(res.action);
                     this.actions = res.actions;
                     if(this.actions.redirect) {
