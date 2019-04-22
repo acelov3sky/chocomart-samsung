@@ -1,5 +1,4 @@
 var swiper = new Swiper('.swiper-product', {
-    // centeredSlides: true,
     loop: true,
     simulateTouch: false,
     navigation: {
