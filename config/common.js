@@ -47,14 +47,6 @@ module.exports = function(_path) {
      * - Страницы можно делить на компоненты согласно принятому в es6 шаблонному синтаксису
      * - Подробнее смотри на https://github.com/webpack-contrib/html-loader
      * - --------------------------------------------- */
-    fs.readdirSync(_path + "/app/pages").forEach(function(page){
-        if (page.match(/^[a-z0-9\-\.]+\.html$/)) {
-            plugins.push(new HtmlPlugin({
-                filename: page,
-                template: _path + "/app/pages/" + page
-            }));
-        }
-    });
 
     /* - ---------------------------------------------
      * - Рекурсивно собираем шаблоны twig через html-webpack-plugin
@@ -129,7 +121,6 @@ module.exports = function(_path) {
                 // - Алиасы статики
                 _svg: path.join(_path, 'app', 'assets', 'svg'),
                 _images: path.join(_path, 'app', 'assets', 'images'),
-                _fonts: path.join(_path, 'app', 'assets', 'fonts'),
                 _styles: path.join(_path, 'app', 'assets', 'less'),
                 // - Алиасы шаблонов
                 _components: path.join(_path, 'app', 'pages', 'components'),

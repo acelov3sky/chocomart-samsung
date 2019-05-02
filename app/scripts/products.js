@@ -1,6 +1,4 @@
-import Vue from 'vue';
 if (document.getElementById('v-products') !== null) {
-
     var vm = new Vue({
         el: '#v-products',
         methods: {

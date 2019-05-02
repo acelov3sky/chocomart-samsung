@@ -1,6 +1,5 @@
 import {TheMask} from 'vue-the-mask';
 import axios from 'axios';
-import Vue from 'vue';
 if(document.getElementById('cart')) {
     new Vue({
         el: '#cart',

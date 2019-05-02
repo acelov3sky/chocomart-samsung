@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Vue from 'vue';
 if (document.getElementById('product-mobile') !== null) {
     var product_card_mobile = new Vue({
         el: '#product-mobile',
@@ -14,14 +13,16 @@ if (document.getElementById('product-mobile') !== null) {
         },
         methods: {
             BuyNow(id, count) {
-                console.log(id, count);
                 axios.get('/order/add/' + id + '/' + count).then(res => {
-                    console.log(res);
                     window.location.href = '/order';
                 })
             },
             ToBasket(id, count) {
-
+                console.log(id,count);
+                axios.get('/order/add/' + id + "/" + count).then(res => {
+                    console.log(res);
+                    document.getElementById('product-card-mobile-basket-modal').style.display = "block";
+                })
             }
         }
     });
@@ -42,7 +43,6 @@ if (document.getElementById('product-card') !== null) {
         },
         methods: {
             closeBasket() {
-                console.log("asdsad");
                 document.getElementById('product-card-basket-modal').style.display = "none";
             },
             changeThis(x) {
@@ -73,11 +73,9 @@ if (document.getElementById('product-card') !== null) {
                         }
                         else {
                             axios.get('/order/' + res.data[i].offer.id + '/' + 0).then(del => {
-                                console.log(del)
                             })
                         }
                     }
-                    console.log(res)
                 });
             }
         }
