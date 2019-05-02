@@ -164,10 +164,9 @@ if(document.getElementById('cart')) {
             this.loading();
         },
         mounted() {
-
             this.productData = orderData.data.data;
 
-            console.log(this.productData, "smh");
+            console.log(this.productData);
             if(this.productData !== undefined) {
                 if(this.productData.customerInformation !== undefined) {
                     this.customerName = this.productData.customerInformation.customerName;
@@ -218,7 +217,7 @@ if(document.getElementById('cart')) {
             }
 
             this.productsList = orderData.offers;
-            axios.get('/order/get-data').then((res) => {
+            this.$http.get('/order/get-data').then((res) => {
                 this.getData = res.body;
             });
 
@@ -242,7 +241,7 @@ if(document.getElementById('cart')) {
                             this.productsSum -= (product.offer.price * product.count);
                             this.productsCount -= product.count;
                             this.productsList.splice(this.productsList.indexOf(product), 1);
-                            axios.get('/order/add/' + product.product.id + '/' + 0);
+                            this.$http.get('/order/add/' + product.product.id + '/' + 0);
                         }
                     });
                 }else {
@@ -272,7 +271,7 @@ if(document.getElementById('cart')) {
                         clearTimeout(this.counterTimeout);
                         this.counterTimeout = setTimeout(() => {
                             if(item.count !== this.productCounter) {
-                                axios.get('/order/add/' + productID + '/' + this.productCounter).then((res) => {
+                                this.$http.get('/order/add/' + productID + '/' + this.productCounter).then((res) => {
                                     console.log(res);
                                 });
                             }else if(item.count === this.productCounter) {
@@ -306,29 +305,33 @@ if(document.getElementById('cart')) {
                     }
                     if(this.productData !== undefined) {
                         if(this.productData.blockState !== undefined) {
-                            axios.post('/order/set-data', {data: this.order}, {
+                            this.$http.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
                         }
                         else if(this.productData.blockState === '1') {
                             this.gatherCustomerInformation();
                             this.chosenProducts = false;
-                            axios.post('/order/set-data', {data: this.order}, {
+                            this.$http.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
                         }else if(this.productData.blockState === '2') {
                             this.gatherCustomerInformation();
                             this.chosenProducts = false;
                             this.gatherDeliveryInformation();
-                            axios.post('/order/set-data', {data: this.order}, {
+                            this.$http.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
                         }
                     }else {
                         this.order.blockState = 1;
 
-                        axios.post('/order/set-data', {data: this.order}, {
+                        this.$http.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
+                        });
+                        this.$http.post('/order/get-data').then((res) => {
+                           this.productData = res.body.data.data;
+                           console.log(this.productData);
                         });
                     }
                 }else if (nextState === 2 && this.productsList.length > 0) {
@@ -348,14 +351,14 @@ if(document.getElementById('cart')) {
                     if(this.productData.blockState === '1') {
                         this.gatherCustomerInformation();
                         this.order.blockState = 2;
-                        axios.post('/order/set-data', {data: this.order}, {
+                        this.$http.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }
                     if(this.productData.blockState === '2') {
                         this.gatherCustomerInformation();
                         this.gatherDeliveryInformation();
-                        axios.post('/order/set-data', {data: this.order}, {
+                        this.$http.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }
@@ -429,7 +432,7 @@ if(document.getElementById('cart')) {
                             this.typeTimeout = setTimeout(() => {
                                 this.gatherCustomerInformation();
                                 this.gatherDeliveryInformation();
-                                axios.post('/order/set-data', {data: this.order}, {
+                                this.$http.post('/order/set-data', {data: this.order}, {
                                     emulateJSON: true
                                 });
                             }, 2000);
@@ -446,7 +449,7 @@ if(document.getElementById('cart')) {
                             this.typeTimeout = setTimeout(() => {
                                 this.gatherCustomerInformation();
                                 this.gatherDeliveryInformation();
-                                axios.post('/order/set-data', {data: this.order}, {
+                                this.$http.post('/order/set-data', {data: this.order}, {
                                     emulateJSON: true
                                 });
                             }, 2000);
@@ -457,17 +460,14 @@ if(document.getElementById('cart')) {
                 }
             },
             checkInputData() {
-                if(this.isRunning === true) {
-                    clearTimeout(this.inputTimeout);
-                    this.isRunning = false;
-                }
-                this.isRunning = true;
+                clearTimeout(this.inputTimeout);
+
                 this.inputTimeout = setTimeout(() => {
                     if(this.productData.blockState === '1') {
                         this.gatherCustomerInformation();
                         this.order.blockState = 1;
 
-                        axios.post('/order/set-data', {data: this.order}, {
+                        this.$http.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }else if(this.productData.blockState === '2') {
@@ -475,7 +475,7 @@ if(document.getElementById('cart')) {
                         this.gatherDeliveryInformation();
                         this.order.blockState = 2;
 
-                        axios.post('/order/set-data', {data: this.order}, {
+                        this.$http.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }
@@ -487,13 +487,13 @@ if(document.getElementById('cart')) {
 
                     if (this.productData.blockState === '1') {
                         this.gatherCustomerInformation();
-                        axios.post('/order/set-data', {data: this.order}, {
+                        this.$http.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     } else if (this.productData.blockState === '2') {
                         this.gatherCustomerInformation();
                         this.gatherDeliveryInformation();
-                        axios.post('/order/set-data', {data: this.order}, {
+                        this.$http.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
                     }
@@ -539,7 +539,7 @@ if(document.getElementById('cart')) {
                     this.order.blockState = 2;
                     this.gatherCustomerInformation();
                     this.gatherDeliveryInformation();
-                    axios.post('/order/set-data', {data: this.order}, {
+                    this.$http.post('/order/set-data', {data: this.order}, {
                         emulateJSON: true
                     });
                 }, 2000);
@@ -553,7 +553,7 @@ if(document.getElementById('cart')) {
             },
             submitCheckout() {
                 console.log(this.order);
-                axios.get('/order/checkout').then((res) => {
+                this.$http.get('/order/checkout').then((res) => {
                     console.log(res.action);
                     this.actions = res.actions;
                     if(this.actions.redirect) {
