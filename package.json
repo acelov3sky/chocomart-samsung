@@ -19,6 +19,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "jquery": "^3.2.1",
     "popper.js": "^1.14.6",
+    "vue-resource": "^1.5.1",
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {

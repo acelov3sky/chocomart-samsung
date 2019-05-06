@@ -14089,6 +14089,12 @@ template {
   top: 0;
   left: 0;
 }
+#ChocomartHeader .basket-amount {
+  width: 35% !important;
+}
+#ChocomartHeader .basket-price {
+  width: 65% !important;
+}
 #ChocomartHeader .mobile-header {
   display: none;
 }
@@ -14218,6 +14224,20 @@ template {
     padding: 0 20px;
   }
 }
+#ChocomartHeader .header-sum {
+  display: none;
+  position: absolute;
+  top: -6px;
+  right: -15px;
+  background-color: #ff5d5d;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 10px;
+  line-height: 23px;
+}
 #ChocomartHeader .header-heart {
   width: 22px;
   height: 20px;
@@ -14232,6 +14252,11 @@ template {
   height: 20px;
   margin-right: 30px;
   cursor: pointer;
+  position: relative;
+}
+#ChocomartHeader .header-cart svg {
+  width: 22px;
+  height: 24px;
 }
 #ChocomartHeader .header-cart:hover svg path {
   fill: #fb443f !important;
@@ -14320,6 +14345,7 @@ template {
   width: 80px;
 }
 #ChocomartHeader .header .basket-description {
+  padding-left: 20px;
   width: 200px;
 }
 #ChocomartHeader .header .basket-title h4 {
@@ -14947,8 +14973,15 @@ template {
   border-left: none;
   border-right: none;
 }
+.basket_check {
+  display: none;
+}
+.basket_check svg {
+  width: 12px;
+}
 .product-wrapper {
   position: relative;
+  height: 272px !important;
   margin-top: 10px;
   transition: ease 0.4s;
   border-radius: 4px;
@@ -15039,6 +15072,11 @@ template {
   color: #707070;
   margin-bottom: 10px;
   line-height: 1.15;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 768px) {
   .product-wrapper .product-wrapper__content .product-content__description .description__text .text__title {
@@ -15086,11 +15124,18 @@ template {
   border-top: 1px solid #ebebeb;
   background: #fff;
   transition: ease 0.4s;
-  height: 54px;
+  height: 64px;
 }
 .product-wrapper:hover {
   border-radius: 0 !important;
   transition: ease 0.4s;
+}
+.product-wrapper:hover .product-content__show {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 10px) !important;
+  transform: translateY(100%);
+  z-index: 50;
 }
 .product-wrapper:hover .product-content {
   box-shadow: 0 0 40px 0 rgba(138, 138, 138, 0.5);
@@ -15115,8 +15160,8 @@ template {
   height: 47px;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .action-block__buttons {
-  width: 50px;
-  height: 32px;
+  width: 65px;
+  height: 42px;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .button-added {
   border: 1px solid #747474;
@@ -15139,12 +15184,13 @@ template {
   width: 10px;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .button-buy {
+  margin-right: 10px;
   cursor: pointer;
   border-radius: 5px;
   border: 1px solid #ff5d5d;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .button-buy .button-buy-plus {
-  font-size: 26px;
+  font-size: 15px;
   color: #ff5d5d;
   line-height: 22px;
 }
@@ -15154,6 +15200,9 @@ template {
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .button-buy .button-buy-cart svg path {
   fill: #ff5d5d;
+}
+.product-wrapper:hover .product-content__actions .actions__action-block .button-buy .checked svg path {
+  fill: #4caf50 !important;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .button-buy:hover {
   background: #fb443f;
@@ -15192,8 +15241,7 @@ template {
   margin-left: 5px;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .action-block__input {
-  height: 32px;
-  width: 140px;
+  height: 42px;
   border-radius: 5px;
   color: #ffffff;
   text-align: center;
@@ -15234,6 +15282,7 @@ template {
 .product-wrapper:hover .product-content__actions .actions__action-block .buy {
   border: 1px solid #ff5d5d;
   background: #ff5d5d;
+  padding: 20px 30px;
 }
 .product-wrapper:hover .product-content__actions .actions__action-block .buy:hover {
   background: #fb443f;
@@ -17689,6 +17738,13 @@ template {
 @media (max-width: 768px) {
   .main-slider_wrapper {
     display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .col-xl-20 {
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
   }
 }
 .no-padding {

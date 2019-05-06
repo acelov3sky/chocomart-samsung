@@ -32,56 +32,77 @@
     </div>
     <div class="products-content__list row no-margin list-content w-100">
         {% for product in products %}
-            <a class="product-wrapper col-md-4 col-sm-6 col-12 col-lg-3 col-xl-2 h-100" href="{{ product.getUri() }}">
-                <div class="product-wrapper__content w-100">
-                    <div class="product-content w-100">
-                        <div class="product-content__description w-100">
-                            <div class="description__product-image w-100 d-flex align-items-end">
-                                <div class="product-image-wrapper w-100 d-flex justify-content-center">
-                                    <img src="{{ (product.images | first).image.getUri() }}" class="w-100" alt="">
-                                    <div class="swiper-container swiper-product h-100 w-100">
-                                        <div class="swiper-wrapper">
-                                            {% for image in product.images %}
-                                                <div class="swiper-slide d-flex justify-content-center">
-                                                    <img src="{{ image.image.getUri() }}" class="w-100" alt="">
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                        <div class="swiper-button-prev swiper-product-prev" >
-                                            <img src="../../assets/images/svg/left-arrow.svg">
-                                        </div>
-                                        <div class="swiper-button-next swiper-product-next">
-                                            <img src="../../assets/images/svg/right-arrow.svg">
+            <div class="product-wrapper col-md-4 col-sm-6 col-12 col-lg-3 col-xl-20">
+                <a class="h-100" href="{{ product.getUri() }}">
+                    <div class="product-wrapper__content w-100">
+                        <div class="product-content w-100">
+                            <div class="product-content__description w-100">
+                                <div class="description__product-image w-100 d-flex align-items-end">
+                                    <div class="product-image-wrapper w-100 d-flex justify-content-center">
+                                        <img src="{{ (product.images | first).image.getUri() }}" class="w-100" alt="">
+                                        <div class="swiper-container swiper-product h-100 w-100">
+                                            <div class="swiper-wrapper">
+                                                {% for image in product.images %}
+                                                    <div class="swiper-slide d-flex justify-content-center">
+                                                        <img src="{{ image.image.getUri() }}" class="w-100" alt="">
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="swiper-button-prev swiper-product-prev" >
+                                                <img src="../../assets/images/svg/left-arrow.svg">
+                                            </div>
+                                            <div class="swiper-button-next swiper-product-next">
+                                                <img src="../../assets/images/svg/right-arrow.svg">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="description__text w-100 d-flex flex-column align-items-center">
-                                <h3 class="text__title text-center font-weight-normal">{{ product.fullName }}</h3>
-                                <div class="price-wrapper d-flex align-items-center justify-content-center font-weight-bold w-100">
-                                    {{ product.getBestOffer().price | round }} тг
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content__actions w-100 d-none">
-                            <div class="actions__action-block w-100 d-flex justify-content-between">
-
-                                <div class="action-block__buttons button-buy mt10 d-flex align-items-center justify-content-center">
-                                    <span class="button-buy-plus">+</span>
-                                    <div class="button-buy-cart">
-                                        <svg  xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
-                                            <path id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" class="cls-1" data-name="Path 147" transform="translate(-17.2)"/>
-                                        </svg>
+                                <div class="description__text w-100 d-flex flex-column align-items-center">
+                                    <h3 class="text__title text-center font-weight-normal">{{ product.fullName }}</h3>
+                                    <div class="price-wrapper d-flex align-items-center justify-content-center font-weight-bold w-100">
+                                        {{ product.getBestOffer().price | round }} тг
                                     </div>
                                 </div>
-                                <div class="action-block__input mt10 d-flex justify-content-center align-items-center buy">
-                                    Купить в один клик
+                            </div>
+                            <div class="product-content__actions w-100 d-none" style="opacity: 0;">
+                                <div class="actions__action-block w-100 d-flex justify-content-between">
+                                    <div class="action-block__buttons button-buy mt10 d-flex align-items-center justify-content-center">
+                                        <span class="button-buy-plus">+</span>
+                                        <div class="button-buy-cart">
+                                            <svg  xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
+                                                <path id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" class="cls-1" data-name="Path 147" transform="translate(-17.2)"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div onclick="buyOneCLick({{ product.getBestOffer().id }}, 1)" class="action-block__input mt10 d-flex justify-content-center align-items-center buy">
+                                        Купить в один клик
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </a>
+                <div class="product-content__actions w-100 product-content__show d-none">
+                    <div class="actions__action-block w-100 d-flex justify-content-between">
+                        <div onclick="addToBasket(this,{{ product.getBestOffer().id }}, 1)" class="action-block__buttons button-buy mt10 d-flex align-items-center justify-content-center">
+                            {#<div class="basket_check">#}
+                                {#<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9.24" viewBox="0 0 12 9.24">#}
+                                    {#<path id="Path_2" data-name="Path 2" d="M23.219,14.586,16.66,21.11l-2.707-2.682-1.367,1.358,4.076,4.04,7.924-7.882Z" transform="translate(-12.586 -14.586)" fill="#4caf50"/>#}
+                                {#</svg>#}
+                            {#</div>#}
+                            <span class="button-buy-plus">+</span>
+                            <div class="button-buy-cart">
+                                <svg  xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
+                                    <path id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" class="cls-1" data-name="Path 147" transform="translate(-17.2)"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div onclick="buyOneCLick({{ product.getBestOffer().id }}, 1)" class="action-block__input mt10 d-flex justify-content-center align-items-center buy">
+                            Купить в один клик
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
         {% endfor %}
     </div>
     <div class="products-mobile-content__list">
@@ -106,3 +127,79 @@
         {% endfor %}
     </div>
 </div>
+<script>
+    function addToBasket(x,id, count) {
+//        x.childNodes[3].classList.add("d-none");
+//        x.childNodes[5].classList.add("checked");
+//        x.childNodes[1].classList.add("d-block");
+        var add_url = new XMLHttpRequest();
+        add_url.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let response = this.response;
+                response = JSON.parse(response);
+                let basket_icon = document.getElementById('header_basket');
+                let basket_result = "";
+                var total_result = 0;
+                let total_count = 0;
+                let header_sum = document.getElementById('header-sum');
+
+                for(let i = 0; i < response.length ; i++) {
+                    total_result += response[i].count * parseInt(response[i].offer.price);
+                    total_count += parseInt(response[i].count);
+                    basket_result +=
+                        '<div class="header-basket-product">' +
+                            '<div class="basket-img">' +
+                                '<img width="100%" class="header-basket_img" src="' + response[i].product.imagesList[0] + '" alt=""> ' +
+                            '</div>' +
+                            '<div class="basket-description">' +
+                                '<div class="basket-title">' +
+                                    '<h4 class="m-0">' +
+                                        response[i].product.shortName +
+                                    '</h4>' +
+                                '</div>' +
+                                '<div class="basket-info">' +
+                                    '<div class="basket-amount ">' +
+                                        '<h4 class="m-0">' +
+                                            + response[i].count + ' шт.' +
+                                        '</h4>' +
+                                    '</div>' +
+                                    '<div class="basket-price text-right">' +
+                                        '<h4 class="m-0">' +
+                                            parseInt(response[i].offer.price) + ' тг' +
+                                        '</h4>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+                }
+                basket_result +=
+                    '<div class="basket-total d-flex justify-content-center">' +
+                        '<h4 class="m-0"><span>ИТОГО:</span>' + total_result +' тг</h4>' +
+                    '</div>' +
+                    '<div class="basket-button d-flex justify-content-center">' +
+                        '<a href="/order" class="basket_button">' +
+                            'Оформить заказ' +
+                        '</a>' +
+                    '</div>';
+                basket_icon.innerHTML = basket_result;
+                header_sum.innerHTML = total_count;
+                header_sum.style.display = "block";
+            }
+        };
+        add_url.open("GET", "/order/add/" + id + "/" + count, true);
+        add_url.send();
+    }
+    function buyOneCLick(id, count) {
+        var one_click = new XMLHttpRequest();
+        one_click.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let response = this.response;
+                console.log(response);
+            }
+        };
+        one_click.open("GET", "/order/add/" + id + "/" + count, true);
+        one_click.send();
+        window.location.href = "/order";
+    }
+
+</script>

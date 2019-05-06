@@ -95,39 +95,11 @@
                                     <path id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" class="cls-2" data-name="Path 147" transform="translate(-17.2)"/>
                                 </svg>
                             </a>
+                            <div id="header-sum" class="header-sum">
+                            </div>
                         </div>
                     </div>
-                    <div class="header-icon-dropdown">
-                        <div class="header-basket-product">
-                            <div class="basket-img">
-                                <img width="100%" class="header-basket_img" src="https://www.bellmts.ca/file_source/mts/content_types/wireless_devices/iphones/Apple-iPhone-XsMax@2x.png" alt="">
-                            </div>
-                            <div class="basket-description">
-                                <div class="basket-title">
-                                    <h4 class="m-0">Смартфон Apple
-                                        iPhone 6 32 Gb Gold
-                                    </h4>
-                                </div>
-                                <div class="basket-info">
-                                    <div class="basket-amount w-25">
-                                        <h4 class="m-0">1 шт.</h4>
-                                    </div>
-                                    <div class="basket-price w-75 text-right">
-                                        <h4 class="m-0">125 000 тг
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="basket-total d-flex justify-content-center">
-                            <h4 class="m-0"><span>ИТОГО:</span> 250 000 тг</h4>
-                        </div>
-                        <div class="basket-button d-flex justify-content-center">
-                            <a href="/order" class="basket_button">
-                                Оформить заказ
-                            </a>
-                        </div>
-
+                    <div id="header_basket" class="header-icon-dropdown">
                     </div>
                 </div>
             </div>
@@ -226,4 +198,70 @@
         category.classList.add('category-active');
         document.getElementById('subcategory').style.display = 'flex';
     }
+    var add_url = new XMLHttpRequest();
+    add_url.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            let response = this.response
+            response = JSON.parse(response);
+            console.log(response.length);
+            let basket_icon = document.getElementById('header_basket');
+            let basket_result = "";
+            var total_result = 0;
+            let total_count = 0;
+            let header_sum = document.getElementById('header-sum');
+            if (response.length !== undefined) {
+                for(let i = 0; i < response.length ; i++) {
+                    total_result += response[i].count * parseInt(response[i].offer.price);
+                    total_count += parseInt(response[i].count);
+                    basket_result +=
+                        '<div class="header-basket-product">' +
+                        '<div class="basket-img">' +
+                        '<img width="100%" class="header-basket_img" src="' + response[i].product.imagesList[0] + '" alt=""> ' +
+                        '</div>' +
+                        '<div class="basket-description">' +
+                        '<div class="basket-title">' +
+                        '<h4 class="m-0">' +
+                        response[i].product.shortName +
+                        '</h4>' +
+                        '</div>' +
+                        '<div class="basket-info">' +
+                        '<div class="basket-amount ">' +
+                        '<h4 class="m-0">' +
+                        + response[i].count + ' шт.' +
+                        '</h4>' +
+                        '</div>' +
+                        '<div class="basket-price text-right">' +
+                        '<h4 class="m-0">' +
+                        parseInt(response[i].offer.price) + ' тг' +
+                        '</h4>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
+                }
+                basket_result +=
+                    '<div class="basket-total d-flex justify-content-center">' +
+                    '<h4 class="m-0"><span>ИТОГО:</span>' + total_result +' тг</h4>' +
+                    '</div>' +
+                    '<div class="basket-button d-flex justify-content-center">' +
+                    '<a href="/order" class="basket_button">' +
+                    'Оформить заказ' +
+                    '</a>' +
+                    '</div>';
+                basket_icon.innerHTML = basket_result;
+                header_sum.innerHTML = total_count;
+                header_sum.style.display = "block";
+
+            } else {
+                header_sum.style.display = "none";
+                basket_result +=
+                    '<div class="basket-total d-flex justify-content-center">' +
+                    '<h4 class="m-0"><span>Ваша корзина пуста</span></h4>' +
+                    '</div>';
+                basket_icon.innerHTML = basket_result;
+            }
+        }
+    };
+    add_url.open("GET", "/order/list", true);
+    add_url.send();
 </script>
