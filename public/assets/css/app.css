@@ -17609,6 +17609,9 @@ template {
   padding-bottom: 15px;
   box-sizing: border-box;
 }
+.cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .empty-block__enable {
+  display: none;
+}
 .cart-wrapper .cart-block .cart-content-option-wrapper .cart-option-wrapper .option-wrapper .cart-item {
   position: relative;
   overflow: hidden;
