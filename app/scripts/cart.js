@@ -7,10 +7,9 @@ if(document.getElementById('cart')) {
         data: function () {
             return {
                 loadingState: true,
+                formValid: false,
                 productsList: [],
-                getData: [],
                 productData: [],
-                offers: [],
                 actions: null,
                 blockCompletion: [
                     {
@@ -117,12 +116,12 @@ if(document.getElementById('cart')) {
                 productsCount: 0,
                 productCountText:'товаров',
                 order: {},
+
                 inputTimeout: null,
                 checkTimeout: null,
                 counterTimeout: null,
                 typeTimeout: null,
                 productCounter: 0,
-                isRunning: false,
 
                 //Variables of Blocks States
                 chosenProducts: true,
@@ -137,7 +136,7 @@ if(document.getElementById('cart')) {
                 cartStateName: 'Корзина',
 
                 //Variables of inputs values
-                customerName: '',
+                customername: '',
                 customerSurname: '',
                 customerPhone: '',
                 customerEmail: '',
@@ -166,10 +165,10 @@ if(document.getElementById('cart')) {
         mounted() {
             this.productData = orderData.data.data;
 
-            console.log(this.productData);
+            console.log(this.productData, 'user data');
             if(this.productData !== undefined) {
                 if(this.productData.customerInformation !== undefined) {
-                    this.customerName = this.productData.customerInformation.customerName;
+                    this.customername = this.productData.customerInformation.customerName;
                     this.customerSurname = this.productData.customerInformation.customerSurname;
                     this.customerPhone = this.productData.customerInformation.phone;
                     this.customerEmail = this.productData.customerInformation.email;
@@ -217,9 +216,6 @@ if(document.getElementById('cart')) {
             }
 
             this.productsList = orderData.offers;
-            this.$http.get('/order/get-data').then((res) => {
-                this.getData = res.body;
-            });
 
             this.productsList.forEach((item) => {
                 this.productsSum += (parseInt(item.offer.price) * parseInt(item.count));
@@ -266,17 +262,13 @@ if(document.getElementById('cart')) {
                     this.computeCartResult();
                     this.computeProductsCountText();
                 });
-                this.getData.offers.forEach((item) => {
+                this.productsList.forEach((item) => {
                     if(item.product.id === productID) {
                         clearTimeout(this.counterTimeout);
                         this.counterTimeout = setTimeout(() => {
-                            if(item.count !== this.productCounter) {
-                                this.$http.get('/order/add/' + productID + '/' + this.productCounter).then((res) => {
-                                    console.log(res);
-                                });
-                            }else if(item.count === this.productCounter) {
-                                console.log('same');
-                            }
+                            this.$http.get('/order/add/' + productID + '/' + this.productCounter).then((res) => {
+                                console.log(res);
+                            });
                         }, 3000);
                     }
                 });
@@ -295,30 +287,39 @@ if(document.getElementById('cart')) {
                         (this.productsCount > 4 ? this.productCountText = 'товаров' : this.productCountText = 'товаров'));
             },
             submitBlock (nextState) {
-                if(nextState === 1 && this.customerInformation === false && this.productsList.length > 0) {
-                    if(this.productsList.length > 0) {
-                        this.order.blockState = 1;
-                        this.chosenProducts = false;
-                        this.customerInformation = true;
-                        this.blockCompletion[0].completion = true;
-                        this.blockName = 'Информация о покупателе';
-                    }
+                if(nextState === 1 && this.productsList.length > 0) {
+
                     if(this.productData !== undefined) {
-                        if(this.productData.blockState !== undefined) {
+                        if(this.productData.blockState === undefined) {
+                            this.order.blockState = 1;
                             this.$http.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
                         }
                         else if(this.productData.blockState === '1') {
                             this.gatherCustomerInformation();
+
+                            this.order.blockState = 1;
                             this.chosenProducts = false;
+                            this.customerInformation = true;
+                            this.blockCompletion[0].completion = true;
+                            this.blockName = 'Информация о покупателе';
+
                             this.$http.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
                         }else if(this.productData.blockState === '2') {
                             this.gatherCustomerInformation();
-                            this.chosenProducts = false;
                             this.gatherDeliveryInformation();
+
+                            this.chosenProducts = false;
+                            this.customerInformation = false;
+                            this.deliveryInformation = true;
+                            this.blockCompletion[0].completion = true;
+                            this.blockCompletion[1].completion = true;
+                            this.entityBlock = false;
+                            this.blockName = 'Доставка и оплата';
+
                             this.$http.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
@@ -329,40 +330,224 @@ if(document.getElementById('cart')) {
                         this.$http.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
-                        this.$http.post('/order/get-data').then((res) => {
+                        this.$http.get('/order/get-data').then((res) => {
                            this.productData = res.body.data.data;
-                           console.log(this.productData);
                         });
+
+                        this.order.blockState = 1;
+                        this.chosenProducts = false;
+                        this.customerInformation = true;
+                        this.blockCompletion[0].completion = true;
+                        this.blockName = 'Информация о покупателе';
                     }
                 }else if (nextState === 2 && this.productsList.length > 0) {
+
+                    let valid = null;
+
+                    if(!this.customername || this.customername === '' || this.customername === undefined) {
+                        $('#customer-name').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите имя').siblings('.error--triangle').css('display', 'block');
+                        valid += 1;
+                    }else {
+                        $('#customer-name').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        valid -= 1;
+                    }
+
+                    if(!this.customerSurname || this.customerSurname === '' || this.customerSurname === undefined) {
+                        $('#customer-surname').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите фамилию').siblings('.error--triangle').css('display', 'block');
+                        valid += 1;
+                    }else {
+                        $('#customer-surname').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        valid -= 1;
+                    }
+
                     if(this.customerEmail === null) {
                         this.customerEmail = '';
                     }
-                    if(this.customerName  && this.customerSurname
-                        && this.customerEmail.indexOf('@') > -1 &&
-                        this.customerEmail.indexOf('.') > -1  && this.customerPhone) {
 
+                    if(!this.customerEmail || this.customerEmail === '' || this.customerEmail === undefined) {
+                        $('#customer-email').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильную эл.почту').siblings('.error--triangle').css('display', 'block');
+                        valid += 1;
+                    }else if(! this.customerEmail.includes('@') || ! this.customerEmail.includes('.')) {
+                        $('#customer-email').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильную эл.почту').siblings('.error--triangle').css('display', 'block');
+                        valid += 1;
+                    } else {
+                        $('#customer-email').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        valid -= 1;
+                    }
+
+
+                    if(!this.customerPhone || this.customerPhone === '' || this.customerPhone === undefined) {
+                        $('#customer-phone').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильный номер телефона').siblings('.error--triangle').css('display', 'block');
+                        valid += 1;
+                    }else if(this.customerPhone.length < 10){
+                        $('#customer-phone').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильный номер телефона').siblings('.error--triangle').css('display', 'block');
+                        valid += 1;
+                    }else {
+                        $('#customer-phone').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        valid -= 1;
+                    }
+
+                    if(valid === -4) {
+                        if(this.productData.blockState === '1') {
+                            this.gatherCustomerInformation();
+                            this.order.blockState = 2;
+                            this.$http.post('/order/set-data', {data: this.order}, {
+                                emulateJSON: true
+                            });
+                        }
+                        if(this.productData.blockState === '2') {
+                            this.gatherCustomerInformation();
+                            this.gatherDeliveryInformation();
+                            this.$http.post('/order/set-data', {data: this.order}, {
+                                emulateJSON: true
+                            });
+                        }
                         this.customerInformation = false;
                         this.deliveryInformation = true;
                         this.blockCompletion[1].completion = true;
                         this.entityBlock = false;
                         this.blockName = 'Доставка и оплата';
-                    }
-                    if(this.productData.blockState === '1') {
-                        this.gatherCustomerInformation();
-                        this.order.blockState = 2;
-                        this.$http.post('/order/set-data', {data: this.order}, {
-                            emulateJSON: true
-                        });
-                    }
-                    if(this.productData.blockState === '2') {
-                        this.gatherCustomerInformation();
-                        this.gatherDeliveryInformation();
-                        this.$http.post('/order/set-data', {data: this.order}, {
-                            emulateJSON: true
-                        });
+
+                    }else {
+                        return false;
                     }
                 }
+            },
+            validateForm(event) {
+                let key = event.keyCode || event.charCode;
+
+                if($(event.target).attr('id') === 'customer-name') {
+                    if(key !== 8 && $(event.target).val().length === 0) {
+                        $('#customer-name').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        this.formValid = true;
+                    }else {
+                        if(key === 8 && $(event.target).val().length <= 1) {
+                            $('#customer-name').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите имя').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else {
+                            $('#customer-name').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                            this.formValid = true;
+                        }
+                    }
+                }
+
+                if($(event.target).attr('id') === 'customer-surname') {
+                    if(key !== 8 && $(event.target).val().length === 0) {
+                        $('#customer-surname').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        this.formValid = true;
+                    }else {
+                        if(key === 8 && $(event.target).val().length <= 1) {
+                            $('#customer-surname').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите имя').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else {
+                            $('#customer-surname').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                            this.formValid = true;
+                        }
+                    }
+                }
+
+                if($(event.target).attr('id') === 'customer-phone') {
+
+                    let phoneNumber = $('#customer-phone').val().replace('(', '').replace(')', '').replace(/ /g, '');
+
+                    if(key !== 8 && phoneNumber.length === 0) {
+                        $('#customer-phone').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        this.formValid = true;
+                    }else {
+                        if(key === 8 && phoneNumber.length <= 1) {
+                            $('#customer-phone').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильный номер телефона').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else if(phoneNumber.length < 10){
+                            $('#customer-phone').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильный номер телефона').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else {
+                            $('#customer-phone').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                            this.formValid = true;
+                        }
+                    }
+                }
+
+                if($(event.target).attr('id') === 'customer-email') {
+                    if(key !== 8 && $(event.target).val().length === 0) {
+                        $('#customer-email').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        this.formValid = true;
+                    }else {
+                        if(key === 8 && $(event.target).val().length <= 1) {
+                            $('#customer-email').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильную эл.почту').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else {
+                            $('#customer-email').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                            this.formValid = true;
+                        }
+                    }
+                }
+
+                if($(event.target).attr('id') === 'delivery-street') {
+                    if(key !== 8 && $(event.target).val().length === 0) {
+                        $('#delivery-street').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        this.formValid = true;
+                    }else {
+                        if(key === 8 && $(event.target).val().length <= 1) {
+                            $('#delivery-street').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите название улицы').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else {
+                            $('#delivery-street').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                            this.formValid = true;
+                        }
+                    }
+                }
+
+                if($(event.target).attr('id') === 'delivery-house') {
+                    if(key !== 8 && $(event.target).val().length === 0) {
+                        $('#delivery-house').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        this.formValid = true;
+                    }else {
+                        if(key === 8 && $(event.target).val().length <= 1) {
+                            $('#delivery-house').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите номер дома').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else {
+                            $('#delivery-house').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                            this.formValid = true;
+                        }
+                    }
+                }
+
+                if($(event.target).attr('id') === 'delivery-flat') {
+                    if(key !== 8 && $(event.target).val().length === 0) {
+                        $('#delivery-flat').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        this.formValid = true;
+                    }else {
+                        if(key === 8 && $(event.target).val().length <= 1) {
+                            $('#delivery-flat').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите номер квартиры').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else {
+                            $('#delivery-flat').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                            this.formValid = true;
+                        }
+                    }
+                }
+
+                if($(event.target).attr('id') === 'receiver-phone') {
+
+                    let phoneNumber = $('#receiver-phone').val().replace('(', '').replace(')', '').replace(/ /g, '');
+
+                    if(key !== 8 && phoneNumber.length === 0) {
+                        $('#receiver-phone').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        this.formValid = true;
+                    }else {
+                        if(key === 8 && phoneNumber.length <= 1) {
+                            $('#receiver-phone').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильный номер телефона').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else if(phoneNumber.length < 10){
+                            $('#receiver-phone').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильный номер телефона').siblings('.error--triangle').css('display', 'block');
+                            this.formValid = false;
+                        }else {
+                            $('#receiver-phone').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                            this.formValid = true;
+                        }
+                    }
+                }
+
             },
             openCompletedBlock (currentState, completionState) {
                 if(completionState) {
@@ -427,15 +612,21 @@ if(document.getElementById('cart')) {
                     this.deliveryTypes.forEach((type) => {
                         if(type.id === id) {
                             type.state = !state;
-                            clearTimeout(this.typeTimeout);
 
-                            this.typeTimeout = setTimeout(() => {
-                                this.gatherCustomerInformation();
-                                this.gatherDeliveryInformation();
-                                this.$http.post('/order/set-data', {data: this.order}, {
-                                    emulateJSON: true
-                                });
-                            }, 2000);
+                            if(type.state === true) {
+                                $('#delivery-type-box').css('background', '#fff').children('.delivery--error-block').css('display', 'none').siblings('.delivery-error--triangle').css('display', 'none');
+
+                                clearTimeout(this.typeTimeout);
+
+                                this.typeTimeout = setTimeout(() => {
+                                    this.gatherCustomerInformation();
+                                    this.gatherDeliveryInformation();
+                                    this.$http.post('/order/set-data', {data: this.order}, {
+                                        emulateJSON: true
+                                    });
+                                }, 2000);
+
+                            }
                         }else {
                             type.state = false;
                         }
@@ -444,15 +635,21 @@ if(document.getElementById('cart')) {
                     this.paymentTypes.forEach((type) => {
                         if(type.id === id) {
                             type.state = !state;
-                            clearTimeout(this.typeTimeout);
 
-                            this.typeTimeout = setTimeout(() => {
-                                this.gatherCustomerInformation();
-                                this.gatherDeliveryInformation();
-                                this.$http.post('/order/set-data', {data: this.order}, {
-                                    emulateJSON: true
-                                });
-                            }, 2000);
+                            if(type.state === true) {
+                                $('#payment-type-box').css('background', '#fff').children('.delivery--error-block').css('display', 'none').siblings('.delivery-error--triangle').css('display', 'none');
+
+                                clearTimeout(this.typeTimeout);
+
+                                this.typeTimeout = setTimeout(() => {
+                                    this.gatherCustomerInformation();
+                                    this.gatherDeliveryInformation();
+                                    this.$http.post('/order/set-data', {data: this.order}, {
+                                        emulateJSON: true
+                                    });
+                                }, 2000);
+
+                            }
                         }else {
                             type.state = false;
                         }
@@ -479,7 +676,7 @@ if(document.getElementById('cart')) {
                             emulateJSON: true
                         });
                     }
-                }, 2000);
+                }, 1000);
             },
             checkSubscribe() {
                 clearTimeout(this.inputTimeout);
@@ -502,11 +699,10 @@ if(document.getElementById('cart')) {
             gatherCustomerInformation() {
                 this.order.blockState = 1;
                 this.order.customerInformation = {
-                    customerName: this.customerName,
+                    customerName: this.customername,
                     customerSurname: this.customerSurname,
                     phone: this.customerPhone,
-                    email: this.customerEmail,
-                    subscribeStatus: this.customerSubscribe
+                    email: this.customerEmail
                 }
             },
             gatherDeliveryInformation() {
@@ -533,16 +729,23 @@ if(document.getElementById('cart')) {
                 });
             },
             gatherData() {
-                clearTimeout(this.checkTimeout);
 
-                this.checkTimeout = setTimeout(() => {
-                    this.order.blockState = 2;
-                    this.gatherCustomerInformation();
-                    this.gatherDeliveryInformation();
-                    this.$http.post('/order/set-data', {data: this.order}, {
-                        emulateJSON: true
-                    });
-                }, 2000);
+                if(!this.deliveryCity || this.deliveryCity === '' || this.deliveryCity === undefined) {
+                    $('#delivery-city').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Выберите город доставка').siblings('.error--triangle').css('display', 'block');
+                }else {
+                    $('#delivery-city').css('border-color', '#ebebeb').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+
+                    clearTimeout(this.checkTimeout);
+
+                    this.checkTimeout = setTimeout(() => {
+                        this.order.blockState = 2;
+                        this.gatherCustomerInformation();
+                        this.gatherDeliveryInformation();
+                        this.$http.post('/order/set-data', {data: this.order}, {
+                            emulateJSON: true
+                        });
+                    }, 2000);
+                }
             },
             actionRedirect(url) {
                 if(url !== undefined) {
@@ -552,14 +755,83 @@ if(document.getElementById('cart')) {
                 }
             },
             submitCheckout() {
-                console.log(this.order);
-                this.$http.get('/order/checkout').then((res) => {
-                    console.log(res.action);
-                    this.actions = res.actions;
-                    if(this.actions.redirect) {
-                        this.actionRedirect(this.actions.redirect);
+
+                let typeState = false;
+                let paymentState = false;
+
+                if(!this.deliveryCity || this.deliveryCity === '' || this.deliveryCity === undefined) {
+                    $('#delivery-city').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Выберите город доставка').siblings('.error--triangle').css('display', 'block');
+                }else {
+                    $('#delivery-city').css('border-color', '#ebebeb').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                }
+
+                this.deliveryTypes.forEach((type) => {
+                    if(type.state) {
+                        typeState = true;
+                        return false;
+                    }else {
+                        $('#delivery-type-box').css('background', '#ffb8b8').children('.delivery--error-block').css('display', 'block').text('Выберите вид доставки').siblings('.delivery-error--triangle').css('display', 'block');
                     }
                 });
+
+                this.paymentTypes.forEach((type) => {
+                    if(type.state) {
+                        paymentState = true;
+                        return false;
+                    }else {
+                        $('#payment-type-box').css('background', '#ffb8b8').children('.delivery--error-block').css('display', 'block').text('Выберите вид оплаты').siblings('.delivery-error--triangle').css('display', 'block');
+                    }
+                });
+
+                if(typeState) {
+                    $('#delivery-type-box').css('background', '#fff').children('.delivery--error-block').css('display', 'none').siblings('.delivery-error--triangle').css('display', 'none');
+
+                    if(this.deliveryTypes[1].state === true || this.deliveryTypes[1].state === true) {
+                        console.log(true);
+
+                        if(!this.customerPhone || this.customerPhone === '' || this.customerPhone === undefined) {
+                            $('#receiver-phone').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильный номер телефона').siblings('.error--triangle').css('display', 'block');
+                        }else if(this.customerPhone.length < 10){
+                            $('#receiver-phone').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильный номер телефона').siblings('.error--triangle').css('display', 'block');
+                        }else {
+                            $('#receiver-phone').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        }
+
+                        if(!this.streetName || this.streetName === '' || this.streetName === undefined) {
+                            $('#delivery-street').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите название улицы').siblings('.error--triangle').css('display', 'block');
+                        }else {
+                            $('#delivery-street').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        }
+
+                        if(!this.houseNumber || this.houseNumber === '' || this.houseNumber === undefined) {
+                            $('#delivery-house').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите номер дома').siblings('.error--triangle').css('display', 'block');
+                        }else {
+                            $('#delivery-house').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        }
+
+                        if(!this.flatNumber || this.flatNumber === '' || this.flatNumber === undefined) {
+                            $('#delivery-flat').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите номер квартиры').siblings('.error--triangle').css('display', 'block');
+                        }else {
+                            $('#delivery-flat').css('border-color', '#707070').siblings('.information-input--error-block').css('display', 'none').siblings('.error--triangle').css('display', 'none');
+                        }
+
+                    }
+                }
+                if(paymentState) {
+                    $('#payment-type-box').css('background', '#fff').children('.delivery--error-block').css('display', 'none').siblings('.delivery-error--triangle').css('display', 'none');
+                }
+
+                if(this.deliveryCity && paymentState && typeState) {
+                    this.$http.get('/order/checkout').then((res) => {
+                        console.log(res.action);
+                        this.actions = res.actions;
+                        if(this.actions.redirect) {
+                            this.actionRedirect(this.actions.redirect);
+                        }
+                    });
+                }else {
+                    return false;
+                }
             },
             loading() {
                 $('#loader').css('display', 'none');
