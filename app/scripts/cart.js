@@ -241,6 +241,8 @@ if(document.getElementById('cart')) {
                         }
                     });
                 }else {
+                    console.log('empty');
+                    $('.empty-block__enable').css('display', 'block');
                     document.getElementById('products-submit').disabled = true;
                     this.order.blockState = 1;
                 }
@@ -624,7 +626,7 @@ if(document.getElementById('cart')) {
                                     this.$http.post('/order/set-data', {data: this.order}, {
                                         emulateJSON: true
                                     });
-                                }, 2000);
+                                }, 3000);
 
                             }
                         }else {
@@ -647,7 +649,7 @@ if(document.getElementById('cart')) {
                                     this.$http.post('/order/set-data', {data: this.order}, {
                                         emulateJSON: true
                                     });
-                                }, 2000);
+                                }, 3000);
 
                             }
                         }else {
@@ -676,7 +678,7 @@ if(document.getElementById('cart')) {
                             emulateJSON: true
                         });
                     }
-                }, 1000);
+                }, 3000);
             },
             checkSubscribe() {
                 clearTimeout(this.inputTimeout);
@@ -694,7 +696,7 @@ if(document.getElementById('cart')) {
                             emulateJSON: true
                         });
                     }
-                }, 2000);
+                }, 3000);
             },
             gatherCustomerInformation() {
                 this.order.blockState = 1;
@@ -744,7 +746,7 @@ if(document.getElementById('cart')) {
                         this.$http.post('/order/set-data', {data: this.order}, {
                             emulateJSON: true
                         });
-                    }, 2000);
+                    }, 3000);
                 }
             },
             actionRedirect(url) {
@@ -822,6 +824,8 @@ if(document.getElementById('cart')) {
                 }
 
                 if(this.deliveryCity && paymentState && typeState) {
+                    this.gatherCustomerInformation();
+                    this.gatherDeliveryInformation();
                     this.$http.get('/order/checkout').then((res) => {
                         console.log(res.action);
                         this.actions = res.actions;
