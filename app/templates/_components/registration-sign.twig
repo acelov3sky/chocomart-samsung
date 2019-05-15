@@ -1,58 +1,85 @@
 <div id="registration-sign" class="registration-sign">
     <div class="registration-sign-container">
-        <div class="registration-sign_close-button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.699 29.699">
-                <g id="Group_809" data-name="Group 809" transform="rotate(45 766.297 -530.41)">
-                    <path style="fill:none;stroke:#162aa1;stroke-linecap:round;stroke-width:3px" id="Line_2" d="M0 0v36" data-name="Line 2" transform="translate(620.5 368.5)"/>
-                    <path style="fill:none;stroke:#162aa1;stroke-linecap:round;stroke-width:3px" id="Line_3" d="M0 0v36" data-name="Line 3" transform="rotate(90 126 512.5)"/>
-                </g>
-            </svg>
-        </div>
-        <div class="registration-sign-form">
-            <div class="registration-form">
-                <h4 class="text-center">РЕГИСТРАЦИЯ</h4>
-                <label for="name" class="inp">
-                    <input type="text" id="name" placeholder="&nbsp;">
-                    <span class="label">Имя</span>
-                    <span class="border"></span>
-                </label>
-                <label for="tel" class="inp">
-                    <input type="text" id="tel" placeholder="&nbsp;">
-                    <span class="label">Телефон (+7 XXX XXX XX XX)</span>
-                    <span class="border"></span>
-                </label>
-                <label for="email" class="inp">
-                    <input type="email" id="email" placeholder="&nbsp;">
-                    <span class="label">Email</span>
-                    <span class="border"></span>
-                </label>
-                <label for="password" class="inp">
-                    <input type="password" id="password" placeholder="&nbsp;">
-                    <span class="label">Password</span>
-                    <span class="border"></span>
-                </label>
-                <label for="re_password" class="inp">
-                    <input type="password" id="re_password" placeholder="&nbsp;">
-                    <span class="label">Repeat password</span>
-                    <span class="border"></span>
-                </label>
-                <button class="registration_button">РЕГИСТРАЦИЯ</button>
-                <h5 class="text-center">если есть аккаунт <a class="registration-to-login">войти</a></h5>
+        <div class="h-100 overflow-auto">
+            <div class="registration-sign_close-button" v-on:click="closeModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.699 29.699">
+                    <g id="Group_809" data-name="Group 809" transform="rotate(45 766.297 -530.41)">
+                        <path style="fill:none;stroke:#162aa1;stroke-linecap:round;stroke-width:3px" id="Line_2" d="M0 0v36" data-name="Line 2" transform="translate(620.5 368.5)"/>
+                        <path style="fill:none;stroke:#162aa1;stroke-linecap:round;stroke-width:3px" id="Line_3" d="M0 0v36" data-name="Line 3" transform="rotate(90 126 512.5)"/>
+                    </g>
+                </svg>
             </div>
-            <div class="login-form">
-                <h4 class="text-center">ВОЙТИ</h4>
-                <label for="login_email" class="inp">
-                    <input type="email" id="login_email" placeholder="&nbsp;">
-                    <span class="label">Email</span>
-                    <span class="border"></span>
-                </label>
-                <label for="login_password" class="inp">
-                    <input type="password" id="login_password" placeholder="&nbsp;">
-                    <span class="label">Password</span>
-                    <span class="border"></span>
-                </label>
-                <button class="registration_button">ВОЙТИ</button>
-                <h5 class="text-center">нет аккаунта? <a class="login-to-registration">регистрация</a></h5>
+            <div class="registration-sign-form">
+                <div class="registration_result" v-if="panding">
+                    <div v-if="done">
+                        <div class="success-checkmark">
+                            <div class="check-icon">
+                                <span class="icon-line line-tip"></span>
+                                <span class="icon-line line-long"></span>
+                                <div class="icon-circle"></div>
+                                <div class="icon-fix"></div>
+                            </div>
+                        </div>
+                        <p v-if="login_side" class="text-center">Активируйте аккаунт по ссылке высланной на почту <br><h4 class="text-center">~{ userData['user-email'] }</h4></p>
+                    </div>
+
+                    <div v-if="loading" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
+                <div class="registration-form" v-show="showLoginReg">
+                    <h4 class="text-center">РЕГИСТРАЦИЯ</h4>
+
+                    <label for="name" class="inp">
+                        <input type="text" id="name" v-model="userData.username" placeholder=" ">
+                        <span class="label">Имя</span>
+                        <p v-if="errors.username.empty">Поле &laquo;Имя&raquo; обязательно</p>
+                        <p v-if="errors.username.error">Введите корректное имя</p>
+                        <h5 class="required_field_icon">*</h5>
+                    </label>
+                    <label for="tel" class="inp">
+                        <input type="text" id="tel" v-model="userData['user-phone']" placeholder=" ">
+                        <span class="label">Телефон (+7 XXX XXX XX XX)</span>
+                        <p v-if="errors['user-phone'].empty">Поле &laquo;Телефон&raquo; обязательно</p>
+                        <p v-if="errors['user-phone'].error">Введите корректный телефон</p>
+                        <h5 class="required_field_icon">*</h5>
+                    </label>
+                    <label for="email" class="inp">
+                        <input type="email" id="email" v-model="userData['user-email']" placeholder=" ">
+                        <span class="label">Email</span>
+                        <p v-if="errors['user-email'].empty">Поле &laquo;Email&raquo; обязательно</p>
+                        <p v-if="errors['user-email'].error">Введите корректный Email</p>
+                        <h5 class="required_field_icon">*</h5>
+                    </label>
+                    <label for="password" class="inp">
+                        <input type="password" id="password" v-model="userData['user-password']" placeholder=" ">
+                        <span class="label">Пароль</span>
+                        <p v-if="errors['user-password'].empty">Поле &laquo;Пароль&raquo; обязательно</p>
+                        <p v-if="errors['user-password'].error">Пароль должен быть больше 5 символов</p>
+                        <h5 class="required_field_icon">*</h5>
+                    </label>
+                    <label for="re_password" class="inp">
+                        <input type="password" id="re_password" v-model="userData['user-re-password']" placeholder=" ">
+                        <span class="label">Повторите пароль</span>
+                        <p v-if="errors['user-re-password'].empty">Поле &laquo;Повторите пароль&raquo; обязательно</p>
+                        <p v-if="errors['user-re-password'].error">Пароли не совпадают</p>
+                        <h5 class="required_field_icon">*</h5>
+                    </label>
+                    <p v-if="errors['user-exists'].error" style="font-size: 15px">Пользователь с таким телефоном или почтой уже существует</p>
+                    <button v-on:click="registerUser()" class="registration_button">РЕГИСТРАЦИЯ</button>
+                    <h5 class="text-center">если есть аккаунт <a class="registration-to-login" v-on:click="showLoginReg = false">войти</a></h5>
+                </div>
+                <div class="login-form"  v-show="!showLoginReg">
+                    <h4 class="text-center">ВОЙТИ</h4>
+                    <label for="login_email" class="inp">
+                        <input type="email" id="login_email" v-bind:class="{failed: failed_validation}" v-model="loginData.email" placeholder=" ">
+                        <span class="label">Email</span>
+                    </label>
+                    <label for="login_password" class="inp">
+                        <input type="password" id="login_password" v-bind:class="{failed: failed_validation}" v-model="loginData.password" placeholder=" ">
+                        <span class="label">Password</span>
+                    </label>
+                    <button class="registration_button" v-on:click="login()">ВОЙТИ</button>
+                    <h5 class="text-center">нет аккаунта? <a class="login-to-registration" v-on:click="showLoginReg = true">регистрация</a></h5>
+                </div>
             </div>
         </div>
     </div>
