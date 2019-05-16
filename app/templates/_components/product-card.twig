@@ -779,6 +779,8 @@
             if (this.readyState === 4 && this.status === 200) {
                 let response = this.response;
                 response = JSON.parse(response);
+                response = response.products;
+                console.log(response.products);
                 for(let i = 0; i < response.length ; i++) {
                     if (parseInt(response[i].offer.id) === parseInt(id) ) {
                         basket_result =
@@ -816,16 +818,18 @@
         };
         one_click.open("GET", "/order/add/" + id + "/" + count, true);
         one_click.send();
-        window.location.href = "/order";
-//        document.getElementById('product-card-onclick-modal').style.display = "block";
+        setTimeout(() => {
+            window.location.href = "/order";
+        }, 1000)
     }
     function addToBasket(id, count) {
         var add_url = new XMLHttpRequest();
         var list = new XMLHttpRequest();
         add_url.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
-                let response = this.response
+                let response = this.response;
                 response = JSON.parse(response);
+                response = response.products;
                 var basket_wrapper = document.getElementById("product-card-basket-wrapper");
                 var basket_result = "";
                 var timeouts = [];
@@ -872,6 +876,14 @@
             if (this.readyState === 4 && this.status === 200) {
                 let response = this.response
                 response = JSON.parse(response);
+                console.log(response);
+                if (response.data !== undefined) {
+                    response = response.data;
+                }
+                if (response.products !== undefined) {
+                    response = response.products;
+                }
+
                 let total_price = 0;
                 let total_products = 0;
                 var total_block = document.getElementById('product-card-total');

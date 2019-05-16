@@ -137,6 +137,8 @@
             if (this.readyState === 4 && this.status === 200) {
                 let response = this.response;
                 response = JSON.parse(response);
+                response = response.products;
+//                console.log(response);
                 let basket_icon = document.getElementById('header_basket');
                 let basket_result = "";
                 var total_result = 0;

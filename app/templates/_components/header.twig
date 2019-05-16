@@ -241,9 +241,10 @@
     var add_url = new XMLHttpRequest();
     add_url.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            let response = this.response
+            let response = this.response;
             response = JSON.parse(response);
-            console.log(response.length);
+            response = response.data;
+//            console.log(response);
             let basket_icon = document.getElementById('header_basket');
             let basket_result = "";
             var total_result = 0;

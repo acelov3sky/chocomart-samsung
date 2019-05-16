@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="988bc842-cd85-476e-a094-be7e77d61514" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/registration-sign.js" afterPath="$PROJECT_DIR$/app/scripts/registration-sign.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/_components/header.twig" afterPath="$PROJECT_DIR$/app/templates/_components/header.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/_components/product-card.twig" afterPath="$PROJECT_DIR$/app/templates/_components/product-card.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/_components/products.twig" afterPath="$PROJECT_DIR$/app/templates/_components/products.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/_components/registration-sign.twig" afterPath="$PROJECT_DIR$/app/templates/_components/registration-sign.twig" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,18 +23,18 @@
       <file leaf-file-name="registration-sign.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/_components/registration-sign.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="0" column="53" lean-forward="false" selection-start-line="0" selection-start-column="53" selection-end-line="0" selection-end-column="53" />
+            <state relative-caret-position="30">
+              <caret line="2" column="88" lean-forward="false" selection-start-line="2" selection-start-column="88" selection-end-line="2" selection-end-column="88" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product-card.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="product-card.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/_components/product-card.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10766">
-              <caret line="882" column="30" lean-forward="false" selection-start-line="882" selection-start-column="30" selection-end-line="882" selection-end-column="30" />
+            <state relative-caret-position="1253">
+              <caret line="823" column="4" lean-forward="false" selection-start-line="823" selection-start-column="4" selection-end-line="823" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -48,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="products.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="products.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/_components/products.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="141" column="36" lean-forward="false" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -111,8 +113,8 @@
       <file leaf-file-name="header.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/_components/header.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="106" column="45" lean-forward="false" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
+            <state relative-caret-position="60">
+              <caret line="247" column="36" lean-forward="false" selection-start-line="247" selection-start-column="36" selection-end-line="247" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -122,7 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>buyOn</find>
       <find>basket-descriptio</find>
       <find>-descriptio</find>
       <find>list</find>
@@ -132,7 +133,6 @@
       <find>-cart</find>
       <find>total_result</find>
       <find>basket_icon</find>
-      <find>addToBasket</find>
       <find>actions__action-block</find>
       <find>button-buy-cart</find>
       <find>product-content__actions</find>
@@ -152,6 +152,8 @@
       <find>orderData</find>
       <find>closeModal</find>
       <find>lds</find>
+      <find>addToBasket</find>
+      <find>buyOn</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -177,7 +179,6 @@
         <option value="$PROJECT_DIR$/app/assets/less/components/product-card.less" />
         <option value="$PROJECT_DIR$/app/assets/less/main.less" />
         <option value="$PROJECT_DIR$/app/scripts/cart.js" />
-        <option value="$PROJECT_DIR$/app/templates/_components/product-card.twig" />
         <option value="$PROJECT_DIR$/app/assets/less/components/product.less" />
         <option value="$PROJECT_DIR$/public/templates/app/basket.twig" />
         <option value="$PROJECT_DIR$/app/templates/app/main.twig" />
@@ -185,10 +186,11 @@
         <option value="$PROJECT_DIR$/app/assets/less/components/registration-sign.less" />
         <option value="$PROJECT_DIR$/app/templates/layout/main.twig" />
         <option value="$PROJECT_DIR$/app/scripts/products.js" />
-        <option value="$PROJECT_DIR$/app/templates/_components/header.twig" />
-        <option value="$PROJECT_DIR$/app/templates/_components/registration-sign.twig" />
         <option value="$PROJECT_DIR$/app/scripts/registration-sign.js" />
+        <option value="$PROJECT_DIR$/app/templates/_components/registration-sign.twig" />
         <option value="$PROJECT_DIR$/app/templates/_components/products.twig" />
+        <option value="$PROJECT_DIR$/app/templates/_components/header.twig" />
+        <option value="$PROJECT_DIR$/app/templates/_components/product-card.twig" />
       </list>
     </option>
   </component>
@@ -402,7 +404,7 @@
       <workItem from="1557808666215" duration="1938000" />
       <workItem from="1557904238276" duration="339000" />
       <workItem from="1557904690339" duration="8899000" />
-      <workItem from="1557981022617" duration="1247000" />
+      <workItem from="1557981022617" duration="4175000" />
     </task>
     <task id="LOCAL-00001" summary="updated:&#10;1) product-card&#10;2) header">
       <created>1554874222278</created>
@@ -439,11 +441,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557916348333</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated for registration and login">
+      <created>1557984864067</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1557984864067</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111415000" />
+    <option name="totallyTimeSpent" value="114343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -758,14 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/_components/header.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="106" column="45" lean-forward="false" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/products.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -800,16 +801,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/_components/registration-sign.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="0" column="53" lean-forward="false" selection-start-line="0" selection-start-column="53" selection-end-line="0" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/_components/product-card.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10766">
-          <caret line="882" column="30" lean-forward="false" selection-start-line="882" selection-start-column="30" selection-end-line="882" selection-end-column="30" />
+        <state relative-caret-position="30">
+          <caret line="2" column="88" lean-forward="false" selection-start-line="2" selection-start-column="88" selection-end-line="2" selection-end-column="88" />
           <folding />
         </state>
       </provider>
@@ -824,8 +817,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/_components/products.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="141" column="36" lean-forward="false" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/_components/header.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="247" column="36" lean-forward="false" selection-start-line="247" selection-start-column="36" selection-end-line="247" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/_components/product-card.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1253">
+          <caret line="823" column="4" lean-forward="false" selection-start-line="823" selection-start-column="4" selection-end-line="823" selection-end-column="4" />
           <folding />
         </state>
       </provider>
