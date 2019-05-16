@@ -1,8 +1,14 @@
 <script>
     let orderData = {{ order | json_encode() | raw }};
+    let userData  = {{ user  | json_encode() | raw }};
 </script>
 
+
 <div id="loader"></div>
+
+<div>
+    ${require('_tcomponents/registration-sign.twig')}
+</div>
 
 <div id="cart" class="p-0 col-md-12 col-sm-12 col-xs-12 cart-wrapper w-100 animate-bottom">
     <div v-cloak class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 cart-wrapper__cart-block cart-block">
@@ -256,7 +262,6 @@
                                     <select v-model="deliveryCity" type="text" class="delivery-information-row__input" name="delivery-city" @click="gatherData()" id="delivery-city">
                                         <option value="Almaty">Алматы</option>
                                         <option value="Astana">Астана</option>
-                                        <option value="Aqtau">Актау</option>
                                     </select>
                                     <div class="information-input--error-block mobile-delivery-error"></div>
                                     <div class="error--triangle mobile-error-tri"></div>
