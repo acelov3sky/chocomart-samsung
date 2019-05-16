@@ -12,6 +12,5 @@ $(document).ready(function(){
             $(this).children('div').addClass('parameter-triangle--opened');
             $(this).children('h5').addClass('title--active');
         }
-        // $(this).nextAll('.parameter-content-wrapper').toggle(400, 'linear');
     });
 });
