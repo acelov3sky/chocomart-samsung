@@ -127,9 +127,10 @@ if(document.getElementById('registration-sign')) {
                             this.panding = false;
                             this.done = false;
                             this.login_side = true;
-                            this.showModal = false;
+                            document.getElementById('registration-sign').style.display = "none";
                             this.loginData['user-email'] = "";
                             this.loginData['user-password'] = "";
+                            location.reload();
                         }, 3000);
                     } else {
                         this.panding = false;
