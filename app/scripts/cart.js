@@ -161,11 +161,18 @@ if(document.getElementById('cart')) {
         },
         beforeMount() {
             this.loading();
+            if(userData !== 'null' || userData !== undefined || userData !== '') {
+                this.customername = userData.username;
+                this.customerPhone = userData['user-phone'];
+                this.customerEmail = userData['user-email'];
+            }else {
+                this.customername = '';
+                $('#registration-sign').css('display', 'block');
+            }
         },
         mounted() {
             this.productData = orderData.data.data;
 
-            console.log(this.productData, 'user data');
             if(this.productData !== undefined) {
                 if(this.productData.customerInformation !== undefined) {
                     this.customername = this.productData.customerInformation.customerName;
@@ -241,7 +248,6 @@ if(document.getElementById('cart')) {
                         }
                     });
                 }else {
-                    console.log('empty');
                     $('.empty-block__enable').css('display', 'block');
                     document.getElementById('products-submit').disabled = true;
                     this.order.blockState = 1;
@@ -789,7 +795,6 @@ if(document.getElementById('cart')) {
                     $('#delivery-type-box').css('background', '#fff').children('.delivery--error-block').css('display', 'none').siblings('.delivery-error--triangle').css('display', 'none');
 
                     if(this.deliveryTypes[1].state === true || this.deliveryTypes[1].state === true) {
-                        console.log(true);
 
                         if(!this.customerPhone || this.customerPhone === '' || this.customerPhone === undefined) {
                             $('#receiver-phone').css('border-color', '#FF6B6B').siblings('.information-input--error-block').css('display', 'block').text('Введите правильный номер телефона').siblings('.error--triangle').css('display', 'block');
