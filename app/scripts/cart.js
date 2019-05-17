@@ -161,13 +161,13 @@ if(document.getElementById('cart')) {
         },
         beforeMount() {
             this.loading();
-            if(userData !== 'null' || userData !== undefined || userData !== '') {
-                this.customername = userData.username;
+
+            if(userData === null || userData === undefined || userData === '') {
+                console.log('userData is null');
+            }else {
+                this.customername = userData['username'];
                 this.customerPhone = userData['user-phone'];
                 this.customerEmail = userData['user-email'];
-            }else {
-                this.customername = '';
-                $('#registration-sign').css('display', 'block');
             }
         },
         mounted() {
@@ -239,12 +239,12 @@ if(document.getElementById('cart')) {
         methods: {
             deleteProduct (productID) {
                 if(this.productsList.length > 0) {
-                    this.productsList.forEach((product) => {
-                        if(product.product.id === productID) {
-                            this.productsSum -= (product.offer.price * product.count);
-                            this.productsCount -= product.count;
-                            this.productsList.splice(this.productsList.indexOf(product), 1);
-                            this.$http.get('/order/add/' + product.product.id + '/' + 0);
+                    this.productsList.forEach((offer) => {
+                        if(offer.offer.id === productID) {
+                            this.productsSum -= (offer.offer.price * offer.count);
+                            this.productsCount -= offer.count;
+                            this.productsList.splice(this.productsList.indexOf(offer), 1);
+                            this.$http.get('/order/add/' + offer.product.id + '/' + 0);
                         }
                     });
                 }else {
