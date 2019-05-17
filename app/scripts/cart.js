@@ -297,57 +297,63 @@ if(document.getElementById('cart')) {
             submitBlock (nextState) {
                 if(nextState === 1 && this.productsList.length > 0) {
 
-                    if(this.productData !== undefined) {
-                        if(this.productData.blockState === undefined) {
+
+                    if(userData === null || userData === undefined || userData === '') {
+                        $('#registration-sign').css('display', 'block');
+                    }else {
+                        if(this.productData !== undefined) {
+                            if(this.productData.blockState === undefined) {
+                                this.order.blockState = 1;
+                                this.$http.post('/order/set-data', {data: this.order}, {
+                                    emulateJSON: true
+                                });
+                            }
+                            else if(this.productData.blockState === '1') {
+                                this.gatherCustomerInformation();
+
+                                this.order.blockState = 1;
+                                this.chosenProducts = false;
+                                this.customerInformation = true;
+                                this.blockCompletion[0].completion = true;
+                                this.blockName = 'Информация о покупателе';
+
+                                this.$http.post('/order/set-data', {data: this.order}, {
+                                    emulateJSON: true
+                                });
+                            }else if(this.productData.blockState === '2') {
+                                this.gatherCustomerInformation();
+                                this.gatherDeliveryInformation();
+
+                                this.chosenProducts = false;
+                                this.customerInformation = false;
+                                this.deliveryInformation = true;
+                                this.blockCompletion[0].completion = true;
+                                this.blockCompletion[1].completion = true;ll
+                                this.entityBlock = false;
+                                this.blockName = 'Доставка и оплата';
+
+                                this.$http.post('/order/set-data', {data: this.order}, {
+                                    emulateJSON: true
+                                });
+                            }
+                        }else {
                             this.order.blockState = 1;
+
                             this.$http.post('/order/set-data', {data: this.order}, {
                                 emulateJSON: true
                             });
-                        }
-                        else if(this.productData.blockState === '1') {
-                            this.gatherCustomerInformation();
+                            this.$http.get('/order/get-data').then((res) => {
+                                this.productData = res.body.data.data;
+                            });
 
                             this.order.blockState = 1;
                             this.chosenProducts = false;
                             this.customerInformation = true;
                             this.blockCompletion[0].completion = true;
                             this.blockName = 'Информация о покупателе';
-
-                            this.$http.post('/order/set-data', {data: this.order}, {
-                                emulateJSON: true
-                            });
-                        }else if(this.productData.blockState === '2') {
-                            this.gatherCustomerInformation();
-                            this.gatherDeliveryInformation();
-
-                            this.chosenProducts = false;
-                            this.customerInformation = false;
-                            this.deliveryInformation = true;
-                            this.blockCompletion[0].completion = true;
-                            this.blockCompletion[1].completion = true;
-                            this.entityBlock = false;
-                            this.blockName = 'Доставка и оплата';
-
-                            this.$http.post('/order/set-data', {data: this.order}, {
-                                emulateJSON: true
-                            });
                         }
-                    }else {
-                        this.order.blockState = 1;
-
-                        this.$http.post('/order/set-data', {data: this.order}, {
-                            emulateJSON: true
-                        });
-                        this.$http.get('/order/get-data').then((res) => {
-                           this.productData = res.body.data.data;
-                        });
-
-                        this.order.blockState = 1;
-                        this.chosenProducts = false;
-                        this.customerInformation = true;
-                        this.blockCompletion[0].completion = true;
-                        this.blockName = 'Информация о покупателе';
                     }
+
                 }else if (nextState === 2 && this.productsList.length > 0) {
 
                     let valid = null;
