@@ -244,7 +244,7 @@ if(document.getElementById('cart')) {
                             this.productsSum -= (offer.offer.price * offer.count);
                             this.productsCount -= offer.count;
                             this.productsList.splice(this.productsList.indexOf(offer), 1);
-                            this.$http.get('/order/add/' + offer.product.id + '/' + 0);
+                            this.$http.get('/order/add/' + offer.offer.id + '/' + 0);
                         }
                     });
                 }else {
