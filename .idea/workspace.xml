@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="988bc842-cd85-476e-a094-be7e77d61514" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/_components/header.twig" afterPath="$PROJECT_DIR$/app/templates/_components/header.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/_components/product-card.twig" afterPath="$PROJECT_DIR$/app/templates/_components/product-card.twig" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,38 +21,8 @@
       <file leaf-file-name="registration-sign.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/_components/registration-sign.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
+            <state relative-caret-position="-811">
               <caret line="2" column="88" lean-forward="false" selection-start-line="2" selection-start-column="88" selection-end-line="2" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product-card.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/templates/_components/product-card.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="754" column="0" lean-forward="true" selection-start-line="754" selection-start-column="0" selection-end-line="754" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/_components/product.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="products.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/_components/products.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="141" column="36" lean-forward="false" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -59,113 +31,30 @@
       <file leaf-file-name="cart.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/_components/cart.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="89">
+              <caret line="107" column="100" lean-forward="true" selection-start-line="107" selection-start-column="100" selection-end-line="107" selection-end-column="100" />
               <folding>
                 <marker date="1558003879859" expanded="true" signature="38884:39669" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:39717" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:41260" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:41296" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:45835" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:45862" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:45885" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:45904" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:45921" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:66317" ph="{% if order.offers | length &gt; 0 ...%}" />
-                <marker date="1558003879859" expanded="true" signature="38884:66327" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38884:66334" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="38935:39618" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="39242:39368" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="40049:41221" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="40180:41178" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="40362:40681" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="40899:41131" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="41475:45181" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="41616:44953" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="41741:42733" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="41847:42690" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="41926:42351" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="42462:42643" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="42860:43854" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="42966:43811" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="43045:43470" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="43581:43764" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="43980:44913" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="44086:44870" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="44165:44592" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="44704:44823" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="45307:45804" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="45443:45769" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="45575:45730" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="46057:53555" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="46184:53371" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="46393:48072" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="46538:48045" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="46609:48014" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="48197:48949" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="48515:48645" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="49163:51136" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="49256:51109" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="49357:51078" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="49462:51045" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="51261:51831" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="51431:51561" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="51955:53348" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="52048:53321" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="52161:53290" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="52269:53257" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="52348:53220" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="53480:53536" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="53701:66296" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="53890:59704" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="54035:59681" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="54198:57745" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="54435:56282" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="54535:56247" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="54657:56208" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="54769:56167" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="56435:56974" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="56536:56939" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="57178:57324" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="57484:57714" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="57903:59654" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="58019:58417" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="58167:58382" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="58240:58343" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="58567:59335" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="58785:58942" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="59047:59200" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="59467:59623" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="59851:63909" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="59996:63886" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="60159:63859" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="60401:62446" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="60502:62411" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="60611:62372" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="60724:62331" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="62599:63138" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="62700:63103" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="63342:63433" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="63593:63828" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="64058:66276" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="64193:66253" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="64356:66226" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="64536:66017" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="64637:65982" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="64758:65943" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="64874:65902" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="64961:65857" ph="..." />
-                <marker date="1558003879859" expanded="true" signature="66110:66195" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/layout/main.twig">
+      <file leaf-file-name="sidebar.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/_components/sidebar.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="20" />
+            <state relative-caret-position="-2266">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="products.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/products.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -181,31 +70,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registration-sign.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/less/components/registration-sign.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="76" column="1" lean-forward="false" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="products.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/products.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="header.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/_components/header.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="247" column="36" lean-forward="false" selection-start-line="247" selection-start-column="36" selection-end-line="247" selection-end-column="36" />
+            <state relative-caret-position="236">
+              <caret line="242" column="59" lean-forward="false" selection-start-line="242" selection-start-column="59" selection-end-line="242" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product-card.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/templates/_components/product-card.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="822" column="12" lean-forward="false" selection-start-line="822" selection-start-column="12" selection-end-line="822" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/cart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="240" column="43" lean-forward="false" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/_components/product.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-661">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -215,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>basket-descriptio</find>
-      <find>-descriptio</find>
       <find>list</find>
       <find>basket_result</find>
       <find>basket_res</find>
@@ -244,7 +151,9 @@
       <find>closeModal</find>
       <find>lds</find>
       <find>addToBasket</find>
+      <find>cart</find>
       <find>buyOn</find>
+      <find>open_sidebar</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -495,7 +404,7 @@
       <workItem from="1557808666215" duration="1938000" />
       <workItem from="1557904238276" duration="339000" />
       <workItem from="1557904690339" duration="8899000" />
-      <workItem from="1557981022617" duration="4240000" />
+      <workItem from="1557981022617" duration="8137000" />
     </task>
     <task id="LOCAL-00001" summary="updated:&#10;1) product-card&#10;2) header">
       <created>1554874222278</created>
@@ -543,7 +452,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114408000" />
+    <option name="totallyTimeSpent" value="118305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -552,11 +461,12 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18816067" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3095526" sideWeight="0.50528544" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3095526" sideWeight="0.4947146" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3095526" sideWeight="0.4947146" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -566,7 +476,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -615,13 +524,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/modules/icons.fontawesome.less" />
     <entry file="file://$PROJECT_DIR$/app/scripts/vhui.js" />
     <entry file="file://$PROJECT_DIR$/config/production.js">
@@ -764,45 +666,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/app/basket.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/_components/sidebar.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/app/product.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/app/order.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/app/login.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/app/main.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="53" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -813,158 +680,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/product-card.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="54" lean-forward="false" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/less/components/header.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2940">
           <caret line="196" column="37" lean-forward="false" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="165" column="40" lean-forward="false" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/_components/cart.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <marker date="1558003879859" expanded="true" signature="38884:39669" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:39717" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:41260" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:41296" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:45835" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:45862" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:45885" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:45904" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:45921" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:66317" ph="{% if order.offers | length &gt; 0 ...%}" />
-            <marker date="1558003879859" expanded="true" signature="38884:66327" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38884:66334" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="38935:39618" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="39242:39368" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="40049:41221" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="40180:41178" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="40362:40681" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="40899:41131" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="41475:45181" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="41616:44953" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="41741:42733" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="41847:42690" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="41926:42351" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="42462:42643" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="42860:43854" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="42966:43811" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="43045:43470" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="43581:43764" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="43980:44913" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="44086:44870" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="44165:44592" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="44704:44823" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="45307:45804" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="45443:45769" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="45575:45730" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="46057:53555" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="46184:53371" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="46393:48072" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="46538:48045" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="46609:48014" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="48197:48949" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="48515:48645" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="49163:51136" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="49256:51109" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="49357:51078" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="49462:51045" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="51261:51831" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="51431:51561" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="51955:53348" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="52048:53321" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="52161:53290" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="52269:53257" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="52348:53220" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="53480:53536" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="53701:66296" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="53890:59704" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="54035:59681" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="54198:57745" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="54435:56282" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="54535:56247" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="54657:56208" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="54769:56167" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="56435:56974" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="56536:56939" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="57178:57324" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="57484:57714" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="57903:59654" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="58019:58417" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="58167:58382" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="58240:58343" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="58567:59335" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="58785:58942" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="59047:59200" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="59467:59623" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="59851:63909" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="59996:63886" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="60159:63859" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="60401:62446" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="60502:62411" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="60611:62372" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="60724:62331" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="62599:63138" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="62700:63103" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="63342:63433" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="63593:63828" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="64058:66276" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="64193:66253" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="64356:66226" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="64536:66017" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="64637:65982" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="64758:65943" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="64874:65902" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="64961:65857" ph="..." />
-            <marker date="1558003879859" expanded="true" signature="66110:66195" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/products.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/layout/main.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -977,23 +696,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/registration-sign.js">
+    <entry file="file://$PROJECT_DIR$/app/templates/app/order.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1965">
-          <caret line="131" column="53" lean-forward="false" selection-start-line="131" selection-start-column="53" selection-end-line="131" selection-end-column="53" />
+        <state relative-caret-position="105">
+          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/_components/registration-sign.twig">
+    <entry file="file://$PROJECT_DIR$/app/templates/layout/main.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="88" lean-forward="false" selection-start-line="2" selection-start-column="88" selection-end-line="2" selection-end-column="88" />
+        <state relative-caret-position="300">
+          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/_components/product.twig">
+    <entry file="file://$PROJECT_DIR$/app/templates/app/product.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/app/main.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="53" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/app/basket.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/_components/slider.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1003,24 +746,106 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/_components/products.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="141" column="36" lean-forward="false" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
+        <state relative-caret-position="207">
+          <caret line="135" column="8" lean-forward="false" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/_components/registration-sign.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-811">
+          <caret line="2" column="88" lean-forward="false" selection-start-line="2" selection-start-column="88" selection-end-line="2" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/_components/sidebar.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2266">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/registration-sign.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1965">
+          <caret line="131" column="53" lean-forward="false" selection-start-line="131" selection-start-column="53" selection-end-line="131" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/product-card.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-811">
+          <caret line="1" column="54" lean-forward="false" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/products.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/_components/header.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="247" column="36" lean-forward="false" selection-start-line="247" selection-start-column="36" selection-end-line="247" selection-end-column="36" />
+        <state relative-caret-position="236">
+          <caret line="242" column="59" lean-forward="false" selection-start-line="242" selection-start-column="59" selection-end-line="242" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/_components/product.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-661">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/_components/cart.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="107" column="100" lean-forward="true" selection-start-line="107" selection-start-column="100" selection-end-line="107" selection-end-column="100" />
+          <folding>
+            <marker date="1558003879859" expanded="true" signature="38884:39669" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="240" column="43" lean-forward="false" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/_components/product-card.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="754" column="0" lean-forward="true" selection-start-line="754" selection-start-column="0" selection-end-line="754" selection-end-column="0" />
+        <state relative-caret-position="350">
+          <caret line="822" column="12" lean-forward="false" selection-start-line="822" selection-start-column="12" selection-end-line="822" selection-end-column="12" />
           <folding />
         </state>
       </provider>

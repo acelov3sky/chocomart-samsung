@@ -779,8 +779,8 @@
             if (this.readyState === 4 && this.status === 200) {
                 let response = this.response;
                 response = JSON.parse(response);
+                console.log(response, "product card");
                 response = response.products;
-                console.log(response.products);
                 for(let i = 0; i < response.length ; i++) {
                     if (parseInt(response[i].offer.id) === parseInt(id) ) {
                         basket_result =
@@ -820,7 +820,7 @@
         one_click.send();
         setTimeout(() => {
             window.location.href = "/order";
-        }, 1000)
+        }, 3000)
     }
     function addToBasket(id, count) {
         var add_url = new XMLHttpRequest();
@@ -877,13 +877,12 @@
                 let response = this.response
                 response = JSON.parse(response);
                 console.log(response);
-                if (response.data !== undefined) {
-                    response = response.data;
-                }
+//                if (response.data !== undefined) {
+//                    response = response.data;
+//                }
                 if (response.products !== undefined) {
                     response = response.products;
                 }
-
                 let total_price = 0;
                 let total_products = 0;
                 var total_block = document.getElementById('product-card-total');
