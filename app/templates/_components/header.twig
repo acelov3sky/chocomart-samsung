@@ -243,14 +243,13 @@
         if (this.readyState === 4 && this.status === 200) {
             let response = this.response;
             response = JSON.parse(response);
-            console.log(response, "header");
             response = response.products;
             let basket_icon = document.getElementById('header_basket');
             let basket_result = "";
             var total_result = 0;
             let total_count = 0;
             let header_sum = document.getElementById('header-sum');
-            if (response.length !== undefined) {
+            if (response.length !== 0) {
                 for(let i = 0; i < response.length ; i++) {
                     total_result += response[i].count * parseInt(response[i].offer.price);
                     total_count += parseInt(response[i].count);

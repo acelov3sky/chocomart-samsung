@@ -779,48 +779,14 @@
             if (this.readyState === 4 && this.status === 200) {
                 let response = this.response;
                 response = JSON.parse(response);
-                console.log(response, "product card");
                 response = response.products;
-                for(let i = 0; i < response.length ; i++) {
-                    if (parseInt(response[i].offer.id) === parseInt(id) ) {
-                        basket_result =
-                            '<div class="product-card-basket-img-wrapper">' +
-                                '<img width="100%" src="' + response[i].product.imagesList[0] +'" alt="">' +
-                            '</div>' +
-                            '<div class="product-card-basket-title-wrapper">' +
-                                '<h4>' +
-                                    response[i].product.fullName + '<br>' +
-                                    response[i].product.shortName +
-                                '</h4>' +
-                            '</div>' +
-                            '<div  class="product-card-basket-stepper d-flex align-items-center">' +
-                                '<input id="product-card-basket-stepper-one" type="number" value="'+ response[i].count +'" name="quantity" min="1" max="8"> шт.' +
-                            '</div>' +
-                            '<div class="product-card-basket-price-total">' +
-                                '<h4>'+ parseInt(response[i].offer.price) +' тг</h4>' +
-                            '</div>';
-                        basket_wrapper.innerHTML = basket_result;
-                    } else {
-                        one_click.open("GET", "/order/add/" + response[i].offer.id + "/" + 0, true);
-                        one_click.send();
-                    }
-                }
-                var timeout = null;
-                $('#product-card-basket-stepper-one').bind('keyup mouseup', function () {
-                    clearTimeout(timeout);
-                    timeout = setTimeout(function () {
-                        console.log('Input Value:', document.getElementById('product-card-basket-stepper-one').value);
-                        one_click.open("GET", "/order/add/" + id + "/" + document.getElementById('product-card-basket-stepper-one').value, true);
-                        one_click.send();
-                    }, 500);
-                });
+                setTimeout(() => {
+                    window.location.href = "/order";
+                }, 1000)
             }
         };
         one_click.open("GET", "/order/add/" + id + "/" + count, true);
         one_click.send();
-        setTimeout(() => {
-            window.location.href = "/order";
-        }, 3000)
     }
     function addToBasket(id, count) {
         var add_url = new XMLHttpRequest();
@@ -876,10 +842,6 @@
             if (this.readyState === 4 && this.status === 200) {
                 let response = this.response
                 response = JSON.parse(response);
-                console.log(response);
-//                if (response.data !== undefined) {
-//                    response = response.data;
-//                }
                 if (response.products !== undefined) {
                     response = response.products;
                 }
