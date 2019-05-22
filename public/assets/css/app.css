@@ -14178,13 +14178,12 @@ template {
   #ChocomartHeader .mobile-header .header-mobile-icons {
     display: flex;
     align-items: center;
-    width: 90px;
+    width: 60px;
     justify-content: space-between;
   }
   #ChocomartHeader .mobile-header .header-mobile-logo {
     display: flex;
     align-items: center;
-    margin-left: 20px;
   }
   #ChocomartHeader .mobile-header .header-mobile-logo svg {
     width: 92px;
@@ -16840,6 +16839,20 @@ template {
     margin-bottom: 15px;
   }
 }
+.basket_modal {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
 .product-card-wrapper {
   width: 1180px;
   margin: 0 auto;
@@ -17985,28 +17998,11 @@ template {
     opacity: 0;
   }
 }
-.registration_result {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  border-radius: 5px;
-  /**
-* Extracted from: SweetAlert
-* Modified by: Istiak Tridip
-*/
-}
-.registration_result .success-checkmark {
+.success-checkmark {
   width: 80px;
   margin: 0 auto;
 }
-.registration_result .success-checkmark .check-icon {
+.success-checkmark .check-icon {
   width: 80px;
   height: 80px;
   position: relative;
@@ -18014,14 +18010,14 @@ template {
   box-sizing: content-box;
   border: 4px solid #4CAF50;
 }
-.registration_result .success-checkmark .check-icon::before {
+.success-checkmark .check-icon::before {
   top: 3px;
   left: -2px;
   width: 30px;
   transform-origin: 100% 50%;
   border-radius: 100px 0 0 100px;
 }
-.registration_result .success-checkmark .check-icon::after {
+.success-checkmark .check-icon::after {
   top: 0;
   left: 30px;
   width: 60px;
@@ -18029,15 +18025,15 @@ template {
   border-radius: 0 100px 100px 0;
   animation: rotate-circle 4.25s ease-in;
 }
-.registration_result .success-checkmark .check-icon::before,
-.registration_result .success-checkmark .check-icon::after {
+.success-checkmark .check-icon::before,
+.success-checkmark .check-icon::after {
   content: '';
   height: 100px;
   position: absolute;
   background: #FFFFFF;
   transform: rotate(-45deg);
 }
-.registration_result .success-checkmark .check-icon .icon-line {
+.success-checkmark .check-icon .icon-line {
   height: 5px;
   background-color: #4CAF50;
   display: block;
@@ -18045,21 +18041,21 @@ template {
   position: absolute;
   z-index: 10;
 }
-.registration_result .success-checkmark .check-icon .icon-line.line-tip {
+.success-checkmark .check-icon .icon-line.line-tip {
   top: 46px;
   left: 14px;
   width: 25px;
   transform: rotate(45deg);
   animation: icon-line-tip 0.75s;
 }
-.registration_result .success-checkmark .check-icon .icon-line.line-long {
+.success-checkmark .check-icon .icon-line.line-long {
   top: 38px;
   right: 8px;
   width: 47px;
   transform: rotate(-45deg);
   animation: icon-line-long 0.75s;
 }
-.registration_result .success-checkmark .check-icon .icon-circle {
+.success-checkmark .check-icon .icon-circle {
   top: -4px;
   left: -4px;
   z-index: 10;
@@ -18070,7 +18066,7 @@ template {
   box-sizing: content-box;
   border: 4px solid rgba(76, 175, 80, 0.5);
 }
-.registration_result .success-checkmark .check-icon .icon-fix {
+.success-checkmark .check-icon .icon-fix {
   top: 8px;
   width: 5px;
   left: 26px;
@@ -18143,6 +18139,23 @@ template {
     top: 38px;
   }
 }
+.registration_result {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  border-radius: 5px;
+  /**
+* Extracted from: SweetAlert
+* Modified by: Istiak Tridip
+*/
+}
 .registration-sign {
   display: none;
   position: fixed;
@@ -18150,9 +18163,12 @@ template {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 50;
-  overflow: auto;
+  z-index: 5100;
+  overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.4);
+}
+.registration-sign .overflow-y-auto {
+  overflow-y: auto;
 }
 .registration-sign .required_field_icon {
   position: absolute;
@@ -18172,9 +18188,10 @@ template {
   padding: 40px 30px;
   transform: translateX(-50%) translateY(-50%);
 }
-@media (max-height: 700px) {
+@media (max-width: 768px) {
   .registration-sign-container {
     height: 100%;
+    width: 100%;
   }
 }
 .registration-sign_close-button {
@@ -18204,6 +18221,12 @@ template {
 .registration-sign .login-form {
   width: 300px;
   margin: 0 auto;
+}
+@media (max-width: 320px) {
+  .registration-sign .registration-form,
+  .registration-sign .login-form {
+    width: 100%;
+  }
 }
 .registration-sign .registration-form label,
 .registration-sign .login-form label {
@@ -18344,6 +18367,115 @@ template {
     flex: 0 0 20%;
     max-width: 20%;
   }
+}
+.chocomart-loader .lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.chocomart-loader .lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin: 6px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 3s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.chocomart-loader .lds-ring div:nth-child(1) {
+  animation-delay: -2.5s;
+}
+.chocomart-loader .lds-ring div:nth-child(2) {
+  animation-delay: -2s;
+}
+.chocomart-loader .lds-ring div:nth-child(3) {
+  animation-delay: -1.5s;
+}
+.chocomart-loader .lds-ring div:nth-child(4) {
+  animation-delay: -1s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.chocomart-loader {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background-color: lightpink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+.chocomart_logo img {
+  width: 130px;
+}
+@keyframes heartbeat {
+  0% {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+  20% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  40% {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+  60% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  80% {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+  to {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+}
+.heartbeat {
+  -webkit-animation: heartbeat 1s infinite;
+  animation: heartbeat 1s infinite;
+}
+.close_loading {
+  opacity: 0;
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  pointer-events: none;
+}
+.slider-img {
+  width: 1981px;
+  height: 250px;
+  background-image: url("https://image.ibb.co/iUsx6V/1-2x.png");
+  background-size: cover;
+  background-position: center center;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #1428a0;
+  opacity: 0.5;
+  border: solid 1px #1428a0;
 }
 .no-padding {
   padding: 0 !important;

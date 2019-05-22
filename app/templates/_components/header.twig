@@ -1,8 +1,8 @@
 <div id="ChocomartHeader">
     <div class="header">
-        <div class="categories" onmouseleave="leave_category()">
+        <div class="categories" v-on:mouseleave="leave_category()">
             <div class="categories-wrapper">
-                <div class="category" id="category-1" onmouseover="hover_subcategory()">
+                <div class="category" id="category-1" v-on:mouseover="hover_subcategory()">
                     <h4>
                         МОБИЛЬНЫЕ УСТРОЙСТВА
                     </h4>
@@ -140,6 +140,45 @@
                         </div>
                     </div>
                     <div id="header_basket" class="header-icon-dropdown">
+                        <div v-if="basketProducts.length !== 0">
+                            <div class="header-basket-product" v-for="product in basketProducts">
+                                <div class="basket-img">
+                                    <img width="100%" class="header-basket_img" :src="product.product.imagesList[0]" alt="">
+                                </div>
+                                <div class="basket-description">
+                                    <div class="basket-title">
+                                        <h4 class="m-0">
+                                            ~{ product.product.shortName }
+                                        </h4>
+                                    </div>
+                                    <div class="basket-info">
+                                        <div class="basket-amount ">
+                                            <h4 class="m-0">
+                                                ~{ product.count }  шт.
+                                            </h4>
+                                        </div>
+                                        <div class="basket-price text-right">
+                                            <h4 class="m-0">
+                                                ~{ parseInt(product.offer.price) }  тг
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="basket-total d-flex justify-content-center">
+                                <h4 class="m-0"><span>ИТОГО:</span> ~{ totalAmount } тг</h4>
+                            </div>
+                            <div class="basket-button d-flex justify-content-center">
+                                <a href="/order" class="basket_button">
+                                    Оформить заказ
+                                </a>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <div class="basket-total d-flex justify-content-center">
+                                <h4 class="m-0"><span>Ваша корзина пуста</span></h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -186,15 +225,15 @@
         <div onclick="open_sidebar()" id="mobile-sidebar-background" class="mobile-sidebar-background"></div>
         <div class="mobile-header">
             <div class="mobile-header-left">
-                <div onclick="open_sidebar()" class="header-burger">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 17">
-                        <g id="Group_857" data-name="Group 857" transform="translate(-16 -14)">
-                            <path id="Line_330" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 330" transform="translate(16.5 14.5)"/>
-                            <path id="Line_331" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 331" transform="translate(16.5 22.5)"/>
-                            <path id="Line_332" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 332" transform="translate(16.5 30.5)"/>
-                        </g>
-                    </svg>
-                </div>
+                {#<div onclick="open_sidebar()" class="header-burger">#}
+                    {#<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 17">#}
+                        {#<g id="Group_857" data-name="Group 857" transform="translate(-16 -14)">#}
+                            {#<path id="Line_330" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 330" transform="translate(16.5 14.5)"/>#}
+                            {#<path id="Line_331" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 331" transform="translate(16.5 22.5)"/>#}
+                            {#<path id="Line_332" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 332" transform="translate(16.5 30.5)"/>#}
+                        {#</g>#}
+                    {#</svg>#}
+                {#</div>#}
                 <div class="header-mobile-logo">
                     <svg xmlns="http://www.w3.org/2000/svg" id="Group_852" data-name="Group 852" viewBox="0 0 92 16">
                         <g id="Group_107" data-name="Group 107" transform="translate(52.277 1.925)">
@@ -214,94 +253,15 @@
                 </div>
             </div>
             <div class="header-mobile-icons">
-                <img width="20px" src="../../assets/images/svg/search.svg" alt="">
-                <img width="20px" src="../../assets/images/svg/shopping-cart.svg" alt="">
-                <img width="20px" src="../../assets/images/svg/user.svg" alt="">
+                {#<img width="20px" src="../../assets/images/svg/search.svg" alt="">#}
+                <a href="/order">
+                    <img width="20px" src="../../assets/images/svg/shopping-cart.svg" alt="">
+                </a>
+                <a v-on:click="reg()">
+                    <img width="20px" src="../../assets/images/svg/user.svg" alt="">
+                </a>
             </div>
         </div>
     </div>
 
 </div>
-<script>
-    function open_sidebar() {
-        document.getElementById("mobile-sidebar").classList.toggle("open_sidebar");
-        document.getElementById("mobile-sidebar-background").classList.toggle("block_background");
-    }
-    function leave_category() {
-        var category = document.getElementById('category-1');
-        category.classList.remove('category-active');
-        document.getElementById('subcategory').style.display = 'none';
-
-    }
-    function hover_subcategory() {
-        var category = document.getElementById('category-1');
-        category.classList.add('category-active');
-        document.getElementById('subcategory').style.display = 'flex';
-    }
-    var add_url = new XMLHttpRequest();
-    add_url.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            let response = this.response;
-            response = JSON.parse(response);
-            response = response.products;
-            let basket_icon = document.getElementById('header_basket');
-            let basket_result = "";
-            var total_result = 0;
-            let total_count = 0;
-            let header_sum = document.getElementById('header-sum');
-            if (response.length !== 0) {
-                for(let i = 0; i < response.length ; i++) {
-                    total_result += response[i].count * parseInt(response[i].offer.price);
-                    total_count += parseInt(response[i].count);
-                    basket_result +=
-                        '<div class="header-basket-product">' +
-                        '<div class="basket-img">' +
-                        '<img width="100%" class="header-basket_img" src="' + response[i].product.imagesList[0] + '" alt=""> ' +
-                        '</div>' +
-                        '<div class="basket-description">' +
-                        '<div class="basket-title">' +
-                        '<h4 class="m-0">' +
-                        response[i].product.shortName +
-                        '</h4>' +
-                        '</div>' +
-                        '<div class="basket-info">' +
-                        '<div class="basket-amount ">' +
-                        '<h4 class="m-0">' +
-                        + response[i].count + ' шт.' +
-                        '</h4>' +
-                        '</div>' +
-                        '<div class="basket-price text-right">' +
-                        '<h4 class="m-0">' +
-                        parseInt(response[i].offer.price) + ' тг' +
-                        '</h4>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>';
-                }
-                basket_result +=
-                    '<div class="basket-total d-flex justify-content-center">' +
-                    '<h4 class="m-0"><span>ИТОГО:</span>' + total_result +' тг</h4>' +
-                    '</div>' +
-                    '<div class="basket-button d-flex justify-content-center">' +
-                    '<a href="/order" class="basket_button">' +
-                    'Оформить заказ' +
-                    '</a>' +
-                    '</div>';
-                basket_icon.innerHTML = basket_result;
-                header_sum.innerHTML = total_count;
-                header_sum.style.display = "block";
-
-            } else {
-                header_sum.style.display = "none";
-                basket_result +=
-                    '<div class="basket-total d-flex justify-content-center">' +
-                    '<h4 class="m-0"><span>Ваша корзина пуста</span></h4>' +
-                    '</div>';
-                basket_icon.innerHTML = basket_result;
-            }
-        }
-    };
-    add_url.open("GET", "/order/list", true);
-    add_url.send();
-</script>

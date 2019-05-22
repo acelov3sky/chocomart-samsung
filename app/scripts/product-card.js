@@ -8,8 +8,26 @@ if (document.getElementById('product-mobile') !== null) {
                 char: false,
                 buy: false,
                 sent: false,
-                warrant: false
+                warrant: false,
+                panding: false,
+                done: false,
+                loading: false
             }
+        },
+        mounted() {
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
         },
         methods: {
             BuyNow(id, count) {
@@ -18,10 +36,17 @@ if (document.getElementById('product-mobile') !== null) {
                 })
             },
             ToBasket(id, count) {
-                console.log(id,count);
+                document.getElementById('product-card-mobile-basket-modal').style.display = "block";
+                this.panding = true;
+                this.loading = true;
                 axios.get('/order/add/' + id + "/" + count).then(res => {
-                    console.log(res);
-                    document.getElementById('product-card-mobile-basket-modal').style.display = "block";
+                    this.loading = false;
+                    this.done = true;
+                    setTimeout(() => {
+                        this.panding = false;
+                        this.done = false;
+                        document.getElementById('product-card-mobile-basket-modal').style.display = "none";
+                    }, 1500);
                 })
             }
         }

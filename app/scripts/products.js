@@ -1,26 +1,29 @@
-if (document.getElementById('v-products') !== null) {
+import axios from 'axios';
+if (document.getElementById('ChocomartProducts') !== null) {
     var vm = new Vue({
-        el: '#v-products',
+        el: '#ChocomartProducts',
+        delimiters: ['~{', '}'],
+        data() {
+            return {
+                loading: false,
+                done: false,
+                panding: false,
+            }
+        },
+        mounted() {
+            var swiper = new Swiper('.swiper-product', {
+                loop: true,
+                simulateTouch: false,
+                navigation: {
+                    nextEl: '.swiper-product-next',
+                    prevEl: '.swiper-product-prev'
+                }
+            });
+        },
         methods: {
             openSidebar () {
                 document.getElementById('v-sidebar-wrapper').classList.toggle('open-v-sidebar');
-            }
-        }
-    });
-}
-import axios from 'axios';
-if (document.getElementById('user_info') !== null) {
-    var vm = new Vue({
-        delimiters: ['~{', '}'],
-        el: '#user_info',
-        data() {
-          return {
-              loading: false,
-              done: false,
-              panding: false,
-          }
-        },
-        methods: {
+            },
             reg() {
                 document.getElementById('registration-sign').style.display = "block";
             },
@@ -41,3 +44,14 @@ if (document.getElementById('user_info') !== null) {
         }
     });
 }
+// if (document.getElementById('v-products') !== null) {
+//     var vm = new Vue({
+//         el: '#v-products',
+//         methods: {
+//             openSidebar () {
+//                 document.getElementById('v-sidebar-wrapper').classList.toggle('open-v-sidebar');
+//             }
+//         }
+//     });
+// }
+

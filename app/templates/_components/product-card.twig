@@ -1,6 +1,3 @@
-{#<div style="margin-top: 200px">#}
-    {#{{  dd(_context) }}#}
-{#</div>#}
 
 <div id="product-card" class="product-card-wrapper flex-wrap d-none d-sm-flex">
     <div id="product-card-onclick-modal" class="product-card-basket-modal">
@@ -458,9 +455,22 @@
     </div>
 </div>
 
-<div class="product-card-mobile-wrapper">
+<div id="product-mobile" class="product-card-mobile-wrapper">
     <div id="product-card-mobile-basket-modal" class="product-card-basket-modal-mobile">
-        <div class="product-card-basket w-auto">
+        <div class="basket_modal" v-if="panding">
+            <div v-if="done">
+                <div class="success-checkmark">
+                    <div class="check-icon">
+                        <span class="icon-line line-tip"></span>
+                        <span class="icon-line line-long"></span>
+                        <div class="icon-circle"></div>
+                        <div class="icon-fix"></div>
+                    </div>
+                </div>
+            </div>
+            <div v-if="loading" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div class="d-none product-card-basket w-auto">
             <div v-on:click="closeBasket()" class="product-card-basket-close">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.708 16.707">
                     <g id="Group_1025" data-name="Group 1025" transform="translate(9420.854 3811.854)">
@@ -567,7 +577,7 @@
             <div class="swiper-button-prev"></div>
         </div>
 
-        <div id="product-mobile" class="product-card-mobile-info mt-3">
+        <div class="product-card-mobile-info mt-3">
             <div class="product-card-mobile-info_prices d-flex flex-wrap justify-content-between">
                 <div class="product-card-mobile-info__price">
                     <h5 class="mb-0"></h5>
@@ -754,8 +764,7 @@
     </div>
 
 </div>
-
-<script>
+<script type="application/javascript">
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: 1,
         spaceBetween: 30,
@@ -769,8 +778,6 @@
             prevEl: '.swiper-button-prev',
         },
     });
-</script>
-<script>
     function buyOneCLick(id, count) {
         var one_click = new XMLHttpRequest();
         var basket_wrapper = document.getElementById("product-card-basket-one");
