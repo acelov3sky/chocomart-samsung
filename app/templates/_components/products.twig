@@ -1,19 +1,19 @@
-<div class="products-content d-flex flex-column align-items-start w-100">
+<div id="ChocomartProducts" class="products-content d-flex flex-column align-items-start w-100">
     <h1 class="products-content__title text-uppercase font-weight-normal">Смартфоны</h1>
-    <div id="v-products" class="products-mobile-content__title-wrapper d-flex align-items-center justify-content-between">
-        <div>
-            <svg width="20px" height="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.707 15.485">
-                <g id="Group_1118" data-name="Group 1118" transform="translate(-15.293 -14.793)">
-                    <path id="Line_330" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 330" transform="rotate(-45 35.246 -8.028)"/>
-                    <path id="Line_331" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 331" transform="translate(16.5 22.5)"/>
-                    <path id="Line_368" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 368" transform="rotate(45 -19.16 30.564)"/>
-                </g>
-            </svg>
-        </div>
+    <div id="v-products" class="products-mobile-content__title-wrapper d-flex align-items-center justify-content-center">
+        {#<div>#}
+            {#<svg width="20px" height="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.707 15.485">#}
+                {#<g id="Group_1118" data-name="Group 1118" transform="translate(-15.293 -14.793)">#}
+                    {#<path id="Line_330" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 330" transform="rotate(-45 35.246 -8.028)"/>#}
+                    {#<path id="Line_331" d="M20 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 331" transform="translate(16.5 22.5)"/>#}
+                    {#<path id="Line_368" d="M10 0H0" style="fill:none;stroke:#454d4f;stroke-linecap:round" data-name="Line 368" transform="rotate(45 -19.16 30.564)"/>#}
+                {#</g>#}
+            {#</svg>#}
+        {#</div>#}
         <div>
             <h1 class="products-mobile-content__title text-uppercase font-weight-normal text-algin-center no-margin">Смартфоны</h1>
         </div>
-        <div v-on:click="openSidebar()" style="padding: 6px 12px;border-radius: 3px;border: 1px solid #d5d5d5;display: inline-block">
+        <div v-if="false" v-on:click="openSidebar()" style="padding: 6px 12px;border-radius: 3px;border: 1px solid #d5d5d5;display: none">
             <svg width="23px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.714 23.555">
                 <g id="controls" transform="translate(-1)">
                     <path id="Path_1223" d="M3.944 5.889a2.947 2.947 0 0 0 2.911-2.524h16.438a.421.421 0 1 0 0-.841H6.855a2.943 2.943 0 1 0-2.911 3.365zm0-5.048a2.1 2.1 0 1 1-2.1 2.1 2.106 2.106 0 0 1 2.1-2.1z" style="fill:#d5d5d5" data-name="Path 1223"/>
@@ -32,78 +32,77 @@
     </div>
     <div class="products-content__list row no-margin list-content w-100">
         {% for product in products %}
-            <a class="product-wrapper col-md-4 col-sm-6 col-12 col-lg-3 col-xl-2 h-100" href="{{ product.getUri() }}">
-                <div class="product-wrapper__content w-100">
-                    <div class="product-content w-100">
-                        <div class="product-content__description w-100">
-                            <div class="description__product-image w-100 d-flex align-items-end">
-                                <div class="product-image-wrapper w-100 d-flex justify-content-center">
-                                    <img src="{{ (product.images | first).image.getUri() }}" class="w-100" alt="">
-                                    <div class="swiper-container swiper-product h-100 w-100">
-                                        <div class="swiper-wrapper">
-                                            {% for image in product.images %}
-                                                <div class="swiper-slide d-flex justify-content-center">
-                                                    <img src="{{ image.image.getUri() }}" class="w-100" alt="">
-                                                </div>
-                                            {% endfor %}
+            <div class="product-wrapper col-md-4 col-sm-6 col-12 col-lg-3 col-xl-20">
+                <a class="h-100" href="{{ product.getUri() }}">
+                    <div class="product-wrapper__content w-100">
+                        <div class="product-content w-100">
+                            <div class="product-content__description w-100">
+                                <div class="description__product-image w-100 d-flex align-items-end">
+                                    <div class="product-image-wrapper w-100 d-flex justify-content-center">
+                                        <img src="{{ (product.images | first).image.getUri() }}" class="w-100" alt="">
+                                        <div class="swiper-container swiper-product h-100 w-100">
+                                            <div class="swiper-wrapper">
+                                                {% for image in product.images %}
+                                                    <div class="swiper-slide d-flex justify-content-center">
+                                                        <img src="{{ image.image.getUri() }}" class="w-100" alt="">
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="swiper-button-prev swiper-product-prev" >
+                                                <img src="../../assets/images/svg/left-arrow.svg">
+                                            </div>
+                                            <div class="swiper-button-next swiper-product-next">
+                                                <img src="../../assets/images/svg/right-arrow.svg">
+                                            </div>
                                         </div>
-                                        <div class="swiper-button-prev swiper-product-prev" >
-                                            <img src="../../assets/images/svg/left-arrow.svg">
-                                        </div>
-                                        <div class="swiper-button-next swiper-product-next">
-                                            <img src="../../assets/images/svg/right-arrow.svg">
-                                        </div>
+                                    </div>
+                                </div>
+                                <div class="description__text w-100 d-flex flex-column align-items-center">
+                                    <h3 class="text__title text-center font-weight-normal">{{ product.fullName }}</h3>
+                                    <div class="price-wrapper d-flex align-items-center justify-content-center font-weight-bold w-100">
+                                        {{ product.getBestOffer().price | round }} тг
                                     </div>
                                 </div>
                             </div>
-                            <div class="description__text w-100 d-flex flex-column align-items-center">
-                                <h3 class="text__title text-center font-weight-normal">{{ product.fullName }}</h3>
-                                <div class="price-wrapper d-flex align-items-center justify-content-center font-weight-bold w-100">
-                                    {{ product.getBestOffer().price | round }} тг
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content__actions w-100 d-none">
-                            <div class="actions__action-block w-100 d-flex justify-content-between">
-
-                                <div class="action-block__buttons button-buy mt10 d-flex align-items-center justify-content-center">
-                                    <span class="button-buy-plus">+</span>
-                                    <div class="button-buy-cart">
-                                        <svg  xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
-                                            <path id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" class="cls-1" data-name="Path 147" transform="translate(-17.2)"/>
-                                        </svg>
+                            <div class="product-content__actions w-100 d-none" style="opacity: 0;">
+                                <div class="actions__action-block w-100 d-flex justify-content-between">
+                                    <div class="action-block__buttons button-buy mt10 d-flex align-items-center justify-content-center">
+                                        <span class="button-buy-plus">+</span>
+                                        <div class="button-buy-cart">
+                                            <svg  xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
+                                                <path id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" class="cls-1" data-name="Path 147" transform="translate(-17.2)"/>
+                                            </svg>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="action-block__input mt10 d-flex justify-content-center align-items-center buy">
-                                    Купить в один клик
-                                </div>
-                            </div>
-                            <div class="actions__action-block w-100 d-flex justify-content-between">
-                                <div class="action-block__buttons mt5 d-flex align-items-center justify-content-center">
-                                    <div class="button-focus">
-                                        <svg xmlns="http://www.w3.org/2000/svg" id="growth_2_" data-name="growth (2)" viewBox="0 0 17.829 17.829">
-                                            <defs>
-                                                <style>
-                                                    .cls-1{fill:#707070}
-                                                </style>
-                                            </defs>
-                                            <path id="Path_935" d="M17.726 5.247L14 .211a.522.522 0 0 0-.839 0L9.427 5.247a.522.522 0 0 0 .42.833h1.343V8.6a1.908 1.908 0 0 0-.876-.212h-.933a1.923 1.923 0 0 0-1.921 1.925V11.4a1.908 1.908 0 0 0-.876-.212h-.933A1.923 1.923 0 0 0 3.73 13.11v1.09a1.91 1.91 0 0 0-.876-.212h-.933A1.923 1.923 0 0 0 0 15.908v1.4a.522.522 0 0 0 .522.522h14.92a.522.522 0 0 0 .522-.522V6.08h1.343a.522.522 0 0 0 .42-.833zM1.045 15.908a.877.877 0 0 1 .876-.876h.932a.877.877 0 0 1 .876.876v.876H1.045zm3.73 0v-2.8a.877.877 0 0 1 .876-.876h.932a.877.877 0 0 1 .876.876v3.674H4.774zm3.73-2.8v-2.8a.877.877 0 0 1 .876-.876h.932a.877.877 0 0 1 .876.876v6.471H8.5zm6.937-8.075a.522.522 0 0 0-.522.522v11.229h-2.686V5.558a.522.522 0 0 0-.522-.522h-.828L13.577 1.4l2.693 3.635zm0 0" class="cls-1" data-name="Path 935"/>
-                                        </svg>
+                                    <div onclick="buyOneCLick({{ product.getBestOffer().id }}, 1)" class="action-block__input mt10 d-flex justify-content-center align-items-center buy">
+                                        Купить в один клик
                                     </div>
-                                    <div class="button-focus button-focus__heart">
-                                        <svg xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 22.814 20.298">
-                                            <path id="Path_147" d="M11.407 20.3a1.338 1.338 0 0 1-.882-.331c-.925-.809-1.81-1.569-2.594-2.234a48.246 48.246 0 0 1-5.664-5.317A8.492 8.492 0 0 1 0 6.856a7.131 7.131 0 0 1 1.81-4.87A6.135 6.135 0 0 1 6.373 0a5.739 5.739 0 0 1 3.585 1.237 7.334 7.334 0 0 1 1.449 1.513 7.335 7.335 0 0 1 1.449-1.513A5.739 5.739 0 0 1 16.441 0 6.135 6.135 0 0 1 21 1.986a7.131 7.131 0 0 1 1.81 4.87 8.491 8.491 0 0 1-2.263 5.558 48.241 48.241 0 0 1-5.664 5.316c-.785.669-1.675 1.428-2.6 2.235a1.339 1.339 0 0 1-.882.331zM6.373 1.337a4.813 4.813 0 0 0-3.581 1.555 5.8 5.8 0 0 0-1.456 3.964 7.145 7.145 0 0 0 1.955 4.706 47.478 47.478 0 0 0 5.5 5.152c.787.671 1.679 1.431 2.607 2.243.934-.813 1.827-1.575 2.616-2.247a47.489 47.489 0 0 0 5.5-5.152 7.145 7.145 0 0 0 1.955-4.706 5.8 5.8 0 0 0-1.456-3.964 4.813 4.813 0 0 0-3.581-1.556 4.432 4.432 0 0 0-2.767.958 6.485 6.485 0 0 0-1.542 1.784.844.844 0 0 1-1.449 0A6.479 6.479 0 0 0 9.14 2.295a4.432 4.432 0 0 0-2.767-.958zm0 0" class="cls-1" data-name="Path 147"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="action-block__input mt5 d-flex justify-content-center align-items-center focus">
-                                    Следить за ценой
                                 </div>
                             </div>
                         </div>
                     </div>
+                </a>
+                <div class="product-content__actions w-100 product-content__show d-none">
+                    <div class="actions__action-block w-100 d-flex justify-content-between">
+                        <div onclick="addToBasket(this,{{ product.getBestOffer().id }}, 1)" class="action-block__buttons button-buy mt10 d-flex align-items-center justify-content-center">
+                            {#<div class="basket_check">#}
+                                {#<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9.24" viewBox="0 0 12 9.24">#}
+                                    {#<path id="Path_2" data-name="Path 2" d="M23.219,14.586,16.66,21.11l-2.707-2.682-1.367,1.358,4.076,4.04,7.924-7.882Z" transform="translate(-12.586 -14.586)" fill="#4caf50"/>#}
+                                {#</svg>#}
+                            {#</div>#}
+                            <span class="button-buy-plus">+</span>
+                            <div class="button-buy-cart">
+                                <svg  xmlns="http://www.w3.org/2000/svg" id="shopping-cart_1_" data-name="shopping-cart (1)" viewBox="0 0 21.706 23.357">
+                                    <path id="Path_147" d="M23.386 15.379h12.87a2.655 2.655 0 0 0 2.65-2.65V7.257a.061.061 0 0 0 0-.029v-.034-.029a.307.307 0 0 1-.01-.034c0-.01 0-.019-.01-.029s0-.019-.01-.029a.234.234 0 0 1-.014-.034.1.1 0 0 0-.014-.024l-.014-.029c0-.01-.01-.014-.014-.024s-.014-.019-.019-.029a.084.084 0 0 0-.019-.024c0-.01-.014-.014-.019-.024s-.014-.014-.019-.024-.014-.014-.019-.019l-.024-.024c-.01 0-.014-.014-.024-.019s-.019-.014-.029-.019l-.024-.014a.1.1 0 0 1-.029-.019l-.029-.014-.029-.014-.044-.019c-.01 0-.019 0-.029-.01a.089.089 0 0 0-.034-.01.208.208 0 0 1-.024 0 .106.106 0 0 0-.038 0h-.019L22.038 4.42V2.144a.3.3 0 0 0 0-.067.036.036 0 0 0 0-.019v-.043c0-.014 0-.024-.01-.038s0-.014 0-.024l-.014-.043v-.019a.144.144 0 0 0-.019-.038s0-.014-.01-.019a.1.1 0 0 0-.019-.029c0-.01-.01-.014-.014-.024s-.01-.014-.014-.024-.014-.019-.019-.029l-.014-.014-.029-.029-.014-.014a.209.209 0 0 0-.062-.031l-.019-.014c-.005-.004-.019-.014-.029-.024a.443.443 0 0 0-.038-.024s-.01 0-.014-.01l-.062-.029L18.1.052a.649.649 0 0 0-.5 1.2l3.139 1.325v14.2a2.653 2.653 0 0 0 2.307 2.623 2.615 2.615 0 1 0 4.854 1.341 2.567 2.567 0 0 0-.36-1.32h5.828a2.58 2.58 0 0 0-.36 1.32 2.616 2.616 0 1 0 2.616-2.616H23.386a1.355 1.355 0 0 1-1.354-1.354v-1.757a2.68 2.68 0 0 0 1.354.365zm3.226 5.357a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm10.34 0a1.32 1.32 0 1 1-1.32-1.32 1.322 1.322 0 0 1 1.32 1.32zm-.7-6.653H23.386a1.355 1.355 0 0 1-1.354-1.354v-7L37.61 7.871v4.853a1.356 1.356 0 0 1-1.354 1.359z" class="cls-1" data-name="Path 147" transform="translate(-17.2)"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div onclick="buyOneCLick({{ product.getBestOffer().id }}, 1)" class="action-block__input mt10 d-flex justify-content-center align-items-center buy">
+                            Купить в один клик
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
         {% endfor %}
     </div>
     <div class="products-mobile-content__list">
@@ -128,3 +127,78 @@
         {% endfor %}
     </div>
 </div>
+<script type="application/javascript">
+    function addToBasket(x,id, count) {
+        var add_url = new XMLHttpRequest();
+        add_url.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let response = this.response;
+                response = JSON.parse(response);
+                response = response.products;
+//                console.log(response);
+                let basket_icon = document.getElementById('header_basket');
+                let basket_result = "";
+                var total_result = 0;
+                let total_count = 0;
+                let header_sum = document.getElementById('header-sum');
+
+                for(let i = 0; i < response.length ; i++) {
+                    total_result += response[i].count * parseInt(response[i].offer.price);
+                    total_count += parseInt(response[i].count);
+                    basket_result +=
+                        '<div class="header-basket-product">' +
+                            '<div class="basket-img">' +
+                                '<img width="100%" class="header-basket_img" src="' + response[i].product.imagesList[0] + '" alt=""> ' +
+                            '</div>' +
+                            '<div class="basket-description">' +
+                                '<div class="basket-title">' +
+                                    '<h4 class="m-0">' +
+                                        response[i].product.shortName +
+                                    '</h4>' +
+                                '</div>' +
+                                '<div class="basket-info">' +
+                                    '<div class="basket-amount ">' +
+                                        '<h4 class="m-0">' +
+                                            + response[i].count + ' шт.' +
+                                        '</h4>' +
+                                    '</div>' +
+                                    '<div class="basket-price text-right">' +
+                                        '<h4 class="m-0">' +
+                                            parseInt(response[i].offer.price) + ' тг' +
+                                        '</h4>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+                }
+                basket_result +=
+                    '<div class="basket-total d-flex justify-content-center">' +
+                        '<h4 class="m-0"><span>ИТОГО:</span>' + total_result +' тг</h4>' +
+                    '</div>' +
+                    '<div class="basket-button d-flex justify-content-center">' +
+                        '<a href="/order" class="basket_button">' +
+                            'Оформить заказ' +
+                        '</a>' +
+                    '</div>';
+                basket_icon.innerHTML = basket_result;
+                header_sum.innerHTML = total_count;
+                header_sum.style.display = "block";
+            }
+        };
+        add_url.open("GET", "/order/add/" + id + "/" + count, true);
+        add_url.send();
+    }
+    function buyOneCLick(id, count) {
+        var one_click = new XMLHttpRequest();
+        one_click.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let response = this.response;
+                console.log(response);
+            }
+        };
+        one_click.open("GET", "/order/add/" + id + "/" + count, true);
+        one_click.send();
+        window.location.href = "/order";
+    }
+
+</script>

@@ -8,19 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" id="css-main" href="{{ asset('/assets/css/app.css') }}">
-
-    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js.map"></script>
     {% block head %}{% endblock %}
 </head>
 <body>
-    <div class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+    <div id="ChocomartWrapper">
         {% block content %}
         {% endblock %}
     </div>
+    <script>
+        let userInfo = {{ user | json_encode() | raw }};
+    </script>
     <script type="text/javascript" src="{{ asset('/assets/js/vendors.bundle.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/assets/js/app.bundle.js') }}"></script>
 </body>
