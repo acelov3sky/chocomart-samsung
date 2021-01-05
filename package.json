@@ -15,7 +15,7 @@
   "license": "ISC",
   "homepage": "http://gitlab.chocomart.kz/lebaur/new_chocomart_front.git",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.0.0-alpha.6",
     "jquery": "^3.2.1",
     "popper.js": "^1.14.6",
