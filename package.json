@@ -46,7 +46,7 @@
     "lodash": "^4.17.4",
     "manifest-revision-webpack-plugin": "^0.4.0",
     "path": "^0.12.7",
-    "pug": "^2.0.0-rc.3",
+    "pug": "^3.0.1",
     "pug-loader": "^2.3.0",
     "sass-loader": "^6.0.6",
     "script-loader": "^0.7.0",
